@@ -2,15 +2,7 @@ module.exports = {
     root: true,
     extends: ['airbnb', 'eslint-config-react-app/base', 'prettier'],
     parser: '@typescript-eslint/parser',
-    plugins: [
-        'better-styled-components',
-        '@typescript-eslint',
-        'react',
-        'react-hooks',
-        'react-memo',
-        'prettier',
-        'jam3',
-    ],
+    plugins: ['better-styled-components', '@typescript-eslint', 'react', 'react-hooks', 'prettier'],
     globals: {
         JSX: true,
     },
@@ -98,12 +90,6 @@ module.exports = {
         'react/self-closing-comp': 2,
         'react/sort-comp': 0,
         'react/no-danger': 0,
-        'jam3/no-sanitizer-with-danger': [
-            2,
-            {
-                wrapperName: ['xss', 'purify', 'sanitize'],
-            },
-        ],
         'require-yield': 0,
         'react/prefer-stateless-function': 'error',
         'react/function-component-definition': [
@@ -126,7 +112,15 @@ module.exports = {
     settings: {
         'import/resolver': {
             alias: {
-                map: [['src', './src']],
+                map: [
+                    ['@assets', './src/assets'],
+                    ['@components', './src/components'],
+                    ['@hooks', './src/hooks'],
+                    ['@pages', './src/pages'],
+                    ['@store', './src/store'],
+                    ['@theme', './src/theme'],
+                    ['@utils', './src/utils'],
+                ],
                 extensions: ['.ts', '.js', '.jsx', '.tsx', '.json'],
             },
             node: {

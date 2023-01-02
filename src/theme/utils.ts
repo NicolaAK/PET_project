@@ -5,6 +5,7 @@ type TColorsWithOpacity<C> = { [I in keyof C]: (grade?: number) => I };
 export function createPalette<C>(colors: C): TColorsWithOpacity<C> {
     const result: TColorsWithOpacity<C> = {} as TColorsWithOpacity<C>;
 
+    // @ts-ignore
     Object.keys(colors).forEach((color) => {
         Object.defineProperty(result, color, {
             enumerable: true,

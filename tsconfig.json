@@ -23,12 +23,56 @@
     "useUnknownInCatchVariables": false,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@components": [
+        "src/components"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@globalStyles/*": [
+        "src/globalStyles/*"
+      ],
+      "@hooks": [
+        "src/hooks"
+      ],
+      "@hooks/*": [
+        "src/hooks/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*"
+      ],
+      "@layouts": [
+        "src/layouts"
+      ],
+      "@pages/*": [
+        "src/pages/*"
+      ],
+      "@store": [
+        "src/store"
+      ],
+      "@store/*": [
+        "src/store/*"
+      ],
+      "@theme/*": [
+        "src/theme/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ],
+      "@modules": [
+        "src/modules"
+      ],
+      "@modules/*": [
+        "src/modules/*"
+      ]
+    }
   },
   "include": [
     "src", "src/custom.d.ts"
-  ],
-  "files": [
-    "custom.d.ts"
   ],
   "exclude": [
     "node_modules"

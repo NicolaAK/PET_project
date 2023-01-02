@@ -1,6 +1,14 @@
 import React from 'react';
-import { ReactComponent as Logo } from '../../assets/icons/logo.svg';
-import { ReactComponent as Menu } from '../../assets/icons/menu.svg';
+import Menu from '@assets/icons/menu.svg';
+import Logo from '@assets/icons/logo.svg';
+import SearchIcon from '@assets/icons/search.svg';
+import Cart from '@assets/icons/cart.svg';
+import Heart from '@assets/icons/heart.svg';
+import Box from '@assets/icons/box.svg';
+import ArrowDown from '@assets/icons/arrowDown.svg';
+import avatar from '@assets/images/avatar.png';
+import Input from '@components/Input';
+import ButtonMenu from './components/ButtonMenu';
 import {
     ButtonCatalog,
     ButtonsMenu,
@@ -13,14 +21,6 @@ import {
     ProfileName,
     ProfileWrapper,
 } from './styles';
-import Input from '../Input/Input';
-import { ReactComponent as SearchIcon } from '../../assets/icons/search.svg';
-import ButtonMenu from './components/ButtonMenu';
-import { ReactComponent as Cart } from '../../assets/icons/cart.svg';
-import { ReactComponent as Heart } from '../../assets/icons/heart.svg';
-import { ReactComponent as Box } from '../../assets/icons/box.svg';
-import { ReactComponent as ArrowDown } from '../../assets/icons/arrowDown.svg';
-import avatar from '../../assets/images/avatar.png';
 
 const menuButtons = [
     {

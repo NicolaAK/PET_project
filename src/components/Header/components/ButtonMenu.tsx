@@ -6,14 +6,11 @@ type Props = {
     icon: ReactNode;
 };
 
-const ButtonMenu: FC<Props> = ({ label, icon }) => {
-    console.log('sdfsdf');
-    return (
-        <ButtonMenuWrapper>
-            {icon}
-            <ButtonMenuTitle>{label}</ButtonMenuTitle>
-        </ButtonMenuWrapper>
-    );
-};
+const ButtonMenu: FC<Props> = ({ label, icon }) => (
+    <ButtonMenuWrapper>
+        {icon}
+        <ButtonMenuTitle>{label}</ButtonMenuTitle>
+    </ButtonMenuWrapper>
+);
 
 export default ButtonMenu;
