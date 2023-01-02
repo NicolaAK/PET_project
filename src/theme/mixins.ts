@@ -39,7 +39,7 @@ const mixins = {
         justify-content: center;
     `,
     mainGrid: css`
-        max-width: 1440px;
+        max-width: 1208px;
         width: 100%;
         margin: 0 auto;
     `,

@@ -122,7 +122,6 @@ module.exports = {
         ],
         'no-shadow': 'off',
         '@typescript-eslint/no-shadow': ['error'],
-        'react-memo/require-usememo': 2,
     },
     settings: {
         'import/resolver': {

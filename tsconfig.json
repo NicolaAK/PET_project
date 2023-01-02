@@ -25,8 +25,10 @@
     "forceConsistentCasingInFileNames": true,
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
+    "src", "src/custom.d.ts"
+  ],
+  "files": [
+    "custom.d.ts"
   ],
   "exclude": [
     "node_modules"
