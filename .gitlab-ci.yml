@@ -1,0 +1,52 @@
+variables:
+  DEPLOY_URL: https://gitlab.srv.local.invbox.ru/api/v4/projects/57/trigger/pipeline
+
+stages:
+  - build
+  - deploy
+
+build_image:
+  stage: build
+  script:
+    - docker login -u gitlab-ci-token -p ${CI_JOB_TOKEN} ${CI_REGISTRY}
+    - ./build-scripts/pipline-init.sh > PIPLINE.txt
+    - source PIPLINE.txt
+    - ./build-scripts/build-image.sh
+  only:
+    - master
+    - merge_requests
+  artifacts:
+    paths:
+      - PIPLINE.txt
+
+.deployment_script: &deployment_script
+  stage: deploy
+  script:
+    - source PIPLINE.txt
+    - curl -g -X POST "${DEPLOY_URL}?token=${CI_DOC_TOKEN}&ref=master&variables[COMMAND]=deploy-front&variables[VERSION]=${VERSION}&variables[ENVIROMENT]=${ENVIROMENT}&variables[APP_NAME]=${APP_NAME}"
+
+dev_deploy:
+  <<: *deployment_script
+  needs: ['build_image']
+  only:
+    - master
+    - merge_requests
+  variables:
+    ENVIROMENT: dev
+
+stage_deploy:
+  <<: *deployment_script
+  needs: ['build_image']
+  only:
+    - master
+  variables:
+    ENVIROMENT: stage
+
+prod_deploy:
+  <<: *deployment_script
+  needs: ['build_image']
+  when: manual
+  only:
+    - master
+  variables:
+    ENVIROMENT: prod
