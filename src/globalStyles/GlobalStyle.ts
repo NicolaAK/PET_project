@@ -1,8 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-// @ts-ignore
 import RubikRegular from '../assets/fonts/Rubik-Regular.ttf';
-// @ts-ignore
 import RubikMedium from '../assets/fonts/Rubik-Medium.ttf';
 
 const GlobalStyle = createGlobalStyle`
