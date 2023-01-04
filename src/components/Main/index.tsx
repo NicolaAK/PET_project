@@ -1,4 +1,5 @@
 import React from 'react';
+import product from '@assets/images/product.png';
 
 import {
     MainContainer,
@@ -9,12 +10,17 @@ import {
     PromoTitle,
     PromoContent,
     AllPromo,
+    DeliveryText,
+    DeliveryBG,
 } from '@components/Main/style';
 
 const Main = () => (
     <MainContainer>
         <MainContent>
-            <Delivery />
+            <Delivery>
+                <DeliveryBG src={product} alt="product" />
+                <DeliveryText>Доставка бесплатно от 1000 ₽</DeliveryText>
+            </Delivery>
             <PromoContainer>
                 <PromoContent>
                     <PromoTitle>

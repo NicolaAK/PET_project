@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-// import DeliveryDetal from '@assets/icons/DeliveryDetal.svg';
+
 import Typography from '../Typography';
 export const MainContainer = styled.div`
     background-color: ${({ theme }) => theme.colors.background()};
@@ -11,9 +11,14 @@ export const MainContent = styled.div`
 `;
 
 export const Delivery = styled.div`
-    background-image: url('DeliveryDetal.svg');
-    background-repeat: no-repeat;
+    ${({ theme }) => theme.mixins.flexCenter}
 `;
+
+export const DeliveryBG = styled.img`
+    height: 200px;
+`;
+
+export const DeliveryText = styled(Typography).attrs({ variant: 'dHeaderL' })``;
 
 export const PromoContainer = styled.div`
     margin-top: 76px;
