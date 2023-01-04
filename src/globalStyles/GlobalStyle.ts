@@ -1,9 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
 
 // @ts-ignore
-import RobotoRegular from '../assets/fonts/Roboto-Regular.ttf';
+import RubikRegular from '../assets/fonts/Rubik-Regular.ttf';
 // @ts-ignore
-import RobotoMedium from '../assets/fonts/Roboto-Medium.ttf';
+import RubikMedium from '../assets/fonts/Rubik-Medium.ttf';
 
 const GlobalStyle = createGlobalStyle`
   *,
@@ -14,21 +14,21 @@ const GlobalStyle = createGlobalStyle`
 
   * {
     @font-face {
-      font-family: "Roboto";
-      src: local("Roboto"), url(${RobotoRegular});
+      font-family: "Rubik";
+      src: local("Rubik"), url(${RubikRegular});
       font-weight: 400;
       font-display: swap;
     }
 
     @font-face {
-      font-family: "Roboto";
-      src: local("Roboto-Medium"), local("RobotoMedium"), url(${RobotoMedium});
+      font-family: "Rubik";
+      src: local("Rubik-Medium"), local("RubikMedium"), url(${RubikMedium});
       font-weight: 500;
       font-display: swap;
     }
     font: inherit;
     font-size: 100%;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Rubik', sans-serif;
   }
 
   * {
