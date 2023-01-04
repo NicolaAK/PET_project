@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import bgPromo from '@assets/images/bgPromo.png';
 
 import Typography from '../Typography';
 export const MainContainer = styled.div`
@@ -10,8 +11,25 @@ export const MainContent = styled.div`
     ${({ theme }) => theme.mixins.mainGrid};
 `;
 
+export const DeliveryContainer = styled.div`
+    position: relative;
+
+    &:before {
+        content: '';
+        display: block;
+        background: url(${bgPromo});
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        opacity: 0.3;
+        z-index: 1;
+    }
+`;
+
 export const Delivery = styled.div`
-    ${({ theme }) => theme.mixins.flexCenter}
+    ${({ theme }) => theme.mixins.flexCenter};
+    position: relative;
+    z-index: 2;
 `;
 
 export const DeliveryBG = styled.img`
