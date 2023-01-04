@@ -1,12 +1,13 @@
 import React from 'react';
 import { useRoutes } from 'react-router';
 import { ROUTES } from './constants';
+import Main from '../components/Main/index';
 
 const Routes = () =>
     useRoutes([
         {
             path: ROUTES.DASHBOARD,
-            element: <div>Main</div>,
+            element: <Main />,
         },
         {
             path: ROUTES.CATEGORIES,
