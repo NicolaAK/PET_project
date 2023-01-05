@@ -28,6 +28,7 @@ export const DeliveryContainer = styled.div`
 `;
 
 export const Delivery = styled.div`
+    ${({ theme }) => theme.mixins.mainGrid};
     ${({ theme }) => theme.mixins.flexCenter};
     position: relative;
     z-index: 2;
@@ -38,17 +39,3 @@ export const DeliveryBG = styled.img`
 `;
 
 export const DeliveryText = styled(Typography).attrs({ variant: 'dHeaderL' })``;
-
-export const PromoContainer = styled.div`
-    margin-top: 76px;
-`;
-
-export const PromoContent = styled.div``;
-
-export const PromoTitle = styled.div`
-    display: flex;
-`;
-
-export const Promo = styled(Typography).attrs({ variant: 'dHeaderM' })``;
-
-export const AllPromo = styled.text``;
