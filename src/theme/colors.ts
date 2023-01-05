@@ -12,6 +12,8 @@ export default createPalette({
     mainOnPrimary: '#FFFFFF',
     mainOnSecondary: '#FFFFFF',
 
+    footerOnBackground: '#F9F4E2',
+
     grayScaleLightest: '#F3F2F1',
     grayScaleLight: '#BFBFBF',
     grayScaleHard: '#8F8F8F',
