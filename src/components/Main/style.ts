@@ -12,6 +12,7 @@ export const MainContent = styled.div`
 `;
 
 export const DeliveryContainer = styled.div`
+    background-color: ${({ theme }) => theme.colors.mainSurface()};
     position: relative;
 
     &:before {
