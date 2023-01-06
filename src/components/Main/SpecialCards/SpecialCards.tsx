@@ -7,13 +7,13 @@ const CardInfo = [
     {
         headTitle: 'Оформите карту «Северяночка»',
         depictTitle: 'И получайте бонусы при покупке в магазинах и на сайте',
-        cardIcon: <img src={Card1} alt="one" />,
+        cardIcon: <img src={Card1} alt="promoImage" />,
         background: '#FCD5BA',
     },
     {
         headTitle: 'Покупайте акционные товары',
         depictTitle: 'И получайте вдвое больше бонусов ',
-        cardIcon: <img src={Card2} alt="two" />,
+        cardIcon: <img src={Card2} alt="promoImage" />,
         background: '#E5FFDE',
     },
 ];
