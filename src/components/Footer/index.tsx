@@ -26,15 +26,19 @@ const aboutCompany = [
 
 const iconsSocial = [
     {
+        id: 1,
         icon: <INST />,
     },
     {
+        id: 2,
         icon: <VK />,
     },
     {
+        id: 3,
         icon: <FB />,
     },
     {
+        id: 4,
         icon: <OK />,
     },
 ];
@@ -50,7 +54,7 @@ const Footer = () => (
             </AboutsCompany>
             <SocialsMedia>
                 {iconsSocial.map((about) => (
-                    <SocialMedia icon={about.icon} />
+                    <SocialMedia key={about.id} icon={about.icon} />
                 ))}
             </SocialsMedia>
             <NumberCompany>

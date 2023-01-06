@@ -4,35 +4,22 @@ import {
     MainContainer,
     MainContent,
     Delivery,
-    PromoContainer,
-    Promo,
-    PromoTitle,
-    PromoContent,
-    AllPromo,
     DeliveryText,
     DeliveryBG,
     DeliveryContainer,
 } from '@components/Main/style';
+import SpecialCards from '@components/Main/SpecialCards/SpecialCards';
 
 const Main = () => (
     <MainContainer>
         <DeliveryContainer>
-            <MainContent>
-                <Delivery>
-                    <DeliveryBG src={product} alt="product" />
-                    <DeliveryText>Доставка бесплатно от 1000 ₽</DeliveryText>
-                </Delivery>
-            </MainContent>
+            <Delivery>
+                <DeliveryBG src={product} alt="product" />
+                <DeliveryText>Доставка бесплатно от 1000 ₽</DeliveryText>
+            </Delivery>
         </DeliveryContainer>
         <MainContent>
-            <PromoContainer>
-                <PromoContent>
-                    <PromoTitle>
-                        <Promo>Акции</Promo>
-                        <AllPromo>Все акции</AllPromo>
-                    </PromoTitle>
-                </PromoContent>
-            </PromoContainer>
+            <SpecialCards />
         </MainContent>
     </MainContainer>
 );
