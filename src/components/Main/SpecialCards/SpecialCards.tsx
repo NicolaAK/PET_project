@@ -12,7 +12,7 @@ const CardInfo = [
     },
     {
         headTitle: 'Покупайте акционные товары',
-        depictTitle: 'И получайте вдвое больше бонусов',
+        depictTitle: 'И получайте вдвое больше бонусов ',
         cardIcon: <img src={Card2} alt="two" />,
         background: '#E5FFDE',
     },
