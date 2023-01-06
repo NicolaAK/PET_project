@@ -9,19 +9,19 @@ import {
 } from '@components/Main/SpecialCards/SpecialCard/styles';
 
 type Props = {
-    HeadTitle: string;
-    DepictTitle: string;
-    CardIcon: ReactNode;
-    Background: string;
+    headTitle: string;
+    depictTitle: string;
+    cardIcon: ReactNode;
+    background: string;
 };
-const SpecialCard: FC<Props> = ({ HeadTitle, DepictTitle, CardIcon, Background }) => (
-    <CardContainer bg={Background}>
+const SpecialCard: FC<Props> = ({ headTitle, depictTitle, cardIcon, background }) => (
+    <CardContainer bg={background}>
         <CardContent>
             <CardTitle>
-                <CardHeadTitle>{HeadTitle}</CardHeadTitle>
-                <CardDescribeTitle>{DepictTitle}</CardDescribeTitle>
+                <CardHeadTitle>{headTitle}</CardHeadTitle>
+                <CardDescribeTitle>{depictTitle}</CardDescribeTitle>
             </CardTitle>
-            <CardImage>{CardIcon}</CardImage>
+            <CardImage>{cardIcon}</CardImage>
         </CardContent>
     </CardContainer>
 );

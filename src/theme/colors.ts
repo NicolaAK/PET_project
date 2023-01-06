@@ -23,7 +23,4 @@ export default createPalette({
     paletteInfo: '#1CB9FC',
     paletteWarning: '#FCA21C',
     paletteError: '#D80000',
-
-    bannerHover: '#FCD5BA',
-    secondaryMuted: '#E5FFDE',
 });

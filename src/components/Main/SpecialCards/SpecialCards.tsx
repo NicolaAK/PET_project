@@ -5,16 +5,16 @@ import Card2 from '@assets/images/Card2.png';
 import { Card, SpecialCardsContainer, SpecialCardsTitle, SpecialCardsContant } from './styles';
 const CardInfo = [
     {
-        HeadTitle: 'Оформите карту «Северяночка»',
-        DepictTitle: 'И получайте бонусы при покупке в магазинах и на сайте',
-        CardIcon: <img src={Card1} alt="one" />,
-        Background: '#FCD5BA',
+        headTitle: 'Оформите карту «Северяночка»',
+        depictTitle: 'И получайте бонусы при покупке в магазинах и на сайте',
+        cardIcon: <img src={Card1} alt="one" />,
+        background: '#FCD5BA',
     },
     {
-        HeadTitle: 'Покупайте акционные товары',
-        DepictTitle: 'И получайте вдвое больше бонусов',
-        CardIcon: <img src={Card2} alt="one" />,
-        Background: '#E5FFDE',
+        headTitle: 'Покупайте акционные товары',
+        depictTitle: 'И получайте вдвое больше бонусов',
+        cardIcon: <img src={Card2} alt="two" />,
+        background: '#E5FFDE',
     },
 ];
 const SpecialCards = () => (
@@ -24,11 +24,11 @@ const SpecialCards = () => (
             <Card>
                 {CardInfo.map((card) => (
                     <SpecialCard
-                        key={card.HeadTitle}
-                        HeadTitle={card.HeadTitle}
-                        DepictTitle={card.DepictTitle}
-                        CardIcon={card.CardIcon}
-                        Background={card.Background}
+                        key={card.headTitle}
+                        headTitle={card.headTitle}
+                        depictTitle={card.depictTitle}
+                        cardIcon={card.cardIcon}
+                        background={card.background}
                     />
                 ))}
             </Card>

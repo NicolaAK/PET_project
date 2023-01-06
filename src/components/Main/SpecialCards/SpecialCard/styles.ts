@@ -3,6 +3,7 @@ import Typography from '@components/Typography';
 export const CardContainer = styled.div<{ bg: string }>`
     background-color: ${(props) => props.bg};
     box-shadow: ${({ theme }) => theme.decorations.boxShadow.primary.xxs};
+    border-radius: ${({ theme }) => theme.decorations.borderRadius.base}px;
     width: 584px;
     height: 200px;
 `;
