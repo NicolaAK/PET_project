@@ -38,6 +38,10 @@ const mixins = {
         ${end};
         justify-content: center;
     `,
+    flexCenterSpaceBetween: css`
+        ${center};
+        justify-content: space-between;
+    `,
     mainGrid: css`
         max-width: 1208px;
         width: 100%;
