@@ -9,9 +9,14 @@ import {
     DeliveryContainer,
 } from '@components/Main/style';
 import SpecialCards from '@components/Main/SpecialCards/SpecialCards';
+import Button, { buttonSize } from '@components/Button';
 
 const Main = () => (
     <MainContainer>
+        <Button>Test</Button>
+        <Button size={buttonSize.XS}>Test</Button>
+        <Button size={buttonSize.S}>Test</Button>
+
         <DeliveryContainer>
             <Delivery>
                 <DeliveryBG src={product} alt="product" />
