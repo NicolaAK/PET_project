@@ -1,6 +1,6 @@
 export enum ROUTES {
     DASHBOARD = '/',
-    CATEGORIES = 'categories',
+    CATALOG = 'catalog',
     CATEGORY = 'category',
     PRODUCT = 'product',
 }

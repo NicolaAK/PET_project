@@ -43,7 +43,7 @@ const mixins = {
         justify-content: space-between;
     `,
     mainGrid: css`
-        max-width: 1208px;
+        max-width: 1440px;
         width: 100%;
         margin: 0 auto;
     `,

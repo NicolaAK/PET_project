@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
-import RubikRegular from '../assets/fonts/Rubik-Regular.ttf';
-import RubikMedium from '../assets/fonts/Rubik-Medium.ttf';
+import RalewayRegular from '../assets/fonts/Raleway-Regular.ttf';
+import RalewayMedium from '../assets/fonts/Raleway-Medium.ttf';
 
 const GlobalStyle = createGlobalStyle`
   *,
@@ -12,21 +12,21 @@ const GlobalStyle = createGlobalStyle`
 
   * {
     @font-face {
-      font-family: "Rubik";
-      src: local("Rubik"), url(${RubikRegular});
+      font-family: "Raleway";
+      src: local("Raleway"), url(${RalewayRegular});
       font-weight: 400;
       font-display: swap;
     }
 
     @font-face {
-      font-family: "Rubik";
-      src: local("Rubik-Medium"), local("RubikMedium"), url(${RubikMedium});
+      font-family: "Raleway";
+      src: local("Raleway-Medium"), local("RalewayMedium"), url(${RalewayMedium});
       font-weight: 500;
       font-display: swap;
     }
     font: inherit;
     font-size: 100%;
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Raleway', sans-serif;
   }
 
   * {
