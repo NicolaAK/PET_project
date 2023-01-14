@@ -1,7 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
 import RalewayRegular from '../assets/fonts/Raleway-Regular.ttf';
-import RalewayMedium from '../assets/fonts/Raleway-Medium.ttf';
 
 const GlobalStyle = createGlobalStyle`
   *,
@@ -14,14 +13,7 @@ const GlobalStyle = createGlobalStyle`
     @font-face {
       font-family: "Raleway";
       src: local("Raleway"), url(${RalewayRegular});
-      font-weight: 400;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: "Raleway";
-      src: local("Raleway-Medium"), local("RalewayMedium"), url(${RalewayMedium});
-      font-weight: 500;
+      font-weight: 300;
       font-display: swap;
     }
     font: inherit;

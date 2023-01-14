@@ -6,97 +6,97 @@ export type TTypographyItem = {
 };
 
 export type TTypography = {
-    dFooterXS: TTypographyItem;
-    dFooterSw: TTypographyItem;
-    dFooterM: TTypographyItem;
+    dFooter12: TTypographyItem;
+    dFooter16w: TTypographyItem;
+    dFooter20: TTypographyItem;
 
-    dTextXS: TTypographyItem;
-    dTextXSw: TTypographyItem;
-    dTextS: TTypographyItem;
-    dTextSw: TTypographyItem;
-    dTextM: TTypographyItem;
-    dTextL: TTypographyItem;
-    dTextXL: TTypographyItem;
+    dText14: TTypographyItem;
+    dText14w: TTypographyItem;
+    dText16lh19: TTypographyItem;
+    dText16w: TTypographyItem;
+    dText16lh20: TTypographyItem;
+    dText20: TTypographyItem;
+    dText36: TTypographyItem;
 
-    dTextBoldS: TTypographyItem;
+    dTextBold16: TTypographyItem;
 
-    dHeaderXS: TTypographyItem;
-    dHeaderS: TTypographyItem;
-    dHeaderM: TTypographyItem;
-    dHeaderL: TTypographyItem;
+    dHeader16: TTypographyItem;
+    dHeader18: TTypographyItem;
+    dHeader46: TTypographyItem;
+    dHeader54: TTypographyItem;
 };
 
 const typography: TTypography = {
     // desktop
     // footer
-    dFooterXS: {
+    dFooter12: {
         fontSize: 12,
         lineHeight: 14,
     },
-    dFooterSw: {
+    dFooter16w: {
         fontSize: 16,
         lineHeight: 19,
         fontWeight: 275,
     },
-    dFooterM: {
+    dFooter20: {
         fontSize: 20,
         lineHeight: 23,
     },
     // text
-    dTextXS: {
+    dText14: {
         fontSize: 14,
         lineHeight: 16,
     },
-    dTextXSw: {
+    dText14w: {
         fontSize: 14,
         lineHeight: 16,
         fontWeight: 275,
     },
-    dTextS: {
+    dText16lh19: {
         fontSize: 16,
         lineHeight: 19,
     },
-    dTextSw: {
+    dText16w: {
         fontSize: 16,
         lineHeight: 19,
         fontWeight: 275,
     },
-    dTextM: {
+    dText16lh20: {
         fontSize: 16,
         lineHeight: 20,
     },
-    dTextL: {
+    dText20: {
         fontSize: 20,
         lineHeight: 23,
     },
-    dTextXL: {
+    dText36: {
         fontSize: 36,
         lineHeight: 42,
     },
     // bold
-    dTextBoldS: {
+    dTextBold16: {
         fontSize: 16,
         lineHeight: 19,
         fontWeight: 700,
     },
 
     // header
-    dHeaderXS: {
+    dHeader16: {
         fontSize: 16,
         lineHeight: 19,
         fontWeight: 300,
     },
-    dHeaderS: {
+    dHeader18: {
         fontSize: 18,
         lineHeight: 21,
         fontWeight: 300,
     },
-    dHeaderM: {
+    dHeader46: {
         fontSize: 46,
         lineHeight: 54,
         fontWeight: 300,
     },
-    dHeaderL: {
+    dHeader54: {
         fontSize: 54,
         lineHeight: 44,
         fontWeight: 400,
