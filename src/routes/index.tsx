@@ -1,17 +1,16 @@
 import React from 'react';
 import { useRoutes } from 'react-router';
 import { ROUTES } from './constants';
-import Main from '../components/Main/index';
 
 const Routes = () =>
     useRoutes([
         {
             path: ROUTES.DASHBOARD,
-            element: <Main />,
+            element: <div>Main</div>,
         },
         {
-            path: ROUTES.CATEGORIES,
-            element: <div>Categories</div>,
+            path: ROUTES.CATALOG,
+            element: <div>Catalog</div>,
         },
         {
             path: ROUTES.CATEGORY,

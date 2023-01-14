@@ -6,100 +6,100 @@ export type TTypographyItem = {
 };
 
 export type TTypography = {
-    dTextXs: TTypographyItem;
-    dTextS: TTypographyItem;
-    dTextM: TTypographyItem;
-    dTextL: TTypographyItem;
-    dTextXL: TTypographyItem;
+    dFooter12: TTypographyItem;
+    dFooter16w: TTypographyItem;
+    dFooter20: TTypographyItem;
 
-    dTextBoldXs: TTypographyItem;
-    dTextBoldS: TTypographyItem;
-    dTextBoldM: TTypographyItem;
-    dTextBoldL: TTypographyItem;
-    dTextBoldXL: TTypographyItem;
+    dText14: TTypographyItem;
+    dText14w: TTypographyItem;
+    dText16lh19: TTypographyItem;
+    dText16w: TTypographyItem;
+    dText16lh20: TTypographyItem;
+    dText20: TTypographyItem;
+    dText36: TTypographyItem;
 
-    dHeaderXs: TTypographyItem;
-    dHeaderS: TTypographyItem;
-    dHeaderM: TTypographyItem;
-    dHeaderL: TTypographyItem;
-    dHeaderXL: TTypographyItem;
+    dTextBold16: TTypographyItem;
+
+    dHeader16: TTypographyItem;
+    dHeader18: TTypographyItem;
+    dHeader46: TTypographyItem;
+    dHeader54: TTypographyItem;
 };
 
 const typography: TTypography = {
     // desktop
-
-    // text
-    dTextXs: {
+    // footer
+    dFooter12: {
         fontSize: 12,
-        lineHeight: 18,
+        lineHeight: 14,
     },
-    dTextS: {
+    dFooter16w: {
         fontSize: 16,
-        lineHeight: 24,
+        lineHeight: 19,
+        fontWeight: 275,
     },
-    dTextM: {
-        fontSize: 18,
-        lineHeight: 27,
+    dFooter20: {
+        fontSize: 20,
+        lineHeight: 23,
     },
-    dTextL: {
-        fontSize: 24,
-        lineHeight: 36,
+    // text
+    dText14: {
+        fontSize: 14,
+        lineHeight: 16,
     },
-    dTextXL: {
+    dText14w: {
+        fontSize: 14,
+        lineHeight: 16,
+        fontWeight: 275,
+    },
+    dText16lh19: {
+        fontSize: 16,
+        lineHeight: 19,
+    },
+    dText16w: {
+        fontSize: 16,
+        lineHeight: 19,
+        fontWeight: 275,
+    },
+    dText16lh20: {
+        fontSize: 16,
+        lineHeight: 20,
+    },
+    dText20: {
+        fontSize: 20,
+        lineHeight: 23,
+    },
+    dText36: {
         fontSize: 36,
-        lineHeight: 54,
+        lineHeight: 42,
     },
     // bold
-    dTextBoldXs: {
-        fontSize: 12,
-        lineHeight: 18,
-        fontWeight: 700,
-    },
-    dTextBoldS: {
+    dTextBold16: {
         fontSize: 16,
-        lineHeight: 24,
+        lineHeight: 19,
         fontWeight: 700,
     },
-    dTextBoldM: {
-        fontSize: 18,
-        lineHeight: 27,
-        fontWeight: 700,
-    },
-    dTextBoldL: {
-        fontSize: 24,
-        lineHeight: 36,
-        fontWeight: 700,
-    },
-    dTextBoldXL: {
-        fontSize: 36,
-        lineHeight: 54,
-        fontWeight: 700,
-    },
+
     // header
-    dHeaderXs: {
+    dHeader16: {
+        fontSize: 16,
+        lineHeight: 19,
+        fontWeight: 300,
+    },
+    dHeader18: {
         fontSize: 18,
-        lineHeight: 27,
-        fontWeight: 700,
+        lineHeight: 21,
+        fontWeight: 300,
     },
-    dHeaderS: {
-        fontSize: 24,
-        lineHeight: 36,
-        fontWeight: 700,
-    },
-    dHeaderM: {
-        fontSize: 36,
+    dHeader46: {
+        fontSize: 46,
         lineHeight: 54,
-        fontWeight: 700,
+        fontWeight: 300,
     },
-    dHeaderL: {
-        fontSize: 48,
-        lineHeight: 72,
-        fontWeight: 700,
-    },
-    dHeaderXL: {
-        fontSize: 64,
-        lineHeight: 96,
-        fontWeight: 700,
+    dHeader54: {
+        fontSize: 54,
+        lineHeight: 44,
+        fontWeight: 400,
     },
 };
 
