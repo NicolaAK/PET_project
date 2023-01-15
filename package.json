@@ -1,8 +1,11 @@
 {
   "name": "kolya",
   "version": "0.0.1",
+  "homepage": "https://NicolaAK.github.io/PET_project",
   "private": true,
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
