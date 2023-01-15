@@ -15,11 +15,11 @@ export const BoxTitle = styled.div`
     left: 0px;
     color: ${({ theme }) => theme.colors.white()};
 `;
-export const FotoModel1 = styled.image`
+export const PhotoModel1 = styled.image`
     margin: 0 -5px;
 `;
-export const FotoModel2 = styled.image``;
-export const FotoModel3 = styled.image`
+export const PhotoModel2 = styled.image``;
+export const PhotoModel3 = styled.image`
     margin: 0 -5px;
 `;
 export const NewCollection = styled(Typography).attrs({ variant: 'dHeader46' })`
@@ -34,7 +34,6 @@ export const WatchProductsContainer = styled.button`
     column-gap: 7px;
 `;
 export const ArrowContainer = styled.div``;
-export const BoxFotos = styled.div`
+export const BoxPhoto = styled.div`
     ${({ theme }) => theme.mixins.flexCenterCenter};
-    z-index: 1;
 `;

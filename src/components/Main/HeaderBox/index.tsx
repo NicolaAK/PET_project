@@ -4,10 +4,10 @@ import {
     NewCollection,
     BoxTitle,
     BoxContainer,
-    BoxFotos,
-    FotoModel3,
-    FotoModel1,
-    FotoModel2,
+    BoxPhoto,
+    PhotoModel3,
+    PhotoModel1,
+    PhotoModel2,
     WatchProductsContainer,
     ArrowContainer,
 } from '@components/Main/HeaderBox/styled';
@@ -19,11 +19,11 @@ import mainModel3 from '@assets/foto/mainModel3.png';
 
 const HeaderBox = () => (
     <BoxContainer>
-        <BoxFotos>
-            <FotoModel1>
+        <BoxPhoto>
+            <PhotoModel1>
                 <img src={mainModel1} alt="fotoModel" />,
-            </FotoModel1>
-            <FotoModel2>
+            </PhotoModel1>
+            <PhotoModel2>
                 <img src={mainModel2} alt="fotoModel" />,
                 <BoxTitle>
                     <NewCollection>Новая коллекция</NewCollection>
@@ -35,11 +35,11 @@ const HeaderBox = () => (
                         </ArrowContainer>
                     </WatchProductsContainer>
                 </BoxTitle>
-            </FotoModel2>
-            <FotoModel3>
+            </PhotoModel2>
+            <PhotoModel3>
                 <img src={mainModel3} alt="fotoModel" />,
-            </FotoModel3>
-        </BoxFotos>
+            </PhotoModel3>
+        </BoxPhoto>
     </BoxContainer>
 );
 
