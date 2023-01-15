@@ -49,7 +49,6 @@ const Header: FC<IHeader> = ({ isDark }) => (
             <MenuContainer>
                 <Menu />
             </MenuContainer>
-
             <AboutsCompany isDark={isDark}>
                 {aboutCompany.map((about) => (
                     <AboutCompany key={about.label} label={about.label} />
