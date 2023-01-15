@@ -94,7 +94,6 @@ const typography: TTypography = {
     dHeader46: {
         fontSize: 46,
         lineHeight: 54,
-        fontWeight: 300,
     },
     dHeader54: {
         fontSize: 54,

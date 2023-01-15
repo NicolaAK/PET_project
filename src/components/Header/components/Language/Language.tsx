@@ -1,5 +1,5 @@
 import React from 'react';
-import Arrow from '@assets/icons/arrow.svg';
+import Arrow from '@assets/icons/arrowBotton.svg';
 import { LanguageTitle, LanguageContainer, LanguageContent } from '@components/Header/components/Language/styled';
 
 const Language = () => (
