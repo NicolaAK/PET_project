@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { FC } from 'react';
 import {
-    FooterContent,
-    FooterContainer,
+    HeaderContent,
+    HeaderContainer,
     AboutsCompany,
     SocialsMedia,
     LogoContainer,
     Settings,
+    MenuContainer,
 } from '@components/Header/styled';
 import AboutCompany from '@components/Header/components/AboutCompany';
 import Language from '@components/Header/components/Language/Language';
@@ -17,6 +18,10 @@ import Search from '@assets/icons/search.svg';
 import Profile from '@assets/icons/profile.svg';
 import Favourites from '@assets/icons/favourites.svg';
 import Shop from '@assets/icons/shop.svg';
+
+interface IHeader {
+    isDark: boolean;
+}
 
 const iconsProfile = [
     {
@@ -38,11 +43,14 @@ const iconsProfile = [
 ];
 
 const aboutCompany = [{ label: 'NEW' }, { label: 'КАТАЛОГ' }, { label: 'О НАС' }];
-const Header = () => (
-    <FooterContainer>
-        <FooterContent>
-            <Menu />
-            <AboutsCompany>
+const Header: FC<IHeader> = ({ isDark }) => (
+    <HeaderContainer isDark={isDark}>
+        <HeaderContent>
+            <MenuContainer>
+                <Menu />
+            </MenuContainer>
+
+            <AboutsCompany isDark={isDark}>
                 {aboutCompany.map((about) => (
                     <AboutCompany key={about.label} label={about.label} />
                 ))}
@@ -50,7 +58,7 @@ const Header = () => (
             <LogoContainer>
                 <Logo />
             </LogoContainer>
-            <Settings>
+            <Settings isDark={isDark}>
                 <Language />
                 <Money />
             </Settings>
@@ -59,8 +67,8 @@ const Header = () => (
                     <SocialMedia key={i.id} icon={i.icon} />
                 ))}
             </SocialsMedia>
-        </FooterContent>
-    </FooterContainer>
+        </HeaderContent>
+    </HeaderContainer>
 );
 
 export default Header;

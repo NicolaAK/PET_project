@@ -10,5 +10,4 @@ export const MoneyContent = styled.button`
     column-gap: 9px;
 `;
 
-export const MoneyTitle = styled(Typography).attrs({ variant: 'dHeader18' })`
-        color: ${({ theme }) => theme.colors.blackPrimary()}}`;
+export const MoneyTitle = styled(Typography).attrs({ variant: 'dHeader18' })``;

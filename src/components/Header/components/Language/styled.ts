@@ -10,5 +10,4 @@ export const LanguageContent = styled.button`
     column-gap: 9px;
 `;
 
-export const LanguageTitle = styled(Typography).attrs({ variant: 'dHeader18' })`
-        color: ${({ theme }) => theme.colors.blackPrimary()}}`;
+export const LanguageTitle = styled(Typography).attrs({ variant: 'dHeader18' })``;

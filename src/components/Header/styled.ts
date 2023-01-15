@@ -1,25 +1,44 @@
 import styled from 'styled-components';
 
-export const FooterContainer = styled.div`
-    background-color: ${({ theme }) => theme.colors.white()};
+type THeaderContainer = {
+    isDark: boolean;
+};
+export const HeaderContainer = styled.div<THeaderContainer>`
+    background-color: ${({ theme, isDark }) => (isDark ? theme.colors.white() : 'inherit')};
+    svg path {
+        fill: ${({ theme, isDark }) => (isDark ? theme.colors.mainPrimary() : theme.colors.white())};
+    }
     height: 85px;
+    z-index: 2;
 `;
-export const FooterContent = styled.div`
+export const HeaderContent = styled.div`
     ${({ theme }) => theme.mixins.mainGrid};
     ${({ theme }) => theme.mixins.flexCenterSpaceBetween};
     padding: 25px 0 20px 0;
+    z-index: 2;
 `;
-export const AboutsCompany = styled.div`
+export const AboutsCompany = styled.div<THeaderContainer>`
     ${({ theme }) => theme.mixins.flexCenter};
     column-gap: 25px;
+    z-index: 2;
+    color: ${({ theme, isDark }) => (isDark ? theme.colors.blackPrimary() : theme.colors.white())}};
+
 `;
 
 export const SocialsMedia = styled.div`
     ${({ theme }) => theme.mixins.flexCenter};
     column-gap: 32px;
+    z-index: 2;
 `;
-export const LogoContainer = styled.button``;
-export const Settings = styled.div`
+export const LogoContainer = styled.button`
+    z-index: 2;
+`;
+export const Settings = styled.div<THeaderContainer>`
     ${({ theme }) => theme.mixins.flexCenter};
     column-gap: 24px;
+    z-index: 2;
+    color: ${({ theme, isDark }) => (isDark ? theme.colors.blackPrimary() : theme.colors.white())}};
+`;
+export const MenuContainer = styled.div`
+    z-index: 2;
 `;

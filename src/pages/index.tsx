@@ -6,7 +6,7 @@ import Routes from '../routes';
 
 const Pages = () => (
     <PagesContainer>
-        <Header />
+        <Header isDark={false} />
         <Routes />
         <Footer />
     </PagesContainer>
