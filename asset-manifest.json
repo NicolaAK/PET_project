@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.js": "/PET_project/static/js/main.9f72c58c.chunk.js",
+    "main.js.map": "/PET_project/static/js/main.9f72c58c.chunk.js.map",
+    "runtime-main.js": "/PET_project/static/js/runtime-main.d8fa4d1e.js",
+    "runtime-main.js.map": "/PET_project/static/js/runtime-main.d8fa4d1e.js.map",
+    "static/js/2.69dcd1d4.chunk.js": "/PET_project/static/js/2.69dcd1d4.chunk.js",
+    "static/js/2.69dcd1d4.chunk.js.map": "/PET_project/static/js/2.69dcd1d4.chunk.js.map",
+    "index.html": "/PET_project/index.html",
+    "static/js/2.69dcd1d4.chunk.js.LICENSE.txt": "/PET_project/static/js/2.69dcd1d4.chunk.js.LICENSE.txt",
+    "static/media/Raleway-Regular.9ade142e.ttf": "/PET_project/static/media/Raleway-Regular.9ade142e.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d8fa4d1e.js",
+    "static/js/2.69dcd1d4.chunk.js",
+    "static/js/main.9f72c58c.chunk.js"
+  ]
+}
