@@ -19,6 +19,7 @@ interface ISettings {
     nextArrow: any;
     prevArrow: any;
 }
+
 const sliderItem = [
     { category: 'Пальто', photo: <img src={sliderCoat} alt="photoSlider" /> },
     { category: 'Куртки', photo: <img src={sliderJackets} alt="photoSlider" /> },

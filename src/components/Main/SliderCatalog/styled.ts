@@ -5,3 +5,4 @@ export const SliderContainer = styled.div`
 export const SliderWrap = styled.div``;
 export const SliderPhoto = styled.div``;
 export const SliderText = styled.div``;
+export const SliderButton = styled.button``;

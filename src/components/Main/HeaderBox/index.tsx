@@ -21,10 +21,10 @@ const HeaderBox = () => (
     <BoxContainer>
         <BoxPhoto>
             <PhotoModel1>
-                <img src={mainModel1} alt="fotoModel" />,
+                <img src={mainModel1} alt="photoModel" />
             </PhotoModel1>
             <PhotoModel2>
-                <img src={mainModel2} alt="fotoModel" />,
+                <img src={mainModel2} alt="photoModel" />
                 <BoxTitle>
                     <NewCollection>Новая коллекция</NewCollection>
                     <Line />
@@ -37,7 +37,7 @@ const HeaderBox = () => (
                 </BoxTitle>
             </PhotoModel2>
             <PhotoModel3>
-                <img src={mainModel3} alt="fotoModel" />,
+                <img src={mainModel3} alt="photoModel" />
             </PhotoModel3>
         </BoxPhoto>
     </BoxContainer>
