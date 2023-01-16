@@ -1,20 +1,23 @@
 import React from 'react';
 import { useRoutes } from 'react-router';
 import Main from '@components/Main';
+import { Navigate } from 'react-router-dom';
 import { ROUTES } from './constants';
+
+const generateGithubPagesRoutes = (route: string) => `${ROUTES.YANKI}/${route}`;
 
 const Routes = () =>
     useRoutes([
         {
-            path: ROUTES.DASHBOARD,
+            path: generateGithubPagesRoutes(''),
             element: <Main />,
         },
         {
-            path: ROUTES.CATALOG,
+            path: generateGithubPagesRoutes(ROUTES.CATALOG),
             element: <div>Catalog</div>,
         },
         {
-            path: ROUTES.CATEGORY,
+            path: generateGithubPagesRoutes(ROUTES.CATEGORY),
             children: [
                 {
                     path: ':idCategory',
@@ -22,6 +25,7 @@ const Routes = () =>
                 },
             ],
         },
+        { path: '*', element: <Navigate to={generateGithubPagesRoutes('')} replace /> },
     ]);
 
 export default Routes;

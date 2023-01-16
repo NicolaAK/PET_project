@@ -3,4 +3,6 @@ export enum ROUTES {
     CATALOG = 'catalog',
     CATEGORY = 'category',
     PRODUCT = 'product',
+    // only for githubpages
+    YANKI = 'yanki',
 }
