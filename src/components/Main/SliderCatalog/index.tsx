@@ -1,7 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import '../../../globalStyles/sliderStyles/slick.css';
+import '../../../globalStyles/sliderStyles/slick-theme.css';
 import { SliderWrap, SliderPhoto, SliderText, SliderContainer } from '@components/Main/SliderCatalog/styled';
 import sliderCoat from '@assets/foto/sliderCoat.png';
 import sliderJackets from '@assets/foto/sliderJackets.png';
@@ -35,7 +35,7 @@ const SliderBox = () => {
         infinite: true,
         speed: 500,
         slidesToShow: 4,
-        slidesToScroll: 1,
+        slidesToScroll: 4,
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />,
     };
