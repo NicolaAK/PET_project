@@ -1,9 +1,9 @@
 import { createPalette } from './utils';
 
 export default createPalette({
-    background: '#E5E5E5',
     white: '#FFFFFF',
     mainPrimary: '#E0BEA2',
+    mainPrimaryOpacity75: 'rgba(224, 190, 162, 0.75)',
 
     blackPrimary: '#252525',
 

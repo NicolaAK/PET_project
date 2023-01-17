@@ -2,16 +2,24 @@ import React from 'react';
 import Slider from 'react-slick';
 import '../../../globalStyles/sliderStyles/slick.css';
 import '../../../globalStyles/sliderStyles/slick-theme.css';
-import { SliderWrap, SliderPhoto, SliderText, SliderContainer } from '@components/Main/SliderCatalog/styled';
+import {
+    SliderWrap,
+    SliderPhoto,
+    SliderText,
+    SliderContainer,
+    SliderBottonBox,
+    ArrowContainerRight,
+    ArrowBox,
+    ArrowContainerLeft,
+} from '@components/Main/SliderCatalog/styled';
 import sliderCoat from '@assets/foto/sliderCoat.png';
 import sliderJackets from '@assets/foto/sliderJackets.png';
 import sliderFur from '@assets/foto/sliderFur.png';
 import sliderParks from '@assets/foto/sliderParks.png';
-import SampleNextArrow from '@components/Main/SliderCatalog/components/SampleNextArrow';
-import SamplePrevArrow from '@components/Main/SliderCatalog/components/SamplePrevArrow';
+import ArrowRightSlider from '@assets/icons/arrowRightSlider.svg';
+import ArrowLeftSlider from '@assets/icons/arrowLeftSlider.svg';
 
 interface ISettings {
-    dots: boolean;
     infinite: boolean;
     slidesToShow: number;
     slidesToScroll: number;
@@ -30,13 +38,29 @@ const sliderItem = [
     { category: 'Шубы', photo: <img src={sliderFur} alt="photoSlider" /> },
     { category: 'Парки', photo: <img src={sliderParks} alt="photoSlider" /> },
 ];
+type Props = {
+    onClick?: any;
+};
+const SamplePrevArrow = ({ onClick }: Props) => (
+    <ArrowContainerLeft onClick={onClick}>
+        <ArrowBox>
+            <ArrowLeftSlider />
+        </ArrowBox>
+    </ArrowContainerLeft>
+);
+const SampleNextArrow = ({ onClick }: Props) => (
+    <ArrowContainerRight onClick={onClick}>
+        <ArrowBox>
+            <ArrowRightSlider />
+        </ArrowBox>
+    </ArrowContainerRight>
+);
 const SliderBox = () => {
     const settings: ISettings = {
-        dots: true,
         infinite: true,
         speed: 500,
         slidesToShow: 4,
-        slidesToScroll: 4,
+        slidesToScroll: 1,
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />,
     };
@@ -46,7 +70,9 @@ const SliderBox = () => {
                 {sliderItem.map((i) => (
                     <SliderWrap key={i.category}>
                         <SliderPhoto>{i.photo}</SliderPhoto>
-                        <SliderText>{i.category}</SliderText>
+                        <SliderBottonBox>
+                            <SliderText>{i.category}</SliderText>
+                        </SliderBottonBox>
                     </SliderWrap>
                 ))}
             </Slider>
