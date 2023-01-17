@@ -8,16 +8,12 @@ import {
     SliderText,
     SliderContainer,
     SliderBottonBox,
-    ArrowContainerRight,
-    ArrowBox,
-    ArrowContainerLeft,
 } from '@components/Main/SliderCatalog/styled';
 import sliderCoat from '@assets/foto/sliderCoat.png';
 import sliderJackets from '@assets/foto/sliderJackets.png';
 import sliderFur from '@assets/foto/sliderFur.png';
 import sliderParks from '@assets/foto/sliderParks.png';
-import ArrowRightSlider from '@assets/icons/arrowRightSlider.svg';
-import ArrowLeftSlider from '@assets/icons/arrowLeftSlider.svg';
+import { ArrowControl } from '@components/Main/SliderCatalog/component/ArrowControl';
 
 const sliderItem = [
     { category: 'Пальто', photo: <img src={sliderCoat} alt="photoSlider" /> },
@@ -29,47 +25,13 @@ const sliderItem = [
     { category: 'Шубы', photo: <img src={sliderFur} alt="photoSlider" /> },
     { category: 'Парки', photo: <img src={sliderParks} alt="photoSlider" /> },
 ];
-type Props = {
-    onClick?: () => void;
-    isLeft: boolean;
-};
-const ArrowControl = ({ onClick, isLeft }: Props) => (
-    <div>
-        {isLeft ? (
-            <ArrowContainerLeft onClick={onClick}>
-                <ArrowBox>
-                    <ArrowLeftSlider />
-                </ArrowBox>
-            </ArrowContainerLeft>
-        ) : (
-            <ArrowContainerRight onClick={onClick}>
-                <ArrowBox>
-                    <ArrowRightSlider />
-                </ArrowBox>
-            </ArrowContainerRight>
-        )}
-    </div>
-);
-// const SamplePrevArrow = ({ onClick }: Props) => (
-//     <ArrowContainerLeft onClick={onClick}>
-//         <ArrowBox>
-//             <ArrowLeftSlider />
-//         </ArrowBox>
-//     </ArrowContainerLeft>
-// );
-// const SampleNextArrow = ({ onClick }: Props) => (
-//     <ArrowContainerRight onClick={onClick}>
-//         <ArrowBox>
-//             <ArrowRightSlider />
-//         </ArrowBox>
-//     </ArrowContainerRight>
-// );
+
 const SliderBox = () => {
     const settings = {
         infinite: true,
         speed: 500,
         slidesToShow: 4,
-        slidesToScroll: 4,
+        slidesToScroll: 1,
         nextArrow: <ArrowControl isLeft={false} />,
         prevArrow: <ArrowControl isLeft />,
     };
