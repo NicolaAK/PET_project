@@ -9,4 +9,7 @@ export default createPalette({
 
     elipseViolet: '#6F83A4',
     elipsePastel: '#F1DDAA',
+
+    buttonWhite: '#F5F5F5',
+    buttonPrimaryClick: '#CCA88A',
 });
