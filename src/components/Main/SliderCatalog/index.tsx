@@ -7,7 +7,7 @@ import {
     SliderPhoto,
     SliderText,
     SliderContainer,
-    SliderBottonBox,
+    SliderBottomBox,
 } from '@components/Main/SliderCatalog/styled';
 import sliderCoat from '@assets/foto/sliderCoat.png';
 import sliderJackets from '@assets/foto/sliderJackets.png';
@@ -15,15 +15,15 @@ import sliderFur from '@assets/foto/sliderFur.png';
 import sliderParks from '@assets/foto/sliderParks.png';
 import { ArrowControl } from '@components/Main/SliderCatalog/component/ArrowControl';
 
-const sliderItem = [
-    { category: 'Пальто', photo: <img src={sliderCoat} alt="photoSlider" /> },
-    { category: 'Куртки', photo: <img src={sliderJackets} alt="photoSlider" /> },
-    { category: 'Шубы', photo: <img src={sliderFur} alt="photoSlider" /> },
-    { category: 'Парки', photo: <img src={sliderParks} alt="photoSlider" /> },
-    { category: 'Пальто', photo: <img src={sliderCoat} alt="photoSlider" /> },
-    { category: 'Куртки', photo: <img src={sliderJackets} alt="photoSlider" /> },
-    { category: 'Шубы', photo: <img src={sliderFur} alt="photoSlider" /> },
-    { category: 'Парки', photo: <img src={sliderParks} alt="photoSlider" /> },
+const sliderItems = [
+    { category: 'Пальто', photo: sliderCoat },
+    { category: 'Куртки', photo: sliderJackets },
+    { category: 'Шубы', photo: sliderFur },
+    { category: 'Парки', photo: sliderParks },
+    { category: 'Пальто', photo: sliderCoat },
+    { category: 'Куртки', photo: sliderJackets },
+    { category: 'Шубы', photo: sliderFur },
+    { category: 'Парки', photo: sliderParks },
 ];
 
 const SliderBox = () => {
@@ -38,12 +38,14 @@ const SliderBox = () => {
     return (
         <SliderContainer>
             <Slider {...settings}>
-                {sliderItem.map((i) => (
-                    <SliderWrap key={i.category}>
-                        <SliderPhoto>{i.photo}</SliderPhoto>
-                        <SliderBottonBox>
-                            <SliderText>{i.category}</SliderText>
-                        </SliderBottonBox>
+                {sliderItems.map((sliderItem) => (
+                    <SliderWrap key={sliderItem.category}>
+                        <SliderPhoto>
+                            <img src={sliderItem.photo} alt="photoSlider" />
+                        </SliderPhoto>
+                        <SliderBottomBox>
+                            <SliderText>{sliderItem.category}</SliderText>
+                        </SliderBottomBox>
                     </SliderWrap>
                 ))}
             </Slider>

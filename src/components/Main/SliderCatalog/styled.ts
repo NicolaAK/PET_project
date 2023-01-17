@@ -1,13 +1,20 @@
 import styled from 'styled-components';
 import Typography from '@components/Typography';
 export const SliderContainer = styled.div`
-    ${({ theme }) => theme.mixins.mainGrid}
+    ${({ theme }) => theme.mixins.mainGrid};
+    .slick-slide {
+        padding: 0;
+        height: 450px;
+    }
+    .slick-slider {
+        height: 450px;
+    }
 `;
 export const SliderWrap = styled.div``;
-export const SliderBottonBox = styled.button`
+export const SliderBottomBox = styled.button`
     position: relative;
     bottom: 40px;
-    background: ${({ theme }) => theme.colors.mainPrimaryOpacity75()};
+    background: ${({ theme }) => theme.colors.mainPrimary()};
     backdrop-filter: blur(3px);
     width: 274px;
     height: 40px;
