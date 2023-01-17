@@ -19,15 +19,6 @@ import sliderParks from '@assets/foto/sliderParks.png';
 import ArrowRightSlider from '@assets/icons/arrowRightSlider.svg';
 import ArrowLeftSlider from '@assets/icons/arrowLeftSlider.svg';
 
-interface ISettings {
-    infinite: boolean;
-    slidesToShow: number;
-    slidesToScroll: number;
-    speed: number;
-    nextArrow: any;
-    prevArrow: any;
-}
-
 const sliderItem = [
     { category: 'Пальто', photo: <img src={sliderCoat} alt="photoSlider" /> },
     { category: 'Куртки', photo: <img src={sliderJackets} alt="photoSlider" /> },
@@ -39,7 +30,7 @@ const sliderItem = [
     { category: 'Парки', photo: <img src={sliderParks} alt="photoSlider" /> },
 ];
 type Props = {
-    onClick?: any;
+    onClick?: () => void;
 };
 const SamplePrevArrow = ({ onClick }: Props) => (
     <ArrowContainerLeft onClick={onClick}>
@@ -56,11 +47,11 @@ const SampleNextArrow = ({ onClick }: Props) => (
     </ArrowContainerRight>
 );
 const SliderBox = () => {
-    const settings: ISettings = {
+    const settings = {
         infinite: true,
         speed: 500,
         slidesToShow: 4,
-        slidesToScroll: 1,
+        slidesToScroll: 4,
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />,
     };
