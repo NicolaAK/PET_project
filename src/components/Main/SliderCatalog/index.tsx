@@ -31,29 +31,47 @@ const sliderItem = [
 ];
 type Props = {
     onClick?: () => void;
+    isLeft: boolean;
 };
-const SamplePrevArrow = ({ onClick }: Props) => (
-    <ArrowContainerLeft onClick={onClick}>
-        <ArrowBox>
-            <ArrowLeftSlider />
-        </ArrowBox>
-    </ArrowContainerLeft>
+const ArrowControl = ({ onClick, isLeft }: Props) => (
+    <div>
+        {isLeft ? (
+            <ArrowContainerLeft onClick={onClick}>
+                <ArrowBox>
+                    <ArrowLeftSlider />
+                </ArrowBox>
+            </ArrowContainerLeft>
+        ) : (
+            <ArrowContainerRight onClick={onClick}>
+                <ArrowBox>
+                    <ArrowRightSlider />
+                </ArrowBox>
+            </ArrowContainerRight>
+        )}
+    </div>
 );
-const SampleNextArrow = ({ onClick }: Props) => (
-    <ArrowContainerRight onClick={onClick}>
-        <ArrowBox>
-            <ArrowRightSlider />
-        </ArrowBox>
-    </ArrowContainerRight>
-);
+// const SamplePrevArrow = ({ onClick }: Props) => (
+//     <ArrowContainerLeft onClick={onClick}>
+//         <ArrowBox>
+//             <ArrowLeftSlider />
+//         </ArrowBox>
+//     </ArrowContainerLeft>
+// );
+// const SampleNextArrow = ({ onClick }: Props) => (
+//     <ArrowContainerRight onClick={onClick}>
+//         <ArrowBox>
+//             <ArrowRightSlider />
+//         </ArrowBox>
+//     </ArrowContainerRight>
+// );
 const SliderBox = () => {
     const settings = {
         infinite: true,
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 4,
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />,
+        nextArrow: <ArrowControl isLeft={false} />,
+        prevArrow: <ArrowControl isLeft />,
     };
     return (
         <SliderContainer>
