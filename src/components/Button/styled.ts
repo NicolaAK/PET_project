@@ -28,10 +28,10 @@ export const ButtonContainer = styled.button<ButtonProps>`
     ${(props) => props.color && COLOR[props.color]}
     column-gap: 9px;
     &:hover {
-        box-shadow: ${({ theme }) => theme.decorations.boxShadow};
+        box-shadow: ${({ theme }) => theme.decorations.boxShadow.base};
     }
     &:active {
-        box-shadow: ${({ theme }) => theme.decorations.boxShadowInset};
+        box-shadow: ${({ theme }) => theme.decorations.boxShadow.inset};
         ${(props) => props.color && ACTIVE[props.color]}
     }
 `;
