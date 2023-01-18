@@ -1,7 +1,6 @@
 import { createPalette } from './utils';
 
 export default createPalette({
-    background: '#E5E5E5',
     white: '#FFFFFF',
     mainPrimary: '#E0BEA2',
 
