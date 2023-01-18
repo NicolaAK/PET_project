@@ -14,7 +14,7 @@ export const SliderWrap = styled.div``;
 export const SliderBottomBox = styled.button`
     position: relative;
     bottom: 40px;
-    background: ${({ theme }) => theme.colors.mainPrimary(75)};
+    background: ${({ theme }) => theme.colors.mainPrimary(0.75)};
     backdrop-filter: blur(3px);
     width: 274px;
     height: 40px;

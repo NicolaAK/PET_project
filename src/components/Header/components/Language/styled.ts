@@ -5,8 +5,7 @@ export const LanguageContainer = styled.div`
     flex-direction: row;
 `;
 export const LanguageContent = styled.button`
-    ${({ theme }) => theme.mixins.flexCenter};
-    justify-content: center;
+    ${({ theme }) => theme.mixins.flexCenterCenter};
     column-gap: 9px;
 `;
 
