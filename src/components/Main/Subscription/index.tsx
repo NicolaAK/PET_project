@@ -7,10 +7,12 @@ import {
     Text,
     ButtonBox,
 } from '@components/Main/Subscription/styled';
+import Input from '@components/Input';
 const Subscription = () => (
     <SubscriptionContainer>
         <SubscriptionContent>
             <Item>Узнайте первым о новинках</Item>
+            <Input />
             <ButtonBox>
                 <Button color="primary" width={600}>
                     ОТПРАВИТЬ
