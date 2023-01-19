@@ -5,7 +5,6 @@ const Input = () => {
     const [state, setState] = useState('');
     return (
         <InputContainer>
-            <label htmlFor="name">Name</label>
             <InputContent
                 value={state}
                 onChange={(e) => setState(e.target.value)}
