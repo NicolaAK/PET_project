@@ -5,15 +5,17 @@ interface IProps {
     value?: string;
     onChange: (arg0: string) => void;
     width?: number;
+    type?: string;
+    placeholder?: string;
 }
-const Input = ({ value, onChange, width }: IProps) => (
+const Input = ({ value, onChange, width, type = 'text', placeholder }: IProps) => (
     <InputContainer>
         <InputContent
             width={width}
             value={value}
             onChange={(e) => onChange(e.target.value)}
-            type="text"
-            placeholder="Ваш e-mail*"
+            type={type}
+            placeholder={placeholder}
         />
     </InputContainer>
 );
