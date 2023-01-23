@@ -14,7 +14,7 @@ const Subscription = () => {
         <SubscriptionContainer>
             <SubscriptionContent>
                 <Item>Узнайте первым о новинках</Item>
-                <Input state={state} setState={setState} />
+                <Input value={state} onChange={setState} />
                 <ButtonBox>
                     <Button color="primary" width={600}>
                         ОТПРАВИТЬ
