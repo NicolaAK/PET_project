@@ -18,5 +18,5 @@ export const Text = styled(Typography).attrs({ variant: 'dText16lh19' })`
     text-align: center;
 `;
 export const ButtonBox = styled(Typography).attrs({ variant: 'dText16lh19' })`
-    padding-bottom: 20px;
+    padding: 20px 0;
 `;
