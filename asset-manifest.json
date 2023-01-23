@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/yanki/static/css/main.29b4d6b8.chunk.css",
-    "main.js": "/yanki/static/js/main.5749dbe2.chunk.js",
-    "main.js.map": "/yanki/static/js/main.5749dbe2.chunk.js.map",
+    "main.js": "/yanki/static/js/main.1d9db1cb.chunk.js",
+    "main.js.map": "/yanki/static/js/main.1d9db1cb.chunk.js.map",
     "runtime-main.js": "/yanki/static/js/runtime-main.339208eb.js",
     "runtime-main.js.map": "/yanki/static/js/runtime-main.339208eb.js.map",
-    "static/js/2.fe08a014.chunk.js": "/yanki/static/js/2.fe08a014.chunk.js",
-    "static/js/2.fe08a014.chunk.js.map": "/yanki/static/js/2.fe08a014.chunk.js.map",
+    "static/js/2.08c30157.chunk.js": "/yanki/static/js/2.08c30157.chunk.js",
+    "static/js/2.08c30157.chunk.js.map": "/yanki/static/js/2.08c30157.chunk.js.map",
     "index.html": "/yanki/index.html",
     "static/css/main.29b4d6b8.chunk.css.map": "/yanki/static/css/main.29b4d6b8.chunk.css.map",
-    "static/js/2.fe08a014.chunk.js.LICENSE.txt": "/yanki/static/js/2.fe08a014.chunk.js.LICENSE.txt",
+    "static/js/2.08c30157.chunk.js.LICENSE.txt": "/yanki/static/js/2.08c30157.chunk.js.LICENSE.txt",
     "static/media/Raleway-Bold.18960343.ttf": "/yanki/static/media/Raleway-Bold.18960343.ttf",
     "static/media/Raleway-Light.58bcdae0.ttf": "/yanki/static/media/Raleway-Light.58bcdae0.ttf",
     "static/media/mainModel1.79be3725.png": "/yanki/static/media/mainModel1.79be3725.png",
@@ -22,8 +22,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.339208eb.js",
-    "static/js/2.fe08a014.chunk.js",
+    "static/js/2.08c30157.chunk.js",
     "static/css/main.29b4d6b8.chunk.css",
-    "static/js/main.5749dbe2.chunk.js"
+    "static/js/main.1d9db1cb.chunk.js"
   ]
 }
