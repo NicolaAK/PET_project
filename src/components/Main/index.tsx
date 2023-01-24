@@ -3,6 +3,7 @@ import { MainContent, MainContainer, CategoryContainer, CategoryTitle } from '@c
 import HeaderBox from '@components/Main/HeaderBox';
 import SliderBox from '@components/Main/SliderCatalog';
 import Subscription from '@components/Main/Subscription';
+import Dropdown from '@components/Dropdown';
 
 const Main = () => (
     <MainContainer>
@@ -13,6 +14,7 @@ const Main = () => (
                 <SliderBox />
             </CategoryContainer>
             <Subscription />
+            <Dropdown />
         </MainContent>
     </MainContainer>
 );
