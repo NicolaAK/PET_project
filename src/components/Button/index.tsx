@@ -1,6 +1,7 @@
 import React, { FC, ReactNode } from 'react';
 import { ButtonContainer, ButtonText, ButtonTextIcon, Icon } from '@components/Button/styled';
 import FavouritesButton from '@assets/icons/favouritesButton.svg';
+import Spinner from '@components/Button/Loader';
 
 export type ButtonProps = {
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
@@ -8,6 +9,7 @@ export type ButtonProps = {
     color?: 'primary' | 'favourites';
     width?: number;
     icon?: ReactNode;
+    isLoading?: boolean;
 };
 export const Button: FC<ButtonProps> = ({
     onClick,
@@ -15,15 +17,28 @@ export const Button: FC<ButtonProps> = ({
     children,
     width,
     icon = <FavouritesButton />,
-}) => (
-    <ButtonContainer onClick={onClick} color={color} width={width}>
-        {color === 'favourites' ? (
-            <ButtonTextIcon>
-                <Icon>{icon}</Icon>
-                {children}
-            </ButtonTextIcon>
-        ) : (
-            <ButtonText>{children}</ButtonText>
-        )}
-    </ButtonContainer>
-);
+    isLoading,
+}) => {
+    const renderContent = () => {
+        if (isLoading) {
+            return <Spinner />;
+        }
+
+        if (color === 'favourites') {
+            return (
+                <ButtonTextIcon>
+                    <Icon>{icon}</Icon>
+                    {children}
+                </ButtonTextIcon>
+            );
+        }
+
+        return <ButtonText>{children}</ButtonText>;
+    };
+
+    return (
+        <ButtonContainer onClick={onClick} color={color} width={width}>
+            {renderContent()}
+        </ButtonContainer>
+    );
+};
