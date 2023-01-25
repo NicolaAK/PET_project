@@ -1,20 +1,22 @@
 import styled from 'styled-components';
+import Typography from '@components/Typography';
 
-export const DropDownContainer = styled('div')``;
-
-export const DropDownHeader = styled('button')`
-    margin-bottom: 0.8em;
-    padding: 0.4em 2em 0.4em 1em;
+export const DropDownContainer = styled(Typography).attrs({ variant: 'dHeader18' })`
+    flex-direction: row;
 `;
 
-export const DropDownList = styled('ul')`
+export const DropDownHeader = styled.button`
+    ${({ theme }) => theme.mixins.flexCenterCenter};
+    column-gap: 9px;
+`;
+
+export const DropDownList = styled.ul`
+    position: absolute;
     width: 1px;
-    &:first-child {
-        padding-top: 0.8em;
-    }
 `;
 
-export const ListItem = styled('button')`
+export const ListItem = styled.button`
+    border-top: 1px solid #e0bea2;
     list-style: none;
-    margin: 0.8em;
+    padding: 3px 0;
 `;

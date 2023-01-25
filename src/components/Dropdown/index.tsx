@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Arrow from '@assets/icons/arrowBotton.svg';
 import { DropDownHeader, DropDownList, ListItem, DropDownContainer } from './styled';
 
 interface IArrow {
@@ -24,9 +25,10 @@ const Dropdown = ({ options }: IProps) => {
     return (
         <DropDownContainer>
             <DropDownHeader onClick={toggling}>{selectedOption}</DropDownHeader>
+            <Arrow />
             {isOpen && (
                 <DropDownList>
-                    {options.map((option: { value: string; label: string }) => (
+                    {options.map((option) => (
                         <ListItem onClick={onOptionClicked(option.value)} key={option.value}>
                             {option.label}
                         </ListItem>
