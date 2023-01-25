@@ -42,3 +42,8 @@ export const Settings = styled.div<THeaderContainer>`
 export const MenuContainer = styled.div`
     z-index: 2;
 `;
+
+export const Language = styled.div`
+    position: relative;
+    z-index: 2;
+`;

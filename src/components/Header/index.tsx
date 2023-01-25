@@ -7,9 +7,10 @@ import {
     LogoContainer,
     Settings,
     MenuContainer,
+    Language,
 } from '@components/Header/styled';
 import AboutCompany from '@components/Header/components/AboutCompany';
-import Language from '@components/Header/components/Language/Language';
+// import Language from '@components/Header/components/Language/Language';
 import Money from '@components/Header/components/Money/Money';
 import SocialMedia from '@components/Header/components/SocialMedia';
 import Menu from '@assets/icons/menu.svg';
@@ -18,6 +19,7 @@ import Search from '@assets/icons/search.svg';
 import Profile from '@assets/icons/profile.svg';
 import Favourites from '@assets/icons/favourites.svg';
 import Shop from '@assets/icons/shop.svg';
+import Dropdown from '@components/Dropdown';
 
 interface IHeader {
     isDark: boolean;
@@ -43,6 +45,13 @@ const iconsProfile = [
 ];
 
 const aboutCompany = [{ label: 'NEW' }, { label: 'КАТАЛОГ' }, { label: 'О НАС' }];
+
+const language = [
+    { value: 'RU', label: 'RU' },
+    { value: 'EN', label: 'EN' },
+    { value: 'UA', label: 'UA' },
+];
+
 const Header: FC<IHeader> = ({ isDark }) => (
     <HeaderContainer isDark={isDark}>
         <HeaderContent>
@@ -58,7 +67,10 @@ const Header: FC<IHeader> = ({ isDark }) => (
                 <Logo />
             </LogoContainer>
             <Settings isDark={isDark}>
-                <Language />
+                <Language>
+                    <Dropdown options={language} />
+                </Language>
+                {/* <Language /> */}
                 <Money />
             </Settings>
             <SocialsMedia>
