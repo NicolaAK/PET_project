@@ -8,10 +8,9 @@ import {
     Settings,
     MenuContainer,
     Language,
+    Money,
 } from '@components/Header/styled';
 import AboutCompany from '@components/Header/components/AboutCompany';
-// import Language from '@components/Header/components/Language/Language';
-import Money from '@components/Header/components/Money/Money';
 import SocialMedia from '@components/Header/components/SocialMedia';
 import Menu from '@assets/icons/menu.svg';
 import Logo from '@assets/icons/logo.svg';
@@ -45,7 +44,11 @@ const iconsProfile = [
 ];
 
 const aboutCompany = [{ label: 'NEW' }, { label: 'КАТАЛОГ' }, { label: 'О НАС' }];
-
+const money = [
+    { value: 'RUB', label: 'RUB' },
+    { value: 'USD', label: 'USD' },
+    { value: 'UAH', label: 'UAH' },
+];
 const language = [
     { value: 'RU', label: 'RU' },
     { value: 'EN', label: 'EN' },
@@ -68,10 +71,11 @@ const Header: FC<IHeader> = ({ isDark }) => (
             </LogoContainer>
             <Settings isDark={isDark}>
                 <Language>
-                    <Dropdown options={language} />
+                    <Dropdown width={48} options={language} />
                 </Language>
-                {/* <Language /> */}
-                <Money />
+                <Money>
+                    <Dropdown width={56} options={money} />
+                </Money>
             </Settings>
             <SocialsMedia>
                 {iconsProfile.map((i) => (
