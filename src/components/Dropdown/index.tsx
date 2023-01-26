@@ -9,24 +9,26 @@ interface IArrow {
 export interface IProps {
     options: IArrow[];
     width?: number;
+    value?: string;
+    onChange?: (arg0: string) => void;
 }
 
-const Dropdown = ({ options, width }: IProps) => {
+const Dropdown = ({ options, width, value, onChange }: IProps) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedOption, setSelectedOption] = useState(options[0].label);
 
     const toggling = () => setIsOpen(!isOpen);
 
-    const onOptionClicked = (value: any) => () => {
-        setSelectedOption(value);
+    const onOptionClicked = (e: any) => () => {
+        if (onChange) {
+            onChange(e);
+        }
         setIsOpen(false);
-        console.log(selectedOption);
     };
 
     return (
         <DropDownContainer>
             <DropDownHeader onClick={toggling}>
-                {selectedOption}
+                {value}
                 {isOpen ? (
                     <ArrowContainer>
                         <Arrow />
@@ -38,7 +40,7 @@ const Dropdown = ({ options, width }: IProps) => {
             {isOpen && (
                 <DropDownList>
                     {options.map((option) =>
-                        selectedOption === option.label ? (
+                        value === option.label ? (
                             ''
                         ) : (
                             <ListItem

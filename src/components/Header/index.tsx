@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import {
     HeaderContent,
     HeaderContainer,
@@ -44,46 +44,50 @@ const iconsProfile = [
 ];
 
 const aboutCompany = [{ label: 'NEW' }, { label: 'КАТАЛОГ' }, { label: 'О НАС' }];
-const money = [
+const moneyArr = [
     { value: 'RUB', label: 'RUB' },
     { value: 'USD', label: 'USD' },
     { value: 'UAH', label: 'UAH' },
 ];
-const language = [
+const languageArr = [
     { value: 'RU', label: 'RU' },
     { value: 'EN', label: 'EN' },
     { value: 'UA', label: 'UA' },
 ];
 
-const Header: FC<IHeader> = ({ isDark }) => (
-    <HeaderContainer isDark={isDark}>
-        <HeaderContent>
-            <MenuContainer>
-                <Menu />
-            </MenuContainer>
-            <AboutsCompany isDark={isDark}>
-                {aboutCompany.map((about) => (
-                    <AboutCompany key={about.label} label={about.label} />
-                ))}
-            </AboutsCompany>
-            <LogoContainer>
-                <Logo />
-            </LogoContainer>
-            <Settings isDark={isDark}>
-                <Language>
-                    <Dropdown width={48} options={language} />
-                </Language>
-                <Money>
-                    <Dropdown width={56} options={money} />
-                </Money>
-            </Settings>
-            <SocialsMedia>
-                {iconsProfile.map((i) => (
-                    <SocialMedia key={i.id} icon={i.icon} />
-                ))}
-            </SocialsMedia>
-        </HeaderContent>
-    </HeaderContainer>
-);
+const Header: FC<IHeader> = ({ isDark }) => {
+    const [money, setMoney] = useState(moneyArr[0].value);
+    const [language, setLanguage] = useState(languageArr[0].value);
+    return (
+        <HeaderContainer isDark={isDark}>
+            <HeaderContent>
+                <MenuContainer>
+                    <Menu />
+                </MenuContainer>
+                <AboutsCompany isDark={isDark}>
+                    {aboutCompany.map((about) => (
+                        <AboutCompany key={about.label} label={about.label} />
+                    ))}
+                </AboutsCompany>
+                <LogoContainer>
+                    <Logo />
+                </LogoContainer>
+                <Settings isDark={isDark}>
+                    <Language>
+                        <Dropdown width={48} value={language} onChange={setLanguage} options={languageArr} />
+                    </Language>
+                    <Money>
+                        <Dropdown width={56} value={money} onChange={setMoney} options={moneyArr} />
+                    </Money>
+                </Settings>
+                <SocialsMedia>
+                    {iconsProfile.map((i) => (
+                        <SocialMedia key={i.id} icon={i.icon} />
+                    ))}
+                </SocialsMedia>
+            </HeaderContent>
+        </HeaderContainer>
+    );
+};
 
 export default Header;
