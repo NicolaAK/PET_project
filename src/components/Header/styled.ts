@@ -22,7 +22,6 @@ export const AboutsCompany = styled.div<THeaderContainer>`
     column-gap: 25px;
     z-index: 2;
     color: ${({ theme, isDark }) => (isDark ? theme.colors.blackPrimary() : theme.colors.white())}};
-
 `;
 
 export const SocialsMedia = styled.div`
@@ -40,5 +39,14 @@ export const Settings = styled.div<THeaderContainer>`
     color: ${({ theme, isDark }) => (isDark ? theme.colors.blackPrimary() : theme.colors.white())}};
 `;
 export const MenuContainer = styled.div`
+    z-index: 2;
+`;
+
+export const Language = styled.div`
+    position: relative;
+    z-index: 2;
+`;
+export const Money = styled.div`
+    position: relative;
     z-index: 2;
 `;
