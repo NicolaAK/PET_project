@@ -27,6 +27,7 @@ const Subscription = () => {
     } = methods;
 
     const onSubmit = async (formValues: ISubscribeForm) => {
+        // eslint-disable-next-line no-console
         console.log(formValues);
     };
 
