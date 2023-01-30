@@ -7,7 +7,7 @@ import Search from '@assets/icons/search.svg';
 import Profile from '@assets/icons/profile.svg';
 import Favourites from '@assets/icons/favourites.svg';
 import Shop from '@assets/icons/shop.svg';
-import { AboutsCompany, Language, MenuLogo, MenuOpen, Money, Settings, SocialsMedia } from './style';
+import { AboutsCompany, Language, MenuLogo, MenuContainerOpen, Money, Settings, SocialsMedia } from './style';
 
 interface IArrow {
     value: string;
@@ -42,8 +42,8 @@ const iconsProfile = [
     },
 ];
 const aboutCompany = [{ label: 'NEW' }, { label: 'КАТАЛОГ' }, { label: 'О НАС' }];
-const Menu = ({ isDark, money, setMoney, moneyArr, languageArr, setLanguage, language }: IHeader) => (
-    <MenuOpen>
+const MenuOpen = ({ isDark, money, setMoney, moneyArr, languageArr, setLanguage, language }: IHeader) => (
+    <MenuContainerOpen>
         <AboutsCompany isDark={isDark}>
             {aboutCompany.map((about) => (
                 <AboutCompany key={about.label} label={about.label} />
@@ -65,6 +65,6 @@ const Menu = ({ isDark, money, setMoney, moneyArr, languageArr, setLanguage, lan
                 <SocialMedia key={i.id} icon={i.icon} />
             ))}
         </SocialsMedia>
-    </MenuOpen>
+    </MenuContainerOpen>
 );
-export default Menu;
+export default MenuOpen;

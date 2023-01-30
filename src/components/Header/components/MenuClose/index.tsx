@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bar, BarContainer, MenuTitle } from './style';
+import { Bar, MenuTitle } from './style';
 
 const hamburgerTitles = [{ title: 'ОПЛАТА И ДОСТАВКА' }, { title: 'УСЛОВИЯ ВОЗВРАТА' }, { title: 'КОНТАКТЫ' }];
 
@@ -9,11 +9,9 @@ interface IProps {
 const MenuClose = ({ isDark }: IProps) => (
     <MenuTitle>
         {hamburgerTitles.map((hamburger) => (
-            <BarContainer>
-                <Bar isDark={isDark} key={hamburger.title}>
-                    {hamburger.title}
-                </Bar>
-            </BarContainer>
+            <Bar isDark={isDark} key={hamburger.title}>
+                {hamburger.title}
+            </Bar>
         ))}
     </MenuTitle>
 );

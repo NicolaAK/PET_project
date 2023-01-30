@@ -1,8 +1,8 @@
 import React, { FC, useState } from 'react';
-import { HeaderContent, HeaderContainer, MenuContainer } from '@components/Header/styled';
+import { HeaderContent, HeaderContainer, MenuContainer, BurgerContainer } from '@components/Header/styled';
 import Burger from '@components/BurgerMenu';
 import MenuClose from '@components/Header/components/MenuClose';
-import Menu from '@components/Header/components/MenuOpen';
+import MenuOpen from '@components/Header/components/MenuOpen';
 
 interface IHeader {
     isDark: boolean;
@@ -26,13 +26,15 @@ const Header: FC<IHeader> = ({ isDark }) => {
 
     return (
         <HeaderContainer isDark={isDark}>
-            <HeaderContent>
-                <Burger open={open} setOpen={setOpen} />
+            <HeaderContent isDark={isDark}>
+                <BurgerContainer>
+                    <Burger open={open} setOpen={setOpen} />
+                </BurgerContainer>
                 <MenuContainer>
                     {open ? (
                         <MenuClose isDark={isDark} />
                     ) : (
-                        <Menu
+                        <MenuOpen
                             isDark={isDark}
                             money={money}
                             setMoney={setMoney}
