@@ -11,10 +11,8 @@ const MenuClose = ({ isDark, open }: IProps) => (
     <MenuContainerClose open={open}>
         <MenuTitle>
             {hamburgerTitles.map((hamburger) => (
-                <Bar>
-                    <Text isDark={isDark} key={hamburger.title}>
-                        {hamburger.title}
-                    </Text>
+                <Bar key={hamburger.title}>
+                    <Text isDark={isDark}>{hamburger.title}</Text>
                 </Bar>
             ))}
         </MenuTitle>
