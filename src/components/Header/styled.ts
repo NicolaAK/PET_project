@@ -3,6 +3,10 @@ import styled from 'styled-components';
 type THeaderContainer = {
     isDark: boolean;
 };
+
+type TAnimation = {
+    open: boolean;
+};
 export const HeaderContainer = styled.div<THeaderContainer>`
     ${({ theme }) => theme.mixins.mainGrid};
     background-color: ${({ theme, isDark }) => (isDark ? theme.colors.white() : 'inherit')};
@@ -22,4 +26,8 @@ export const BurgerContainer = styled.div`
 `;
 export const MenuContainer = styled.div`
     padding-left: 100px;
+`;
+export const MenuCloseAnimation = styled.div<TAnimation>``;
+export const MenuOpenAnimation = styled.div<TAnimation>`
+    position: absolute;
 `;

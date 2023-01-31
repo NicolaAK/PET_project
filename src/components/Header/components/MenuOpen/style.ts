@@ -1,9 +1,18 @@
 import styled from 'styled-components';
 
+type TAnimation = {
+    open: boolean;
+};
+
 type THeaderContainer = {
     isDark: boolean;
 };
-export const MenuContainerOpen = styled.div`
+export const MenuContainerOpen = styled.div<TAnimation>`
+    position: relative;
+    transition: all 0.4s ease-in-out;
+    opacity: ${({ open }) => (open ? '0' : '1')};
+    transform: ${({ open }) => (open ? 'translateX(2%)' : 'translateX(0)')};
+    visibility: ${({ open }) => (open ? 'hidden' : 'visible')};
     ${({ theme }) => theme.mixins.flexCenterSpaceBetween};
     z-index: 2;
 `;

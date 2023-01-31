@@ -31,19 +31,17 @@ const Header: FC<IHeader> = ({ isDark }) => {
                     <Burger open={openHeader} onClick={handleBurgerOpen} />
                 </BurgerContainer>
                 <MenuContainer>
-                    {openHeader ? (
-                        <MenuClose isDark={isDark} />
-                    ) : (
-                        <MenuOpen
-                            isDark={isDark}
-                            money={money}
-                            setMoney={setMoney}
-                            moneyArr={moneyArr}
-                            languageArr={languageArr}
-                            language={language}
-                            setLanguage={setLanguage}
-                        />
-                    )}
+                    <MenuClose open={openHeader} isDark={isDark} />
+                    <MenuOpen
+                        open={openHeader}
+                        isDark={isDark}
+                        money={money}
+                        setMoney={setMoney}
+                        moneyArr={moneyArr}
+                        languageArr={languageArr}
+                        language={language}
+                        setLanguage={setLanguage}
+                    />
                 </MenuContainer>
             </HeaderContent>
         </HeaderContainer>

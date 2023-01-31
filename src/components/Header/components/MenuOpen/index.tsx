@@ -15,6 +15,7 @@ interface IArrow {
 }
 interface IHeader {
     isDark: boolean;
+    open: boolean;
     language: string;
     setLanguage: (arg0: string) => void;
     languageArr: IArrow[];
@@ -42,8 +43,8 @@ const iconsProfile = [
     },
 ];
 const aboutCompany = [{ label: 'NEW' }, { label: 'КАТАЛОГ' }, { label: 'О НАС' }];
-const MenuOpen = ({ isDark, money, setMoney, moneyArr, languageArr, setLanguage, language }: IHeader) => (
-    <MenuContainerOpen>
+const MenuOpen = ({ isDark, money, setMoney, moneyArr, languageArr, setLanguage, language, open }: IHeader) => (
+    <MenuContainerOpen open={open}>
         <AboutsCompany isDark={isDark}>
             {aboutCompany.map((about) => (
                 <AboutCompany key={about.label} label={about.label} />

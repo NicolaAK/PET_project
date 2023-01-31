@@ -4,6 +4,10 @@ import { IProps } from './index';
 export const DropDownContainer = styled.div``;
 export const Text = styled(Typography).attrs({ variant: 'dHeader18' })`
     ${({ theme }) => theme.mixins.flexCenterCenter};
+    transition: ${({ theme }) => theme.decorations.transition};
+    &:hover {
+        color: ${({ theme }) => theme.colors.buttonPrimaryClick()};
+    }
 `;
 
 export const DropDownHeader = styled.button`
@@ -22,9 +26,6 @@ export const ListItem = styled.button<IProps>`
     list-style: none;
     padding: 3px 0;
     align-items: center;
-    &:hover {
-        color: ${({ theme }) => theme.colors.buttonPrimaryClick()};
-    }
 `;
 export const ArrowContainer = styled.div`
     padding-bottom: 5px;
