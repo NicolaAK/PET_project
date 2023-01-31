@@ -22,8 +22,8 @@ const languageArr = [
 const Header: FC<IHeader> = ({ isDark }) => {
     const [money, setMoney] = useState(moneyArr[0].value);
     const [language, setLanguage] = useState(languageArr[0].value);
-    const [isOpenBurger, setOpenBurger] = useState(false);
-    const handleBurgerOpen = () => setOpenBurger(!isOpenBurger);
+    const [isOpenBurger, setIsOpenBurger] = useState(false);
+    const handleBurgerOpen = () => setIsOpenBurger(!isOpenBurger);
     return (
         <HeaderContainer isDark={isDark}>
             <HeaderContent isDark={isDark}>
