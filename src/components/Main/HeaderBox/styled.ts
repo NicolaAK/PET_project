@@ -15,11 +15,11 @@ export const BoxTitle = styled.div`
     left: 0px;
     color: ${({ theme }) => theme.colors.white()};
 `;
-export const PhotoModel1 = styled.image`
+export const PhotoModel1 = styled.div`
     margin: 0 -5px;
 `;
-export const PhotoModel2 = styled.image``;
-export const PhotoModel3 = styled.image`
+export const PhotoModel2 = styled.div``;
+export const PhotoModel3 = styled.div`
     margin: 0 -5px;
 `;
 export const NewCollection = styled(Typography).attrs({ variant: 'dHeader46' })`
