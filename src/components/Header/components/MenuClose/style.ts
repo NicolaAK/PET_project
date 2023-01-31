@@ -9,7 +9,7 @@ type TAnimation = {
 };
 export const MenuContainerClose = styled.div<TAnimation>`
     position: absolute;
-    top: 3.2%;
+    top: 32px;
     transition: all 0.4s ease-in-out;
     opacity: ${({ open }) => (open ? '1' : '0')};
     transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-2%)')};
