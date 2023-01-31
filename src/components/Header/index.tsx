@@ -22,16 +22,16 @@ const languageArr = [
 const Header: FC<IHeader> = ({ isDark }) => {
     const [money, setMoney] = useState(moneyArr[0].value);
     const [language, setLanguage] = useState(languageArr[0].value);
-    const [open, setOpen] = useState(false);
-
+    const [openHeader, setOpenHeader] = useState(false);
+    const handleBurgerOpen = () => setOpenHeader(!openHeader);
     return (
         <HeaderContainer isDark={isDark}>
             <HeaderContent isDark={isDark}>
                 <BurgerContainer>
-                    <Burger open={open} setOpen={setOpen} />
+                    <Burger open={openHeader} onClick={handleBurgerOpen} />
                 </BurgerContainer>
                 <MenuContainer>
-                    {open ? (
+                    {openHeader ? (
                         <MenuClose isDark={isDark} />
                     ) : (
                         <MenuOpen

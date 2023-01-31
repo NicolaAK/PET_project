@@ -61,8 +61,8 @@ const MenuOpen = ({ isDark, money, setMoney, moneyArr, languageArr, setLanguage,
             </Money>
         </Settings>
         <SocialsMedia>
-            {iconsProfile.map((i) => (
-                <SocialMedia key={i.id} icon={i.icon} />
+            {iconsProfile.map((icon) => (
+                <SocialMedia key={icon.id} icon={icon.icon} />
             ))}
         </SocialsMedia>
     </MenuContainerOpen>

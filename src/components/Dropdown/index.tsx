@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Arrow from '@assets/icons/arrowBotton.svg';
-import { DropDownHeader, DropDownList, ListItem, DropDownContainer, ArrowContainer } from './styled';
+import { DropDownHeader, DropDownList, ListItem, DropDownContainer, ArrowContainer, Text } from './styled';
 
 interface IArrow {
     value: string;
@@ -28,7 +28,7 @@ const Dropdown = ({ options, width, value, onChange }: IProps) => {
     return (
         <DropDownContainer>
             <DropDownHeader onClick={toggling}>
-                {value}
+                <Text>{value}</Text>
                 {isOpen ? (
                     <ArrowContainer>
                         <Arrow />
@@ -49,7 +49,7 @@ const Dropdown = ({ options, width, value, onChange }: IProps) => {
                                 key={option.value}
                                 options={options}
                             >
-                                {option.label}
+                                <Text>{option.label}</Text>
                             </ListItem>
                         ),
                     )}

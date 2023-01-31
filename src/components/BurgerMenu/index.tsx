@@ -1,14 +1,14 @@
 import React from 'react';
-import { StyledBurger } from './style';
+import { StyledBurger, Line } from './style';
 interface IProps {
     open: boolean;
-    setOpen: (b: boolean) => void;
+    onClick: () => void;
 }
-const Burger = ({ open, setOpen }: IProps) => (
-    <StyledBurger open={open} onClick={() => setOpen(!open)}>
-        <div />
-        <div />
-        <div />
+const Burger = ({ open, onClick }: IProps) => (
+    <StyledBurger open={open} onClick={onClick}>
+        <Line open={open} />
+        <Line open={open} />
+        <Line open={open} />
     </StyledBurger>
 );
 
