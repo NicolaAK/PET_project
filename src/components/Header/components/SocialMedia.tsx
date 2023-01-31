@@ -1,9 +1,9 @@
 import React, { ReactNode, FC } from 'react';
-import { AboutCompanyWrapper } from '@components/Header/components/styled';
+import { Icon } from '@components/Header/components/styled';
 
 type Props = {
     icon: ReactNode;
 };
-const SocialMedia: FC<Props> = ({ icon }) => <AboutCompanyWrapper>{icon}</AboutCompanyWrapper>;
+const SocialMedia: FC<Props> = ({ icon }) => <Icon>{icon}</Icon>;
 
 export default SocialMedia;

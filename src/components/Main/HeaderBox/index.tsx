@@ -13,18 +13,18 @@ import {
 } from '@components/Main/HeaderBox/styled';
 import Line from '@assets/icons/line.svg';
 import ArrowLight from '@assets/icons/arrowRight.svg';
-import mainModel1 from '@assets/foto/mainModel1.png';
-import mainModel2 from '@assets/foto/mainModel2.png';
-import mainModel3 from '@assets/foto/mainModel3.png';
+import MainModel1 from '@assets/foto/mainModel1.png';
+import MainModel2 from '@assets/foto/mainModel2.png';
+import MainModel3 from '@assets/foto/mainModel3.png';
 
 const HeaderBox = () => (
     <BoxContainer>
         <BoxPhoto>
             <PhotoModel1>
-                <img src={mainModel1} alt="photoModel" />
+                <img src={MainModel1} alt="photoModel" />
             </PhotoModel1>
             <PhotoModel2>
-                <img src={mainModel2} alt="photoModel" />
+                <img src={MainModel2} alt="photoModel" />
                 <BoxTitle>
                     <NewCollection>Новая коллекция</NewCollection>
                     <Line />
@@ -37,7 +37,7 @@ const HeaderBox = () => (
                 </BoxTitle>
             </PhotoModel2>
             <PhotoModel3>
-                <img src={mainModel3} alt="photoModel" />
+                <img src={MainModel3} alt="photoModel" />
             </PhotoModel3>
         </BoxPhoto>
     </BoxContainer>
