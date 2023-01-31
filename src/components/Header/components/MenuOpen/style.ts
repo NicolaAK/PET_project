@@ -27,8 +27,12 @@ export const MenuLogo = styled.button`
     z-index: 2;
     transition: ${({ theme }) => theme.decorations.transition};
     &:hover {
-        filter: invert(0.4) sepia(1);
         scale: 102%;
+        svg {
+            path {
+                fill: ${({ theme }) => theme.colors.buttonPrimaryClick()};
+            }
+        }
     }
 `;
 export const Settings = styled.div<THeaderContainer>`

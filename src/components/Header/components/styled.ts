@@ -8,8 +8,12 @@ export const Icon = styled.button`
     ${({ theme }) => theme.mixins.flexCenter};
     transition: ${({ theme }) => theme.decorations.transition};
     &:hover {
-        filter: invert(0.4) sepia(1);
         scale: 110%;
+        svg {
+            path {
+                fill: ${({ theme }) => theme.colors.buttonPrimaryClick()};
+            }
+        }
     }
 `;
 export const AboutCompanyTitle = styled(Typography).attrs({ variant: 'dHeader18' })`
