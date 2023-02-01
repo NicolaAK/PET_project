@@ -24,7 +24,7 @@ export const DropDownList = styled.ul<IAnimation>`
     flex-wrap: wrap;
     transition: all 0.3s linear;
     opacity: ${({ value }) => (value ? '1' : '0')};
-    transform: ${({ value }) => (value ? 'translateY(0)' : 'translateY(-10%)')};
+    transform: ${({ value }) => (value ? 'translateY(0)' : 'translateY(10%)')};
     visibility: ${({ value }) => (value ? 'visible' : 'hidden')};
 `;
 
