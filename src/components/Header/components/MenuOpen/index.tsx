@@ -8,6 +8,8 @@ import Profile from '@assets/icons/profile.svg';
 import Favourites from '@assets/icons/favourites.svg';
 import Shop from '@assets/icons/shop.svg';
 import { AboutsCompany, Language, MenuLogo, MenuContainerOpen, Money, Settings, SocialsMedia } from './style';
+import { ROUTES } from '../../../../routes/constants';
+import { generateGithubPagesRoutes } from '../../../../routes';
 
 interface IArrow {
     value: string;
@@ -44,7 +46,7 @@ const iconsProfile = [
 ];
 const aboutCompany = [
     { label: 'NEW', link: 'catalog' },
-    { label: 'КАТАЛОГ', link: 'catalog' },
+    { label: 'КАТАЛОГ', link: generateGithubPagesRoutes(ROUTES.CATALOG) },
     { label: 'О НАС', link: 'catalog' },
 ];
 const MenuOpen = ({ isDark, money, setMoney, moneyArr, languageArr, setLanguage, language, open }: IHeader) => (

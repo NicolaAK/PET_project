@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 import Catalog from '@components/Catalog';
 import { ROUTES } from './constants';
 
-const generateGithubPagesRoutes = (route: string) => `${ROUTES.YANKI}/${route}`;
+export const generateGithubPagesRoutes = (route: string) => `${ROUTES.YANKI}/${route}`;
 
 const Routes = () =>
     useRoutes([
