@@ -42,12 +42,16 @@ const iconsProfile = [
         icon: <Shop />,
     },
 ];
-const aboutCompany = [{ label: 'NEW' }, { label: 'КАТАЛОГ' }, { label: 'О НАС' }];
+const aboutCompany = [
+    { label: 'NEW', link: 'catalog' },
+    { label: 'КАТАЛОГ', link: 'catalog' },
+    { label: 'О НАС', link: 'catalog' },
+];
 const MenuOpen = ({ isDark, money, setMoney, moneyArr, languageArr, setLanguage, language, open }: IHeader) => (
     <MenuContainerOpen open={open}>
         <AboutsCompany isDark={isDark}>
             {aboutCompany.map((about) => (
-                <AboutCompany key={about.label} label={about.label} />
+                <AboutCompany key={about.label} label={about.label} link={about.link} />
             ))}
         </AboutsCompany>
         <MenuLogo>
