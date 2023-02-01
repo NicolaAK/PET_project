@@ -1,6 +1,6 @@
 import AboutCompany from '@components/Header/components/AboutCompany';
 import Logo from '@assets/icons/logo.svg';
-import Dropdown from '@components/Dropdown';
+import Dropdown from '@components/Header/components/Dropdown';
 import SocialMedia from '@components/Header/components/SocialMedia';
 import React from 'react';
 import Search from '@assets/icons/search.svg';

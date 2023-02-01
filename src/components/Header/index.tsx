@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import { HeaderContent, HeaderContainer, MenuContainer, BurgerContainer } from '@components/Header/styled';
-import Burger from '@components/BurgerMenu';
+import Burger from '@components/Header/components/BurgerMenu';
 import MenuClose from '@components/Header/components/MenuClose';
 import MenuOpen from '@components/Header/components/MenuOpen';
 
@@ -27,7 +27,7 @@ const Header: FC<IHeader> = ({ isDark }) => {
         <HeaderContainer isDark={isDark}>
             <HeaderContent isDark={isDark}>
                 <BurgerContainer>
-                    <Burger open={isOpenBurger} onClick={handleBurgerOpen} />
+                    <Burger isDark={isDark} open={isOpenBurger} onClick={handleBurgerOpen} />
                 </BurgerContainer>
                 <MenuContainer>
                     <MenuClose open={isOpenBurger} isDark={isDark} />
