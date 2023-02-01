@@ -9,11 +9,7 @@ export const Icon = styled.button`
     transition: ${({ theme }) => theme.decorations.transition};
     &:hover {
         scale: 110%;
-        svg {
-            path {
-                fill: ${({ theme }) => theme.colors.buttonPrimaryClick()};
-            }
-        }
+        filter: invert(0.42) sepia(1);
     }
 `;
 export const AboutCompanyTitle = styled(Typography).attrs({ variant: 'dHeader18' })`

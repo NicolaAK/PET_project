@@ -28,11 +28,7 @@ export const MenuLogo = styled.button`
     transition: ${({ theme }) => theme.decorations.transition};
     &:hover {
         scale: 102%;
-        svg {
-            path {
-                fill: ${({ theme }) => theme.colors.buttonPrimaryClick()};
-            }
-        }
+        filter: invert(0.42) sepia(1);
     }
 `;
 export const Settings = styled.div<THeaderContainer>`
