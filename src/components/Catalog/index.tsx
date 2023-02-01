@@ -1,13 +1,16 @@
 import React from 'react';
-import { CatalogContent, CatalogContainer, Navigation, Container, Menu, Filter, Products } from './styled';
+import Menu from '@components/Catalog/components/Menu';
+import Filter from '@components/Catalog/components/Filter';
+import Products from '@components/Catalog/components/Products';
+import { CatalogContent, CatalogContainer, Navigation, Container } from './styled';
 const Catalog = () => (
     <CatalogContainer>
         <CatalogContent>
             <Navigation>Главная Каталог</Navigation>
             <Container>
-                <Menu>asc</Menu>
-                <Filter>asv</Filter>
-                <Products>asv</Products>
+                <Menu />
+                <Filter />
+                <Products />
             </Container>
         </CatalogContent>
     </CatalogContainer>
