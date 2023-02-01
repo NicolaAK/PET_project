@@ -14,47 +14,41 @@ export interface IProps {
 }
 
 const Dropdown = ({ options, width, value, onChange }: IProps) => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpenDropdown, setIsOpenDropdown] = useState(false);
 
-    const toggling = () => setIsOpen(!isOpen);
+    const toggling = () => setIsOpenDropdown(!isOpenDropdown);
 
     const onOptionClicked = (e: any) => () => {
         if (onChange) {
             onChange(e);
         }
-        setIsOpen(false);
+        setIsOpenDropdown(false);
     };
 
     return (
         <DropDownContainer>
             <DropDownHeader onClick={toggling}>
                 <Text>{value}</Text>
-                {isOpen ? (
-                    <ArrowContainer>
-                        <Arrow />
-                    </ArrowContainer>
-                ) : (
+                <ArrowContainer value={isOpenDropdown}>
                     <Arrow />
-                )}
+                </ArrowContainer>
             </DropDownHeader>
-            {isOpen && (
-                <DropDownList>
-                    {options.map((option) =>
-                        value === option.label ? (
-                            ''
-                        ) : (
-                            <ListItem
-                                width={width}
-                                onClick={onOptionClicked(option.value)}
-                                key={option.value}
-                                options={options}
-                            >
-                                <Text>{option.label}</Text>
-                            </ListItem>
-                        ),
-                    )}
-                </DropDownList>
-            )}
+            <DropDownList value={isOpenDropdown}>
+                {options.map((option) =>
+                    value === option.label ? (
+                        ''
+                    ) : (
+                        <ListItem
+                            width={width}
+                            onClick={onOptionClicked(option.value)}
+                            key={option.value}
+                            options={options}
+                        >
+                            <Text>{option.label}</Text>
+                        </ListItem>
+                    ),
+                )}
+            </DropDownList>
         </DropDownContainer>
     );
 };

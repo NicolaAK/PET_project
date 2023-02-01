@@ -7,7 +7,6 @@ import MenuOpen from '@components/Header/components/MenuOpen';
 interface IHeader {
     isDark: boolean;
 }
-
 const moneyArr = [
     { value: 'RUB', label: 'RUB' },
     { value: 'USD', label: 'USD' },
