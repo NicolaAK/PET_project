@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Typography from '@components/Typography';
 
 export const CatalogContainer = styled.div`
     ${({ theme }) => theme.mixins.mainGrid};
@@ -6,13 +7,16 @@ export const CatalogContainer = styled.div`
 `;
 export const CatalogContent = styled.div``;
 export const Navigation = styled.div``;
+export const Heading = styled.div`
+    grid-area: Heading;
+`;
+export const Text = styled(Typography).attrs({ variant: 'dText20' })``;
 export const Container = styled.div`
     display: grid;
-    grid-template-columns: 150px 1fr 1fr;
-    grid-template-rows: 19px 1fr 1fr;
-    gap: 30px 30px;
+    gap: 30px;
+    grid-auto-columns: 150px auto;
+    grid-auto-rows: 25px auto;
     grid-template-areas:
-        'Menu Filter Filter'
-        'Menu Products Products'
-        'Menu Products Products';
+        'Heading Filter'
+        'Menu Products';
 `;

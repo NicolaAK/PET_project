@@ -9,7 +9,9 @@ type Props = {
 const AboutCompany: FC<Props> = ({ label, link }) => (
     <AboutCompanyWrapper>
         <AboutCompanyTitle>
-            <Link to={link}>{label}</Link>
+            <Link to={link} style={{ textDecoration: 'none' }}>
+                {label}
+            </Link>
         </AboutCompanyTitle>
     </AboutCompanyWrapper>
 );
