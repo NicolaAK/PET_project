@@ -26,6 +26,10 @@ const Routes = () =>
                 },
             ],
         },
+        {
+            path: generateGithubPagesRoutes(ROUTES.ABOUTUS),
+            element: <div>ABOUTUS</div>,
+        },
         { path: '*', element: <Navigate to={generateGithubPagesRoutes('')} replace /> },
     ]);
 

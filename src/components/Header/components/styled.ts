@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Typography from '@components/Typography';
+import { Link } from 'react-router-dom';
 
 export const AboutCompanyWrapper = styled.button`
     ${({ theme }) => theme.mixins.flexCenter}
@@ -17,4 +18,7 @@ export const AboutCompanyTitle = styled(Typography).attrs({ variant: 'dHeader18'
     &:hover {
         color: ${({ theme }) => theme.colors.buttonPrimaryClick()};
     }
+`;
+export const LinkText = styled(Link)`
+    text-decoration-line: none;
 `;

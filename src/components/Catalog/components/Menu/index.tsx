@@ -1,5 +1,5 @@
 import React from 'react';
-import { MenuContainer, CategoryContainer, MenuContent, CategoryBtn, Text } from './style';
+import { MenuContainer, CategoryContainer, MenuContent, Text } from './style';
 
 const categoriesArr = [
     { category: 'New' },
@@ -24,9 +24,7 @@ const Menu = () => (
         <MenuContent>
             <CategoryContainer>
                 {categoriesArr.map((categor) => (
-                    <CategoryBtn key={categor.category}>
-                        <Text>{categor.category}</Text>
-                    </CategoryBtn>
+                    <Text key={categor.category}>{categor.category}</Text>
                 ))}
             </CategoryContainer>
         </MenuContent>

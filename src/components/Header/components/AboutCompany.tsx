@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
-import { AboutCompanyWrapper, AboutCompanyTitle } from '@components/Header/components/styled';
-import { Link } from 'react-router-dom';
+import { AboutCompanyWrapper, AboutCompanyTitle, LinkText } from '@components/Header/components/styled';
 
 type Props = {
     label: string;
@@ -9,9 +8,7 @@ type Props = {
 const AboutCompany: FC<Props> = ({ label, link }) => (
     <AboutCompanyWrapper>
         <AboutCompanyTitle>
-            <Link to={link} style={{ textDecoration: 'none' }}>
-                {label}
-            </Link>
+            <LinkText to={link}>{label}</LinkText>
         </AboutCompanyTitle>
     </AboutCompanyWrapper>
 );
