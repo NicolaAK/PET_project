@@ -1,6 +1,6 @@
 import AboutCompany from '@components/Header/components/AboutCompany';
 import Logo from '@assets/icons/logo.svg';
-import Dropdown from '@components/Dropdown';
+import Dropdown from '@components/Header/components/Dropdown';
 import SocialMedia from '@components/Header/components/SocialMedia';
 import React from 'react';
 import Search from '@assets/icons/search.svg';
@@ -8,6 +8,8 @@ import Profile from '@assets/icons/profile.svg';
 import Favourites from '@assets/icons/favourites.svg';
 import Shop from '@assets/icons/shop.svg';
 import { AboutsCompany, Language, MenuLogo, MenuContainerOpen, Money, Settings, SocialsMedia } from './style';
+import { ROUTES } from '../../../../routes/constants';
+import { generateGithubPagesRoutes } from '../../../../routes';
 
 interface IArrow {
     value: string;
@@ -42,12 +44,16 @@ const iconsProfile = [
         icon: <Shop />,
     },
 ];
-const aboutCompany = [{ label: 'NEW' }, { label: 'КАТАЛОГ' }, { label: 'О НАС' }];
+const aboutCompany = [
+    { label: 'NEW', link: 'catalog' },
+    { label: 'КАТАЛОГ', link: generateGithubPagesRoutes(ROUTES.CATALOG) },
+    { label: 'О НАС', link: generateGithubPagesRoutes(ROUTES.ABOUTUS) },
+];
 const MenuOpen = ({ isDark, money, setMoney, moneyArr, languageArr, setLanguage, language, open }: IHeader) => (
     <MenuContainerOpen open={open}>
         <AboutsCompany isDark={isDark}>
             {aboutCompany.map((about) => (
-                <AboutCompany key={about.label} label={about.label} />
+                <AboutCompany key={about.label} label={about.label} link={about.link} />
             ))}
         </AboutsCompany>
         <MenuLogo>

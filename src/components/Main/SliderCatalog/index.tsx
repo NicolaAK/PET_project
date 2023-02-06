@@ -16,14 +16,14 @@ import sliderParks from '@assets/foto/sliderParks.png';
 import { ArrowControl } from '@components/Main/SliderCatalog/component/ArrowControl';
 
 const sliderItems = [
-    { category: 'Пальто', photo: sliderCoat },
-    { category: 'Куртки', photo: sliderJackets },
-    { category: 'Шубы', photo: sliderFur },
-    { category: 'Парки', photo: sliderParks },
-    { category: 'Пальто', photo: sliderCoat },
-    { category: 'Куртки', photo: sliderJackets },
-    { category: 'Шубы', photo: sliderFur },
-    { category: 'Парки', photo: sliderParks },
+    { name: 'Пальто', photo: sliderCoat },
+    { name: 'Куртки', photo: sliderJackets },
+    { name: 'Шубы', photo: sliderFur },
+    { name: 'Парки', photo: sliderParks },
+    { name: 'Пальто', photo: sliderCoat },
+    { name: 'Куртки', photo: sliderJackets },
+    { name: 'Шубы', photo: sliderFur },
+    { name: 'Парки', photo: sliderParks },
 ];
 
 const SliderBox = () => {
@@ -39,12 +39,12 @@ const SliderBox = () => {
         <SliderContainer>
             <Slider {...settings}>
                 {sliderItems.map((sliderItem) => (
-                    <SliderWrap key={sliderItem.category}>
+                    <SliderWrap key={sliderItem.name}>
                         <SliderPhoto>
                             <img src={sliderItem.photo} alt="photoSlider" />
                         </SliderPhoto>
                         <SliderBottomBox>
-                            <SliderText>{sliderItem.category}</SliderText>
+                            <SliderText>{sliderItem.name}</SliderText>
                         </SliderBottomBox>
                     </SliderWrap>
                 ))}

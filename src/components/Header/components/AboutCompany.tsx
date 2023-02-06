@@ -1,12 +1,15 @@
 import React, { FC } from 'react';
-import { AboutCompanyWrapper, AboutCompanyTitle } from '@components/Header/components/styled';
+import { AboutCompanyWrapper, AboutCompanyTitle, LinkText } from '@components/Header/components/styled';
 
 type Props = {
     label: string;
+    link: string;
 };
-const AboutCompany: FC<Props> = ({ label }) => (
+const AboutCompany: FC<Props> = ({ label, link }) => (
     <AboutCompanyWrapper>
-        <AboutCompanyTitle>{label}</AboutCompanyTitle>
+        <AboutCompanyTitle>
+            <LinkText to={link}>{label}</LinkText>
+        </AboutCompanyTitle>
     </AboutCompanyWrapper>
 );
 

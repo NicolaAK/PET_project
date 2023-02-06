@@ -2,9 +2,10 @@ import React from 'react';
 import { useRoutes } from 'react-router';
 import Main from '@components/Main';
 import { Navigate } from 'react-router-dom';
+import Catalog from '@components/Catalog';
 import { ROUTES } from './constants';
 
-const generateGithubPagesRoutes = (route: string) => `${ROUTES.YANKI}/${route}`;
+export const generateGithubPagesRoutes = (route: string) => `${ROUTES.YANKI}/${route}`;
 
 const Routes = () =>
     useRoutes([
@@ -14,7 +15,7 @@ const Routes = () =>
         },
         {
             path: generateGithubPagesRoutes(ROUTES.CATALOG),
-            element: <div>Catalog</div>,
+            element: <Catalog />,
         },
         {
             path: generateGithubPagesRoutes(ROUTES.CATEGORY),
@@ -24,6 +25,10 @@ const Routes = () =>
                     element: <div>Category</div>,
                 },
             ],
+        },
+        {
+            path: generateGithubPagesRoutes(ROUTES.ABOUTUS),
+            element: <div>ABOUTUS</div>,
         },
         { path: '*', element: <Navigate to={generateGithubPagesRoutes('')} replace /> },
     ]);

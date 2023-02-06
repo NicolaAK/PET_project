@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 interface IProps {
     open: boolean;
+    isDark?: boolean;
 }
 export const StyledBurger = styled.button<IProps>`
     display: flex;
@@ -21,7 +22,7 @@ export const StyledBurger = styled.button<IProps>`
 export const Line = styled.div<IProps>`
     width: 2rem;
     height: 0.25rem;
-    background: ${({ theme }) => theme.colors.white()};
+    background: ${({ theme, isDark }) => (isDark ? theme.colors.mainPrimary() : theme.colors.white())};
     transition: all 0.3s linear;
     position: relative;
     transform-origin: 1px;
