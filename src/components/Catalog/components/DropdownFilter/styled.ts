@@ -1,12 +1,22 @@
 import styled from 'styled-components';
-import Typography from '@components/Typography';
 import { IProps } from './index';
 
 interface IAnimation {
     value: boolean;
 }
+
 export const DropDownContainer = styled.div``;
-export const Text = styled(Typography).attrs({ variant: 'dText16w' })`
+export const Text = styled.div<IProps>`
+    ${({ theme }) => theme.helpers.getTypography('dText16w')};
+    ${({ theme }) => theme.mixins.flexCenterCenter};
+    transition: ${({ theme }) => theme.decorations.transition};
+    color: ${({ theme, value }) => (value ? theme.colors.blackPrimary() : theme.colors.mainPrimary())};
+    &:hover {
+        color: ${({ theme }) => theme.colors.buttonPrimaryClick()};
+    }
+`;
+export const Placeholder = styled.div`
+    ${({ theme }) => theme.helpers.getTypography('dText16w')}
     ${({ theme }) => theme.mixins.flexCenterCenter};
     transition: ${({ theme }) => theme.decorations.transition};
     &:hover {
