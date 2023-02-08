@@ -7,18 +7,18 @@ const sizeArr = [
     { value: 'M', label: 'M' },
 ];
 const colorArr = [
-    { value: 'Белый', label: 'Белый' },
-    { value: 'Синий', label: 'Синий' },
-    { value: 'Желтый', label: 'Желтый' },
+    { value: 'white', label: 'Белый' },
+    { value: 'blue', label: 'Синий' },
+    { value: 'yellow', label: 'Желтый' },
 ];
 const priceArr = [
-    { value: 'Дороже', label: 'Дороже' },
-    { value: 'Дешевле', label: 'Дешевле' },
+    { value: 'expensive', label: 'Дороже' },
+    { value: 'cheap', label: 'Дешевле' },
 ];
 const sortArr = [
-    { value: 'Популярности', label: 'Популярности' },
-    { value: 'Оценке', label: 'Оценке' },
-    { value: 'Скидке', label: 'Скидке' },
+    { value: 'popularity', label: 'Популярности' },
+    { value: 'estimation', label: 'Оценке' },
+    { value: 'discount', label: 'Скидке' },
 ];
 const Filter = () => {
     const [size, setSize] = useState(sizeArr[0].value);
