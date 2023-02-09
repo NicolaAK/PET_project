@@ -21,7 +21,7 @@ const sortArr = [
     { value: 'discount', label: 'Скидке' },
 ];
 const Filter = () => {
-    const [size, setSize] = useState(sizeArr[0].value);
+    const [size, setSize] = useState<string>();
     const [color, setColor] = useState(colorArr[0].value);
     const [price, setPrice] = useState(priceArr[0].value);
     const [sort, setSort] = useState(sortArr[0].value);
@@ -32,15 +32,31 @@ const Filter = () => {
     return (
         <FilterContainer>
             <DropdownFilter width={79} value={size} onChange={setSize} options={sizeArr} placeholder="Размер" />
-            <DropdownFilter width={60} value={color} onChange={setColor} options={colorArr} placeholder="Цвет" />
-            <DropdownFilter width={62} value={price} onChange={setPrice} options={priceArr} placeholder="Цена" />
-            <DropdownFilter
-                width={145}
-                value={sort}
-                onChange={setSort}
-                options={sortArr}
-                placeholder="Сортировать по"
-            />
+            {false && (
+                <>
+                    <DropdownFilter
+                        width={60}
+                        value={color}
+                        onChange={setColor}
+                        options={colorArr}
+                        placeholder="Цвет"
+                    />
+                    <DropdownFilter
+                        width={62}
+                        value={price}
+                        onChange={setPrice}
+                        options={priceArr}
+                        placeholder="Цена"
+                    />
+                    <DropdownFilter
+                        width={145}
+                        value={sort}
+                        onChange={setSort}
+                        options={sortArr}
+                        placeholder="Сортировать по"
+                    />
+                </>
+            )}
         </FilterContainer>
     );
 };
