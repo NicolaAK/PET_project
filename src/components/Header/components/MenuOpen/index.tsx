@@ -7,6 +7,7 @@ import Search from '@assets/icons/search.svg';
 import Profile from '@assets/icons/profile.svg';
 import Favourites from '@assets/icons/favourites.svg';
 import Shop from '@assets/icons/shop.svg';
+import { Link } from 'react-router-dom';
 import { AboutsCompany, Language, MenuLogo, MenuContainerOpen, Money, Settings, SocialsMedia } from './style';
 import { ROUTES } from '../../../../routes/constants';
 import { generateGithubPagesRoutes } from '../../../../routes';
@@ -57,7 +58,9 @@ const MenuOpen = ({ isDark, money, setMoney, moneyArr, languageArr, setLanguage,
             ))}
         </AboutsCompany>
         <MenuLogo>
-            <Logo />
+            <Link to={generateGithubPagesRoutes(ROUTES.DASHBOARD)}>
+                <Logo />
+            </Link>
         </MenuLogo>
         <Settings isDark={isDark}>
             <Language>
