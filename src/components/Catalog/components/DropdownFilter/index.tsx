@@ -25,10 +25,13 @@ const Dropdown = ({ options, width, onChange, placeholder, value }: IProps) => {
         setIsOpenDropdown(false);
     };
 
+    const labelVision = options?.find((i) => i.value === value)?.label;
+
+    console.log(value, placeholder);
     return (
         <DropDownContainer>
             <DropDownHeader onClick={toggling}>
-                <Placeholder>{placeholder}</Placeholder>
+                <Placeholder>{labelVision || placeholder}</Placeholder>
                 <ArrowContainer value={isOpenDropdown}>
                     <ArrowR />
                 </ArrowContainer>
@@ -41,9 +44,7 @@ const Dropdown = ({ options, width, onChange, placeholder, value }: IProps) => {
                         key={option.value}
                         options={options}
                     >
-                        <Text value={value} options={options}>
-                            {option.label}
-                        </Text>
+                        <Text isActive={value === option.value}>{option.label}</Text>
                     </ListItem>
                 ))}
             </DropDownList>

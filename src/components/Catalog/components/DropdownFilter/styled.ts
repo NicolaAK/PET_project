@@ -6,11 +6,11 @@ interface IAnimation {
 }
 
 export const DropDownContainer = styled.div``;
-export const Text = styled.div<IProps>`
+export const Text = styled.div<{ isActive: boolean }>`
     ${({ theme }) => theme.helpers.getTypography('dText16w')};
     ${({ theme }) => theme.mixins.flexCenterCenter};
     transition: ${({ theme }) => theme.decorations.transition};
-    color: ${({ theme, value }) => (value ? theme.colors.blackPrimary() : theme.colors.mainPrimary())};
+    color: ${({ theme, isActive }) => (isActive ? theme.colors.blackPrimary() : theme.colors.mainPrimary())};
     &:hover {
         color: ${({ theme }) => theme.colors.buttonPrimaryClick()};
     }
