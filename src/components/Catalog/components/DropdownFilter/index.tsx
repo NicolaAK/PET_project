@@ -27,16 +27,15 @@ const Dropdown = ({ options, width, onChange, placeholder, value }: IProps) => {
 
     const labelVision = options?.find((i) => i.value === value)?.label;
 
-    console.log(value, placeholder);
     return (
         <DropDownContainer>
             <DropDownHeader onClick={toggling}>
                 <Placeholder>{labelVision || placeholder}</Placeholder>
-                <ArrowContainer value={isOpenDropdown}>
+                <ArrowContainer isOpenDropdown={isOpenDropdown}>
                     <ArrowR />
                 </ArrowContainer>
             </DropDownHeader>
-            <DropDownList value={isOpenDropdown}>
+            <DropDownList isOpenDropdown={isOpenDropdown}>
                 {options.map((option) => (
                     <ListItem
                         width={width}

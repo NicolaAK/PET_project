@@ -1,13 +1,16 @@
 import React from 'react';
+import Product from '@components/Catalog/components/Products/Product';
 import { ProductsContainer } from './style';
 
 const Products = () => (
     <ProductsContainer>
-        ascMenuContainerMenuContainer MenuContainerMenuContainerMenu ContainerMenuContainerMenuContain
-        erMenuContainerMenuContainerMenuContainerMen uContainerMenuContainerMenuContainerMenuContainerMe
-        nuContainerMenuContainerM enuContainerMenuContainerMenu ContainerMenuContainerM
-        enuContainerMenuContainerMenuContainer MenuContainerMenuContainerMenuContainerMenuContainer
-        MenuContainerMenuContainerMenuContainerMenuConta inerMenuContainerMenuContainerMenuContainer
+        <Product />
+        <Product />
+        <Product />
+        <Product />
+        <Product />
+        <Product />
+        <Product />
     </ProductsContainer>
 );
 
