@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ProductsContainer = styled.div`
     grid-area: Products;
-    ${({ theme }) => theme.mixins.flexCenterSpaceBetween};
+    ${({ theme }) => theme.mixins.flexStart};
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 15px;
 `;
