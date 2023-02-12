@@ -8,6 +8,7 @@ import { ProductsContainer } from './style';
 
 const products = [
     {
+        id: 1,
         name: 'Белая куртка',
         isNew: true,
         prices: { ru: 2000, ua: 12.2 },
@@ -16,6 +17,7 @@ const products = [
         image: ModelFoto1,
     },
     {
+        id: 2,
         name: 'Синее пальто',
         isNew: false,
         prices: { ru: 3100, ua: 12.2 },
@@ -24,6 +26,7 @@ const products = [
         image: ModelFoto2,
     },
     {
+        id: 3,
         name: 'Бежевая шуба',
         isNew: true,
         prices: { ru: 4500, ua: 12.2 },
@@ -32,6 +35,7 @@ const products = [
         image: ModelFoto3,
     },
     {
+        id: 4,
         name: 'Синяя парка',
         isNew: false,
         prices: { ru: 700, ua: 12.2 },
@@ -40,6 +44,7 @@ const products = [
         image: ModelFoto4,
     },
     {
+        id: 5,
         name: 'Белая куртка',
         isNew: true,
         prices: { ru: 2000, ua: 12.2 },
@@ -48,6 +53,7 @@ const products = [
         image: ModelFoto1,
     },
     {
+        id: 6,
         name: 'Белая куртка',
         isNew: true,
         prices: { ru: 2000, ua: 12.2 },
@@ -56,6 +62,7 @@ const products = [
         image: ModelFoto1,
     },
     {
+        id: 7,
         name: 'Синее пальто',
         isNew: false,
         prices: { ru: 3100, ua: 12.2 },
@@ -64,6 +71,7 @@ const products = [
         image: ModelFoto2,
     },
     {
+        id: 8,
         name: 'Бежевая шуба',
         isNew: true,
         prices: { ru: 4500, ua: 12.2 },
@@ -72,6 +80,7 @@ const products = [
         image: ModelFoto3,
     },
     {
+        id: 9,
         name: 'Синяя парка',
         isNew: false,
         prices: { ru: 700, ua: 12.2 },
@@ -80,6 +89,7 @@ const products = [
         image: ModelFoto4,
     },
     {
+        id: 10,
         name: 'Белая куртка',
         isNew: true,
         prices: { ru: 2000, ua: 12.2 },
@@ -88,6 +98,7 @@ const products = [
         image: ModelFoto1,
     },
     {
+        id: 11,
         name: 'Синее пальто',
         isNew: false,
         prices: { ru: 3100, ua: 12.2 },
@@ -96,6 +107,7 @@ const products = [
         image: ModelFoto2,
     },
     {
+        id: 12,
         name: 'Бежевая шуба',
         isNew: true,
         prices: { ru: 4500, ua: 12.2 },
@@ -104,6 +116,7 @@ const products = [
         image: ModelFoto3,
     },
     {
+        id: 13,
         name: 'Бежевая шуба',
         isNew: true,
         prices: { ru: 4500, ua: 12.2 },
@@ -112,6 +125,7 @@ const products = [
         image: ModelFoto3,
     },
     {
+        id: 14,
         name: 'Синяя парка',
         isNew: false,
         prices: { ru: 700, ua: 12.2 },
@@ -125,6 +139,7 @@ const Products = () => (
     <ProductsContainer>
         {products.map((product) => (
             <Product
+                key={product.id}
                 prices={product.prices}
                 image={product.image}
                 name={product.name}

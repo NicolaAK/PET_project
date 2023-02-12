@@ -55,26 +55,26 @@ const Product = ({ image, isNew, name, sizes, colors, prices }: IProduct) => {
                     </Price>
                     <Sizes>
                         {sizes?.map((size) => (
-                            <Size>{size}</Size>
+                            <Size key={size}>{size}</Size>
                         ))}
                     </Sizes>
                     <Colors>
                         {colors?.map((color) => {
                             switch (color) {
                                 case 'white':
-                                    return <White />;
+                                    return <White key={color} />;
                                 case 'blue':
-                                    return <Blue />;
+                                    return <Blue key={color} />;
                                 case 'yellow':
-                                    return <Yellow />;
+                                    return <Yellow key={color} />;
                                 case 'green':
-                                    return <Green />;
+                                    return <Green key={color} />;
                                 case 'red':
-                                    return <Red />;
+                                    return <Red key={color} />;
                                 case 'black':
-                                    return <Black />;
+                                    return <Black key={color} />;
                                 default:
-                                    return <White />;
+                                    return <White key={color} />;
                             }
                         })}
                     </Colors>
