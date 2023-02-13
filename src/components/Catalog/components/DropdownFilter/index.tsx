@@ -17,7 +17,6 @@ export interface IProps {
 const Dropdown = ({ options, width, onChange, placeholder, value }: IProps) => {
     const [isOpenDropdown, setIsOpenDropdown] = useState(false);
     const toggling = () => setIsOpenDropdown(!isOpenDropdown);
-
     const onOptionClicked = (e: any) => () => {
         if (onChange) {
             onChange(e);

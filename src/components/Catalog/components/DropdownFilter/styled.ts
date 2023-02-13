@@ -5,7 +5,9 @@ interface IAnimation {
     isOpenDropdown: boolean;
 }
 
-export const DropDownContainer = styled.div``;
+export const DropDownContainer = styled.div`
+    z-index: 3;
+`;
 export const Text = styled.div<{ isActive: boolean }>`
     ${({ theme }) => theme.helpers.getTypography('dText16w')};
     ${({ theme }) => theme.mixins.flexCenterCenter};

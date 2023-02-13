@@ -67,7 +67,7 @@ export const White = styled.div`
     height: 14px;
     background-color: ${({ theme }) => theme.colors.white()};
     border-radius: 15px;
-    border: 0.1px solid ${({ theme }) => theme.colors.blackPrimary(0.5)};
+    border: 1px solid ${({ theme }) => theme.colors.blackPrimary(0.5)};
 `;
 export const Blue = styled.div`
     width: 14px;
