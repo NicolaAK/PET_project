@@ -1,5 +1,6 @@
 import React from 'react';
 import Heart from '@assets/icons/heart.svg';
+import theme from '@theme/index';
 import {
     NameProduct,
     Colors,
@@ -13,13 +14,8 @@ import {
     Container,
     Image,
     Icon,
-    White,
-    Blue,
-    Yellow,
+    EllipseColor,
     New,
-    Red,
-    Green,
-    Black,
 } from './styled';
 
 interface IProduct {
@@ -35,6 +31,14 @@ const Product = ({ image, isNew, name, sizes, colors, prices }: IProduct) => {
     const labelSymbol = {
         ru: 'руб',
         ua: 'грн',
+    };
+    const colorsSchema: Record<string, string> = {
+        white: theme.colors.white(),
+        blue: theme.colors.elipseViolet(),
+        yellow: theme.colors.elipsePastel(),
+        green: theme.colors.green(),
+        red: theme.colors.error(),
+        black: theme.colors.blackPrimary(),
     };
     return (
         <Container>
@@ -59,24 +63,9 @@ const Product = ({ image, isNew, name, sizes, colors, prices }: IProduct) => {
                         ))}
                     </Sizes>
                     <Colors>
-                        {colors?.map((color) => {
-                            switch (color) {
-                                case 'white':
-                                    return <White key={color} />;
-                                case 'blue':
-                                    return <Blue key={color} />;
-                                case 'yellow':
-                                    return <Yellow key={color} />;
-                                case 'green':
-                                    return <Green key={color} />;
-                                case 'red':
-                                    return <Red key={color} />;
-                                case 'black':
-                                    return <Black key={color} />;
-                                default:
-                                    return <White key={color} />;
-                            }
-                        })}
+                        {colors?.map((color) => (
+                            <EllipseColor key={color} color={colorsSchema[color]} />
+                        ))}
                     </Colors>
                 </Description>
             </Content>

@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+interface IColor {
+    color: string;
+}
 export const Container = styled.div`
     position: relative;
     display: inline-block;
@@ -62,42 +65,12 @@ export const Colors = styled.div`
     ${({ theme }) => theme.mixins.flexStartCenter};
     column-gap: 5px;
 `;
-export const White = styled.div`
+export const EllipseColor = styled.div<IColor>`
     width: 14px;
     height: 14px;
-    background-color: ${({ theme }) => theme.colors.white()};
+    background-color: ${({ color }) => color};
     border-radius: 15px;
-    border: 1px solid ${({ theme }) => theme.colors.blackPrimary(0.5)};
-`;
-export const Blue = styled.div`
-    width: 14px;
-    height: 14px;
-    background-color: ${({ theme }) => theme.colors.elipseViolet()};
-    border-radius: 15px;
-`;
-export const Yellow = styled.div`
-    width: 14px;
-    height: 14px;
-    background-color: ${({ theme }) => theme.colors.elipsePastel()};
-    border-radius: 15px;
-`;
-export const Green = styled.div`
-    width: 14px;
-    height: 14px;
-    background-color: green;
-    border-radius: 15px;
-`;
-export const Red = styled.div`
-    width: 14px;
-    height: 14px;
-    background-color: ${({ theme }) => theme.colors.error()};
-    border-radius: 15px;
-`;
-export const Black = styled.div`
-    width: 14px;
-    height: 14px;
-    background-color: ${({ theme }) => theme.colors.blackPrimary()};
-    border-radius: 15px;
+    border: 1px solid ${({ theme, color }) => (color === '#FFFFFF' ? theme.colors.blackPrimary(0.5) : 'transparent')};
 `;
 
 export const Icon = styled.button`

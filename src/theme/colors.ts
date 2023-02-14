@@ -10,4 +10,5 @@ export default createPalette({
     elipsePastel: '#F1DDAA',
 
     buttonPrimaryClick: '#CCA88A',
+    green: '#008000',
 });
