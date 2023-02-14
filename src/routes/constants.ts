@@ -1,5 +1,5 @@
 export enum ROUTES {
-    DASHBOARD = '/',
+    DASHBOARD = '',
     CATALOG = 'catalog',
     CATEGORY = 'category',
     ABOUTUS = 'aboutus',

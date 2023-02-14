@@ -5,6 +5,7 @@ import Products from '@components/Catalog/components/Products';
 import ArrowR from '@assets/icons/arrowR.svg';
 import { CatalogContent, CatalogContainer, Navigation, Container, Heading, Text, LinkMain } from './styled';
 import { generateGithubPagesRoutes } from '../../routes';
+
 const Catalog = () => (
     <CatalogContainer>
         <CatalogContent>
