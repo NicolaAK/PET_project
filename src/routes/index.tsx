@@ -3,6 +3,8 @@ import { useRoutes } from 'react-router';
 import Main from '@components/Main';
 import { Navigate } from 'react-router-dom';
 import Catalog from '@components/Catalog';
+import Payment from '@components/Payment';
+import Refund from '@components/Refund';
 import { ROUTES } from './constants';
 
 export const generateGithubPagesRoutes = (route: string) => `${ROUTES.YANKI}/${route}`;
@@ -27,8 +29,16 @@ const Routes = () =>
             ],
         },
         {
-            path: generateGithubPagesRoutes(ROUTES.ABOUTUS),
-            element: <div>ABOUTUS</div>,
+            path: generateGithubPagesRoutes(ROUTES.ABOUTS),
+            element: <div>ABOUTS</div>,
+        },
+        {
+            path: generateGithubPagesRoutes(ROUTES.PAYMENT),
+            element: <Payment />,
+        },
+        {
+            path: generateGithubPagesRoutes(ROUTES.REFUND),
+            element: <Refund />,
         },
         { path: '*', element: <Navigate to={generateGithubPagesRoutes('')} replace /> },
     ]);

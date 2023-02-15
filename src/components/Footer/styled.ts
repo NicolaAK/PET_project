@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Typography from '@components/Typography';
 
 export const FooterContainer = styled.div`
+    flex-shrink: 0;
     ${({ theme }) => theme.mixins.mainGrid};
     margin: 100px auto;
 `;
