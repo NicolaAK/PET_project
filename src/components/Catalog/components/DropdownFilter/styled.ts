@@ -29,7 +29,6 @@ export const Placeholder = styled.div`
 
 export const DropDownHeader = styled.button`
     ${({ theme }) => theme.mixins.flexCenterCenter};
-    width: 100%;
     column-gap: 9px;
 `;
 
@@ -44,6 +43,7 @@ export const DropDownList = styled.ul<IAnimation>`
 `;
 
 export const ListItem = styled.button<IProps>`
+    min-width: ${({ width }) => width}px;
     border-top: 1px solid #e0bea2;
     list-style: none;
     align-items: center;
