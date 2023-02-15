@@ -48,7 +48,7 @@ const iconsProfile = [
 const aboutCompany = [
     { label: 'NEW', link: 'catalog' },
     { label: 'КАТАЛОГ', link: generateGithubPagesRoutes(ROUTES.CATALOG) },
-    { label: 'О НАС', link: generateGithubPagesRoutes(ROUTES.ABOUTUS) },
+    { label: 'О НАС', link: generateGithubPagesRoutes(ROUTES.ABOUTS) },
 ];
 const MenuOpen = ({ isDark, money, setMoney, moneyArr, languageArr, setLanguage, language, open }: IHeader) => (
     <MenuContainerOpen open={open}>

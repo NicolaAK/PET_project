@@ -1,7 +1,13 @@
 import React from 'react';
 import { Bar, MenuTitle, MenuContainerClose, Text } from './style';
+import { generateGithubPagesRoutes } from '../../../../routes';
+import { ROUTES } from '../../../../routes/constants';
 
-const hamburgerTitles = [{ title: 'ОПЛАТА И ДОСТАВКА' }, { title: 'УСЛОВИЯ ВОЗВРАТА' }, { title: 'КОНТАКТЫ' }];
+const hamburgerTitles = [
+    { title: 'ОПЛАТА И ДОСТАВКА', link: generateGithubPagesRoutes(ROUTES.PAYMENT) },
+    { title: 'УСЛОВИЯ ВОЗВРАТА', link: generateGithubPagesRoutes(ROUTES.REFUND) },
+    { title: 'КОНТАКТЫ', link: generateGithubPagesRoutes(ROUTES.ABOUTS) },
+];
 
 interface IProps {
     isDark: boolean;
@@ -12,7 +18,9 @@ const MenuClose = ({ isDark, open }: IProps) => (
         <MenuTitle>
             {hamburgerTitles.map((hamburger) => (
                 <Bar key={hamburger.title}>
-                    <Text isDark={isDark}>{hamburger.title}</Text>
+                    <Text to={hamburger.link} isDark={isDark}>
+                        {hamburger.title}
+                    </Text>
                 </Bar>
             ))}
         </MenuTitle>
