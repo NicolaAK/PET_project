@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import Arrow from '@assets/icons/arrowBotton.svg';
 import { DropDownHeader, DropDownList, ListItem, DropDownContainer, ArrowContainer, Text } from './styled';
+import useClickOutside from '../../../../HOK/ClickOutside';
 
 interface IArrow {
     value: string;
@@ -15,7 +16,6 @@ export interface IProps {
 
 const Dropdown = ({ options, width, value, onChange }: IProps) => {
     const [isOpenDropdown, setIsOpenDropdown] = useState(false);
-    const ref = useRef<HTMLDivElement>(null);
     const toggling = () => setIsOpenDropdown(!isOpenDropdown);
 
     const onOptionClicked = (e: any) => () => {
@@ -25,20 +25,11 @@ const Dropdown = ({ options, width, value, onChange }: IProps) => {
         setIsOpenDropdown(false);
     };
 
-    useEffect(() => {
-        const checkIfClickedOutside = (e: { target: any }) => {
-            if (isOpenDropdown && ref.current && !ref.current.contains(e.target)) {
-                setIsOpenDropdown(false);
-            }
-        };
-        document.addEventListener('mousedown', checkIfClickedOutside);
-        return () => {
-            document.removeEventListener('mousedown', checkIfClickedOutside);
-        };
-    }, [isOpenDropdown]);
+    const close = () => setIsOpenDropdown(false);
+    const wrapperRef = useClickOutside(close);
 
     return (
-        <DropDownContainer ref={ref}>
+        <DropDownContainer ref={wrapperRef}>
             <DropDownHeader onClick={toggling}>
                 <Text>{value}</Text>
                 <ArrowContainer value={isOpenDropdown}>
