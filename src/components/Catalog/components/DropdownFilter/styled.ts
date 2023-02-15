@@ -12,6 +12,8 @@ export const Text = styled.div<{ isActive: boolean }>`
     ${({ theme }) => theme.helpers.getTypography('dText16w')};
     ${({ theme }) => theme.mixins.flexCenterCenter};
     transition: ${({ theme }) => theme.decorations.transition};
+    background-color: ${({ theme }) => theme.colors.white()};
+    padding: 5px;
     &:hover {
         color: ${({ theme }) => theme.colors.buttonPrimaryClick()};
     }
@@ -41,11 +43,9 @@ export const DropDownList = styled.ul<IAnimation>`
 `;
 
 export const ListItem = styled.button<IProps>`
-    width: ${(props) => props.width}px;
+    min-width: ${({ width }) => width}px;
     border-top: 1px solid #e0bea2;
-    background-color: ${({ theme }) => theme.colors.white()};
     list-style: none;
-    padding: 3px 0;
     align-items: center;
 `;
 export const ArrowContainer = styled.div<IAnimation>`

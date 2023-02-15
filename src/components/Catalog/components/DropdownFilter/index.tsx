@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ArrowR from '@assets/icons/arrowR.svg';
 import { DropDownHeader, DropDownList, ListItem, DropDownContainer, ArrowContainer, Text, Placeholder } from './styled';
 
@@ -16,6 +16,7 @@ export interface IProps {
 
 const Dropdown = ({ options, width, onChange, placeholder, value }: IProps) => {
     const [isOpenDropdown, setIsOpenDropdown] = useState(false);
+    const ref = useRef<HTMLDivElement>(null);
     const toggling = () => setIsOpenDropdown(!isOpenDropdown);
     const onOptionClicked = (e: any) => () => {
         if (onChange) {
@@ -24,10 +25,22 @@ const Dropdown = ({ options, width, onChange, placeholder, value }: IProps) => {
         setIsOpenDropdown(false);
     };
 
+    useEffect(() => {
+        const checkIfClickedOutside = (e: { target: any }) => {
+            if (isOpenDropdown && ref.current && !ref.current.contains(e.target)) {
+                setIsOpenDropdown(false);
+            }
+        };
+        document.addEventListener('mousedown', checkIfClickedOutside);
+        return () => {
+            document.removeEventListener('mousedown', checkIfClickedOutside);
+        };
+    }, [isOpenDropdown]);
+
     const labelVision = options?.find((i) => i.value === value)?.label;
 
     return (
-        <DropDownContainer>
+        <DropDownContainer ref={ref}>
             <DropDownHeader onClick={toggling}>
                 <Placeholder>{labelVision || placeholder}</Placeholder>
                 <ArrowContainer isOpenDropdown={isOpenDropdown}>
