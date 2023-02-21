@@ -5,7 +5,7 @@ import MenuClose from '@components/Header/components/MenuClose';
 import MenuOpen from '@components/Header/components/MenuOpen';
 
 interface IHeader {
-    isDark: boolean;
+    $isDark: boolean;
 }
 const moneyArr = [
     { value: 'RUB', label: 'RUB' },
@@ -18,22 +18,22 @@ const languageArr = [
     { value: 'UA', label: 'UA' },
 ];
 
-const Header: FC<IHeader> = ({ isDark }) => {
+const Header: FC<IHeader> = ({ $isDark }) => {
     const [money, setMoney] = useState(moneyArr[0].value);
     const [language, setLanguage] = useState(languageArr[0].value);
     const [isOpenBurger, setIsOpenBurger] = useState(false);
     const handleBurgerOpen = () => setIsOpenBurger(!isOpenBurger);
     return (
-        <HeaderContainer isDark={isDark}>
-            <HeaderContent isDark={isDark}>
+        <HeaderContainer $isDark={$isDark}>
+            <HeaderContent $isDark={$isDark}>
                 <BurgerContainer>
-                    <Burger isDark={isDark} open={isOpenBurger} onClick={handleBurgerOpen} />
+                    <Burger $isDark={$isDark} open={isOpenBurger} onClick={handleBurgerOpen} />
                 </BurgerContainer>
                 <MenuContainer>
-                    <MenuClose open={isOpenBurger} isDark={isDark} />
+                    <MenuClose open={isOpenBurger} $isDark={$isDark} />
                     <MenuOpen
                         open={isOpenBurger}
-                        isDark={isDark}
+                        $isDark={$isDark}
                         money={money}
                         setMoney={setMoney}
                         moneyArr={moneyArr}

@@ -10,7 +10,7 @@ const Pages = () => {
     const isMainPage = !(location.pathname === `/${ROUTES.YANKI}/` || location.pathname === `/${ROUTES.YANKI}`);
     return (
         <PagesContainer>
-            <Header isDark={isMainPage} />
+            <Header $isDark={isMainPage} />
             <Routes />
             <Footer />
         </PagesContainer>

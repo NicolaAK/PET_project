@@ -17,7 +17,7 @@ interface IArrow {
     label: string;
 }
 interface IHeader {
-    isDark: boolean;
+    $isDark: boolean;
     open: boolean;
     language: string;
     setLanguage: (arg0: string) => void;
@@ -50,9 +50,9 @@ const aboutCompany = [
     { label: 'КАТАЛОГ', link: generateGithubPagesRoutes(ROUTES.CATALOG) },
     { label: 'О НАС', link: generateGithubPagesRoutes(ROUTES.ABOUTS) },
 ];
-const MenuOpen = ({ isDark, money, setMoney, moneyArr, languageArr, setLanguage, language, open }: IHeader) => (
+const MenuOpen = ({ $isDark, money, setMoney, moneyArr, languageArr, setLanguage, language, open }: IHeader) => (
     <MenuContainerOpen open={open}>
-        <AboutsCompany isDark={isDark}>
+        <AboutsCompany $isDark={$isDark}>
             {aboutCompany.map((about) => (
                 <AboutCompany key={about.label} label={about.label} link={about.link} />
             ))}
@@ -62,7 +62,7 @@ const MenuOpen = ({ isDark, money, setMoney, moneyArr, languageArr, setLanguage,
                 <Logo />
             </Link>
         </MenuLogo>
-        <Settings isDark={isDark}>
+        <Settings $isDark={$isDark}>
             <Language>
                 <Dropdown width={48} value={language} onChange={setLanguage} options={languageArr} />
             </Language>

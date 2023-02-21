@@ -10,15 +10,15 @@ const hamburgerTitles = [
 ];
 
 interface IProps {
-    isDark: boolean;
+    $isDark: boolean;
     open: boolean;
 }
-const MenuClose = ({ isDark, open }: IProps) => (
+const MenuClose = ({ $isDark, open }: IProps) => (
     <MenuContainerClose open={open}>
         <MenuTitle>
             {hamburgerTitles.map((hamburger) => (
                 <Bar key={hamburger.title}>
-                    <Text to={hamburger.link} isDark={isDark}>
+                    <Text to={hamburger.link} $isDark={$isDark}>
                         {hamburger.title}
                     </Text>
                 </Bar>
