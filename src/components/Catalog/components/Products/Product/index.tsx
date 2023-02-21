@@ -1,6 +1,7 @@
 import React from 'react';
 import Heart from '@assets/icons/heart.svg';
 import theme from '@theme/index';
+import { useNavigate } from 'react-router-dom';
 import {
     NameProduct,
     Colors,
@@ -19,6 +20,7 @@ import {
 } from './styled';
 
 interface IProduct {
+    id: number;
     name: string;
     isNew?: boolean;
     prices: { ru: number; ua: number };
@@ -26,7 +28,9 @@ interface IProduct {
     colors?: string[];
     image: string;
 }
-const Product = ({ image, isNew, name, sizes, colors, prices }: IProduct) => {
+const Product = ({ image, isNew, name, sizes, colors, prices, id }: IProduct) => {
+    const navigate = useNavigate();
+    const navId = () => navigate(`${id}`);
     const currency = 'ru';
     const labelSymbol = {
         ru: 'руб',
@@ -49,10 +53,10 @@ const Product = ({ image, isNew, name, sizes, colors, prices }: IProduct) => {
                     </Icon>
                 </Favourites>
                 <Photo>
-                    <Image src={image} alt="photoModel" />
+                    <Image src={image} alt="photoModel" onClick={navId} />
                 </Photo>
                 <Description>
-                    <NameProduct>{name}</NameProduct>
+                    <NameProduct onClick={navId}>{name}</NameProduct>
                     {isNew && <New>new</New>}
                     <Price>
                         {prices[currency]} {labelSymbol[currency]}

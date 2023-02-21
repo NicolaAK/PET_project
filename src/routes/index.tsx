@@ -5,6 +5,7 @@ import { Navigate } from 'react-router-dom';
 import Catalog from '@components/Catalog';
 import Payment from '@components/Payment';
 import Refund from '@components/Refund';
+import ProductCatalog from '@components/ProductCatalog';
 import { ROUTES } from './constants';
 
 export const generateGithubPagesRoutes = (route: string) => `${ROUTES.YANKI}/${route}`;
@@ -20,11 +21,11 @@ const Routes = () =>
             element: <Catalog />,
         },
         {
-            path: generateGithubPagesRoutes(ROUTES.CATEGORY),
+            path: generateGithubPagesRoutes(ROUTES.CATALOG),
             children: [
                 {
-                    path: ':idCategory',
-                    element: <div>Category</div>,
+                    path: ':idCatalog',
+                    element: <ProductCatalog />,
                 },
             ],
         },
