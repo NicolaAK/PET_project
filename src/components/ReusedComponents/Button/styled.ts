@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import Typography from '@components/Typography';
-import { ButtonProps } from '.';
+import { ButtonProps } from './index';
 
 const COLOR = {
     primary: css`

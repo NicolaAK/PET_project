@@ -1,7 +1,7 @@
 import React, { FC, ReactNode } from 'react';
-import { ButtonContainer, ButtonText, ButtonTextIcon, Icon } from '@components/Button/styled';
+import { ButtonContainer, ButtonText, ButtonTextIcon, Icon } from '@components/ReusedComponents/Button/styled';
 import FavouritesButton from '@assets/icons/favouritesButton.svg';
-import Spinner from '@components/Button/Loader';
+import Spinner from '@components/ReusedComponents/Button/Loader';
 
 export type ButtonProps = {
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;

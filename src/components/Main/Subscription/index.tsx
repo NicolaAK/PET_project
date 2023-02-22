@@ -1,4 +1,4 @@
-import { Button } from '@components/Button';
+import { Button } from '@components/ReusedComponents/Button/index';
 import React from 'react';
 import {
     Item,

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { useFormContext, Controller, ControllerRenderProps, ControllerFieldState } from 'react-hook-form';
-import Input, { IInput } from '@components/Input';
+import Input, { IInput } from '@components/ReusedComponents/Input';
 
 interface IRHFInput extends IInput {
     name: string;
