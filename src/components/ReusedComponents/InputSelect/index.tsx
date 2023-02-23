@@ -12,7 +12,6 @@ const Select = ({ options }: IProps) => {
     const onOptionClicked = (value: any) => () => {
         setSelectedOption(value);
         setIsOpen(false);
-        console.log(selectedOption);
     };
     const close = () => setIsOpen(false);
     const wrapperRef = useClickOutside(close);

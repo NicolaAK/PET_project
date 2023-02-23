@@ -7,16 +7,23 @@ export const SubscriptionContainer = styled.div`
 `;
 export const SubscriptionContent = styled.div`
     ${({ theme }) => theme.mixins.flexCenterCenter};
-    flex-direction: column;
     margin-top: 120px;
     width: 600px;
+    display: grid;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 20px 0px;
+    grid-template-areas:
+        '.'
+        '.'
+        '.'
+        '.';
 `;
 export const Item = styled(Typography).attrs({ variant: 'dText36' })`
-    padding-bottom: 50px;
+    text-align: center;
 `;
 export const Text = styled(Typography).attrs({ variant: 'dText16lh19' })`
     text-align: center;
 `;
-export const ButtonBox = styled(Typography).attrs({ variant: 'dText16lh19' })`
-    padding: 20px 0;
-`;
+export const ButtonBox = styled(Typography).attrs({ variant: 'dText16lh19' })``;

@@ -24,7 +24,7 @@ export const ButtonContainer = styled.button<ButtonProps>`
     transition: ${({ theme }) => theme.decorations.transition};
     cursor: pointer;
     height: 50px;
-    width: ${(props) => props.width}px;
+    width: 100%;
     ${(props) => props.color && COLOR[props.color]}
     column-gap: 9px;
     &:hover {
@@ -36,7 +36,8 @@ export const ButtonContainer = styled.button<ButtonProps>`
     }
 `;
 export const ButtonText = styled(Typography).attrs({ variant: 'dText16lh19' })``;
-export const ButtonTextIcon = styled(Typography).attrs({ variant: 'dText16lh19' })`
+export const ButtonTextIcon = styled.div`
+    ${({ theme }) => theme.helpers.getTypography('dText16lh19')}
     ${({ theme }) => theme.mixins.flexCenter};
     align-items: center;
 `;

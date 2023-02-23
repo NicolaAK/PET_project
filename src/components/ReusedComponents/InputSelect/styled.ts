@@ -4,7 +4,7 @@ interface IAnimation {
     isOpenSelect: boolean;
 }
 export const Container = styled.div`
-    width: 530px;
+    width: 100%;
     margin: 0 auto;
     ${({ theme }) => theme.helpers.getTypography('dText16lh19')}
     color: ${({ theme }) => theme.colors.blackPrimary(0.8)};
@@ -12,8 +12,7 @@ export const Container = styled.div`
 
 export const Header = styled.div`
     ${({ theme }) => theme.mixins.flexCenterSpaceBetween};
-    border: 0.5px solid ${({ theme }) => theme.colors.blackPrimary(0.5)};
-    margin-bottom: 10px;
+    border: 1px solid ${({ theme }) => theme.colors.blackPrimary(0.5)};
     padding: 16px 0px 15px 19px;
     transition: ${({ theme }) => theme.decorations.transition};
     :hover {
@@ -23,6 +22,7 @@ export const Header = styled.div`
 
 export const ListContainer = styled.div`
     box-shadow: ${({ theme }) => theme.decorations.boxShadow.base};
+    background: ${({ theme }) => theme.colors.white()};
 `;
 
 export const List = styled.ul`
