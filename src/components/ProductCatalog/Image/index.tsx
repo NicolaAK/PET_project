@@ -19,7 +19,6 @@ interface IImage {
 const ImageProduct = ({ images }: IImage) => {
     const [mainImage, setMainImage] = useState(images[0]);
     const [isOpenImage, setIsOpenImage] = useState(false);
-    console.log(isOpenImage);
     const toggleOpenImageFullScreen = () => setIsOpenImage(!isOpenImage);
     return (
         <Container>
