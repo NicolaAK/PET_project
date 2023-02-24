@@ -6,8 +6,10 @@ import { LinkMain, Navigation } from '@components/Catalog/styled';
 import ArrowR from '@assets/icons/arrowR.svg';
 import ProductImage from '@components/ProductCatalog/Image';
 import ProductDescription from '@components/ProductCatalog/Description';
+import { Link } from 'react-router-dom';
 import { Content, Container } from './style';
 import { generateGithubPagesRoutes } from '../../routes';
+import { ROUTES } from '../../routes/constants';
 
 const product = {
     category: 'Пальто',
@@ -38,7 +40,7 @@ const ProductCatalog = () => (
         <Navigation>
             <LinkMain to={generateGithubPagesRoutes('')}>Главная</LinkMain>
             <ArrowR />
-            Каталог
+            <Link to={generateGithubPagesRoutes(ROUTES.CATALOG)}>Каталог</Link>
             <ArrowR />
             {product.category}
             <ArrowR />

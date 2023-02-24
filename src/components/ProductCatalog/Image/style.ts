@@ -37,15 +37,23 @@ export const ImageBig = styled.img`
 export const ModalWindow = styled.div`
     position: fixed;
     z-index: 100;
-    background-color: ${({ theme }) => theme.colors.blackPrimary(0.75)};
     left: 0;
     top: 0;
     right: 0;
     bottom: 0;
     ${({ theme }) => theme.mixins.flexCenterCenter}
 `;
+
+export const ModalBackground = styled.div`
+    background-color: ${({ theme }) => theme.colors.blackPrimary(0.75)};
+    position: absolute;
+    width: 100%;
+    height: 100%;
+`;
+
 export const SliderContainer = styled.button`
     z-index: 1000;
+    width: 100%;
 `;
 export const ExitContainer = styled.button`
     position: absolute;
@@ -63,6 +71,6 @@ export const ExitContainer = styled.button`
 export const Exit = styled.div`
     ${({ theme }) => theme.helpers.getTypography('dText20')};
     color: ${({ theme }) => theme.colors.white()};
-    z-index: 1001;
+    z-index: 4;
     scale: 1.3;
 `;

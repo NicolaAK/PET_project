@@ -11,10 +11,11 @@ import {
     SliderContainer,
     Exit,
     ExitContainer,
+    ModalBackground,
 } from './style';
 
 interface IImage {
-    images: any;
+    images: string[];
 }
 const ImageProduct = ({ images }: IImage) => {
     const [mainImage, setMainImage] = useState(images[0]);
@@ -23,7 +24,7 @@ const ImageProduct = ({ images }: IImage) => {
     return (
         <Container>
             <ImageOther>
-                {images.map((image: string | undefined) => (
+                {images.map((image) => (
                     <ImageOtherContainer>
                         <ImageSmall key={Math.random()} src={image} onClick={() => setMainImage(image)} />
                     </ImageOtherContainer>
@@ -38,8 +39,13 @@ const ImageProduct = ({ images }: IImage) => {
                         <Exit>X</Exit>
                     </ExitContainer>
                     <SliderContainer>
-                        <SliderImage images={images} />
+                        <SliderImage
+                            images={images}
+                            toggleOpenImageFullScreen={toggleOpenImageFullScreen}
+                            initialSlide={images.indexOf(mainImage)}
+                        />
                     </SliderContainer>
+                    <ModalBackground onClick={toggleOpenImageFullScreen} />
                 </ModalWindow>
             )}
         </Container>

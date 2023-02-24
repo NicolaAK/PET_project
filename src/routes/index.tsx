@@ -8,7 +8,7 @@ import Refund from '@components/Refund';
 import ProductCatalog from '@components/ProductCatalog';
 import { ROUTES } from './constants';
 
-export const generateGithubPagesRoutes = (route: string) => `${ROUTES.YANKI}/${route}`;
+export const generateGithubPagesRoutes = (route: string) => `/${ROUTES.YANKI}/${route}`;
 
 const Routes = () =>
     useRoutes([

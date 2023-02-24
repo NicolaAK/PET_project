@@ -1,13 +1,15 @@
 import React from 'react';
 import { ArrowControl } from '@components/ProductCatalog/Image/SliderImage/component/ArrowControl';
 import Slider from 'react-slick';
-import { SliderContainer, SliderPhoto, SliderWrap } from './style';
+import { SliderContainer, SliderPhoto, SliderWrap, Image } from './style';
 
 interface IImages {
-    images: any;
+    images: string[];
+    toggleOpenImageFullScreen: () => void;
+    initialSlide: number;
 }
 
-const SliderImage = ({ images }: IImages) => {
+const SliderImage = ({ images, toggleOpenImageFullScreen, initialSlide }: IImages) => {
     const settings = {
         dots: true,
         fade: true,
@@ -17,18 +19,23 @@ const SliderImage = ({ images }: IImages) => {
         slidesToScroll: 1,
         nextArrow: <ArrowControl isLeft={false} />,
         prevArrow: <ArrowControl isLeft />,
+        initialSlide,
     };
+
     return (
         <SliderContainer>
             <Slider {...settings}>
                 {images.map((image: any) => (
-                    <SliderWrap key={image}>
+                    <SliderWrap key={image} onClick={toggleOpenImageFullScreen}>
                         <SliderPhoto>
-                            <img src={image} alt="photoSlider" />
+                            <Image onClick={(e) => e.stopPropagation()}>
+                                <img src={image} alt="photoSlider" />
+                            </Image>
                         </SliderPhoto>
                     </SliderWrap>
                 ))}
             </Slider>
+            )
         </SliderContainer>
     );
 };

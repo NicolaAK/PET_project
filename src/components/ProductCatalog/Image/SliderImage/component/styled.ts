@@ -1,18 +1,18 @@
 import styled from 'styled-components';
 
 export const ArrowContainerRight = styled.div`
-    position: relative;
+    position: absolute;
     z-index: 1;
-    bottom: 500px;
-    left: 1075px;
+    top: 446px;
+    right: 0;
     width: 40px;
     height: 40px;
 `;
 export const ArrowContainerLeft = styled.div`
-    position: relative;
+    position: absolute;
     z-index: 1;
     top: 446px;
-    left: 20px;
+    left: 0;
     width: 40px;
     height: 40px;
 `;

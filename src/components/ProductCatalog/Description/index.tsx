@@ -3,6 +3,7 @@ import { colorsSchema, currency, labelSymbol } from '@components/Catalog/compone
 import Select from '@components/ReusedComponents/InputSelect';
 import { Button } from '@components/ReusedComponents/Button';
 import ArrowR from '@assets/icons/arrowR.svg';
+import styled from 'styled-components';
 import {
     ArrowContainer,
     Colors,
@@ -32,10 +33,9 @@ interface IProduct {
     structure: string[];
 }
 const ProductDescription = ({ description, colors, prices, sizes, name, structure }: IProduct) => {
-    const [isSelectColor, setIsSelectColor] = useState(false);
+    const [selectColor, setSelectColor] = useState<string>();
     const [isOpenDetails, setIsOpenDetails] = useState(false);
     const [isOpenStructure, setIsOpenStructure] = useState(false);
-    const changeColor = () => setIsSelectColor(!isSelectColor);
 
     const [isActiveFavouritesButton, setIsActiveFavouritesButton] = useState(false);
     const toggleActiveFavouritesButton = () => setIsActiveFavouritesButton(!isActiveFavouritesButton);
@@ -52,8 +52,8 @@ const ProductDescription = ({ description, colors, prices, sizes, name, structur
                     <EllipseColor
                         key={color}
                         color={colorsSchema[color]}
-                        isSelectColor={isSelectColor}
-                        onClick={changeColor}
+                        isSelectColor={selectColor === color}
+                        onClick={() => setSelectColor(color)}
                     />
                 ))}
             </Colors>
@@ -79,7 +79,12 @@ const ProductDescription = ({ description, colors, prices, sizes, name, structur
                             <ArrowR />
                         </ArrowContainer>
                     </Title>
-                    {isOpenDetails && description.map((text) => <Text>{text}</Text>)}
+                    <Test isOpenDetails={isOpenDetails}>
+                        {description.map((text) => (
+                            <Text>{text}</Text>
+                        ))}
+                    </Test>
+
                     <Line />
                 </DescriptionContainer>
                 <StructureContainer onClick={toggleOpenStructure}>
@@ -97,4 +102,12 @@ const ProductDescription = ({ description, colors, prices, sizes, name, structur
     );
 };
 
+// @ts-ignore
+const Test = styled.div<{ isOpenDetails }>`
+    height: 100%;
+    max-height: ${({ isOpenDetails }) => (isOpenDetails ? '190px' : '0px')};
+    overflow: hidden;
+    transition: 0.8s;
+    padding-top: 3px;
+`;
 export default ProductDescription;
