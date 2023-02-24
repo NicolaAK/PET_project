@@ -37,7 +37,7 @@ export const ImageBig = styled.img`
 export const ModalWindow = styled.div`
     position: fixed;
     z-index: 100;
-    background-color: ${({ theme }) => theme.colors.blackPrimary(0.5)};
+    background-color: ${({ theme }) => theme.colors.blackPrimary(0.75)};
     left: 0;
     top: 0;
     right: 0;
