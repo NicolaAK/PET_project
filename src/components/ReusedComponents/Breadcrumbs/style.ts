@@ -7,6 +7,7 @@ export const Navigation = styled.div`
     column-gap: 11px;
 `;
 export const LinkMain = styled(Link)`
+    margin-right: 11px;
     text-decoration-line: none;
     transition: ${({ theme }) => theme.decorations.transition};
     :hover {
