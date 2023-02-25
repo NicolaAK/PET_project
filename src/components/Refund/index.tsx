@@ -6,8 +6,8 @@ import Icon4 from '@assets/icons/refund/4.svg';
 import Icon5 from '@assets/icons/refund/5.svg';
 import Icon6 from '@assets/icons/refund/6.svg';
 import Breadcrumbs from '@components/ReusedComponents/Breadcrumbs';
+import { generateGithubPagesRoutes } from '@utils/helpers';
 import { Content, Container, HeaderText, Subtitle, Body, Item, Icon, Text } from './style';
-import { generateGithubPagesRoutes } from '../../routes';
 
 const refunds = [
     {

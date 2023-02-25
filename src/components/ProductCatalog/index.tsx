@@ -5,8 +5,8 @@ import Photo3 from '@assets/foto/mainModel3.png';
 import ProductImage from '@components/ProductCatalog/Image';
 import ProductDescription from '@components/ProductCatalog/Description';
 import Breadcrumbs from '@components/ReusedComponents/Breadcrumbs';
+import { generateGithubPagesRoutes } from '@utils/helpers';
 import { Content, Container } from './style';
-import { generateGithubPagesRoutes } from '../../routes';
 import { ROUTES } from '../../routes/constants';
 
 const product = {

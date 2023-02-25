@@ -16,7 +16,7 @@ import ArrowLight from '@assets/icons/arrowRight.svg';
 import MainModel1 from '@assets/foto/mainModel1.png';
 import MainModel2 from '@assets/foto/mainModel2.png';
 import MainModel3 from '@assets/foto/mainModel3.png';
-import { generateGithubPagesRoutes } from '../../../routes';
+import { generateGithubPagesRoutes } from '@utils/helpers';
 import { ROUTES } from '../../../routes/constants';
 
 const HeaderBox = () => (

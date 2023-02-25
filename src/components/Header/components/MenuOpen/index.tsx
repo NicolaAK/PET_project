@@ -8,9 +8,9 @@ import Profile from '@assets/icons/profile.svg';
 import Favourites from '@assets/icons/favourites.svg';
 import Shop from '@assets/icons/shop.svg';
 import { Link } from 'react-router-dom';
+import { generateGithubPagesRoutes } from '@utils/helpers';
 import { AboutsCompany, Language, MenuLogo, MenuContainerOpen, Money, Settings, SocialsMedia } from './style';
 import { ROUTES } from '../../../../routes/constants';
-import { generateGithubPagesRoutes } from '../../../../routes';
 
 interface IArrow {
     value: string;

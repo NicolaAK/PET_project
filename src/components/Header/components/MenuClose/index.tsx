@@ -1,6 +1,6 @@
 import React from 'react';
+import { generateGithubPagesRoutes } from '@utils/helpers';
 import { Bar, MenuTitle, MenuContainerClose, Text } from './style';
-import { generateGithubPagesRoutes } from '../../../../routes';
 import { ROUTES } from '../../../../routes/constants';
 
 const hamburgerTitles = [

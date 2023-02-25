@@ -3,7 +3,7 @@ import { MainContent, MainContainer, CategoryContainer, CategoryTitle } from '@c
 import HeaderBox from '@components/Main/HeaderBox';
 import SliderBox from '@components/Main/SliderCatalog';
 import Subscription from '@components/Main/Subscription';
-import { generateGithubPagesRoutes } from '../../routes';
+import { generateGithubPagesRoutes } from '@utils/helpers';
 import { ROUTES } from '../../routes/constants';
 
 const Main = () => (

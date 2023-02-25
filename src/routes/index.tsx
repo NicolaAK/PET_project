@@ -6,9 +6,8 @@ import Catalog from '@components/Catalog';
 import Payment from '@components/Payment';
 import Refund from '@components/Refund';
 import ProductCatalog from '@components/ProductCatalog';
+import { generateGithubPagesRoutes } from '@utils/helpers';
 import { ROUTES } from './constants';
-
-export const generateGithubPagesRoutes = (route: string) => `/${ROUTES.YANKI}/${route}`;
 
 const Routes = () =>
     useRoutes([

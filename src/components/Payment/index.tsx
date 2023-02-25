@@ -3,7 +3,7 @@ import StepBuy1 from '@assets/icons/stepBuy1.svg';
 import StepBuy2 from '@assets/icons/stepBuy2.svg';
 import StepBuy3 from '@assets/icons/stepBuy3.svg';
 import Breadcrumbs from '@components/ReusedComponents/Breadcrumbs';
-import { generateGithubPagesRoutes } from '../../routes';
+import { generateGithubPagesRoutes } from '@utils/helpers';
 import {
     Content,
     Container,
