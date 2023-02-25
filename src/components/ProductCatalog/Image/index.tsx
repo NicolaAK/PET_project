@@ -25,8 +25,8 @@ const ImageProduct = ({ images }: IImage) => {
         <Container>
             <ImageOther>
                 {images.map((image) => (
-                    <ImageOtherContainer>
-                        <ImageSmall key={Math.random()} src={image} onClick={() => setMainImage(image)} />
+                    <ImageOtherContainer key={Math.random()}>
+                        <ImageSmall src={image} onClick={() => setMainImage(image)} />
                     </ImageOtherContainer>
                 ))}
             </ImageOther>

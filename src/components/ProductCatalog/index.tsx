@@ -17,7 +17,7 @@ const product = {
     colors: ['white', 'blue', 'yellow', 'black', 'red', 'green'],
     images: [Photo1, Photo2, Photo3, Photo3, Photo1],
     description: [
-        'Классическое пальто итальянского бренда Heresis',
+        'Классическое пальто итальянского бренд Heresis',
         'Оригинальная модель в шерсти аналогичного класса стоит 135 000 руб',
         'Классическое пальто итальянского бренда Heresis',
     ],

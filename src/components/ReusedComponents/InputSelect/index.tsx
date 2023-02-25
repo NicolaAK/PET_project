@@ -7,10 +7,10 @@ interface IProps {
 }
 const Select = ({ options }: IProps) => {
     const [isOpenSelect, setIsOpen] = useState(false);
-    const [selectedOption, setSelectedOption] = useState(null);
+    const [selectedOption, setSelectedOption] = useState(undefined);
     const toggling = () => setIsOpen(!isOpenSelect);
-    const onOptionClicked = (value: any) => () => {
-        setSelectedOption(value);
+    const onOptionClicked = (e: any) => () => {
+        setSelectedOption(e);
         setIsOpen(false);
     };
     const close = () => setIsOpen(false);
@@ -28,7 +28,7 @@ const Select = ({ options }: IProps) => {
                 <ListContainer>
                     <List>
                         {options.map((option) => (
-                            <ListItem onClick={onOptionClicked(option)} key={Math.random()}>
+                            <ListItem onClick={onOptionClicked(option)} key={option}>
                                 {option}
                             </ListItem>
                         ))}

@@ -14,12 +14,12 @@ const Breadcrumbs = ({ URL }: IBreadcrumbs) => (
     <Navigation>
         {URL.map((i) =>
             i.path === '' ? (
-                <>{i.link}</>
+                <div key={i.link}>{i.link}</div>
             ) : (
-                <>
+                <div key={i.link}>
                     <LinkMain to={i.path}>{i.link}</LinkMain>
                     <ArrowR />
-                </>
+                </div>
             ),
         )}
     </Navigation>

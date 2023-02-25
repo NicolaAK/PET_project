@@ -36,7 +36,7 @@ export const BodyStep = styled.div`
     grid-template-rows: 1fr;
     gap: 0px 0px;
     grid-template-areas: '. . .';
-    margin: 25px 0 380px 0;
+    margin: 25px 0 auto 0;
 `;
 export const Step = styled.div`
     ${({ theme }) => theme.mixins.flexCenter};

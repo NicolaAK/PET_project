@@ -39,9 +39,11 @@ const ProductDescription = ({ description, colors, prices, sizes, name, structur
     const [isOpenStructure, setIsOpenStructure] = useState(false);
 
     const [isActiveFavouritesButton, setIsActiveFavouritesButton] = useState(false);
+
     const toggleActiveFavouritesButton = () => setIsActiveFavouritesButton(!isActiveFavouritesButton);
     const toggleOpenDetails = () => setIsOpenDetails(!isOpenDetails);
     const toggleOpenStructure = () => setIsOpenStructure(!isOpenStructure);
+
     return (
         <Description>
             <Name>{name}</Name>
@@ -82,7 +84,7 @@ const ProductDescription = ({ description, colors, prices, sizes, name, structur
                     </Title>
                     <OpenListDescription isOpenDetails={isOpenDetails}>
                         {description.map((text) => (
-                            <Text>{text}</Text>
+                            <Text key={text.length}>{text}</Text>
                         ))}
                     </OpenListDescription>
                     <Line />
@@ -96,7 +98,7 @@ const ProductDescription = ({ description, colors, prices, sizes, name, structur
                     </Title>
                     <OpenListStructure isOpenStructure={isOpenStructure}>
                         {structure.map((text) => (
-                            <Text>{text}</Text>
+                            <Text key={text.length}>{text}</Text>
                         ))}
                     </OpenListStructure>
                     <Line />
