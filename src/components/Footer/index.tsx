@@ -8,7 +8,7 @@ import {
     Text,
     Icon,
     ContainerIcons,
-} from '@components/Footer/styled';
+} from '@components/Footer/style';
 import Telegram from '@assets/icons/telegram.svg';
 import Instagram from '@assets/icons/instagram.svg';
 

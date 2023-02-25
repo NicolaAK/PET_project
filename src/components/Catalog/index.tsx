@@ -2,18 +2,19 @@ import React from 'react';
 import Menu from '@components/Catalog/components/Menu';
 import Filter from '@components/Catalog/components/Filter';
 import Products from '@components/Catalog/components/Products';
-import ArrowR from '@assets/icons/arrowR.svg';
-import { CatalogContent, CatalogContainer, Navigation, Container, Heading, Text, LinkMain } from './styled';
+import Breadcrumbs from '@components/ReusedComponents/Breadcrumbs';
+import { CatalogContent, CatalogContainer, Container, Heading, Text } from './style';
 import { generateGithubPagesRoutes } from '../../routes';
+
+const URL = [
+    { link: 'Главная', path: generateGithubPagesRoutes('') },
+    { link: 'Каталог', path: '' },
+];
 
 const Catalog = () => (
     <CatalogContainer>
         <CatalogContent>
-            <Navigation>
-                <LinkMain to={generateGithubPagesRoutes('')}>Главная</LinkMain>
-                <ArrowR />
-                Каталог
-            </Navigation>
+            <Breadcrumbs URL={URL} />
             <Container>
                 <Heading>
                     <Text>Каталог</Text>

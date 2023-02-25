@@ -2,11 +2,9 @@ import React from 'react';
 import Photo1 from '@assets/foto/mainModel1.png';
 import Photo2 from '@assets/foto/mainModel2.png';
 import Photo3 from '@assets/foto/mainModel3.png';
-import { LinkMain, Navigation } from '@components/Catalog/styled';
-import ArrowR from '@assets/icons/arrowR.svg';
 import ProductImage from '@components/ProductCatalog/Image';
 import ProductDescription from '@components/ProductCatalog/Description';
-import { Link } from 'react-router-dom';
+import Breadcrumbs from '@components/ReusedComponents/Breadcrumbs';
 import { Content, Container } from './style';
 import { generateGithubPagesRoutes } from '../../routes';
 import { ROUTES } from '../../routes/constants';
@@ -35,17 +33,15 @@ const product = {
         '- Барабанная сушка запрещена',
     ],
 };
+const URL = [
+    { link: 'Главная', path: generateGithubPagesRoutes('') },
+    { link: 'Каталог', path: generateGithubPagesRoutes(ROUTES.CATALOG) },
+    { link: 'Пальто', path: generateGithubPagesRoutes(ROUTES.CATALOG) },
+    { link: 'Белая куртка', path: '' },
+];
 const ProductCatalog = () => (
     <Container>
-        <Navigation>
-            <LinkMain to={generateGithubPagesRoutes('')}>Главная</LinkMain>
-            <ArrowR />
-            <Link to={generateGithubPagesRoutes(ROUTES.CATALOG)}>Каталог</Link>
-            <ArrowR />
-            {product.category}
-            <ArrowR />
-            {product.name}
-        </Navigation>
+        <Breadcrumbs URL={URL} />
         <Content>
             <ProductImage images={product.images} />
             <ProductDescription

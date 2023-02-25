@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { HeaderContent, HeaderContainer, MenuContainer, BurgerContainer } from '@components/Header/styled';
+import { HeaderContent, HeaderContainer, MenuContainer, BurgerContainer } from '@components/Header/style';
 import Burger from '@components/Header/components/BurgerMenu';
 import MenuClose from '@components/Header/components/MenuClose';
 import MenuOpen from '@components/Header/components/MenuOpen';

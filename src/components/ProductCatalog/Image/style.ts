@@ -8,7 +8,7 @@ export const ImageOther = styled.div`
     display: flex;
     flex-direction: column;
 `;
-export const ImageOtherContainer = styled.div`
+export const ImageOtherContainer = styled.button`
     margin-bottom: 10px;
     overflow: hidden;
     width: 100px;
@@ -22,7 +22,7 @@ export const ImageSmall = styled.img`
         transform: scale(1.045);
     }
 `;
-export const ImageMain = styled.div`
+export const ImageMain = styled.button`
     margin-left: 10px;
     width: 100%;
     height: 540px;
@@ -51,7 +51,7 @@ export const ModalBackground = styled.div`
     height: 100%;
 `;
 
-export const SliderContainer = styled.button`
+export const SliderContainer = styled.div`
     z-index: 1000;
     width: 100%;
 `;

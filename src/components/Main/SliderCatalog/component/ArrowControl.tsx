@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowContainerLeft, ArrowContainerRight, ArrowBox } from '@components/Main/SliderCatalog/component/styled';
+import { ArrowContainerLeft, ArrowContainerRight, ArrowBox } from '@components/Main/SliderCatalog/component/style';
 import ArrowRightSlider from '@assets/icons/arrowRightSlider.svg';
 import ArrowLeftSlider from '@assets/icons/arrowLeftSlider.svg';
 

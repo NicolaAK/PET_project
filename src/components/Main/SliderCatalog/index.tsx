@@ -8,7 +8,7 @@ import {
     SliderText,
     SliderContainer,
     SliderBottomBox,
-} from '@components/Main/SliderCatalog/styled';
+} from '@components/Main/SliderCatalog/style';
 import sliderCoat from '@assets/foto/sliderCoat.png';
 import sliderJackets from '@assets/foto/sliderJackets.png';
 import sliderFur from '@assets/foto/sliderFur.png';

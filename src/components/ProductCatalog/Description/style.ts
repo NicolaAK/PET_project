@@ -7,6 +7,10 @@ interface IAnimation {
     isOpenDetails?: boolean;
     isOpenStructure?: boolean;
 }
+interface ILine {
+    isOpenDetails?: boolean;
+    isOpenStructure?: boolean;
+}
 export const Description = styled.div`
     grid-area: card;
 `;
@@ -29,7 +33,8 @@ export const EllipseColor = styled.button<IEllipse>`
     background-color: ${({ color }) => color};
     border-radius: 21px;
     border: 1px solid ${({ theme, color }) => (color === '#FFFFFF' ? theme.colors.blackPrimary(0.5) : 'transparent')};
-    transform: scale(${({ isSelectColor }) => (!isSelectColor ? '1' : '1.1')});
+    transition: ${({ theme }) => theme.decorations.transition};
+    transform: scale(${({ isSelectColor }) => (!isSelectColor ? '1' : '1.3')});
 `;
 export const GridContainer = styled.div`
     display: grid;
@@ -79,9 +84,25 @@ export const ArrowContainer = styled.div<IAnimation>`
 `;
 
 export const Line = styled.div`
-    width: 100%;
-    border: 1px solid ${({ theme }) => theme.colors.blackPrimary(0.3)}; ;
+    height: 1px;
+    background-color: ${({ theme }) => theme.colors.blackPrimary(0.7)}; ;
 `;
 export const StructureContainer = styled.div`
     margin-top: 20px;
+`;
+export const OpenListDescription = styled.div<ILine>`
+    height: 100%;
+    max-height: ${({ isOpenDetails }) => (isOpenDetails ? '190px' : '0px')};
+    opacity: ${({ isOpenDetails }) => (isOpenDetails ? '1' : '0')};
+    overflow: hidden;
+    transition: 0.8s;
+    padding-top: 3px;
+`;
+export const OpenListStructure = styled.div<ILine>`
+    height: 100%;
+    max-height: ${({ isOpenStructure }) => (isOpenStructure ? '190px' : '0px')};
+    opacity: ${({ isOpenStructure }) => (isOpenStructure ? '1' : '0')};
+    overflow: hidden;
+    transition: 0.8s;
+    padding-top: 3px;
 `;

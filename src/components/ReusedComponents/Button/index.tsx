@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react';
-import { ButtonContainer, ButtonText, ButtonTextIcon, Icon } from '@components/ReusedComponents/Button/styled';
+import { ButtonContainer, ButtonText, ButtonTextIcon, Icon } from '@components/ReusedComponents/Button/style';
 import FavouritesButton from '@assets/icons/favouritesButton.svg';
 import Spinner from '@components/ReusedComponents/Button/Loader';
 import FavouritesButtonActive from '@assets/icons/favouritesButtonActive.svg';

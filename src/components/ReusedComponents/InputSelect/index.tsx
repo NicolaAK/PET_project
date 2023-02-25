@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ArrowR from '@assets/icons/arrowR.svg';
-import { Container, ListContainer, List, ListItem, Header, ArrowContainer } from './styled';
+import { Container, ListContainer, List, ListItem, Header, ArrowContainer } from './style';
 import useClickOutside from '../../../HOK/ClickOutside';
 interface IProps {
     options: string[];

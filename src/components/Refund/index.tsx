@@ -1,12 +1,11 @@
 import React from 'react';
-import { LinkMain, Navigation } from '@components/Catalog/styled';
-import ArrowR from '@assets/icons/arrowR.svg';
 import Icon1 from '@assets/icons/refund/1.svg';
 import Icon2 from '@assets/icons/refund/2.svg';
 import Icon3 from '@assets/icons/refund/3.svg';
 import Icon4 from '@assets/icons/refund/4.svg';
 import Icon5 from '@assets/icons/refund/5.svg';
 import Icon6 from '@assets/icons/refund/6.svg';
+import Breadcrumbs from '@components/ReusedComponents/Breadcrumbs';
 import { Content, Container, HeaderText, Subtitle, Body, Item, Icon, Text } from './style';
 import { generateGithubPagesRoutes } from '../../routes';
 
@@ -36,14 +35,13 @@ const refunds = [
         text: 'после получения возврата мы делаем перевод денежных средств на карту клиента',
     },
 ];
+const URL = [
+    { link: 'Главная', path: generateGithubPagesRoutes('') },
+    { link: 'Обмен и воврат', path: '' },
+];
 const Refund = () => (
     <Container>
-        <Navigation>
-            <LinkMain to={generateGithubPagesRoutes('')}>Главная</LinkMain>
-            <ArrowR />
-            Обмен и воврат
-        </Navigation>
-
+        <Breadcrumbs URL={URL} />
         <Content>
             <HeaderText>Обмен и воврат</HeaderText>
             <Subtitle>Если вам не подошел заказ, мы с удовольствием вам его обменяем или примем возврат</Subtitle>

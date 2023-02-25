@@ -3,7 +3,6 @@ import { colorsSchema, currency, labelSymbol } from '@components/Catalog/compone
 import Select from '@components/ReusedComponents/InputSelect';
 import { Button } from '@components/ReusedComponents/Button';
 import ArrowR from '@assets/icons/arrowR.svg';
-import styled from 'styled-components';
 import {
     ArrowContainer,
     Colors,
@@ -22,6 +21,8 @@ import {
     StructureContainer,
     Text,
     Title,
+    OpenListDescription,
+    OpenListStructure,
 } from './style';
 
 interface IProduct {
@@ -79,12 +80,11 @@ const ProductDescription = ({ description, colors, prices, sizes, name, structur
                             <ArrowR />
                         </ArrowContainer>
                     </Title>
-                    <Test isOpenDetails={isOpenDetails}>
+                    <OpenListDescription isOpenDetails={isOpenDetails}>
                         {description.map((text) => (
                             <Text>{text}</Text>
                         ))}
-                    </Test>
-
+                    </OpenListDescription>
                     <Line />
                 </DescriptionContainer>
                 <StructureContainer onClick={toggleOpenStructure}>
@@ -94,7 +94,11 @@ const ProductDescription = ({ description, colors, prices, sizes, name, structur
                             <ArrowR />
                         </ArrowContainer>
                     </Title>
-                    {isOpenStructure && structure.map((text) => <Text>{text}</Text>)}
+                    <OpenListStructure isOpenStructure={isOpenStructure}>
+                        {structure.map((text) => (
+                            <Text>{text}</Text>
+                        ))}
+                    </OpenListStructure>
                     <Line />
                 </StructureContainer>
             </Details>
@@ -102,12 +106,4 @@ const ProductDescription = ({ description, colors, prices, sizes, name, structur
     );
 };
 
-// @ts-ignore
-const Test = styled.div<{ isOpenDetails }>`
-    height: 100%;
-    max-height: ${({ isOpenDetails }) => (isOpenDetails ? '190px' : '0px')};
-    overflow: hidden;
-    transition: 0.8s;
-    padding-top: 3px;
-`;
 export default ProductDescription;

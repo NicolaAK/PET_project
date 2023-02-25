@@ -10,12 +10,14 @@ import {
     PhotoModel2,
     WatchProductsContainer,
     ArrowContainer,
-} from '@components/Main/HeaderBox/styled';
+} from '@components/Main/HeaderBox/style';
 import Line from '@assets/icons/line.svg';
 import ArrowLight from '@assets/icons/arrowRight.svg';
 import MainModel1 from '@assets/foto/mainModel1.png';
 import MainModel2 from '@assets/foto/mainModel2.png';
 import MainModel3 from '@assets/foto/mainModel3.png';
+import { generateGithubPagesRoutes } from '../../../routes';
+import { ROUTES } from '../../../routes/constants';
 
 const HeaderBox = () => (
     <BoxContainer>
@@ -29,7 +31,7 @@ const HeaderBox = () => (
                     <NewCollection>Новая коллекция</NewCollection>
                     <Line />
                     <WatchProductsContainer>
-                        <WatchProducts>СМОТРЕТЬ НОВИНКИ</WatchProducts>
+                        <WatchProducts to={generateGithubPagesRoutes(ROUTES.CATALOG)}>СМОТРЕТЬ НОВИНКИ</WatchProducts>
                         <ArrowContainer>
                             <ArrowLight />
                         </ArrowContainer>

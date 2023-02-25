@@ -1,5 +1,5 @@
 import React from 'react';
-import { ErrorText, InputContainer, InputContent } from '@components/ReusedComponents/Input/styled';
+import { ErrorText, InputContainer, InputContent } from '@components/ReusedComponents/Input/style';
 
 export interface IInput {
     value?: string;
