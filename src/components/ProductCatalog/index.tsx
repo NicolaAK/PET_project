@@ -13,7 +13,28 @@ const product = {
     category: 'Пальто',
     name: 'Белая куртка',
     prices: { ru: 2000, ua: 12.2 },
-    sizes: ['XXS', 'XS', 'S', 'M', 'L'],
+    sizes: [
+        {
+            value: 1,
+            label: 'XXS',
+        },
+        {
+            value: 2,
+            label: 'XS',
+        },
+        {
+            value: 3,
+            label: 'S',
+        },
+        {
+            value: 4,
+            label: 'M',
+        },
+        {
+            value: 5,
+            label: 'L',
+        },
+    ],
     colors: ['white', 'blue', 'yellow', 'black', 'red', 'green'],
     images: [Photo1, Photo2, Photo3, Photo3, Photo1],
     description: [

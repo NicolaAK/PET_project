@@ -27,7 +27,7 @@ export const Colors = styled.div`
     column-gap: 7.5px;
     margin-bottom: 25px;
 `;
-export const EllipseColor = styled.button<IEllipse>`
+export const EllipseColor = styled.input<IEllipse>`
     width: 21px;
     height: 21px;
     background-color: ${({ color }) => color};
