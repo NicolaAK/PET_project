@@ -39,10 +39,7 @@ const FormAddCart: FC<IFormAddCart> = ({ sizes, colors }) => {
         formState: { isSubmitting, errors },
         handleSubmit,
         register,
-        watch,
     } = methods;
-
-    const colorValue = watch(ADD_PRODUCT_TO_CART_FIELDS.COLOR);
 
     const onSubmit = async (formValues: IAddProductToCart) => {
         // eslint-disable-next-line no-console
@@ -61,7 +58,6 @@ const FormAddCart: FC<IFormAddCart> = ({ sizes, colors }) => {
                                 value={color}
                                 id="color"
                                 color={colorsSchema[color]}
-                                isSelectColor={colorValue === color}
                             />
                         </Label>
                     ))}

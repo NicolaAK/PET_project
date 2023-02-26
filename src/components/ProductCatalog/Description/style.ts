@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 interface IEllipse {
     color: string;
-    isSelectColor?: boolean;
 }
 interface IAnimation {
     isOpenDetails?: boolean;
@@ -33,7 +32,10 @@ export const EllipseColor = styled.input<IEllipse>`
     border-radius: 21px;
     border: 1px solid ${({ theme, color }) => (color === '#FFFFFF' ? theme.colors.blackPrimary(0.5) : 'transparent')};
     transition: ${({ theme }) => theme.decorations.transition};
-    transform: scale(${({ isSelectColor }) => (!isSelectColor ? '1' : '1.3')});
+    transform: scale(1);
+    :checked {
+        transform: scale(1.3);
+    }
 `;
 export const GridContainer = styled.div`
     margin-top: 20px;
