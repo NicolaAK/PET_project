@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Typography from '@components/Typography';
+import { Link } from 'react-router-dom';
 
 export const BoxContainer = styled.div`
     position: relative;
@@ -22,10 +22,14 @@ export const PhotoModel2 = styled.div``;
 export const PhotoModel3 = styled.div`
     margin: 0 -5px;
 `;
-export const NewCollection = styled(Typography).attrs({ variant: 'dHeader46' })`
+export const NewCollection = styled.div`
+    ${({ theme }) => theme.helpers.getTypography('dHeader46')}
     margin-bottom: 20px;
 `;
-export const WatchProducts = styled(Typography).attrs({ variant: 'dHeader16' })``;
+export const WatchProducts = styled(Link)`
+    ${({ theme }) => theme.helpers.getTypography('dHeader16')};
+    text-decoration-line: none;
+`;
 export const WatchProductsContainer = styled.button`
     flex-direction: row;
     margin-top: 20px;

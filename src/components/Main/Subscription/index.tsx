@@ -1,12 +1,6 @@
-import { Button } from '@components/Button';
+import { Button } from '@components/ReusedComponents/Button/index';
 import React from 'react';
-import {
-    Item,
-    SubscriptionContent,
-    SubscriptionContainer,
-    Text,
-    ButtonBox,
-} from '@components/Main/Subscription/styled';
+import { Item, SubscriptionContent, SubscriptionContainer, Text, ButtonBox } from '@components/Main/Subscription/style';
 import { useForm, FormProvider } from 'react-hook-form';
 import RHFInput from '@components/RHF/RHFInput';
 import { SUBSCRIBE_FORM_FIELDS, subscribeNewsSchema } from '@components/Main/validation';

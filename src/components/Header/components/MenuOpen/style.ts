@@ -5,7 +5,7 @@ type TAnimation = {
 };
 
 type THeaderContainer = {
-    isDark: boolean;
+    $isDark: boolean;
 };
 export const MenuContainerOpen = styled.div<TAnimation>`
     position: relative;
@@ -20,7 +20,7 @@ export const AboutsCompany = styled.div<THeaderContainer>`
   ${({ theme }) => theme.mixins.flexCenter};
   column-gap: 25px;
   z-index: 2;
-  color: ${({ theme, isDark }) => (isDark ? theme.colors.blackPrimary() : theme.colors.white())}};
+  color: ${({ theme, $isDark }) => ($isDark ? theme.colors.blackPrimary() : theme.colors.white())}};
 `;
 
 export const MenuLogo = styled.button`
@@ -35,7 +35,7 @@ export const Settings = styled.div<THeaderContainer>`
     ${({ theme }) => theme.mixins.flexCenter};
     column-gap: 24px;
     z-index: 2;
-    color: ${({ theme, isDark }) => (isDark ? theme.colors.blackPrimary() : theme.colors.white())}};
+    color: ${({ theme, $isDark }) => ($isDark ? theme.colors.blackPrimary() : theme.colors.white())}};
 `;
 
 export const Language = styled.div`

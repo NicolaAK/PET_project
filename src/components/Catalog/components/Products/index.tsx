@@ -1,9 +1,9 @@
 import React from 'react';
 import Product from '@components/Catalog/components/Products/Product';
-import ModelFoto1 from '@assets/foto/catalog/Model_1.png';
-import ModelFoto2 from '@assets/foto/catalog/Model_2.png';
-import ModelFoto3 from '@assets/foto/catalog/Model_3.png';
-import ModelFoto4 from '@assets/foto/catalog/Model_4.png';
+import ModelPhoto1 from '@assets/foto/catalog/Model_1.png';
+import ModelPhoto2 from '@assets/foto/catalog/Model_2.png';
+import ModelPhoto3 from '@assets/foto/catalog/Model_3.png';
+import ModelPhoto4 from '@assets/foto/catalog/Model_4.png';
 import { ProductsContainer } from './style';
 
 const products = [
@@ -14,7 +14,7 @@ const products = [
         prices: { ru: 2000, ua: 12.2 },
         sizes: ['XXS', 'XS', 'S', 'M', 'L'],
         colors: ['white', 'blue', 'yellow', 'black', 'red', 'green'],
-        image: ModelFoto1,
+        image: ModelPhoto1,
     },
     {
         id: 2,
@@ -23,7 +23,7 @@ const products = [
         prices: { ru: 3100, ua: 12.2 },
         sizes: ['XXS', 'S', 'M'],
         colors: ['white', 'yellow', 'black'],
-        image: ModelFoto2,
+        image: ModelPhoto2,
     },
     {
         id: 3,
@@ -32,7 +32,7 @@ const products = [
         prices: { ru: 4500, ua: 12.2 },
         sizes: ['XS', 'S', 'M'],
         colors: ['blue', 'yellow', 'green'],
-        image: ModelFoto3,
+        image: ModelPhoto3,
     },
     {
         id: 4,
@@ -41,7 +41,7 @@ const products = [
         prices: { ru: 700, ua: 12.2 },
         sizes: ['XXS', 'S', 'M', 'L'],
         colors: ['white', 'red', 'green'],
-        image: ModelFoto4,
+        image: ModelPhoto4,
     },
     {
         id: 5,
@@ -50,7 +50,7 @@ const products = [
         prices: { ru: 2000, ua: 12.2 },
         sizes: ['XXS', 'XS', 'S', 'M', 'L'],
         colors: ['white', 'blue', 'yellow'],
-        image: ModelFoto1,
+        image: ModelPhoto1,
     },
     {
         id: 6,
@@ -59,7 +59,7 @@ const products = [
         prices: { ru: 2000, ua: 12.2 },
         sizes: ['XXS', 'XS', 'S', 'M', 'L'],
         colors: ['white', 'blue', 'yellow', 'black', 'red', 'green'],
-        image: ModelFoto1,
+        image: ModelPhoto1,
     },
     {
         id: 7,
@@ -68,7 +68,7 @@ const products = [
         prices: { ru: 3100, ua: 12.2 },
         sizes: ['XXS', 'S', 'M'],
         colors: ['white', 'yellow', 'black'],
-        image: ModelFoto2,
+        image: ModelPhoto2,
     },
     {
         id: 8,
@@ -77,7 +77,7 @@ const products = [
         prices: { ru: 4500, ua: 12.2 },
         sizes: ['XS', 'S', 'M'],
         colors: ['blue', 'yellow', 'green'],
-        image: ModelFoto3,
+        image: ModelPhoto3,
     },
     {
         id: 9,
@@ -86,7 +86,7 @@ const products = [
         prices: { ru: 700, ua: 12.2 },
         sizes: ['XXS', 'S', 'M', 'L'],
         colors: ['white', 'red', 'green'],
-        image: ModelFoto4,
+        image: ModelPhoto4,
     },
     {
         id: 10,
@@ -95,7 +95,7 @@ const products = [
         prices: { ru: 2000, ua: 12.2 },
         sizes: ['XXS', 'XS', 'S', 'M', 'L'],
         colors: ['white', 'blue', 'yellow', 'black', 'red', 'green'],
-        image: ModelFoto1,
+        image: ModelPhoto1,
     },
     {
         id: 11,
@@ -104,7 +104,7 @@ const products = [
         prices: { ru: 3100, ua: 12.2 },
         sizes: ['XXS', 'S', 'M'],
         colors: ['white', 'yellow', 'black'],
-        image: ModelFoto2,
+        image: ModelPhoto2,
     },
     {
         id: 12,
@@ -113,7 +113,7 @@ const products = [
         prices: { ru: 4500, ua: 12.2 },
         sizes: ['XS', 'S', 'M'],
         colors: ['blue', 'yellow', 'green'],
-        image: ModelFoto3,
+        image: ModelPhoto3,
     },
     {
         id: 13,
@@ -122,7 +122,7 @@ const products = [
         prices: { ru: 4500, ua: 12.2 },
         sizes: ['XS', 'S', 'M'],
         colors: ['blue', 'yellow', 'green'],
-        image: ModelFoto3,
+        image: ModelPhoto3,
     },
     {
         id: 14,
@@ -131,7 +131,7 @@ const products = [
         prices: { ru: 700, ua: 12.2 },
         sizes: ['XXS', 'S', 'M', 'L'],
         colors: ['white', 'red', 'green'],
-        image: ModelFoto4,
+        image: ModelPhoto4,
     },
 ];
 
@@ -140,6 +140,7 @@ const Products = () => (
         {products.map((product) => (
             <Product
                 key={product.id}
+                id={product.id}
                 prices={product.prices}
                 image={product.image}
                 name={product.name}

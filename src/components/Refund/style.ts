@@ -18,7 +18,7 @@ export const Subtitle = styled.div`
 export const Body = styled.div`
     ${({ theme }) => theme.mixins.flexStartCenter};
     column-gap: 30px;
-    margin: 10px 0 385px 0;
+    margin: 10px 0 auto 0;
 `;
 export const Item = styled.div`
     ${({ theme }) => theme.mixins.flexCenterCenter};

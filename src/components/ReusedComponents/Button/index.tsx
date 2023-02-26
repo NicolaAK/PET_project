@@ -1,7 +1,8 @@
 import React, { FC, ReactNode } from 'react';
-import { ButtonContainer, ButtonText, ButtonTextIcon, Icon } from '@components/Button/styled';
+import { ButtonContainer, ButtonText, ButtonTextIcon, Icon } from '@components/ReusedComponents/Button/style';
 import FavouritesButton from '@assets/icons/favouritesButton.svg';
-import Spinner from '@components/Button/Loader';
+import Spinner from '@components/ReusedComponents/Button/Loader';
+import FavouritesButtonActive from '@assets/icons/favouritesButtonActive.svg';
 
 export type ButtonProps = {
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
@@ -10,6 +11,8 @@ export type ButtonProps = {
     width?: number;
     icon?: ReactNode;
     isLoading?: boolean;
+    value?: boolean;
+    onChange?: () => void;
 };
 export const Button: FC<ButtonProps> = ({
     onClick,
@@ -18,6 +21,8 @@ export const Button: FC<ButtonProps> = ({
     width,
     icon = <FavouritesButton />,
     isLoading,
+    value,
+    onChange,
 }) => {
     const renderContent = () => {
         if (isLoading) {
@@ -26,8 +31,8 @@ export const Button: FC<ButtonProps> = ({
 
         if (color === 'favourites') {
             return (
-                <ButtonTextIcon>
-                    <Icon>{icon}</Icon>
+                <ButtonTextIcon onClick={onChange}>
+                    <Icon onClick={onChange}>{value ? <FavouritesButtonActive /> : icon}</Icon>
                     {children}
                 </ButtonTextIcon>
             );

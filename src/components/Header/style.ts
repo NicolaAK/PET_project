@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 type THeaderContainer = {
-    isDark: boolean;
+    $isDark: boolean;
 };
 
 type TAnimation = {
@@ -9,11 +9,11 @@ type TAnimation = {
 };
 export const HeaderContainer = styled.div<THeaderContainer>`
     ${({ theme }) => theme.mixins.mainGrid};
-    background-color: ${({ theme, isDark }) => (isDark ? theme.colors.white() : 'inherit')};
+    background-color: ${({ theme, $isDark }) => ($isDark ? theme.colors.white() : 'inherit')};
 `;
 export const HeaderContent = styled.div<THeaderContainer>`
     svg path {
-        fill: ${({ theme, isDark }) => (isDark ? theme.colors.mainPrimary() : theme.colors.white())};
+        fill: ${({ theme, $isDark }) => ($isDark ? theme.colors.mainPrimary() : theme.colors.white())};
     }
     height: 85px;
     z-index: 2;
