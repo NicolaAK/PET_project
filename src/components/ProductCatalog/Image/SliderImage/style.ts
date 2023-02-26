@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 export const SliderContainer = styled.div`
-    ${({ theme }) => theme.mixins.mainGrid};
     .slick-slide {
         padding: 0;
     }

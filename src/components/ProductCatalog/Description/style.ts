@@ -23,9 +23,8 @@ export const Price = styled.div`
     margin-bottom: 23px;
 `;
 export const Colors = styled.div`
-    ${({ theme }) => theme.mixins.flexStart};
+    ${({ theme }) => theme.mixins.flexEnd};
     column-gap: 7.5px;
-    margin-bottom: 25px;
 `;
 export const EllipseColor = styled.input<IEllipse>`
     width: 21px;
@@ -37,11 +36,12 @@ export const EllipseColor = styled.input<IEllipse>`
     transform: scale(${({ isSelectColor }) => (!isSelectColor ? '1' : '1.3')});
 `;
 export const GridContainer = styled.div`
+    margin-top: 20px;
     display: grid;
     grid-auto-columns: auto;
     grid-auto-rows: 1fr;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 50px 50px;
+    grid-template-rows: 1fr 50px;
     gap: 20px 20px;
     grid-template-areas:
         'select select'
@@ -106,3 +106,4 @@ export const OpenListStructure = styled.div<ILine>`
     transition: 0.8s;
     padding-top: 3px;
 `;
+export const Label = styled.label``;

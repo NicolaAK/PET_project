@@ -33,6 +33,6 @@ export const InputContent = styled.input<IInputContent>`
 `;
 
 export const ErrorText = styled(Typography).attrs({ variant: 'dHeader16' })`
+    margin-top: 5px;
     color: ${({ theme }) => theme.colors.error()};
-    margin-top: 2px;
 `;

@@ -34,6 +34,8 @@ export const ButtonContainer = styled.button<ButtonProps>`
         box-shadow: ${({ theme }) => theme.decorations.boxShadow.inset};
         ${(props) => props.color && ACTIVE[props.color]}
     }
+    &:disabled {
+    }
 `;
 export const ButtonText = styled(Typography).attrs({ variant: 'dText16lh19' })``;
 export const ButtonTextIcon = styled.div`

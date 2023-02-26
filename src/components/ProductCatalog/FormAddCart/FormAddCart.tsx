@@ -8,12 +8,14 @@ import {
     GridButton2,
     GridContainer,
     GridSelect,
+    Label,
 } from '@components/ProductCatalog/Description/style';
 import { colorsSchema } from '@components/Catalog/components/Products/Product';
 import { IOptions } from '@components/ReusedComponents/InputSelect';
 import RHFSelect from '@components/RHF/RHFSelect';
 import { ADD_PRODUCT_TO_CART_FIELDS, addProductToCart } from '@components/ProductCatalog/FormAddCart/validations';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { ErrorText } from '@components/ReusedComponents/Input/style';
 
 interface IAddProductToCart {
     [ADD_PRODUCT_TO_CART_FIELDS.SIZE]: number;
@@ -46,15 +48,12 @@ const FormAddCart: FC<IFormAddCart> = ({ sizes, colors }) => {
         // eslint-disable-next-line no-console
         console.log(formValues);
     };
-
     return (
         <FormProvider {...methods}>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Colors>
                     {colors?.map((color) => (
-                        // todo fix
-                        // eslint-disable-next-line jsx-a11y/label-has-associated-control
-                        <label htmlFor="color">
+                        <Label>
                             <EllipseColor
                                 key={color}
                                 {...register(ADD_PRODUCT_TO_CART_FIELDS.COLOR)}
@@ -64,12 +63,12 @@ const FormAddCart: FC<IFormAddCart> = ({ sizes, colors }) => {
                                 color={colorsSchema[color]}
                                 isSelectColor={colorValue === color}
                             />
-                        </label>
+                        </Label>
                     ))}
-                    {errors?.[ADD_PRODUCT_TO_CART_FIELDS.COLOR] && (
-                        <p>{errors[ADD_PRODUCT_TO_CART_FIELDS.COLOR]?.message}</p>
-                    )}
                 </Colors>
+                {errors?.[ADD_PRODUCT_TO_CART_FIELDS.COLOR] && (
+                    <ErrorText>{errors[ADD_PRODUCT_TO_CART_FIELDS.COLOR]?.message}</ErrorText>
+                )}
                 <GridContainer>
                     <GridSelect>
                         <RHFSelect
