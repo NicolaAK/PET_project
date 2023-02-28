@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
+interface ISize {
+    width: number;
+}
 interface IAnimation {
     isOpenSelect: boolean;
 }
@@ -20,9 +23,12 @@ export const Header = styled.div`
     }
 `;
 
-export const ListContainer = styled.div`
+export const ListContainer = styled.div<ISize>`
+    position: absolute;
+    min-width: ${({ width }) => width}px;
     box-shadow: ${({ theme }) => theme.decorations.boxShadow.base};
     background: ${({ theme }) => theme.colors.white()};
+    z-index: 3;
 `;
 
 export const List = styled.ul`

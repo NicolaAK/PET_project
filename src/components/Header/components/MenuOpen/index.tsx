@@ -31,18 +31,22 @@ const iconsProfile = [
     {
         id: 1,
         icon: <Search />,
+        link: generateGithubPagesRoutes(''),
     },
     {
         id: 2,
         icon: <Profile />,
+        link: generateGithubPagesRoutes(''),
     },
     {
         id: 3,
         icon: <Favourites />,
+        link: generateGithubPagesRoutes(''),
     },
     {
         id: 4,
         icon: <Shop />,
+        link: generateGithubPagesRoutes(ROUTES.CART),
     },
 ];
 const aboutCompany = [
@@ -72,7 +76,7 @@ const MenuOpen = ({ $isDark, money, setMoney, moneyArr, languageArr, setLanguage
         </Settings>
         <SocialsMedia>
             {iconsProfile.map((icon) => (
-                <SocialMedia key={icon.id} icon={icon.icon} />
+                <SocialMedia key={icon.id} icon={icon.icon} link={icon.link} />
             ))}
         </SocialsMedia>
     </MenuContainerOpen>

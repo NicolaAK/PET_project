@@ -13,11 +13,12 @@ export interface IProps {
     options: IOptions[];
     value?: number;
     onChange?: (value: number) => void;
-    placeholder: string;
+    placeholder?: string;
     errorText?: string;
+    width: number;
 }
 
-const Select = ({ options, value, onChange, placeholder, errorText }: IProps) => {
+const Select = ({ options, value, onChange, placeholder, errorText, width }: IProps) => {
     const [isOpenSelect, setIsOpen] = useState(false);
     const toggling = () => setIsOpen(!isOpenSelect);
     const close = () => setIsOpen(false);
@@ -39,9 +40,8 @@ const Select = ({ options, value, onChange, placeholder, errorText }: IProps) =>
                     <ArrowR />
                 </ArrowContainer>
             </Header>
-
             {isOpenSelect && (
-                <ListContainer>
+                <ListContainer width={width}>
                     <List>
                         {options.map((option) => (
                             <ListItem onClick={onOptionClicked(option.value)} key={option.value}>

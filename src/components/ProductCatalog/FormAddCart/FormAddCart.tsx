@@ -50,14 +50,14 @@ const FormAddCart: FC<IFormAddCart> = ({ sizes, colors }) => {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Colors>
                     {colors?.map((color) => (
-                        <Label>
+                        <Label key={color}>
                             <EllipseColor
-                                key={color}
                                 {...register(ADD_PRODUCT_TO_CART_FIELDS.COLOR)}
                                 type="radio"
                                 value={color}
                                 id="color"
                                 color={colorsSchema[color]}
+                                radius={21}
                             />
                         </Label>
                     ))}
@@ -68,6 +68,7 @@ const FormAddCart: FC<IFormAddCart> = ({ sizes, colors }) => {
                 <GridContainer>
                     <GridSelect>
                         <RHFSelect
+                            width={510}
                             name={ADD_PRODUCT_TO_CART_FIELDS.SIZE}
                             options={sizes}
                             placeholder="Выберите размер"
