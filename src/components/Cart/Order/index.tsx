@@ -1,35 +1,8 @@
 import React, { useState } from 'react';
 import Photo1 from '@assets/foto/mainModel1.png';
-import { colorsSchema, currency, labelSymbol } from '@components/Catalog/components/Products/Product';
-import { EllipseColor } from '@components/ProductCatalog/Description/style';
-import InputSelect from '@components/ReusedComponents/InputSelect';
-import DeleteIcon from '@assets/icons/delete.svg';
-import { generateGithubPagesRoutes } from '@utils/helpers';
-import TotalCount from '@components/ReusedComponents/TotalCount';
-import {
-    Container,
-    ContainerShoppingList,
-    YourOrder,
-    ShoppingList,
-    GroupOne,
-    Image,
-    Photo,
-    Article,
-    Name,
-    Title,
-    Color,
-    ColorLine,
-    Select,
-    Counter,
-    GroupTwo,
-    Price,
-    Icon,
-    Line,
-    Money,
-    Total,
-    Text,
-} from './style';
-import { ROUTES } from '../../../routes/constants';
+import { currency, labelSymbol } from '@components/Catalog/components/Products/Product';
+import Product from '@components/Cart/Product';
+import { Container, YourOrder, Money, Total, Text } from './style';
 
 const products = [
     {
@@ -132,47 +105,20 @@ const Order = () => {
         setProductCart(productCart.filter((arr) => arr.id !== id));
     };
     const sumAll = productCart.reduce((sum, current) => sum + current.prices[currency] * current.countProduct, 0);
+    const handleCountProductChange = (id: number, count: number) => {
+        setProductCart(
+            productCart.map((productItem) =>
+                productItem?.id === id ? { ...productItem, countProduct: count } : productItem,
+            ),
+        );
+    };
+
     return (
         <Container>
             <YourOrder>Ваш заказ</YourOrder>
-            {productCart.map((product) => {
-                const Link = `${generateGithubPagesRoutes(ROUTES.CATALOG)}/${product.id}`;
-                return (
-                    <ContainerShoppingList key={product.id}>
-                        <ShoppingList>
-                            <GroupOne>
-                                <Image to={Link}>
-                                    <Photo src={product.images} alt="photoModel" />
-                                </Image>
-                                <Title>
-                                    <Article>{product.article}</Article>
-                                    <Name to={Link}>{product.name}</Name>
-                                </Title>
-                            </GroupOne>
-                            <Color>
-                                <ColorLine>
-                                    <EllipseColor radius={24} color={colorsSchema[product.color]} />
-                                </ColorLine>
-                            </Color>
-                            <Select>
-                                <InputSelect width={98} options={product.sizes} placeholder={product.sizes[0].label} />
-                            </Select>
-                            <Counter>
-                                <TotalCount value={product.countProduct} />
-                            </Counter>
-                            <GroupTwo>
-                                <Price>
-                                    {product.prices[currency]} {labelSymbol[currency]}
-                                </Price>
-                                <Icon onClick={() => toggleDeleteArr(product.id)}>
-                                    <DeleteIcon />
-                                </Icon>
-                            </GroupTwo>
-                        </ShoppingList>
-                        <Line />
-                    </ContainerShoppingList>
-                );
-            })}
+            {productCart.map((product) => (
+                <Product onCountChange={handleCountProductChange} product={product} onProduceDelete={toggleDeleteArr} />
+            ))}
             <Total>
                 <Text>К оплате:</Text>
                 <Money>

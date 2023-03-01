@@ -1,26 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
 import MinusIcon from '@assets/icons/minus.svg';
 import PlusIcon from '@assets/icons/plus.svg';
 import { Plus, Count, Minus, Content, Container } from './style';
 
 interface ICount {
     value: number;
+    onChange: (value: number) => void;
 }
-const TotalCount = ({ value }: ICount) => {
-    const [count, setCount] = useState(value);
+const TotalCount = ({ value, onChange }: ICount) => {
     const toggleDecreaseProduct = () => {
-        setCount(count - 1);
+        if (value > 1) {
+            onChange(value - 1);
+        }
     };
     const toggleIncreaseProduct = () => {
-        setCount(count + 1);
+        onChange(value + 1);
     };
+
     return (
         <Container>
             <Content>
                 <Minus onClick={toggleDecreaseProduct}>
                     <MinusIcon />
                 </Minus>
-                <Count>{count}</Count>
+                <Count>{value}</Count>
                 <Plus onClick={toggleIncreaseProduct}>
                     <PlusIcon />
                 </Plus>
