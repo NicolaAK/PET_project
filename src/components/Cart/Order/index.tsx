@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Photo1 from '@assets/foto/mainModel1.png';
 import { colorsSchema, currency, labelSymbol } from '@components/Catalog/components/Products/Product';
 import { EllipseColor } from '@components/ProductCatalog/Description/style';
 import InputSelect from '@components/ReusedComponents/InputSelect';
 import DeleteIcon from '@assets/icons/delete.svg';
 import { generateGithubPagesRoutes } from '@utils/helpers';
+import TotalCount from '@components/ReusedComponents/TotalCount';
 import {
     Container,
     ContainerShoppingList,
@@ -35,6 +36,7 @@ const products = [
         id: 1,
         name: 'Белая куртка',
         article: 'арт. 1589956',
+        countProduct: 1,
         prices: { ru: 2350, ua: 12.2 },
         sizes: [
             {
@@ -65,6 +67,7 @@ const products = [
         id: 2,
         name: 'Белая куртка',
         article: 'арт. 1589958',
+        countProduct: 2,
         prices: { ru: 5000, ua: 12.2 },
         sizes: [
             {
@@ -95,6 +98,7 @@ const products = [
         id: 3,
         name: 'Белая куртка',
         article: 'арт. 1589958',
+        countProduct: 3,
         prices: { ru: 2000, ua: 12.2 },
         sizes: [
             {
@@ -123,7 +127,12 @@ const products = [
     },
 ];
 const Order = () => {
-    const sumAll = products.reduce((sum, current) => sum + current.prices[currency], 0);
+    const sumAll = products.reduce((sum, current) => sum + current.prices[currency] * current.countProduct, 0);
+    const [deleteArr, setDeleteArr] = useState(products);
+    const toggleDeleteArr = (id: number) => {
+        setDeleteArr(deleteArr.filter((arr) => arr.id !== id));
+    };
+    console.log(deleteArr);
     return (
         <Container>
             <YourOrder>Ваш заказ</YourOrder>
@@ -149,12 +158,14 @@ const Order = () => {
                             <Select>
                                 <InputSelect width={98} options={product.sizes} placeholder={product.sizes[0].label} />
                             </Select>
-                            <Counter>counter</Counter>
+                            <Counter>
+                                <TotalCount value={product.countProduct} />
+                            </Counter>
                             <GroupTwo>
                                 <Price>
                                     {product.prices[currency]} {labelSymbol[currency]}
                                 </Price>
-                                <Icon>
+                                <Icon onClick={() => toggleDeleteArr(product.id)}>
                                     <DeleteIcon />
                                 </Icon>
                             </GroupTwo>
