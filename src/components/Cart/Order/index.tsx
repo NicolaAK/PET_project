@@ -127,16 +127,15 @@ const products = [
     },
 ];
 const Order = () => {
-    const sumAll = products.reduce((sum, current) => sum + current.prices[currency] * current.countProduct, 0);
-    const [deleteArr, setDeleteArr] = useState(products);
+    const [productCart, setProductCart] = useState(products);
     const toggleDeleteArr = (id: number) => {
-        setDeleteArr(deleteArr.filter((arr) => arr.id !== id));
+        setProductCart(productCart.filter((arr) => arr.id !== id));
     };
-    console.log(deleteArr);
+    const sumAll = productCart.reduce((sum, current) => sum + current.prices[currency] * current.countProduct, 0);
     return (
         <Container>
             <YourOrder>Ваш заказ</YourOrder>
-            {products.map((product) => {
+            {productCart.map((product) => {
                 const Link = `${generateGithubPagesRoutes(ROUTES.CATALOG)}/${product.id}`;
                 return (
                     <ContainerShoppingList key={product.id}>

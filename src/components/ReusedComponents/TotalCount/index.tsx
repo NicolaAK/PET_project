@@ -11,7 +11,7 @@ const TotalCount = ({ value }: ICount) => {
     const toggleDecreaseProduct = () => {
         setCount(count - 1);
     };
-    const toggleAddProduct = () => {
+    const toggleIncreaseProduct = () => {
         setCount(count + 1);
     };
     return (
@@ -21,7 +21,7 @@ const TotalCount = ({ value }: ICount) => {
                     <MinusIcon />
                 </Minus>
                 <Count>{count}</Count>
-                <Plus onClick={toggleAddProduct}>
+                <Plus onClick={toggleIncreaseProduct}>
                     <PlusIcon />
                 </Plus>
             </Content>
