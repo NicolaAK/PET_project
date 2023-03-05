@@ -1,6 +1,6 @@
 import React from 'react';
 import RHFInput from '@components/RHF/RHFInput';
-import { HeadTitle, Container, Content, Subtitle, GridPersonalData, GridAddress, RadioButton } from './style';
+import { HeadTitle, Container, Content, Subtitle, GridPersonalData, GridAddress } from './style';
 
 const personalData = [
     { name: 'name', placeholder: 'Ваше имя*' },
@@ -19,15 +19,14 @@ const OrderRegistration = () => (
             <Subtitle>Персональные данные:</Subtitle>
             <GridPersonalData>
                 {personalData.map((data) => (
-                    <RHFInput name={data.name} placeholder={data.placeholder} />
+                    <RHFInput key={data.name} name={data.name} placeholder={data.placeholder} />
                 ))}
             </GridPersonalData>
             <Subtitle>Способ доставки:</Subtitle>
-            <RadioButton type="radio" />
             <Subtitle>Адрес доставки:</Subtitle>
             <GridAddress>
                 {address.map((data) => (
-                    <RHFInput name={data.name} placeholder={data.placeholder} />
+                    <RHFInput key={data.name} name={data.name} placeholder={data.placeholder} />
                 ))}
             </GridAddress>
             <Subtitle>Вы можете оплатить покупку одним из ниже перечисленных способов:</Subtitle>

@@ -34,9 +34,3 @@ export const GridAddress = styled.div`
     grid-template-areas: '. .';
     margin-bottom: 20px;
 `;
-export const RadioButton = styled.input`
-    border: 1px solid ${({ theme }) => theme.colors.blackPrimary(0.5)};
-    width: 18px;
-    height: 18px;
-    border-radius: 20px;
-`;
