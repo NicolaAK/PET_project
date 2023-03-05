@@ -120,6 +120,7 @@ const Cart = () => {
         control,
         name: 'products',
     });
+    // eslint-disable-next-line
     const onSubmit = (data: any) => console.log('data', data);
     return (
         <FormProvider {...methods}>

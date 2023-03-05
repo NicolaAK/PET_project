@@ -19,7 +19,7 @@ const RHFTotalCount = ({ name }: ICount) => {
     );
 };
 
-const TotalCount = ({ value, onChange }: { value: number; onChange: (value: any) => void }) => {
+const TotalCount = ({ value, onChange }: { value: number; onChange: (value: number) => void }) => {
     const formattedValue = value || 0;
 
     const toggleDecreaseProduct = () => {
