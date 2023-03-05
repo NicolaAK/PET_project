@@ -24,10 +24,11 @@ import DeleteIcon from '@assets/icons/delete.svg';
 import RHFSelect from '@components/RHF/RHFSelect';
 import RHFTotalCount from '@components/ReusedComponents/TotalCount';
 import { useFormContext } from 'react-hook-form';
+import { IProduct } from '@components/Cart/Order';
 import { ROUTES } from '../../../routes/constants';
 
 interface Props {
-    product: any;
+    product: IProduct;
     remove: any;
     index: number;
 }
@@ -40,7 +41,7 @@ const Product: FC<Props> = ({ product, remove, index }) => {
     const productsWatcher = watch(`products`);
 
     useEffect(() => {
-        setValue(`products[${index}].amountTotal`, countWatcher * product.prices.ru);
+        setValue(`products[${index}].amountTotal`, countWatcher * product.prices[currency]);
         const allSum = productsWatcher?.reduce((sum: number, item: any) => sum + item.amountTotal, 0);
         setValue('allSum', allSum);
     }, [countWatcher, index, product.prices.ru, productsWatcher, setValue]);
@@ -59,7 +60,7 @@ const Product: FC<Props> = ({ product, remove, index }) => {
                 </GroupOne>
                 <Color>
                     <ColorLine>
-                        <EllipseColor radius={24} color={colorsSchema[product.color]} />
+                        <EllipseColor disabled radius={24} color={colorsSchema[product.color]} />
                     </ColorLine>
                 </Color>
                 <Select>

@@ -4,11 +4,11 @@ import Product from '@components/Cart/Product';
 import { useFormContext } from 'react-hook-form';
 import { Container, YourOrder, Money, Total, Text } from './style';
 
-interface ISizes {
+export interface ISizes {
     value: number;
     label: string;
 }
-interface IProduct {
+export interface IProduct {
     id: number;
     name: string;
     article: string;
@@ -16,7 +16,7 @@ interface IProduct {
     prices: { ru: number; ua: number };
     sizes: ISizes[];
     color: string;
-    images: string[];
+    images: string;
 }
 interface IForm {
     fields: IProduct[];
@@ -35,8 +35,7 @@ const Order = ({ fields, remove }: IForm) => {
             <Total>
                 <Text>К оплате:</Text>
                 <Money>
-                    {sumAllWatch}
-                    {labelSymbol[currency]}
+                    {fields.length === 0 ? `0 ${labelSymbol[currency]}` : `${sumAllWatch} ${labelSymbol[currency]}`}
                 </Money>
             </Total>
         </Container>
