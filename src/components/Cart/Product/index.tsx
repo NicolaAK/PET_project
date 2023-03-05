@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { generateGithubPagesRoutes } from '@utils/helpers';
 import {
     Article,
@@ -22,6 +22,8 @@ import { EllipseColor } from '@components/ProductCatalog/Description/style';
 import { colorsSchema, currency, labelSymbol } from '@components/Catalog/components/Products/Product';
 import DeleteIcon from '@assets/icons/delete.svg';
 import RHFSelect from '@components/RHF/RHFSelect';
+import RHFTotalCount from '@components/ReusedComponents/TotalCount';
+import { useFormContext } from 'react-hook-form';
 import { ROUTES } from '../../../routes/constants';
 
 interface Props {
@@ -33,10 +35,16 @@ interface Props {
 const Product: FC<Props> = ({ product, remove, index }) => {
     const Link = `${generateGithubPagesRoutes(ROUTES.CATALOG)}/${product.id}`;
     const toggleDeleteProduct = () => remove(index);
-    //
-    // const handleCountChange = (countValue: number) => {
-    //     onCountChange(product.id, countValue);
-    // };
+    const { watch, setValue } = useFormContext();
+    const countWatcher = watch(`products[${index}].countProduct`);
+    const productsWatcher = watch(`products`);
+
+    useEffect(() => {
+        setValue(`products[${index}].amountTotal`, countWatcher * product.prices.ru);
+        const allSum = productsWatcher?.reduce((sum: number, item: any) => sum + item.amountTotal, 0);
+        setValue('allSum', allSum);
+    }, [countWatcher, index, product.prices.ru, productsWatcher, setValue]);
+
     return (
         <ContainerShoppingList key={product.id}>
             <ShoppingList>
@@ -56,13 +64,15 @@ const Product: FC<Props> = ({ product, remove, index }) => {
                 </Color>
                 <Select>
                     <RHFSelect
-                        name="products"
+                        name={`products[${index}].size`}
                         width={98}
                         options={product.sizes}
                         placeholder={product.sizes[0].label}
                     />
                 </Select>
-                <Counter>{/* <TotalCount value={product.countProduct} /> */}</Counter>
+                <Counter>
+                    <RHFTotalCount name={`products[${index}].countProduct`} />
+                </Counter>
                 <GroupTwo>
                     <Price>
                         {product.prices[currency]} {labelSymbol[currency]}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { currency, labelSymbol } from '@components/Catalog/components/Products/Product';
 import Product from '@components/Cart/Product';
+import { useFormContext } from 'react-hook-form';
 import { Container, YourOrder, Money, Total, Text } from './style';
 
 interface ISizes {
@@ -22,18 +23,9 @@ interface IForm {
     remove: () => void;
 }
 const Order = ({ fields, remove }: IForm) => {
-    const sumAll = fields.reduce(
-        (sum: number, current: any) => sum + current.prices[currency] * current.countProduct,
-        0,
-    );
-    // const handleCountProductChange = (id: number, count: number) => {
-    //     setProductCart(
-    //         productCart.map((productItem) =>
-    //             productItem?.id === id ? { ...productItem, countProduct: count } : productItem,
-    //         ),
-    //     );
-    // };
-    console.log(fields);
+    const { watch } = useFormContext();
+    const sumAllWatch = watch('allSum');
+
     return (
         <Container>
             <YourOrder>Ваш заказ</YourOrder>
@@ -43,7 +35,7 @@ const Order = ({ fields, remove }: IForm) => {
             <Total>
                 <Text>К оплате:</Text>
                 <Money>
-                    {sumAll}
+                    {sumAllWatch}
                     {labelSymbol[currency]}
                 </Money>
             </Total>

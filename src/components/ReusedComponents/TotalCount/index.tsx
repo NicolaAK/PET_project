@@ -1,30 +1,44 @@
 import React from 'react';
 import MinusIcon from '@assets/icons/minus.svg';
 import PlusIcon from '@assets/icons/plus.svg';
+import { Controller, useFormContext } from 'react-hook-form';
 import { Plus, Count, Minus, Content, Container } from './style';
 
 interface ICount {
-    value: number;
-    onChange: (value: number) => void;
+    name: string;
 }
-const TotalCount = ({ value, onChange }: ICount) => {
+const RHFTotalCount = ({ name }: ICount) => {
+    const { control } = useFormContext();
+
+    return (
+        <Controller
+            name={name}
+            control={control}
+            render={({ field }) => <TotalCount onChange={field.onChange} value={field.value} />}
+        />
+    );
+};
+
+const TotalCount = ({ value, onChange }: { value: number; onChange: (value: any) => void }) => {
+    const formattedValue = value || 0;
+
     const toggleDecreaseProduct = () => {
-        if (value > 1) {
-            onChange(value - 1);
+        if (formattedValue > 1) {
+            onChange(formattedValue - 1);
         }
     };
     const toggleIncreaseProduct = () => {
-        onChange(value + 1);
+        onChange(formattedValue + 1);
     };
 
     return (
         <Container>
             <Content>
-                <Minus onClick={toggleDecreaseProduct}>
+                <Minus onClick={toggleDecreaseProduct} type="button">
                     <MinusIcon />
                 </Minus>
-                <Count>{value}</Count>
-                <Plus onClick={toggleIncreaseProduct}>
+                <Count>{formattedValue}</Count>
+                <Plus onClick={toggleIncreaseProduct} type="button">
                     <PlusIcon />
                 </Plus>
             </Content>
@@ -32,4 +46,4 @@ const TotalCount = ({ value, onChange }: ICount) => {
     );
 };
 
-export default TotalCount;
+export default RHFTotalCount;

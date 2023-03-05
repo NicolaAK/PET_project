@@ -2,8 +2,9 @@ import React from 'react';
 import Order from '@components/Cart/Order';
 import { generateGithubPagesRoutes } from '@utils/helpers';
 import Breadcrumbs from '@components/ReusedComponents/Breadcrumbs';
-import { useFieldArray, useForm } from 'react-hook-form';
+import { useFieldArray, useForm, FormProvider } from 'react-hook-form';
 import Photo1 from '@assets/foto/mainModel1.png';
+import { Button } from '@components/ReusedComponents/Button';
 import { Content, Container } from './style';
 
 const URL = [
@@ -16,6 +17,7 @@ const products = [
         name: 'Белая куртка',
         article: 'арт. 1589956',
         countProduct: 1,
+        size: 3,
         prices: { ru: 2350, ua: 12.2 },
         sizes: [
             {
@@ -47,6 +49,7 @@ const products = [
         name: 'Белая куртка',
         article: 'арт. 1589958',
         countProduct: 2,
+        size: 2,
         prices: { ru: 5000, ua: 12.2 },
         sizes: [
             {
@@ -79,6 +82,7 @@ const products = [
         article: 'арт. 1589958',
         countProduct: 3,
         prices: { ru: 2000, ua: 12.2 },
+        size: 4,
         sizes: [
             {
                 value: 1,
@@ -106,23 +110,29 @@ const products = [
     },
 ];
 const Cart = () => {
-    const { control, handleSubmit } = useForm({
+    const methods = useForm({
         defaultValues: { products },
     });
+
+    const { handleSubmit, control } = methods;
+
     const { fields, remove } = useFieldArray({
         control,
         name: 'products',
     });
     const onSubmit = (data: any) => console.log('data', data);
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <Container>
-                <Breadcrumbs URL={URL} />
-                <Content>
-                    <Order fields={fields} remove={remove} />
-                </Content>
-            </Container>
-        </form>
+        <FormProvider {...methods}>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <Container>
+                    <Breadcrumbs URL={URL} />
+                    <Content>
+                        <Order fields={fields} remove={remove} />
+                    </Content>
+                </Container>
+                <Button>Submit</Button>
+            </form>
+        </FormProvider>
     );
 };
 
