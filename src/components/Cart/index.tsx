@@ -4,6 +4,7 @@ import { generateGithubPagesRoutes } from '@utils/helpers';
 import Breadcrumbs from '@components/ReusedComponents/Breadcrumbs';
 import { useFieldArray, useForm, FormProvider } from 'react-hook-form';
 import Photo1 from '@assets/foto/mainModel1.png';
+import OrderRegistration from '@components/Cart/OrderRegistration';
 import { Button } from '@components/ReusedComponents/Button';
 import { Content, Container } from './style';
 
@@ -129,9 +130,10 @@ const Cart = () => {
                     <Breadcrumbs URL={URL} />
                     <Content>
                         <Order fields={fields} remove={remove} />
+                        <OrderRegistration />
                     </Content>
                 </Container>
-                <Button>Submit</Button>
+                <Button>qwe</Button>
             </form>
         </FormProvider>
     );
