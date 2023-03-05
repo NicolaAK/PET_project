@@ -20,24 +20,23 @@ import {
 } from '@components/Cart/Order/style';
 import { EllipseColor } from '@components/ProductCatalog/Description/style';
 import { colorsSchema, currency, labelSymbol } from '@components/Catalog/components/Products/Product';
-import InputSelect from '@components/ReusedComponents/InputSelect';
-import TotalCount from '@components/ReusedComponents/TotalCount';
 import DeleteIcon from '@assets/icons/delete.svg';
+import RHFSelect from '@components/RHF/RHFSelect';
 import { ROUTES } from '../../../routes/constants';
 
 interface Props {
     product: any;
-    onProduceDelete: (id: any) => void;
-    onCountChange: (id: number, count: number) => void;
+    remove: any;
+    index: number;
 }
 
-const Product: FC<Props> = ({ product, onProduceDelete, onCountChange }) => {
+const Product: FC<Props> = ({ product, remove, index }) => {
     const Link = `${generateGithubPagesRoutes(ROUTES.CATALOG)}/${product.id}`;
-
-    const handleCountChange = (countValue: number) => {
-        onCountChange(product.id, countValue);
-    };
-
+    const toggleDeleteProduct = () => remove(index);
+    //
+    // const handleCountChange = (countValue: number) => {
+    //     onCountChange(product.id, countValue);
+    // };
     return (
         <ContainerShoppingList key={product.id}>
             <ShoppingList>
@@ -56,16 +55,19 @@ const Product: FC<Props> = ({ product, onProduceDelete, onCountChange }) => {
                     </ColorLine>
                 </Color>
                 <Select>
-                    <InputSelect width={98} options={product.sizes} placeholder={product.sizes[0].label} />
+                    <RHFSelect
+                        name="products"
+                        width={98}
+                        options={product.sizes}
+                        placeholder={product.sizes[0].label}
+                    />
                 </Select>
-                <Counter>
-                    <TotalCount value={product.countProduct} onChange={handleCountChange} />
-                </Counter>
+                <Counter>{/* <TotalCount value={product.countProduct} /> */}</Counter>
                 <GroupTwo>
                     <Price>
                         {product.prices[currency]} {labelSymbol[currency]}
                     </Price>
-                    <Icon onClick={() => onProduceDelete(product.id)}>
+                    <Icon onClick={toggleDeleteProduct}>
                         <DeleteIcon />
                     </Icon>
                 </GroupTwo>

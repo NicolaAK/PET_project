@@ -34,7 +34,6 @@ const FormAddCart: FC<IFormAddCart> = ({ sizes, colors }) => {
     const methods = useForm<IAddProductToCart>({
         resolver: yupResolver(addProductToCart),
     });
-
     const {
         formState: { isSubmitting, errors },
         handleSubmit,
