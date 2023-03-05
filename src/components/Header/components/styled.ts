@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export const AboutCompanyWrapper = styled.button`
     ${({ theme }) => theme.mixins.flexCenter}
 `;
-export const Icon = styled.button`
+export const Icon = styled(Link)`
     ${({ theme }) => theme.mixins.flexCenter};
     transition: ${({ theme }) => theme.decorations.transition};
     &:hover {

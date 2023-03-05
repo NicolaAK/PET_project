@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 interface IEllipse {
     color: string;
+    radius?: number;
 }
 interface IAnimation {
     isOpenDetails?: boolean;
@@ -26,8 +27,8 @@ export const Colors = styled.div`
     column-gap: 7.5px;
 `;
 export const EllipseColor = styled.input<IEllipse>`
-    width: 21px;
-    height: 21px;
+    width: ${({ radius }) => radius}px;
+    height: ${({ radius }) => radius}px;
     background-color: ${({ color }) => color};
     border-radius: 21px;
     border: 1px solid ${({ theme, color }) => (color === '#FFFFFF' ? theme.colors.blackPrimary(0.5) : 'transparent')};

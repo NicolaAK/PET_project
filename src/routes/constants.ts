@@ -6,6 +6,7 @@ export enum ROUTES {
     PRODUCT = 'product',
     REFUND = 'refund',
     PAYMENT = 'payment',
+    CART = 'cart',
     // only for githubpages
     YANKI = 'yanki',
 }

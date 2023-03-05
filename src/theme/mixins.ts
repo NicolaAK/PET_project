@@ -38,6 +38,10 @@ const mixins = {
         ${end};
         justify-content: center;
     `,
+    flexEndEnd: css`
+        ${end};
+        justify-content: end;
+    `,
     flexCenterSpaceBetween: css`
         ${center};
         justify-content: space-between;
