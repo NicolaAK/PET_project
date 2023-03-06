@@ -1,5 +1,6 @@
 import React from 'react';
 import RHFInput from '@components/RHF/RHFInput';
+import RHFRadio from '@components/RHF/RHFRadio';
 import { HeadTitle, Container, Content, Subtitle, GridPersonalData, GridAddress } from './style';
 
 const personalData = [
@@ -12,6 +13,11 @@ const address = [
     { name: 'city', placeholder: 'Город*' },
     { name: 'postOffice', placeholder: 'Отделение почты*' },
 ];
+const delivery = [
+    { id: 'pickup', name: 'delivery', value: 1, label: 'Самовывоз - вул. Большая Васильковская 14(м. Льва Толстого)' },
+    { id: 'newMail', name: 'delivery', value: 2, label: 'Новая Почта' },
+    { id: 'russianPost', name: 'delivery', value: 3, label: 'Украпочта / 1-3 недели / 30$' },
+];
 const OrderRegistration = () => (
     <Container>
         <Content>
@@ -23,6 +29,7 @@ const OrderRegistration = () => (
                 ))}
             </GridPersonalData>
             <Subtitle>Способ доставки:</Subtitle>
+            <RHFRadio name="delivery" option={delivery} />
             <Subtitle>Адрес доставки:</Subtitle>
             <GridAddress>
                 {address.map((data) => (
