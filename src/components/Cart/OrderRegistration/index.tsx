@@ -19,25 +19,25 @@ import {
 } from './style';
 
 const personalData = [
-    { name: 'name', placeholder: 'Ваше имя*' },
-    { name: 'surname', placeholder: 'Ваша фамилия*' },
-    { name: 'email', placeholder: 'Ваш e-mail*' },
-    { name: 'phone', placeholder: 'Ваш телефон*' },
+    { name: ADD_ORDER_REGISTRATION_CART.NAME, placeholder: 'Ваше имя*' },
+    { name: ADD_ORDER_REGISTRATION_CART.SURNAME, placeholder: 'Ваша фамилия*' },
+    { name: ADD_ORDER_REGISTRATION_CART.EMAIL, placeholder: 'Ваш e-mail*' },
+    { name: ADD_ORDER_REGISTRATION_CART.PHONE, placeholder: 'Ваш телефон*' },
 ];
 const address = [
-    { name: 'city', placeholder: 'Город*' },
-    { name: 'postOffice', placeholder: 'Отделение почты*' },
+    { name: ADD_ORDER_REGISTRATION_CART.CITY, placeholder: 'Город*' },
+    { name: ADD_ORDER_REGISTRATION_CART.POSTOFFICE, placeholder: 'Отделение почты*' },
 ];
 const delivery = [
-    { name: 'delivery', value: 'pickup', label: 'Самовывоз - вул. Большая Васильковская 14(м. Льва Толстого)' },
-    { name: 'delivery', value: 'russianPost', label: 'Украпочта / 1-3 недели / 30$' },
-    { name: 'delivery', value: 'newMail', label: 'Новая Почта' },
-    { name: 'delivery', value: 'DHL', label: 'DHL / 3-7 дней / 60$' },
+    { value: 'pickup', label: 'Самовывоз - вул. Большая Васильковская 14(м. Льва Толстого)' },
+    { value: 'russianPost', label: 'Украпочта / 1-3 недели / 30$' },
+    { value: 'newMail', label: 'Новая Почта' },
+    { value: 'DHL', label: 'DHL / 3-7 дней / 60$' },
 ];
 const payment = [
-    { name: 'payment', value: 'prepayment', label: 'Полная предоплата через Приват 24' },
-    { name: 'payment', value: 'Visa/MasterCard', label: 'Денежным переводом  Visa/MasterCard' },
-    { name: 'payment', value: 'cashMail', label: 'Наложенным платежом в отделении Новой Почты' },
+    { value: 'prepayment', label: 'Полная предоплата через Приват 24' },
+    { value: 'Visa/MasterCard', label: 'Денежным переводом  Visa/MasterCard' },
+    { value: 'cashMail', label: 'Наложенным платежом в отделении Новой Почты' },
 ];
 interface IForm {
     errors?: any;
@@ -58,7 +58,12 @@ const OrderRegistration: FC<IForm> = ({ errors }) => (
                     <Subtitle>По России:</Subtitle>
                     <Subtitle>Международная доставка:</Subtitle>
                     {delivery.map((item) => (
-                        <RHFRadio key={item.value} name={item.name} value={item.value} label={item.label} />
+                        <RHFRadio
+                            key={item.value}
+                            name={ADD_ORDER_REGISTRATION_CART.DELIVERY}
+                            value={item.value}
+                            label={item.label}
+                        />
                     ))}
                 </ContentDelivery>
                 {errors?.[ADD_ORDER_REGISTRATION_CART.PAYMENT] && (
@@ -75,7 +80,12 @@ const OrderRegistration: FC<IForm> = ({ errors }) => (
             <ContainerPayment>
                 <ContentPayment>
                     {payment.map((item) => (
-                        <RHFRadio key={item.value} name={item.name} value={item.value} label={item.label} />
+                        <RHFRadio
+                            key={item.value}
+                            name={ADD_ORDER_REGISTRATION_CART.PAYMENT}
+                            value={item.value}
+                            label={item.label}
+                        />
                     ))}
                 </ContentPayment>
                 {errors?.[ADD_ORDER_REGISTRATION_CART.PAYMENT] && (
