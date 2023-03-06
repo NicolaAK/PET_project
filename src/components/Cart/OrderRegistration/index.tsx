@@ -14,9 +14,13 @@ const address = [
     { name: 'postOffice', placeholder: 'Отделение почты*' },
 ];
 const delivery = [
-    { id: 'pickup', name: 'delivery', value: 1, label: 'Самовывоз - вул. Большая Васильковская 14(м. Льва Толстого)' },
-    { id: 'newMail', name: 'delivery', value: 2, label: 'Новая Почта' },
-    { id: 'russianPost', name: 'delivery', value: 3, label: 'Украпочта / 1-3 недели / 30$' },
+    {
+        name: 'delivery',
+        value: 'pickup',
+        label: 'Самовывоз - вул. Большая Васильковская 14(м. Льва Толстого)',
+    },
+    { name: 'delivery', value: 'newMail', label: 'Новая Почта' },
+    { name: 'delivery', value: 'russianPost', label: 'Украпочта / 1-3 недели / 30$' },
 ];
 const OrderRegistration = () => (
     <Container>

@@ -3,7 +3,6 @@ import { ErrorText } from '@components/ReusedComponents/Input/style';
 import { Input, Label, RadioBox, Text, ContainerRadio } from './style';
 
 interface IProps {
-    id: string;
     name?: string;
     value: any;
     label: string;
@@ -11,12 +10,14 @@ interface IProps {
 export interface IRadio {
     option: IProps[];
     errorText?: string;
+    value: any;
+    onChange: () => void;
 }
-const RadioButton = ({ option, errorText }: IRadio) => (
+const RadioButton = ({ option, errorText, value, onChange }: IRadio) => (
     <ContainerRadio>
         {option.map((item) => (
-            <Label id={item.id}>
-                <Input type="radio" name={item.name} id={item.id} value={item.value} />
+            <Label id={item.value}>
+                <Input type="radio" name={item.name} id={item.value} value={item.value} />
                 <RadioBox />
                 <Text>{item.label}</Text>
             </Label>
