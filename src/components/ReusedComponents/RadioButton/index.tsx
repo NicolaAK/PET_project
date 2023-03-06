@@ -10,14 +10,13 @@ interface IProps {
 export interface IRadio {
     option: IProps[];
     errorText?: string;
-    value: any;
-    onChange: () => void;
+    onChange?: () => void;
 }
-const RadioButton = ({ option, errorText, value, onChange }: IRadio) => (
+const RadioButton = ({ option, errorText, onChange }: IRadio) => (
     <ContainerRadio>
         {option.map((item) => (
             <Label id={item.value}>
-                <Input type="radio" name={item.name} id={item.value} value={item.value} />
+                <Input type="radio" name={item.name} id={item.value} value={item.value} onChange={onChange} />
                 <RadioBox />
                 <Text>{item.label}</Text>
             </Label>
