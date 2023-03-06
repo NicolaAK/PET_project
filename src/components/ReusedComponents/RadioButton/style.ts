@@ -1,12 +1,16 @@
 import styled from 'styled-components';
 
+interface IForm {
+    errorText?: string;
+}
 export const Text = styled.p`
     ${({ theme }) => theme.helpers.getTypography('dText16lh19')};
 `;
-export const RadioBox = styled.div`
+export const RadioBox = styled.div<IForm>`
     width: 18px;
     height: 18px;
-    border: 1px solid ${({ theme }) => theme.colors.blackPrimary(0.5)};
+    border: 1px solid
+        ${({ theme, errorText }) => (errorText ? theme.colors.error(0.7) : theme.colors.blackPrimary(0.5))};
     border-radius: 50%;
     ${({ theme }) => theme.mixins.flexCenterCenter};
     cursor: pointer;
@@ -30,6 +34,7 @@ export const Input = styled.input`
       &::after {
         transform: scale(1);
       }
+
 `;
 export const Label = styled.label`
     display: flex;

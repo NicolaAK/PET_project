@@ -1,11 +1,12 @@
 import React from 'react';
-import Order from '@components/Cart/Order';
+import Order, { IProduct } from '@components/Cart/Order';
 import { generateGithubPagesRoutes } from '@utils/helpers';
 import Breadcrumbs from '@components/ReusedComponents/Breadcrumbs';
 import { useFieldArray, useForm, FormProvider } from 'react-hook-form';
 import Photo1 from '@assets/foto/mainModel1.png';
 import OrderRegistration from '@components/Cart/OrderRegistration';
-import { Button } from '@components/ReusedComponents/Button';
+import { orderRegistration } from '@components/Cart/OrderRegistration/validations';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { Content, Container } from './style';
 
 const URL = [
@@ -110,12 +111,20 @@ const products = [
         images: Photo1,
     },
 ];
+interface IOrderRegistration {
+    products: IProduct[];
+}
 const Cart = () => {
-    const methods = useForm({
+    const methods = useForm<IOrderRegistration>({
         defaultValues: { products },
+        resolver: yupResolver(orderRegistration),
     });
 
-    const { handleSubmit, control } = methods;
+    const {
+        handleSubmit,
+        control,
+        formState: { errors },
+    } = methods;
 
     const { fields, remove } = useFieldArray({
         control,
@@ -130,10 +139,9 @@ const Cart = () => {
                     <Breadcrumbs URL={URL} />
                     <Content>
                         <Order fields={fields} remove={remove} />
-                        <OrderRegistration />
+                        <OrderRegistration errors={errors} />
                     </Content>
                 </Container>
-                <Button>qwe</Button>
             </form>
         </FormProvider>
     );

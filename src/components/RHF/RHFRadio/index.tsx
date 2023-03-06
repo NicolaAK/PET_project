@@ -19,7 +19,7 @@ const RHFSelect: FC<IRHFRadio> = ({ name, ...other }) => {
             }: {
                 field: ControllerRenderProps;
                 fieldState: ControllerFieldState;
-            }) => <RadioButton errorText={error?.message} {...other} onChange={field.onChange} />}
+            }) => <RadioButton errorText={error?.message} {...other} onChange={field.onChange} name={name} />}
         />
     );
 };

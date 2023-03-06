@@ -34,3 +34,37 @@ export const GridAddress = styled.div`
     grid-template-areas: '. .';
     margin-bottom: 20px;
 `;
+export const ContentDelivery = styled.div`
+    display: grid;
+    grid-auto-columns: auto;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 39px 1fr 25px;
+    gap: 0px 20px;
+    grid-template-areas:
+        '. .'
+        '. .'
+        '. .';
+`;
+export const ContainerDelivery = styled.div`
+    margin-bottom: 20px;
+`;
+export const ContainerPayment = styled.div`
+    margin-bottom: 20px;
+`;
+export const ContentPayment = styled.div`
+    display: grid;
+    grid-auto-columns: auto;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 25px;
+    gap: 0px 20px;
+    grid-template-areas:
+        '. .'
+        '. .';
+`;
+export const Conditions = styled.div`
+    margin-top: 15px;
+    ${({ theme }) => theme.helpers.getTypography('dText14')};
+    text-align: center;
+`;
