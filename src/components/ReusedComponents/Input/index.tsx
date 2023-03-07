@@ -4,16 +4,16 @@ import { ErrorText, InputContainer, InputContent } from '@components/ReusedCompo
 export interface IInput {
     value?: string;
     onChange?: (arg0: string) => void;
-    width?: number;
     type?: string;
     placeholder?: string;
     errorText?: string;
+    textAlign?: string;
 }
 
-const Input = ({ value, onChange, width, type = 'text', placeholder, errorText }: IInput) => (
+const Input = ({ value, onChange, type = 'text', placeholder, errorText, textAlign }: IInput) => (
     <InputContainer>
         <InputContent
-            width={width}
+            textAlign={textAlign}
             value={value}
             onChange={(e) => onChange && onChange(e.target.value)}
             type={type}

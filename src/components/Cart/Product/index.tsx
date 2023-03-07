@@ -44,7 +44,7 @@ const Product: FC<Props> = ({ product, remove, index }) => {
         setValue(`products[${index}].amountTotal`, countWatcher * product.prices[currency]);
         const allSum = productsWatcher?.reduce((sum: number, item: any) => sum + item.amountTotal, 0);
         setValue('allSum', allSum);
-    }, [countWatcher, index, product.prices.ru, productsWatcher, setValue]);
+    }, [countWatcher, index, product.prices, productsWatcher, setValue]);
 
     return (
         <ContainerShoppingList key={product.id}>

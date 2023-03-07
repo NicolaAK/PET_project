@@ -32,8 +32,8 @@ const Subscription = () => {
                     <SubscriptionContent>
                         <Item>Узнайте первым о новинках</Item>
                         <RHFInput
+                            textAlign="center"
                             name={SUBSCRIBE_FORM_FIELDS.EMAIL}
-                            width={600}
                             type="email "
                             placeholder="Ваш e-mail*"
                         />
