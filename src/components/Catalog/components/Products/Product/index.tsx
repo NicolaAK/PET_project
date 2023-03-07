@@ -28,6 +28,7 @@ interface IProduct {
     sizes?: string[];
     colors?: string[];
     image: string;
+    heightImage: number;
 }
 export const colorsSchema: Record<string, string> = {
     white: theme.colors.white(),
@@ -42,7 +43,7 @@ export const labelSymbol = {
     ru: 'руб',
     ua: 'грн',
 };
-const Product = ({ image, isNew, name, sizes, colors, prices, id }: IProduct) => {
+const Product = ({ image, isNew, name, sizes, colors, prices, id, heightImage }: IProduct) => {
     const navigate = useNavigate();
     const navId = () => navigate(`${id}`);
 
@@ -57,7 +58,7 @@ const Product = ({ image, isNew, name, sizes, colors, prices, id }: IProduct) =>
                         {isActiveFavouritesButton ? <WhiteFavouritesButtonActive /> : <Heart />}
                     </Icon>
                 </Favourites>
-                <Photo>
+                <Photo heightImage={heightImage}>
                     <Image src={image} alt="photoModel" onClick={navId} />
                 </Photo>
                 <Description>

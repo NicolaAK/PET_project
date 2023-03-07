@@ -2,16 +2,19 @@ import styled from 'styled-components';
 interface IColor {
     color: string;
 }
+interface IImageSize {
+    heightImage: number;
+}
 export const Container = styled.div`
     position: relative;
     display: inline-block;
     margin-bottom: 15px;
 `;
 export const Content = styled.div``;
-export const Photo = styled.button`
+export const Photo = styled.button<IImageSize>`
     display: inline-block;
     overflow: hidden;
-    height: 360px;
+    height: ${({ heightImage }) => heightImage}px;
 `;
 export const Image = styled.img`
     width: 100%;

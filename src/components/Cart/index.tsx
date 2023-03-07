@@ -14,6 +14,7 @@ const URL = [
     { link: 'Главная', path: generateGithubPagesRoutes('') },
     { link: 'Каталог', path: '' },
 ];
+
 const products = [
     {
         id: 1,
