@@ -9,6 +9,7 @@ import ProductCatalog from '@components/ProductCatalog';
 import { generateGithubPagesRoutes } from '@utils/helpers';
 import Cart from '@components/Cart';
 import Favourites from '@components/Favourites';
+import Abouts from '@components/Abouts';
 import { ROUTES } from './constants';
 
 const Routes = () =>
@@ -32,7 +33,7 @@ const Routes = () =>
         },
         {
             path: generateGithubPagesRoutes(ROUTES.ABOUTS),
-            element: <div>ABOUTS</div>,
+            element: <Abouts />,
         },
         {
             path: generateGithubPagesRoutes(ROUTES.PAYMENT),
