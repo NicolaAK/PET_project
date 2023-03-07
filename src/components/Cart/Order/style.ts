@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
-    margin-top: 30px;
+    margin: 30px 0 70px 0;
 `;
 export const ContainerShoppingList = styled.div``;
 export const YourOrder = styled.div`

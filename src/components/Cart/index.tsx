@@ -7,7 +7,8 @@ import Photo1 from '@assets/foto/mainModel1.png';
 import OrderRegistration from '@components/Cart/OrderRegistration';
 import { orderRegistration } from '@components/Cart/OrderRegistration/validations';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Content, Container } from './style';
+import MakingOrder from '@components/Cart/MakingOrder';
+import { Content, Container, GridContainer } from './style';
 
 const URL = [
     { link: 'Главная', path: generateGithubPagesRoutes('') },
@@ -139,7 +140,10 @@ const Cart = () => {
                     <Breadcrumbs URL={URL} />
                     <Content>
                         <Order fields={fields} remove={remove} />
-                        <OrderRegistration errors={errors} />
+                        <GridContainer>
+                            <OrderRegistration errors={errors} />
+                            <MakingOrder />
+                        </GridContainer>
                     </Content>
                 </Container>
             </form>
