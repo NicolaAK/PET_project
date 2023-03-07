@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import RHFInput from '@components/RHF/RHFInput';
 import RHFRadio from '@components/RHF/RHFRadio';
-import { Button } from '@components/ReusedComponents/Button';
 import { ErrorText } from '@components/ReusedComponents/Input/style';
 import { ADD_ORDER_REGISTRATION_CART } from '@components/Cart/OrderRegistration/validations';
 import {
@@ -15,7 +14,6 @@ import {
     ContainerPayment,
     ContentPayment,
     ContentDelivery,
-    Conditions,
 } from './style';
 
 const personalData = [
@@ -92,10 +90,6 @@ const OrderRegistration: FC<IForm> = ({ errors }) => (
                     <ErrorText>{errors[ADD_ORDER_REGISTRATION_CART.DELIVERY]?.message}</ErrorText>
                 )}
             </ContainerPayment>
-            <Button>ОФОРМИТЬ ЗАКАЗ</Button>
-            <Conditions>
-                Нажимая на кнопку «оплатить заказ», я принимаю условия публичной оферты и политики конфиденциальности
-            </Conditions>
         </Content>
     </Container>
 );

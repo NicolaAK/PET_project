@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-    margin-top: 70px;
-`;
+export const Container = styled.div``;
 export const Content = styled.div``;
 export const HeadTitle = styled.div`
     ${({ theme }) => theme.helpers.getTypography('dText20')};
