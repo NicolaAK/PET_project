@@ -20,7 +20,9 @@ const MakingOrder = () => {
             <Content>
                 <Text>
                     {hamburgerTitles.map((title) => (
-                        <TextLink to={title.link}>{title.title}</TextLink>
+                        <TextLink key={title.title} to={title.link}>
+                            {title.title}
+                        </TextLink>
                     ))}
                 </Text>
                 <GridOrder>
