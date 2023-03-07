@@ -41,7 +41,7 @@ const iconsProfile = [
     {
         id: 3,
         icon: <Favourites />,
-        link: generateGithubPagesRoutes(''),
+        link: generateGithubPagesRoutes(ROUTES.FAVOURITES),
     },
     {
         id: 4,

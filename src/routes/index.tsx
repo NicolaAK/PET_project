@@ -8,6 +8,7 @@ import Refund from '@components/Refund';
 import ProductCatalog from '@components/ProductCatalog';
 import { generateGithubPagesRoutes } from '@utils/helpers';
 import Cart from '@components/Cart';
+import Favourites from '@components/Favourites';
 import { ROUTES } from './constants';
 
 const Routes = () =>
@@ -44,6 +45,10 @@ const Routes = () =>
         {
             path: generateGithubPagesRoutes(ROUTES.CART),
             element: <Cart />,
+        },
+        {
+            path: generateGithubPagesRoutes(ROUTES.FAVOURITES),
+            element: <Favourites />,
         },
         { path: '*', element: <Navigate to={generateGithubPagesRoutes('')} replace /> },
     ]);

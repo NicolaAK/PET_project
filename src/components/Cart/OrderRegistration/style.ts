@@ -60,9 +60,5 @@ export const ContentPayment = styled.div`
     grid-template-areas:
         '. .'
         '. .';
-`;
-export const Conditions = styled.div`
-    margin-top: 15px;
-    ${({ theme }) => theme.helpers.getTypography('dText14')};
-    text-align: center;
+    margin-bottom: 20px;
 `;

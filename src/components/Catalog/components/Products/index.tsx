@@ -139,6 +139,7 @@ const Products = () => (
     <ProductsContainer>
         {products.map((product) => (
             <Product
+                heightImage={360}
                 key={product.id}
                 id={product.id}
                 prices={product.prices}
