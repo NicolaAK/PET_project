@@ -4,11 +4,17 @@ import { generateGithubPagesRoutes } from '@utils/helpers';
 import Subscription from '@components/Main/Subscription';
 import InstIcon from '@assets/icons/InstaBig.svg';
 import TelegaIcon from '@assets/icons/TelegaBig.svg';
-import { Heading, Content, Container, Contacts, Title, Text, Icon } from './style';
+import { Heading, Content, Container, Contacts, Title, Text, Icons } from './style';
 
 const URL = [
     { link: 'Главная', path: generateGithubPagesRoutes('') },
     { link: 'Контакты', path: '' },
+];
+
+const contacts = [
+    { title: 'По телефону', texts: ['+7 913 557 15 79', '+7 902 910 33 84'] },
+    { title: 'По почте', texts: ['kolyankalachev@mail.ru', 'kolyankalachev@gmail.com'] },
+    { title: 'Наш офис', texts: ['г. Красноярск, улица Батумская, 18'] },
 ];
 
 const Abouts = () => (
@@ -18,24 +24,19 @@ const Abouts = () => (
         <Content>
             <Contacts>
                 <Title>В социальных сетях</Title>
-                <Icon>
+                <Icons>
                     <InstIcon />
                     <TelegaIcon />
-                </Icon>
+                </Icons>
             </Contacts>
-            <Contacts>
-                <Title>По телефону</Title>
-                <Text>+7 913 557 15 79</Text>
-                <Text>+7 902 910 33 84</Text>
-            </Contacts>
-            <Contacts>
-                <Title>По почте</Title>
-                <Text>kolyankalachev@mail.ru</Text>
-            </Contacts>
-            <Contacts>
-                <Title>Наш офис</Title>
-                <Text>г. Красноярск, улица Батумская, 18</Text>
-            </Contacts>
+            {contacts.map((contact) => (
+                <Contacts>
+                    <Title>{contact.title}</Title>
+                    {contact.texts.map((text) => (
+                        <Text>{text}</Text>
+                    ))}
+                </Contacts>
+            ))}
         </Content>
         <Subscription />
     </Container>

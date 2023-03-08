@@ -13,7 +13,7 @@ export const Heading = styled.div`
     margin: 30px 0 30px 0;
 `;
 export const Contacts = styled.div``;
-export const Icon = styled.div`
+export const Icons = styled.div`
     margin-top: 20px;
     ${({ theme }) => theme.mixins.flexStart};
     column-gap: 15px;
