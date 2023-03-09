@@ -8,6 +8,7 @@ import { ROUTES } from '../routes/constants';
 const Pages = () => {
     const location = useLocation();
     const isMainPage = !(location.pathname === `/${ROUTES.YANKI}/` || location.pathname === `/${ROUTES.YANKI}`);
+
     return (
         <PagesContainer>
             <Header $isDark={isMainPage} />

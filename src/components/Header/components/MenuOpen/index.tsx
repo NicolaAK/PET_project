@@ -50,7 +50,7 @@ const iconsProfile = [
     },
 ];
 const aboutCompany = [
-    { label: 'NEW', link: 'catalog' },
+    { label: 'NEW', link: 'category' },
     { label: 'КАТАЛОГ', link: generateGithubPagesRoutes(ROUTES.CATALOG) },
     { label: 'О НАС', link: generateGithubPagesRoutes(ROUTES.ABOUTS) },
 ];
