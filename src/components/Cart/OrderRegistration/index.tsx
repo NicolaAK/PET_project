@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import RHFInput from '@components/RHF/RHFInput';
 import RHFRadio from '@components/RHF/RHFRadio';
 import { ErrorText } from '@components/ReusedComponents/Input/style';
-import { ADD_ORDER_REGISTRATION_CART } from '@components/Cart/OrderRegistration/validations';
+import { ADD_ORDER_PROFILE } from '@components/Cart/OrderRegistration/validations';
 import {
     HeadTitle,
     Container,
@@ -17,14 +17,14 @@ import {
 } from './style';
 
 const personalData = [
-    { name: ADD_ORDER_REGISTRATION_CART.NAME, placeholder: 'Ваше имя*' },
-    { name: ADD_ORDER_REGISTRATION_CART.SURNAME, placeholder: 'Ваша фамилия*' },
-    { name: ADD_ORDER_REGISTRATION_CART.EMAIL, placeholder: 'Ваш e-mail*' },
-    { name: ADD_ORDER_REGISTRATION_CART.PHONE, placeholder: 'Ваш телефон*' },
+    { name: ADD_ORDER_PROFILE.NAME, placeholder: 'Ваше имя*' },
+    { name: ADD_ORDER_PROFILE.SURNAME, placeholder: 'Ваша фамилия*' },
+    { name: ADD_ORDER_PROFILE.EMAIL, placeholder: 'Ваш e-mail*' },
+    { name: ADD_ORDER_PROFILE.PHONE, placeholder: 'Ваш телефон*' },
 ];
 const address = [
-    { name: ADD_ORDER_REGISTRATION_CART.CITY, placeholder: 'Город*' },
-    { name: ADD_ORDER_REGISTRATION_CART.POSTOFFICE, placeholder: 'Отделение почты*' },
+    { name: ADD_ORDER_PROFILE.CITY, placeholder: 'Город*' },
+    { name: ADD_ORDER_PROFILE.POSTOFFICE, placeholder: 'Отделение почты*' },
 ];
 const delivery = [
     { value: 'pickup', label: 'Самовывоз - вул. Большая Васильковская 14(м. Льва Толстого)' },
@@ -58,14 +58,14 @@ const OrderRegistration: FC<IForm> = ({ errors }) => (
                     {delivery.map((item) => (
                         <RHFRadio
                             key={item.value}
-                            name={ADD_ORDER_REGISTRATION_CART.DELIVERY}
+                            name={ADD_ORDER_PROFILE.DELIVERY}
                             value={item.value}
                             label={item.label}
                         />
                     ))}
                 </ContentDelivery>
-                {errors?.[ADD_ORDER_REGISTRATION_CART.PAYMENT] && (
-                    <ErrorText>{errors[ADD_ORDER_REGISTRATION_CART.DELIVERY]?.message}</ErrorText>
+                {errors?.[ADD_ORDER_PROFILE.PAYMENT] && (
+                    <ErrorText>{errors[ADD_ORDER_PROFILE.DELIVERY]?.message}</ErrorText>
                 )}
             </ContainerDelivery>
             <Subtitle>Адрес доставки:</Subtitle>
@@ -80,14 +80,14 @@ const OrderRegistration: FC<IForm> = ({ errors }) => (
                     {payment.map((item) => (
                         <RHFRadio
                             key={item.value}
-                            name={ADD_ORDER_REGISTRATION_CART.PAYMENT}
+                            name={ADD_ORDER_PROFILE.PAYMENT}
                             value={item.value}
                             label={item.label}
                         />
                     ))}
                 </ContentPayment>
-                {errors?.[ADD_ORDER_REGISTRATION_CART.PAYMENT] && (
-                    <ErrorText>{errors[ADD_ORDER_REGISTRATION_CART.DELIVERY]?.message}</ErrorText>
+                {errors?.[ADD_ORDER_PROFILE.PAYMENT] && (
+                    <ErrorText>{errors[ADD_ORDER_PROFILE.DELIVERY]?.message}</ErrorText>
                 )}
             </ContainerPayment>
         </Content>
