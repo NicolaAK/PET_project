@@ -27,7 +27,7 @@ const PersonalData = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
                 {profileInfo.map((info) => (
                     <Container key={info.mail}>
-                        <Title>Персональные данные:</Title>{' '}
+                        <Title>Персональные данные:</Title>
                         <GroupOne>
                             <RHFInput name={ADD_ORDER_PROFILE.NAME} placeholder={info.name || 'Имя'} />
                             <RHFInput name={ADD_ORDER_PROFILE.SURNAME} placeholder={info.surname || 'Фамилия'} />
