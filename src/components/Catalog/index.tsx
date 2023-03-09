@@ -4,6 +4,7 @@ import Filter from '@components/Catalog/components/Filter';
 import Products from '@components/Catalog/components/Products';
 import Breadcrumbs from '@components/ReusedComponents/Breadcrumbs';
 import { generateGithubPagesRoutes } from '@utils/helpers';
+import BreadcrumbsTest from '@components/ReusedComponents/Breadcrumbs/test';
 import { CatalogContent, CatalogContainer, Container, Heading, Text } from './style';
 
 const URL = [
@@ -15,6 +16,7 @@ const Catalog = () => (
     <CatalogContainer>
         <CatalogContent>
             <Breadcrumbs URL={URL} />
+            <BreadcrumbsTest />
             <Container>
                 <Heading>
                     <Text>Каталог</Text>
