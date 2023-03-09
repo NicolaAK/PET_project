@@ -41,6 +41,7 @@ export const colorsSchema: Record<string, string> = {
 export const currency = 'ru';
 export const labelSymbol = {
     ru: 'руб',
+    // ua: 'грн',
 };
 const Product = ({ image, isNew, name, sizes, colors, prices, id, heightImage }: IProduct) => {
     const navigate = useNavigate();
