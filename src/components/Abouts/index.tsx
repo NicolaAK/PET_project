@@ -30,10 +30,10 @@ const Abouts = () => (
                 </Icons>
             </Contacts>
             {contacts.map((contact) => (
-                <Contacts>
+                <Contacts key={contact.title}>
                     <Title>{contact.title}</Title>
                     {contact.texts.map((text) => (
-                        <Text>{text}</Text>
+                        <Text key={text}>{text}</Text>
                     ))}
                 </Contacts>
             ))}

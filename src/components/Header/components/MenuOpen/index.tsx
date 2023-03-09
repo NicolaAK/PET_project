@@ -36,7 +36,7 @@ const iconsProfile = [
     {
         id: 2,
         icon: <Profile />,
-        link: generateGithubPagesRoutes(''),
+        link: generateGithubPagesRoutes(ROUTES.PROFILE),
     },
     {
         id: 3,
