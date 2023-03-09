@@ -13,7 +13,8 @@ export const ShoppingList = styled.div`
     ${({ theme }) => theme.mixins.flexCenterSpaceBetween};
 `;
 export const GroupOne = styled.div`
-    ${({ theme }) => theme.mixins.flexStartCenter};
+    width: 250px;
+    ${({ theme }) => theme.mixins.flexStart};
     column-gap: 10px;
 `;
 export const Title = styled.div`

@@ -10,6 +10,7 @@ import { generateGithubPagesRoutes } from '@utils/helpers';
 import Cart from '@components/Cart';
 import Favourites from '@components/Favourites';
 import Abouts from '@components/Abouts';
+import Profile from '@components/Profile';
 import { ROUTES } from './constants';
 
 const Routes = () =>
@@ -50,6 +51,10 @@ const Routes = () =>
         {
             path: generateGithubPagesRoutes(ROUTES.FAVOURITES),
             element: <Favourites />,
+        },
+        {
+            path: generateGithubPagesRoutes(ROUTES.PROFILE),
+            element: <Profile />,
         },
         { path: '*', element: <Navigate to={generateGithubPagesRoutes('')} replace /> },
     ]);

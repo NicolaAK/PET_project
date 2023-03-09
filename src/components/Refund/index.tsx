@@ -48,7 +48,7 @@ const Refund = () => (
             <Subtitle>Обмен и возврат возможен в случае:</Subtitle>
             <Body>
                 {refunds.map((refund) => (
-                    <Item>
+                    <Item key={refund.text}>
                         <Icon>{refund.icon}</Icon>
                         <Text>{refund.text}</Text>
                     </Item>
