@@ -1,21 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Photo1 from '@assets/foto/mainModel1.png';
-import ArrowR from '@assets/icons/arrowR.svg';
-import { Line } from '@components/Profile/style';
-import { currency, labelSymbol } from '@components/Catalog/components/Products/Product';
-import OrderProducts from '@components/Profile/History/OrderProducts';
-import Information from '@components/Profile/History/Information';
-import {
-    ArrowContainer,
-    ContainerSum,
-    ContainerStatus,
-    Container,
-    Text,
-    Title,
-    Content,
-    ContainerOrderProducts,
-    OrderContainer,
-} from './style';
+import Orders from '@components/Profile/History/Orders';
+import { OrderContainer } from './style';
 
 const orders = [
     {
@@ -72,7 +58,7 @@ const orders = [
         ],
         personalData: [
             {
-                surname: 'Елизаветта Станиславчук',
+                surname: 'Николай Станиславчук',
                 mail: 'ella.s97@gmail.com',
                 phone: '+38(067)470 20 66',
                 delivery: 'Доставка Новой Почтой',
@@ -81,58 +67,19 @@ const orders = [
         ],
     },
 ];
-const History = () => {
-    const [isOpenOrder, setIsOpenOrder] = useState(false);
-    const toggleOpenOrder = () => setIsOpenOrder(!isOpenOrder);
-    return (
-        <OrderContainer>
-            {orders.map((order) => (
-                <Container key={order.orderNumber}>
-                    <Content onClick={toggleOpenOrder}>
-                        <Title>{order.orderNumber}</Title>
-                        <ContainerStatus>
-                            <Title>Статус:</Title>
-                            <Text>{order.status}</Text>
-                        </ContainerStatus>
-                        <ContainerSum>
-                            <Title>Сумма заказа:</Title>
-                            <Text>
-                                {order.totalSum[currency]} {labelSymbol[currency]}
-                            </Text>
-                        </ContainerSum>
-                        <ArrowContainer isOpenOrder={isOpenOrder}>
-                            <ArrowR />
-                        </ArrowContainer>
-                    </Content>
-                    <ContainerOrderProducts isOpenOrder={isOpenOrder}>
-                        {order.products.map((product) => (
-                            <OrderProducts
-                                key={product.id}
-                                id={product.id}
-                                name={product.name}
-                                article={product.article}
-                                countProduct={product.countProduct}
-                                prices={product.prices}
-                                size={product.size}
-                                color={product.color}
-                                images={product.images}
-                            />
-                        ))}
-                        {order.personalData.map((info) => (
-                            <Information
-                                surname={info.surname}
-                                mail={info.mail}
-                                phone={info.phone}
-                                delivery={info.delivery}
-                                payment={info.payment}
-                            />
-                        ))}
-                    </ContainerOrderProducts>
-                    <Line />
-                </Container>
-            ))}
-        </OrderContainer>
-    );
-};
+const History = () => (
+    <OrderContainer>
+        {orders.map((order) => (
+            <Orders
+                key={order.orderNumber}
+                orderNumber={order.orderNumber}
+                status={order.status}
+                totalSum={order.totalSum}
+                products={order.products}
+                personalData={order.personalData}
+            />
+        ))}
+    </OrderContainer>
+);
 
 export default History;

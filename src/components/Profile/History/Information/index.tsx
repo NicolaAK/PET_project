@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Container, Group, Title, Text } from './style';
-interface IPersonalData {
+export interface IPersonalData {
     surname: string;
     mail: string;
     phone: string;

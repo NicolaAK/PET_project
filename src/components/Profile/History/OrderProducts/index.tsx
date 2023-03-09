@@ -21,7 +21,7 @@ import { colorsSchema, currency, labelSymbol } from '@components/Catalog/compone
 import { Container } from './style';
 import { ROUTES } from '../../../../routes/constants';
 
-interface IProduct {
+export interface IProduct {
     id: number;
     name: string;
     prices: { ru: number; ua: number };
