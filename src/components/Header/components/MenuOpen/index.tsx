@@ -9,7 +9,7 @@ import Favourites from '@assets/icons/favourites.svg';
 import Shop from '@assets/icons/shop.svg';
 import { Link } from 'react-router-dom';
 import { generateGithubPagesRoutes } from '@utils/helpers';
-import { AboutsCompany, Language, MenuLogo, MenuContainerOpen, Money, Settings, SocialsMedia } from './style';
+import { AboutsCompany, Language, MenuLogo, MenuContainerOpen, Settings, SocialsMedia } from './style';
 import { ROUTES } from '../../../../routes/constants';
 
 interface IArrow {
@@ -22,9 +22,9 @@ interface IHeader {
     language: string;
     setLanguage: (arg0: string) => void;
     languageArr: IArrow[];
-    money: string;
-    setMoney: (arg0: string) => void;
-    moneyArr: IArrow[];
+    // money: string;
+    // setMoney: (arg0: string) => void;
+    // moneyArr: IArrow[];
 }
 
 const iconsProfile = [
@@ -54,7 +54,7 @@ const aboutCompany = [
     { label: 'КАТАЛОГ', link: generateGithubPagesRoutes(ROUTES.CATALOG) },
     { label: 'О НАС', link: generateGithubPagesRoutes(ROUTES.ABOUTS) },
 ];
-const MenuOpen = ({ $isDark, money, setMoney, moneyArr, languageArr, setLanguage, language, open }: IHeader) => (
+const MenuOpen = ({ $isDark, languageArr, setLanguage, language, open }: IHeader) => (
     <MenuContainerOpen open={open}>
         <AboutsCompany $isDark={$isDark}>
             {aboutCompany.map((about) => (
@@ -70,9 +70,9 @@ const MenuOpen = ({ $isDark, money, setMoney, moneyArr, languageArr, setLanguage
             <Language>
                 <Dropdown width={48} value={language} onChange={setLanguage} options={languageArr} />
             </Language>
-            <Money>
-                <Dropdown width={56} value={money} onChange={setMoney} options={moneyArr} />
-            </Money>
+            {/* <Money> */}
+            {/*    <Dropdown width={56} value={money} onChange={setMoney} options={moneyArr} /> */}
+            {/* </Money> */}
         </Settings>
         <SocialsMedia>
             {iconsProfile.map((icon) => (
