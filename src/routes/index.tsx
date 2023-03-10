@@ -6,7 +6,7 @@ import Catalog from '@components/Catalog';
 import Payment from '@components/Payment';
 import Refund from '@components/Refund';
 import ProductCatalog from '@components/ProductCatalog';
-import { generateGithubPagesRoutes } from '@utils/helpers';
+import { generateRoute } from '@utils/helpers';
 import Cart from '@components/Cart';
 import Favourites from '@components/Favourites';
 import Abouts from '@components/Abouts';
@@ -16,15 +16,15 @@ import { ROUTES } from './constants';
 const Routes = () =>
     useRoutes([
         {
-            path: generateGithubPagesRoutes(''),
+            path: generateRoute(''),
             element: <Main />,
         },
         {
-            path: generateGithubPagesRoutes(ROUTES.CATALOG),
+            path: generateRoute(ROUTES.CATALOG),
             element: <Catalog />,
         },
         {
-            path: generateGithubPagesRoutes(ROUTES.CATALOG),
+            path: generateRoute(ROUTES.CATALOG),
             children: [
                 {
                     path: ':idCatalog',
@@ -33,30 +33,30 @@ const Routes = () =>
             ],
         },
         {
-            path: generateGithubPagesRoutes(ROUTES.ABOUTS),
+            path: generateRoute(ROUTES.ABOUTS),
             element: <Abouts />,
         },
         {
-            path: generateGithubPagesRoutes(ROUTES.PAYMENT),
+            path: generateRoute(ROUTES.PAYMENT),
             element: <Payment />,
         },
         {
-            path: generateGithubPagesRoutes(ROUTES.REFUND),
+            path: generateRoute(ROUTES.REFUND),
             element: <Refund />,
         },
         {
-            path: generateGithubPagesRoutes(ROUTES.CART),
+            path: generateRoute(ROUTES.CART),
             element: <Cart />,
         },
         {
-            path: generateGithubPagesRoutes(ROUTES.FAVOURITES),
+            path: generateRoute(ROUTES.FAVOURITES),
             element: <Favourites />,
         },
         {
-            path: generateGithubPagesRoutes(ROUTES.PROFILE),
+            path: generateRoute(ROUTES.PROFILE),
             element: <Profile />,
         },
-        { path: '*', element: <Navigate to={generateGithubPagesRoutes('')} replace /> },
+        { path: '*', element: <Navigate to={generateRoute('')} replace /> },
     ]);
 
 export default Routes;

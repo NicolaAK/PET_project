@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { generateGithubPagesRoutes } from '@utils/helpers';
+import { generateRoute } from '@utils/helpers';
 import {
     Article,
     Color,
@@ -33,7 +33,7 @@ export interface IProduct {
 }
 
 const OrderProducts: FC<IProduct> = ({ countProduct, article, prices, id, images, name, size, color }) => {
-    const Link = `${generateGithubPagesRoutes(ROUTES.CATALOG)}/${id}`;
+    const Link = `${generateRoute(ROUTES.CATALOG)}/${id}`;
     return (
         <Container>
             <ContainerShoppingList key={id}>

@@ -1,5 +1,5 @@
 import React, { FC, useEffect } from 'react';
-import { generateGithubPagesRoutes } from '@utils/helpers';
+import { generateRoute } from '@utils/helpers';
 import {
     Article,
     Color,
@@ -34,7 +34,7 @@ interface Props {
 }
 
 const Product: FC<Props> = ({ product, remove, index }) => {
-    const Link = `${generateGithubPagesRoutes(ROUTES.CATALOG)}/${product.id}`;
+    const Link = `${generateRoute(ROUTES.CATALOG)}/${product.id}`;
     const toggleDeleteProduct = () => remove(index);
     const { watch, setValue } = useFormContext();
     const countWatcher = watch(`products[${index}].countProduct`);

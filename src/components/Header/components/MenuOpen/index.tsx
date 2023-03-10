@@ -8,7 +8,7 @@ import Profile from '@assets/icons/profile.svg';
 import Favourites from '@assets/icons/favourites.svg';
 import Shop from '@assets/icons/shop.svg';
 import { Link } from 'react-router-dom';
-import { generateGithubPagesRoutes } from '@utils/helpers';
+import { generateRoute } from '@utils/helpers';
 import { AboutsCompany, Language, MenuLogo, MenuContainerOpen, Settings, SocialsMedia } from './style';
 import { ROUTES } from '../../../../routes/constants';
 
@@ -31,28 +31,28 @@ const iconsProfile = [
     {
         id: 1,
         icon: <Search />,
-        link: generateGithubPagesRoutes(''),
+        link: generateRoute(''),
     },
     {
         id: 2,
         icon: <Profile />,
-        link: generateGithubPagesRoutes(ROUTES.PROFILE),
+        link: generateRoute(ROUTES.PROFILE),
     },
     {
         id: 3,
         icon: <Favourites />,
-        link: generateGithubPagesRoutes(ROUTES.FAVOURITES),
+        link: generateRoute(ROUTES.FAVOURITES),
     },
     {
         id: 4,
         icon: <Shop />,
-        link: generateGithubPagesRoutes(ROUTES.CART),
+        link: generateRoute(ROUTES.CART),
     },
 ];
 const aboutCompany = [
     { label: 'NEW', link: 'category' },
-    { label: 'КАТАЛОГ', link: generateGithubPagesRoutes(ROUTES.CATALOG) },
-    { label: 'О НАС', link: generateGithubPagesRoutes(ROUTES.ABOUTS) },
+    { label: 'КАТАЛОГ', link: generateRoute(ROUTES.CATALOG) },
+    { label: 'О НАС', link: generateRoute(ROUTES.ABOUTS) },
 ];
 const MenuOpen = ({ $isDark, languageArr, setLanguage, language, open }: IHeader) => (
     <MenuContainerOpen open={open}>
@@ -62,7 +62,7 @@ const MenuOpen = ({ $isDark, languageArr, setLanguage, language, open }: IHeader
             ))}
         </AboutsCompany>
         <MenuLogo>
-            <Link to={generateGithubPagesRoutes(ROUTES.DASHBOARD)}>
+            <Link to={generateRoute(ROUTES.DASHBOARD)}>
                 <Logo />
             </Link>
         </MenuLogo>

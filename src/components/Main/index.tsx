@@ -3,7 +3,7 @@ import { MainContent, MainContainer, CategoryContainer, CategoryTitle } from '@c
 import HeaderBox from '@components/Main/HeaderBox';
 import SliderBox from '@components/Main/SliderCatalog';
 import Subscription from '@components/Main/Subscription';
-import { generateGithubPagesRoutes } from '@utils/helpers';
+import { generateRoute } from '@utils/helpers';
 import { ROUTES } from '../../routes/constants';
 
 const Main = () => (
@@ -11,7 +11,7 @@ const Main = () => (
         <MainContent>
             <HeaderBox />
             <CategoryContainer>
-                <CategoryTitle to={generateGithubPagesRoutes(ROUTES.CATALOG)}>Категории</CategoryTitle>
+                <CategoryTitle to={generateRoute(ROUTES.CATALOG)}>Категории</CategoryTitle>
                 <SliderBox />
             </CategoryContainer>
             <Subscription />

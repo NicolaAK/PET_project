@@ -16,7 +16,7 @@ import ArrowLight from '@assets/icons/arrowRight.svg';
 import MainModel1 from '@assets/foto/mainModel1.png';
 import MainModel2 from '@assets/foto/mainModel2.png';
 import MainModel3 from '@assets/foto/mainModel3.png';
-import { generateGithubPagesRoutes } from '@utils/helpers';
+import { generateRoute } from '@utils/helpers';
 import { ROUTES } from '../../../routes/constants';
 
 const HeaderBox = () => (
@@ -31,7 +31,7 @@ const HeaderBox = () => (
                     <NewCollection>Новая коллекция</NewCollection>
                     <Line />
                     <WatchProductsContainer>
-                        <WatchProducts to={generateGithubPagesRoutes(ROUTES.CATALOG)}>СМОТРЕТЬ НОВИНКИ</WatchProducts>
+                        <WatchProducts to={generateRoute(ROUTES.CATALOG)}>СМОТРЕТЬ НОВИНКИ</WatchProducts>
                         <ArrowContainer>
                             <ArrowLight />
                         </ArrowContainer>

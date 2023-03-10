@@ -8,12 +8,18 @@ const Breadcrumbs = () => {
     const location = useLocation();
     const breadcrumbPaths = useMemo(() => {
         const paths = location.pathname.split('/').filter((path) => path !== '');
-        return paths.map((path, index) => ({
-            path: paths.slice(0, index + 1).join('/'),
-            title: getBreadcrumbTitle(path),
-        }));
-    }, [location]);
 
+        return [
+            {
+                path: '',
+                title: 'Главная',
+            },
+            ...paths.map((path, index) => ({
+                path: paths.slice(0, index + 1).join('/'),
+                title: getBreadcrumbTitle(path),
+            })),
+        ];
+    }, [location]);
     return (
         <Navigation>
             <NavUl>
@@ -22,12 +28,12 @@ const Breadcrumbs = () => {
 
                     return (
                         <List key={breadcrumb.path}>
-                            {!isLast ? (
+                            {isLast ? (
+                                <EndCrumb>{breadcrumb.title}</EndCrumb>
+                            ) : (
                                 <Content>
                                     <LinkText to={`/${breadcrumb.path}`}>{breadcrumb.title}</LinkText> <ArrowR />
                                 </Content>
-                            ) : (
-                                <EndCrumb>{breadcrumb.title}</EndCrumb>
                             )}
                         </List>
                     );
@@ -39,8 +45,6 @@ const Breadcrumbs = () => {
 
 const getBreadcrumbTitle = (path: string) => {
     switch (path) {
-        case ROUTES.YANKI:
-            return 'Главная';
         case ROUTES.CATALOG:
             return 'Каталог';
         case ROUTES.CATEGORY:

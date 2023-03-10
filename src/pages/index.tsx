@@ -7,11 +7,11 @@ import Routes from '../routes';
 
 const Pages = () => {
     const location = useLocation();
-    const isMainPage = !(location.pathname === `/`);
+    const isMainPage = location.pathname === `/`;
 
     return (
         <PagesContainer>
-            <Header $isDark={isMainPage} />
+            <Header $isDark={!isMainPage} />
             <Routes />
             <Footer />
         </PagesContainer>

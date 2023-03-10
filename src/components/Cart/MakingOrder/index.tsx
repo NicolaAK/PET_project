@@ -1,15 +1,15 @@
 import React from 'react';
 import { Button } from '@components/ReusedComponents/Button';
-import { generateGithubPagesRoutes } from '@utils/helpers';
+import { generateRoute } from '@utils/helpers';
 import { useFormContext } from 'react-hook-form';
 import { currency, labelSymbol } from '@components/Catalog/components/Products/Product';
 import { Content, Container, TextLink, Text, GridOrder, TextInfo, Title, Conditions } from './style';
 import { ROUTES } from '../../../routes/constants';
 
 const hamburgerTitles = [
-    { title: 'УСЛОВИЯ ДОСТАВКИ', link: generateGithubPagesRoutes(ROUTES.PAYMENT) },
-    { title: 'УСЛОВИЯ ОБМЕНА И ВОЗВРАТА', link: generateGithubPagesRoutes(ROUTES.REFUND) },
-    { title: 'ИНФОРМАЦИЯ ОБ ОПЛАТЕ', link: generateGithubPagesRoutes(ROUTES.PAYMENT) },
+    { title: 'УСЛОВИЯ ДОСТАВКИ', link: generateRoute(ROUTES.PAYMENT) },
+    { title: 'УСЛОВИЯ ОБМЕНА И ВОЗВРАТА', link: generateRoute(ROUTES.REFUND) },
+    { title: 'ИНФОРМАЦИЯ ОБ ОПЛАТЕ', link: generateRoute(ROUTES.PAYMENT) },
 ];
 
 const MakingOrder = () => {
