@@ -3,7 +3,6 @@ import StepBuy1 from '@assets/icons/stepBuy1.svg';
 import StepBuy2 from '@assets/icons/stepBuy2.svg';
 import StepBuy3 from '@assets/icons/stepBuy3.svg';
 import Breadcrumbs from '@components/ReusedComponents/Breadcrumbs';
-import { generateGithubPagesRoutes } from '@utils/helpers';
 import {
     Content,
     Container,
@@ -40,14 +39,10 @@ const steps = [
         text: 'После этого Вас перенаправит на сайт LIQPAY, где вы выбираете удобный для вас способ оплаты: через Приват24, или с помощью карты Mastercard/VISA со всего мира.',
     },
 ];
-const URL = [
-    { link: 'Главная', path: generateGithubPagesRoutes('') },
-    { link: 'Оплата и доставка', path: '' },
-];
 
 const Payment = () => (
     <Container>
-        <Breadcrumbs URL={URL} />
+        <Breadcrumbs />
         <Content>
             <HeaderText>Оплата и доставка</HeaderText>
             <BodyText>

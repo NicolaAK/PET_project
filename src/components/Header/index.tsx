@@ -7,11 +7,11 @@ import MenuOpen from '@components/Header/components/MenuOpen';
 interface IHeader {
     $isDark: boolean;
 }
-const moneyArr = [
-    { value: 'RUB', label: 'RUB' },
-    { value: 'USD', label: 'USD' },
-    { value: 'UAH', label: 'UAH' },
-];
+// const moneyArr = [
+//     { value: 'RUB', label: 'RUB' },
+//     { value: 'USD', label: 'USD' },
+//     { value: 'UAH', label: 'UAH' },
+// ];
 const languageArr = [
     { value: 'RU', label: 'RU' },
     { value: 'EN', label: 'EN' },
@@ -19,7 +19,7 @@ const languageArr = [
 ];
 
 const Header: FC<IHeader> = ({ $isDark }) => {
-    const [money, setMoney] = useState(moneyArr[0].value);
+    // const [money, setMoney] = useState(moneyArr[0].value);
     const [language, setLanguage] = useState(languageArr[0].value);
     const [isOpenBurger, setIsOpenBurger] = useState(false);
     const handleBurgerOpen = () => setIsOpenBurger(!isOpenBurger);
@@ -34,9 +34,6 @@ const Header: FC<IHeader> = ({ $isDark }) => {
                     <MenuOpen
                         open={isOpenBurger}
                         $isDark={$isDark}
-                        money={money}
-                        setMoney={setMoney}
-                        moneyArr={moneyArr}
                         languageArr={languageArr}
                         language={language}
                         setLanguage={setLanguage}

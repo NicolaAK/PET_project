@@ -1,6 +1,5 @@
 import React from 'react';
 import Order, { IProduct } from '@components/Cart/Order';
-import { generateGithubPagesRoutes } from '@utils/helpers';
 import Breadcrumbs from '@components/ReusedComponents/Breadcrumbs';
 import { useFieldArray, useForm, FormProvider } from 'react-hook-form';
 import Photo1 from '@assets/foto/mainModel1.png';
@@ -9,11 +8,6 @@ import { orderRegistration } from '@components/Cart/OrderRegistration/validation
 import { yupResolver } from '@hookform/resolvers/yup';
 import MakingOrder from '@components/Cart/MakingOrder';
 import { Content, Container, GridContainer } from './style';
-
-const URL = [
-    { link: 'Главная', path: generateGithubPagesRoutes('') },
-    { link: 'Каталог', path: '' },
-];
 
 const products = [
     {
@@ -138,7 +132,7 @@ const Cart = () => {
         <FormProvider {...methods}>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Container>
-                    <Breadcrumbs URL={URL} />
+                    <Breadcrumbs />
                     <Content>
                         <Order fields={fields} remove={remove} />
                         <GridContainer>

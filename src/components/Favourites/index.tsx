@@ -1,15 +1,10 @@
 import React from 'react';
 import Breadcrumbs from '@components/ReusedComponents/Breadcrumbs';
-import { generateGithubPagesRoutes } from '@utils/helpers';
 import ModelPhoto1 from '@assets/foto/favourites/Rectangle 10.png';
 import ModelPhoto2 from '@assets/foto/favourites/Rectangle 11.png';
 import Product from '@components/Catalog/components/Products/Product';
 import { Content, Container, Title, ContainerProduct } from './style';
 
-const URL = [
-    { link: 'Главная', path: generateGithubPagesRoutes('') },
-    { link: 'Избранное', path: '' },
-];
 const products = [
     {
         id: 1,
@@ -50,7 +45,7 @@ const products = [
 ];
 const Favourites = () => (
     <Container>
-        <Breadcrumbs URL={URL} />
+        <Breadcrumbs />
         <Content>
             <Title>Избранное</Title>
             <ContainerProduct>
