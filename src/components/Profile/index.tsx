@@ -1,14 +1,9 @@
 import React, { useState } from 'react';
 import Breadcrumbs from '@components/ReusedComponents/Breadcrumbs';
-import { generateGithubPagesRoutes } from '@utils/helpers';
 import History from '@components/Profile/History';
 import PersonalData from '@components/Profile/PersonalData';
 import { Content, Container, Tab, ButtonGroup, Line } from './style';
 
-const URL = [
-    { link: 'Главная', path: generateGithubPagesRoutes('') },
-    { link: 'Личный кабинет', path: '' },
-];
 const types = [
     { id: 1, label: 'История заказов' },
     { id: 2, label: 'Личные данные' },
@@ -19,7 +14,7 @@ const Profile = () => {
 
     return (
         <Container>
-            <Breadcrumbs URL={URL} />
+            <Breadcrumbs />
             <Content>
                 <Line />
                 <ButtonGroup>
