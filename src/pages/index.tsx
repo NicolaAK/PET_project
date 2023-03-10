@@ -4,10 +4,10 @@ import Header from '@components/Header';
 import { useLocation } from 'react-router-dom';
 import { PagesContainer } from './style';
 import Routes from '../routes';
-import { ROUTES } from '../routes/constants';
+
 const Pages = () => {
     const location = useLocation();
-    const isMainPage = !(location.pathname === `/${ROUTES.YANKI}/` || location.pathname === `/${ROUTES.YANKI}`);
+    const isMainPage = !(location.pathname === `/`);
 
     return (
         <PagesContainer>

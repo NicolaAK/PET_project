@@ -1,7 +1,7 @@
 import React from 'react';
 // theme
 import { ThemeProvider } from 'styled-components';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from '@store';
 import theme from './theme';
@@ -14,9 +14,9 @@ const App = () => (
     <Provider store={store}>
         <ThemeProvider theme={theme}>
             <GlobalStyle />
-            <BrowserRouter>
+            <HashRouter>
                 <Pages />
-            </BrowserRouter>
+            </HashRouter>
         </ThemeProvider>
     </Provider>
 );
