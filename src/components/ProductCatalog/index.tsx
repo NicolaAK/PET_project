@@ -5,9 +5,7 @@ import Photo3 from '@assets/foto/mainModel3.png';
 import ProductImage from '@components/ProductCatalog/Image';
 import ProductDescription from '@components/ProductCatalog/Description';
 import Breadcrumbs from '@components/ReusedComponents/Breadcrumbs';
-import { generateGithubPagesRoutes } from '@utils/helpers';
 import { Content, Container } from './style';
-import { ROUTES } from '../../routes/constants';
 
 const product = {
     category: 'Пальто',
@@ -54,15 +52,10 @@ const product = {
         '- Барабанная сушка запрещена',
     ],
 };
-const URL = [
-    { link: 'Главная', path: generateGithubPagesRoutes('') },
-    { link: 'Каталог', path: generateGithubPagesRoutes(ROUTES.CATALOG) },
-    { link: 'Пальто', path: generateGithubPagesRoutes(ROUTES.CATALOG) },
-    { link: 'Белая куртка', path: '' },
-];
+
 const ProductCatalog = () => (
     <Container>
-        <Breadcrumbs URL={URL} />
+        <Breadcrumbs />
         <Content>
             <ProductImage images={product.images} />
             <ProductDescription
