@@ -6,7 +6,7 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start": "concurrently \"node scripts/start.js\" \"json-server --watch -p 3001 db.json\"",
+    "start": "concurrently \"node scripts/start.js\" \"node scripts/server.js\"",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "lint:eslint": "eslint src/**/*.[jt]s[x]",
