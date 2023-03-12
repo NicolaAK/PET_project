@@ -6,6 +6,8 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
+    "front": "node scripts/start.js",
+    "back": "node scripts/server.js",
     "start": "concurrently \"node scripts/start.js\" \"node scripts/server.js\"",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
