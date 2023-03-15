@@ -16,7 +16,6 @@ const orders = [
                 countProduct: 2,
                 prices: { ru: 2350, ua: 12.2 },
                 size: 'L',
-                color: 'blue',
                 images: Photo1,
             },
             {
@@ -26,7 +25,6 @@ const orders = [
                 countProduct: 4,
                 prices: { ru: 2350, ua: 12.2 },
                 size: 'M',
-                color: 'white',
                 images: Photo1,
             },
         ],
@@ -52,7 +50,6 @@ const orders = [
                 countProduct: 1,
                 prices: { ru: 2350, ua: 12.2 },
                 size: 'L',
-                color: 'red',
                 images: Photo1,
             },
         ],
