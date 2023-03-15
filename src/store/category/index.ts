@@ -37,4 +37,4 @@ const Category = createSlice({
     },
 });
 
-export default Merchant.reducer;
+export default Category.reducer;
