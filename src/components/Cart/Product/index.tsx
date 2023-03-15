@@ -2,8 +2,6 @@ import React, { FC, useEffect } from 'react';
 import { generateRoute } from '@utils/helpers';
 import {
     Article,
-    Color,
-    ColorLine,
     ContainerShoppingList,
     Counter,
     GroupOne,
@@ -18,8 +16,7 @@ import {
     ShoppingList,
     Title,
 } from '@components/Cart/Order/style';
-import { EllipseColor } from '@components/ProductCatalog/Description/style';
-import { colorsSchema, currency, labelSymbol } from '@components/Catalog/components/Products/Product';
+import { currency, labelSymbol } from '@components/Catalog/components/Products/Product';
 import DeleteIcon from '@assets/icons/delete.svg';
 import RHFSelect from '@components/RHF/RHFSelect';
 import RHFTotalCount from '@components/ReusedComponents/TotalCount';
@@ -58,11 +55,6 @@ const Product: FC<Props> = ({ product, remove, index }) => {
                         <Name to={Link}>{product.name}</Name>
                     </Title>
                 </GroupOne>
-                <Color>
-                    <ColorLine>
-                        <EllipseColor disabled radius={24} color={colorsSchema[product.color]} />
-                    </ColorLine>
-                </Color>
                 <Select>
                     <RHFSelect
                         name={`products[${index}].size`}

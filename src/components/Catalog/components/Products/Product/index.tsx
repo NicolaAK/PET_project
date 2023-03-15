@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import WhiteFavouritesButtonActive from '@assets/icons/favouritesButtonActiveWhite.svg';
 import {
     NameProduct,
-    Colors,
     Content,
     Sizes,
     Size,
@@ -16,7 +15,6 @@ import {
     Container,
     Image,
     Icon,
-    EllipseColor,
     New,
 } from './styled';
 
@@ -26,7 +24,6 @@ interface IProduct {
     isNew?: boolean;
     prices: { ru: number; ua: number };
     sizes?: string[];
-    colors?: string[];
     image: string;
     heightImage: number;
 }
@@ -43,7 +40,7 @@ export const labelSymbol = {
     ru: 'руб',
     // ua: 'грн',
 };
-const Product = ({ image, isNew, name, sizes, colors, prices, id, heightImage }: IProduct) => {
+const Product = ({ image, isNew, name, sizes, prices, id, heightImage }: IProduct) => {
     const navigate = useNavigate();
     const navId = () => navigate(`${id}`);
 
@@ -72,11 +69,6 @@ const Product = ({ image, isNew, name, sizes, colors, prices, id, heightImage }:
                             <Size key={size}>{size}</Size>
                         ))}
                     </Sizes>
-                    <Colors>
-                        {colors?.map((color) => (
-                            <EllipseColor key={color} color={colorsSchema[color]} />
-                        ))}
-                    </Colors>
                 </Description>
             </Content>
         </Container>

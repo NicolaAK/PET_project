@@ -49,14 +49,6 @@ export const Name = styled(Link)`
         color: ${({ theme }) => theme.colors.mainPrimary()};
     }
 `;
-export const Color = styled.div`
-    width: 30px;
-    height: 30px;
-    border: 1px solid ${({ theme }) => theme.colors.blackPrimary(0.5)};
-    border-radius: 30px;
-    ${({ theme }) => theme.mixins.flexCenterCenter};
-`;
-export const ColorLine = styled.div``;
 export const Select = styled.div`
     width: 98px;
 `;

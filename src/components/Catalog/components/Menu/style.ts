@@ -10,6 +10,12 @@ export const CategoryContainer = styled.div`
     flex-direction: column;
     align-content: start;
 `;
+export const ContainerSkeleton = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-content: start;
+    gap: 20px;
+`;
 export const Text = styled.button`
     ${({ theme }) => theme.helpers.getTypography('dText16lh19')}
     transition: ${({ theme }) => theme.decorations.transition};

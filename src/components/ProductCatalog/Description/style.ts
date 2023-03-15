@@ -22,10 +22,6 @@ export const Price = styled.div`
     ${({ theme }) => theme.helpers.getTypography('dTextBold16')};
     margin-bottom: 23px;
 `;
-export const Colors = styled.div`
-    ${({ theme }) => theme.mixins.flexEnd};
-    column-gap: 7.5px;
-`;
 export const EllipseColor = styled.input<IEllipse>`
     width: ${({ radius }) => radius}px;
     height: ${({ radius }) => radius}px;
@@ -109,4 +105,3 @@ export const OpenListStructure = styled.div<ILine>`
     transition: 0.8s;
     padding-top: 3px;
 `;
-export const Label = styled.label``;

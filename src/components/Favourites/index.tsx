@@ -58,7 +58,6 @@ const Favourites = () => (
                         image={product.image}
                         name={product.name}
                         sizes={product.sizes}
-                        colors={product.colors}
                         isNew={product.isNew}
                     />
                 ))}
