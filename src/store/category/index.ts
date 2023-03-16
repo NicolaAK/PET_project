@@ -16,8 +16,8 @@ export const fetchCategoryList = createAsyncThunk<Array<ICategory>, void>('categ
     return data;
 });
 
-const Merchant = createSlice({
-    name: 'merchant',
+const Category = createSlice({
+    name: 'category',
     initialState,
     reducers: {},
     extraReducers: (builder) => {
@@ -37,4 +37,4 @@ const Merchant = createSlice({
     },
 });
 
-export default Merchant.reducer;
+export default Category.reducer;

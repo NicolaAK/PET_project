@@ -9,6 +9,10 @@ import Favourites from '@assets/icons/favourites.svg';
 import Shop from '@assets/icons/shop.svg';
 import { Link } from 'react-router-dom';
 import { generateRoute } from '@utils/helpers';
+import { useSelector } from 'react-redux';
+import { getIsAuth } from '@store/user/selectors';
+import { useAppDispatch } from '@store';
+import { setAuth } from '@store/user';
 import { AboutsCompany, Language, MenuLogo, MenuContainerOpen, Settings, SocialsMedia } from './style';
 import { ROUTES } from '../../../../routes/constants';
 
@@ -49,36 +53,48 @@ const iconsProfile = [
         link: generateRoute(ROUTES.CART),
     },
 ];
+
 const aboutCompany = [
     { label: 'NEW', link: 'category' },
     { label: 'КАТАЛОГ', link: generateRoute(ROUTES.CATALOG) },
     { label: 'О НАС', link: generateRoute(ROUTES.ABOUTS) },
 ];
-const MenuOpen = ({ $isDark, languageArr, setLanguage, language, open }: IHeader) => (
-    <MenuContainerOpen open={open}>
-        <AboutsCompany $isDark={$isDark}>
-            {aboutCompany.map((about) => (
-                <AboutCompany key={about.label} label={about.label} link={about.link} />
-            ))}
-        </AboutsCompany>
-        <MenuLogo>
-            <Link to={generateRoute(ROUTES.DASHBOARD)}>
-                <Logo />
-            </Link>
-        </MenuLogo>
-        <Settings $isDark={$isDark}>
-            <Language>
-                <Dropdown width={48} value={language} onChange={setLanguage} options={languageArr} />
-            </Language>
-            {/* <Money> */}
-            {/*    <Dropdown width={56} value={money} onChange={setMoney} options={moneyArr} /> */}
-            {/* </Money> */}
-        </Settings>
-        <SocialsMedia>
-            {iconsProfile.map((icon) => (
-                <SocialMedia key={icon.id} icon={icon.icon} link={icon.link} />
-            ))}
-        </SocialsMedia>
-    </MenuContainerOpen>
-);
+const MenuOpen = ({ $isDark, languageArr, setLanguage, language, open }: IHeader) => {
+    const dispatch = useAppDispatch();
+
+    const isAuth = useSelector(getIsAuth);
+
+    console.log(isAuth);
+
+    return (
+        <MenuContainerOpen open={open}>
+            <button type="button" onClick={() => dispatch(setAuth(true))}>
+                dsfsdfsdfsdf
+            </button>
+            <AboutsCompany $isDark={$isDark}>
+                {aboutCompany.map((about) => (
+                    <AboutCompany key={about.label} label={about.label} link={about.link} />
+                ))}
+            </AboutsCompany>
+            <MenuLogo>
+                <Link to={generateRoute(ROUTES.DASHBOARD)}>
+                    <Logo />
+                </Link>
+            </MenuLogo>
+            <Settings $isDark={$isDark}>
+                <Language>
+                    <Dropdown width={48} value={language} onChange={setLanguage} options={languageArr} />
+                </Language>
+                {/* <Money> */}
+                {/*    <Dropdown width={56} value={money} onChange={setMoney} options={moneyArr} /> */}
+                {/* </Money> */}
+            </Settings>
+            <SocialsMedia>
+                {iconsProfile.map((icon) => (
+                    <SocialMedia key={icon.id} icon={icon.icon} link={icon.link} />
+                ))}
+            </SocialsMedia>
+        </MenuContainerOpen>
+    );
+};
 export default MenuOpen;
