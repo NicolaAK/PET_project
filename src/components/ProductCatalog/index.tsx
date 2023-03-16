@@ -33,7 +33,6 @@ const product = {
             label: 'L',
         },
     ],
-    colors: ['white', 'blue', 'yellow', 'black', 'red', 'green'],
     images: [Photo1, Photo2, Photo3, Photo3, Photo1],
     description: [
         'Классическое пальто итальянского бренд Heresis',
@@ -63,7 +62,6 @@ const ProductCatalog = () => (
                 name={product.name}
                 sizes={product.sizes}
                 prices={product.prices}
-                colors={product.colors}
                 structure={product.structure}
             />
         </Content>

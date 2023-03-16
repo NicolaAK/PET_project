@@ -23,11 +23,10 @@ interface IProduct {
     name: string;
     prices: { ru: number; ua: number };
     sizes: IOptions[];
-    colors: string[];
     description: string[];
     structure: string[];
 }
-const ProductDescription = ({ description, colors, prices, sizes, name, structure }: IProduct) => {
+const ProductDescription = ({ description, prices, sizes, name, structure }: IProduct) => {
     const [isOpenDetails, setIsOpenDetails] = useState(false);
     const [isOpenStructure, setIsOpenStructure] = useState(false);
 
@@ -40,7 +39,7 @@ const ProductDescription = ({ description, colors, prices, sizes, name, structur
             <Price>
                 {prices[currency]} {labelSymbol[currency]}
             </Price>
-            <FormAddCart colors={colors} sizes={sizes} />
+            <FormAddCart sizes={sizes} />
             <Details>
                 <Item>Подробности</Item>
                 <DescriptionContainer onClick={toggleOpenDetails}>

@@ -52,7 +52,6 @@ const Orders: FC<IOrder> = ({ orderNumber, products, status, totalSum, personalD
                         countProduct={product.countProduct}
                         prices={product.prices}
                         size={product.size}
-                        color={product.color}
                         images={product.images}
                     />
                 ))}

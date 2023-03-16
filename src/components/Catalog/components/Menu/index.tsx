@@ -3,7 +3,11 @@ import { useSelector } from 'react-redux';
 import { getCategoryList, getIsLoading } from '@store/category/selectors';
 import { useAppDispatch } from '@store';
 import { fetchCategoryList } from '@store/category';
-import { MenuContainer, CategoryContainer, MenuContent, Text } from './style';
+import { Skeleton } from '@components/ReusedComponents/Skeleton/style';
+import { MenuContainer, CategoryContainer, MenuContent, Text, ContainerSkeleton } from './style';
+
+const skeletonArr = new Array(6).fill(null);
+const componentSkeleton = skeletonArr.map((item) => <Skeleton height={19} width={150} key={item} />);
 
 const Menu = () => {
     const dispatch = useAppDispatch();
@@ -18,7 +22,7 @@ const Menu = () => {
         <MenuContainer>
             <MenuContent>
                 {isLoading ? (
-                    <p>Loading</p>
+                    <ContainerSkeleton>{componentSkeleton}</ContainerSkeleton>
                 ) : (
                     <CategoryContainer>
                         {categoryList.map((category) => (

@@ -13,7 +13,6 @@ const products = [
         isNew: true,
         prices: { ru: 2000, ua: 12.2 },
         sizes: ['XXS', 'XS', 'S', 'M', 'L'],
-        colors: ['white', 'blue', 'yellow', 'black', 'red', 'green'],
         image: ModelPhoto1,
     },
     {
@@ -22,7 +21,6 @@ const products = [
         isNew: false,
         prices: { ru: 3100, ua: 12.2 },
         sizes: ['XXS', 'S', 'M'],
-        colors: ['white', 'yellow', 'black'],
         image: ModelPhoto2,
     },
     {
@@ -31,7 +29,6 @@ const products = [
         isNew: true,
         prices: { ru: 4500, ua: 12.2 },
         sizes: ['XS', 'S', 'M'],
-        colors: ['blue', 'yellow', 'green'],
         image: ModelPhoto3,
     },
     {
@@ -40,7 +37,6 @@ const products = [
         isNew: false,
         prices: { ru: 700, ua: 12.2 },
         sizes: ['XXS', 'S', 'M', 'L'],
-        colors: ['white', 'red', 'green'],
         image: ModelPhoto4,
     },
     {
@@ -49,7 +45,6 @@ const products = [
         isNew: true,
         prices: { ru: 2000, ua: 12.2 },
         sizes: ['XXS', 'XS', 'S', 'M', 'L'],
-        colors: ['white', 'blue', 'yellow'],
         image: ModelPhoto1,
     },
     {
@@ -58,7 +53,6 @@ const products = [
         isNew: true,
         prices: { ru: 2000, ua: 12.2 },
         sizes: ['XXS', 'XS', 'S', 'M', 'L'],
-        colors: ['white', 'blue', 'yellow', 'black', 'red', 'green'],
         image: ModelPhoto1,
     },
     {
@@ -67,7 +61,6 @@ const products = [
         isNew: false,
         prices: { ru: 3100, ua: 12.2 },
         sizes: ['XXS', 'S', 'M'],
-        colors: ['white', 'yellow', 'black'],
         image: ModelPhoto2,
     },
     {
@@ -76,7 +69,6 @@ const products = [
         isNew: true,
         prices: { ru: 4500, ua: 12.2 },
         sizes: ['XS', 'S', 'M'],
-        colors: ['blue', 'yellow', 'green'],
         image: ModelPhoto3,
     },
     {
@@ -85,7 +77,6 @@ const products = [
         isNew: false,
         prices: { ru: 700, ua: 12.2 },
         sizes: ['XXS', 'S', 'M', 'L'],
-        colors: ['white', 'red', 'green'],
         image: ModelPhoto4,
     },
     {
@@ -94,7 +85,6 @@ const products = [
         isNew: true,
         prices: { ru: 2000, ua: 12.2 },
         sizes: ['XXS', 'XS', 'S', 'M', 'L'],
-        colors: ['white', 'blue', 'yellow', 'black', 'red', 'green'],
         image: ModelPhoto1,
     },
     {
@@ -103,7 +93,6 @@ const products = [
         isNew: false,
         prices: { ru: 3100, ua: 12.2 },
         sizes: ['XXS', 'S', 'M'],
-        colors: ['white', 'yellow', 'black'],
         image: ModelPhoto2,
     },
     {
@@ -112,7 +101,6 @@ const products = [
         isNew: true,
         prices: { ru: 4500, ua: 12.2 },
         sizes: ['XS', 'S', 'M'],
-        colors: ['blue', 'yellow', 'green'],
         image: ModelPhoto3,
     },
     {
@@ -121,7 +109,6 @@ const products = [
         isNew: true,
         prices: { ru: 4500, ua: 12.2 },
         sizes: ['XS', 'S', 'M'],
-        colors: ['blue', 'yellow', 'green'],
         image: ModelPhoto3,
     },
     {
@@ -130,7 +117,6 @@ const products = [
         isNew: false,
         prices: { ru: 700, ua: 12.2 },
         sizes: ['XXS', 'S', 'M', 'L'],
-        colors: ['white', 'red', 'green'],
         image: ModelPhoto4,
     },
 ];
@@ -146,7 +132,6 @@ const Products = () => (
                 image={product.image}
                 name={product.name}
                 sizes={product.sizes}
-                colors={product.colors}
                 isNew={product.isNew}
             />
         ))}
