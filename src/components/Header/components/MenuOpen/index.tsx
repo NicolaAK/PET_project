@@ -2,18 +2,30 @@ import AboutCompany from '@components/Header/components/AboutCompany';
 import Logo from '@assets/icons/logo.svg';
 import Dropdown from '@components/Header/components/Dropdown';
 import SocialMedia from '@components/Header/components/SocialMedia';
-import React from 'react';
-import Search from '@assets/icons/search.svg';
+import React, { useState } from 'react';
+import SearchIcon from '@assets/icons/search.svg';
 import Profile from '@assets/icons/profile.svg';
 import Favourites from '@assets/icons/favourites.svg';
 import Shop from '@assets/icons/shop.svg';
+import User from '@assets/foto/profilePhoto/user.svg';
 import { Link } from 'react-router-dom';
 import { generateRoute } from '@utils/helpers';
 import { useSelector } from 'react-redux';
 import { getIsAuth } from '@store/user/selectors';
 import { useAppDispatch } from '@store';
 import { setAuth } from '@store/user';
-import { AboutsCompany, Language, MenuLogo, MenuContainerOpen, Settings, SocialsMedia } from './style';
+import { ModalBackground } from '@components/ProductCatalog/Image/style';
+import {
+    AboutsCompany,
+    Language,
+    MenuLogo,
+    MenuContainerOpen,
+    Settings,
+    SocialsMedia,
+    Search,
+    ProfileLink,
+    ProfileContainer,
+} from './style';
 import { ROUTES } from '../../../../routes/constants';
 
 interface IArrow {
@@ -33,22 +45,12 @@ interface IHeader {
 
 const iconsProfile = [
     {
-        id: 1,
-        icon: <Search />,
-        link: generateRoute(''),
-    },
-    {
         id: 2,
-        icon: <Profile />,
-        link: generateRoute(ROUTES.PROFILE),
-    },
-    {
-        id: 3,
         icon: <Favourites />,
         link: generateRoute(ROUTES.FAVOURITES),
     },
     {
-        id: 4,
+        id: 3,
         icon: <Shop />,
         link: generateRoute(ROUTES.CART),
     },
@@ -60,12 +62,13 @@ const aboutCompany = [
     { label: 'О НАС', link: generateRoute(ROUTES.ABOUTS) },
 ];
 const MenuOpen = ({ $isDark, languageArr, setLanguage, language, open }: IHeader) => {
+    const [openModal, setModalOpen] = useState(false);
+
     const dispatch = useAppDispatch();
 
     const isAuth = useSelector(getIsAuth);
 
     console.log(isAuth);
-
     return (
         <MenuContainerOpen open={open}>
             <button type="button" onClick={() => dispatch(setAuth(true))}>
@@ -90,11 +93,29 @@ const MenuOpen = ({ $isDark, languageArr, setLanguage, language, open }: IHeader
                 {/* </Money> */}
             </Settings>
             <SocialsMedia>
-                {iconsProfile.map((icon) => (
-                    <SocialMedia key={icon.id} icon={icon.icon} link={icon.link} />
-                ))}
+                <Search>
+                    <SearchIcon />
+                </Search>
+                {!isAuth ? (
+                    <>
+                        <ProfileContainer onClick={() => setModalOpen(!openModal)}>
+                            <Profile />
+                        </ProfileContainer>
+                        {!openModal && <ModalBackground />}
+                    </>
+                ) : (
+                    <>
+                        {iconsProfile.map((icon) => (
+                            <SocialMedia key={icon.id} icon={icon.icon} link={icon.link} />
+                        ))}
+                        <ProfileLink to={generateRoute(ROUTES.PROFILE)}>
+                            <User />
+                        </ProfileLink>
+                    </>
+                )}
             </SocialsMedia>
         </MenuContainerOpen>
     );
 };
+
 export default MenuOpen;
