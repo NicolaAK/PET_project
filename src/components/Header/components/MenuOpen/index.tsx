@@ -14,7 +14,7 @@ import { useSelector } from 'react-redux';
 import { getIsAuth } from '@store/user/selectors';
 import { useAppDispatch } from '@store';
 import { setAuth } from '@store/user';
-import { ModalBackground } from '@components/ProductCatalog/Image/style';
+import Registration from '@components/Header/components/Registration';
 import {
     AboutsCompany,
     Language,
@@ -63,58 +63,59 @@ const aboutCompany = [
 ];
 const MenuOpen = ({ $isDark, languageArr, setLanguage, language, open }: IHeader) => {
     const [openModal, setModalOpen] = useState(false);
-
+    const toggleOpenImageFullScreen = () => setModalOpen(!openModal);
     const dispatch = useAppDispatch();
 
     const isAuth = useSelector(getIsAuth);
-
-    console.log(isAuth);
+    const toggleRegistrationClick = () => {
+        dispatch(setAuth(true));
+        setModalOpen(false);
+    };
     return (
-        <MenuContainerOpen open={open}>
-            <button type="button" onClick={() => dispatch(setAuth(true))}>
-                dsfsdfsdfsdf
-            </button>
-            <AboutsCompany $isDark={$isDark}>
-                {aboutCompany.map((about) => (
-                    <AboutCompany key={about.label} label={about.label} link={about.link} />
-                ))}
-            </AboutsCompany>
-            <MenuLogo>
-                <Link to={generateRoute(ROUTES.DASHBOARD)}>
-                    <Logo />
-                </Link>
-            </MenuLogo>
-            <Settings $isDark={$isDark}>
-                <Language>
-                    <Dropdown width={48} value={language} onChange={setLanguage} options={languageArr} />
-                </Language>
-                {/* <Money> */}
-                {/*    <Dropdown width={56} value={money} onChange={setMoney} options={moneyArr} /> */}
-                {/* </Money> */}
-            </Settings>
-            <SocialsMedia>
-                <Search>
-                    <SearchIcon />
-                </Search>
-                {!isAuth ? (
-                    <>
-                        <ProfileContainer onClick={() => setModalOpen(!openModal)}>
-                            <Profile />
-                        </ProfileContainer>
-                        {!openModal && <ModalBackground />}
-                    </>
-                ) : (
-                    <>
-                        {iconsProfile.map((icon) => (
-                            <SocialMedia key={icon.id} icon={icon.icon} link={icon.link} />
-                        ))}
-                        <ProfileLink to={generateRoute(ROUTES.PROFILE)}>
-                            <User />
-                        </ProfileLink>
-                    </>
-                )}
-            </SocialsMedia>
-        </MenuContainerOpen>
+        <>
+            <MenuContainerOpen open={open}>
+                <AboutsCompany $isDark={$isDark}>
+                    {aboutCompany.map((about) => (
+                        <AboutCompany key={about.label} label={about.label} link={about.link} />
+                    ))}
+                </AboutsCompany>
+                <MenuLogo>
+                    <Link to={generateRoute(ROUTES.DASHBOARD)}>
+                        <Logo />
+                    </Link>
+                </MenuLogo>
+                <Settings $isDark={$isDark}>
+                    <Language>
+                        <Dropdown width={48} value={language} onChange={setLanguage} options={languageArr} />
+                    </Language>
+                    {/* <Money> */}
+                    {/*    <Dropdown width={56} value={money} onChange={setMoney} options={moneyArr} /> */}
+                    {/* </Money> */}
+                </Settings>
+                <SocialsMedia>
+                    <Search>
+                        <SearchIcon />
+                    </Search>
+                    {!isAuth ? (
+                        <>
+                            <ProfileContainer onClick={toggleOpenImageFullScreen}>
+                                <Profile />
+                            </ProfileContainer>
+                        </>
+                    ) : (
+                        <>
+                            {iconsProfile.map((icon) => (
+                                <SocialMedia key={icon.id} icon={icon.icon} link={icon.link} />
+                            ))}
+                            <ProfileLink to={generateRoute(ROUTES.PROFILE)}>
+                                <User />
+                            </ProfileLink>
+                        </>
+                    )}
+                </SocialsMedia>
+            </MenuContainerOpen>
+            {openModal && <Registration onChange={toggleOpenImageFullScreen} isAuth={toggleRegistrationClick} />}
+        </>
     );
 };
 
