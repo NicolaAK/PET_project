@@ -38,9 +38,6 @@ interface IHeader {
     language: string;
     setLanguage: (arg0: string) => void;
     languageArr: IArrow[];
-    // money: string;
-    // setMoney: (arg0: string) => void;
-    // moneyArr: IArrow[];
 }
 
 const iconsProfile = [
@@ -88,20 +85,15 @@ const MenuOpen = ({ $isDark, languageArr, setLanguage, language, open }: IHeader
                     <Language>
                         <Dropdown width={48} value={language} onChange={setLanguage} options={languageArr} />
                     </Language>
-                    {/* <Money> */}
-                    {/*    <Dropdown width={56} value={money} onChange={setMoney} options={moneyArr} /> */}
-                    {/* </Money> */}
                 </Settings>
                 <SocialsMedia>
                     <Search>
                         <SearchIcon />
                     </Search>
                     {!isAuth ? (
-                        <>
-                            <ProfileContainer onClick={toggleOpenImageFullScreen}>
-                                <Profile />
-                            </ProfileContainer>
-                        </>
+                        <ProfileContainer onClick={toggleOpenImageFullScreen}>
+                            <Profile />
+                        </ProfileContainer>
                     ) : (
                         <>
                             {iconsProfile.map((icon) => (

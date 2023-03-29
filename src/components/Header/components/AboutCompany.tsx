@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { AboutCompanyWrapper, AboutCompanyTitle, LinkText } from '@components/Header/components/styled';
+import { AboutCompanyWrapper, AboutCompanyTitle, LinkText } from '@components/Header/components/style';
 
 type Props = {
     label: string;

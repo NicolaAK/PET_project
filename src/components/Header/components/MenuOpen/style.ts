@@ -55,14 +55,31 @@ export const SocialsMedia = styled.div`
 `;
 export const Search = styled.div`
     ${({ theme }) => theme.mixins.flexCenter};
+    transition: ${({ theme }) => theme.decorations.transition};
+    &:hover {
+        scale: 110%;
+        filter: invert(0.42) sepia(1);
+    }
     z-index: 2;
+    cursor: pointer;
 `;
 export const ProfileLink = styled(Link)`
     ${({ theme }) => theme.mixins.flexCenter};
     z-index: 2;
     width: 30px;
     height: 30px;
+    transition: ${({ theme }) => theme.decorations.transition};
+    &:hover {
+        scale: 110%;
+        filter: invert(0.42) sepia(1);
+    }
 `;
 export const ProfileContainer = styled.div`
     ${({ theme }) => theme.mixins.flexCenter};
+    transition: ${({ theme }) => theme.decorations.transition};
+    &:hover {
+        scale: 110%;
+        filter: invert(0.42) sepia(1);
+    }
+    cursor: pointer;
 `;

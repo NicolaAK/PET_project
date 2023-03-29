@@ -1,5 +1,5 @@
 import React, { ReactNode, FC } from 'react';
-import { Icon } from '@components/Header/components/styled';
+import { Icon } from '@components/Header/components/style';
 
 type Props = {
     icon: ReactNode;
