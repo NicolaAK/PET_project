@@ -2,18 +2,28 @@ import AboutCompany from '@components/Header/components/AboutCompany';
 import Logo from '@assets/icons/logo.svg';
 import Dropdown from '@components/Header/components/Dropdown';
 import SocialMedia from '@components/Header/components/SocialMedia';
-import React from 'react';
-import Search from '@assets/icons/search.svg';
+import React, { useState } from 'react';
+import SearchIcon from '@assets/icons/search.svg';
 import Profile from '@assets/icons/profile.svg';
 import Favourites from '@assets/icons/favourites.svg';
 import Shop from '@assets/icons/shop.svg';
+import User from '@assets/foto/profilePhoto/user.svg';
 import { Link } from 'react-router-dom';
 import { generateRoute } from '@utils/helpers';
 import { useSelector } from 'react-redux';
 import { getIsAuth } from '@store/user/selectors';
-import { useAppDispatch } from '@store';
-import { setAuth } from '@store/user';
-import { AboutsCompany, Language, MenuLogo, MenuContainerOpen, Settings, SocialsMedia } from './style';
+import Registration from '@components/Header/components/Registration';
+import {
+    AboutsCompany,
+    Language,
+    MenuLogo,
+    MenuContainerOpen,
+    Settings,
+    SocialsMedia,
+    Search,
+    ProfileLink,
+    ProfileContainer,
+} from './style';
 import { ROUTES } from '../../../../routes/constants';
 
 interface IArrow {
@@ -26,29 +36,16 @@ interface IHeader {
     language: string;
     setLanguage: (arg0: string) => void;
     languageArr: IArrow[];
-    // money: string;
-    // setMoney: (arg0: string) => void;
-    // moneyArr: IArrow[];
 }
 
 const iconsProfile = [
     {
-        id: 1,
-        icon: <Search />,
-        link: generateRoute(''),
-    },
-    {
         id: 2,
-        icon: <Profile />,
-        link: generateRoute(ROUTES.PROFILE),
-    },
-    {
-        id: 3,
         icon: <Favourites />,
         link: generateRoute(ROUTES.FAVOURITES),
     },
     {
-        id: 4,
+        id: 3,
         icon: <Shop />,
         link: generateRoute(ROUTES.CART),
     },
@@ -60,41 +57,52 @@ const aboutCompany = [
     { label: 'О НАС', link: generateRoute(ROUTES.ABOUTS) },
 ];
 const MenuOpen = ({ $isDark, languageArr, setLanguage, language, open }: IHeader) => {
-    const dispatch = useAppDispatch();
+    const [openModal, setModalOpen] = useState(false);
+    const toggleOpenImageFullScreen = () => setModalOpen(!openModal);
 
     const isAuth = useSelector(getIsAuth);
 
-    console.log(isAuth);
-
     return (
-        <MenuContainerOpen open={open}>
-            <button type="button" onClick={() => dispatch(setAuth(true))}>
-                dsfsdfsdfsdf
-            </button>
-            <AboutsCompany $isDark={$isDark}>
-                {aboutCompany.map((about) => (
-                    <AboutCompany key={about.label} label={about.label} link={about.link} />
-                ))}
-            </AboutsCompany>
-            <MenuLogo>
-                <Link to={generateRoute(ROUTES.DASHBOARD)}>
-                    <Logo />
-                </Link>
-            </MenuLogo>
-            <Settings $isDark={$isDark}>
-                <Language>
-                    <Dropdown width={48} value={language} onChange={setLanguage} options={languageArr} />
-                </Language>
-                {/* <Money> */}
-                {/*    <Dropdown width={56} value={money} onChange={setMoney} options={moneyArr} /> */}
-                {/* </Money> */}
-            </Settings>
-            <SocialsMedia>
-                {iconsProfile.map((icon) => (
-                    <SocialMedia key={icon.id} icon={icon.icon} link={icon.link} />
-                ))}
-            </SocialsMedia>
-        </MenuContainerOpen>
+        <>
+            <MenuContainerOpen open={open}>
+                <AboutsCompany $isDark={$isDark}>
+                    {aboutCompany.map((about) => (
+                        <AboutCompany key={about.label} label={about.label} link={about.link} />
+                    ))}
+                </AboutsCompany>
+                <MenuLogo>
+                    <Link to={generateRoute(ROUTES.DASHBOARD)}>
+                        <Logo />
+                    </Link>
+                </MenuLogo>
+                <Settings $isDark={$isDark}>
+                    <Language>
+                        <Dropdown width={48} value={language} onChange={setLanguage} options={languageArr} />
+                    </Language>
+                </Settings>
+                <SocialsMedia>
+                    <Search>
+                        <SearchIcon />
+                    </Search>
+                    {!isAuth ? (
+                        <ProfileContainer onClick={toggleOpenImageFullScreen}>
+                            <Profile />
+                        </ProfileContainer>
+                    ) : (
+                        <>
+                            {iconsProfile.map((icon) => (
+                                <SocialMedia key={icon.id} icon={icon.icon} link={icon.link} />
+                            ))}
+                            <ProfileLink to={generateRoute(ROUTES.PROFILE)}>
+                                <User />
+                            </ProfileLink>
+                        </>
+                    )}
+                </SocialsMedia>
+            </MenuContainerOpen>
+            {openModal && <Registration onChange={toggleOpenImageFullScreen} setModalOpen={setModalOpen} />}
+        </>
     );
 };
+
 export default MenuOpen;
