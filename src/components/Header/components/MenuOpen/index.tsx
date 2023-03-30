@@ -12,8 +12,6 @@ import { Link } from 'react-router-dom';
 import { generateRoute } from '@utils/helpers';
 import { useSelector } from 'react-redux';
 import { getIsAuth } from '@store/user/selectors';
-import { useAppDispatch } from '@store';
-import { setAuth } from '@store/user';
 import Registration from '@components/Header/components/Registration';
 import {
     AboutsCompany,
@@ -61,13 +59,9 @@ const aboutCompany = [
 const MenuOpen = ({ $isDark, languageArr, setLanguage, language, open }: IHeader) => {
     const [openModal, setModalOpen] = useState(false);
     const toggleOpenImageFullScreen = () => setModalOpen(!openModal);
-    const dispatch = useAppDispatch();
 
     const isAuth = useSelector(getIsAuth);
-    const toggleRegistrationClick = () => {
-        dispatch(setAuth(true));
-        setModalOpen(false);
-    };
+
     return (
         <>
             <MenuContainerOpen open={open}>
@@ -106,7 +100,7 @@ const MenuOpen = ({ $isDark, languageArr, setLanguage, language, open }: IHeader
                     )}
                 </SocialsMedia>
             </MenuContainerOpen>
-            {openModal && <Registration onChange={toggleOpenImageFullScreen} isAuth={toggleRegistrationClick} />}
+            {openModal && <Registration onChange={toggleOpenImageFullScreen} setModalOpen={setModalOpen} />}
         </>
     );
 };

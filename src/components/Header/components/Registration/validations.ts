@@ -5,6 +5,6 @@ export enum ADD_REGISTRATION {
     PASSWORD = 'password',
 }
 export const registrationCheck = yup.object().shape({
-    [ADD_REGISTRATION.EMAIL]: yup.string().email('Некорректная электронная почта'),
-    [ADD_REGISTRATION.PASSWORD]: yup.string(),
+    [ADD_REGISTRATION.EMAIL]: yup.string().required('Укажите почту'),
+    [ADD_REGISTRATION.PASSWORD]: yup.string().required('Укажите пароль'),
 });

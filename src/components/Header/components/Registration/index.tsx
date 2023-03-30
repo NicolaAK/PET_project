@@ -1,21 +1,34 @@
-import React, { FC } from 'react';
+import React, { Dispatch, FC, SetStateAction } from 'react';
 import { Exit, ExitContainer } from '@components/ProductCatalog/Image/style';
 import { Button } from '@components/ReusedComponents/Button';
 import { FormProvider, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { ADD_REGISTRATION, registrationCheck } from '@components/Header/components/Registration/validations';
 import RHFInput from '@components/RHF/RHFInput';
+import { useAppDispatch } from '@store';
+import { setAuth } from '@store/user';
 import { ModalBackground, ModalWindow, Title } from './style';
 
 interface IProps {
     onChange: () => void;
-    isAuth: () => void;
+    setModalOpen: Dispatch<SetStateAction<boolean>>;
+}
+interface IRegistrationForm {
+    [ADD_REGISTRATION.EMAIL]: string;
+    [ADD_REGISTRATION.PASSWORD]: string;
 }
 
-const Registration: FC<IProps> = ({ onChange, isAuth }) => {
-    const methods = useForm({ resolver: yupResolver(registrationCheck) });
+const Registration: FC<IProps> = ({ onChange, setModalOpen }) => {
+    const dispatch = useAppDispatch();
+
+    const methods = useForm<IRegistrationForm>({ resolver: yupResolver(registrationCheck) });
     const { handleSubmit } = methods;
-    const onSubmit = (registrationData: any) => console.log('Registration', registrationData);
+    const onSubmit = (registrationData: any) => {
+        dispatch(setAuth(true));
+        setModalOpen(false);
+        // eslint-disable-next-line no-console
+        console.log('Registration', registrationData);
+    };
     return (
         <FormProvider {...methods}>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -32,7 +45,6 @@ const Registration: FC<IProps> = ({ onChange, isAuth }) => {
                             placeholder="Ваш пароль*"
                         />
                         <Button>Отправит данные</Button>
-                        <Button onClick={isAuth}>Не отправит</Button>
                     </ModalWindow>
                 </ModalBackground>
             </form>
