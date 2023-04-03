@@ -20,8 +20,9 @@ export const ContainerSkeleton = styled.div`
 export const Text = styled(Link)`
     ${({ theme }) => theme.helpers.getTypography('dText16lh19')}
     transition: ${({ theme }) => theme.decorations.transition};
-    padding-bottom: 20px;
+    margin-bottom: 20px;
     text-align: start;
+    text-decoration: none;
     :hover {
         color: ${({ theme }) => theme.colors.mainPrimary()};
     }
