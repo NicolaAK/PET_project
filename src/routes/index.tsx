@@ -27,11 +27,11 @@ const Routes = () =>
             path: generateRoute(ROUTES.CATALOG),
             children: [
                 {
-                    path: ':subcategory',
+                    path: ':idCategory',
                     element: <Catalog />,
                     children: [
                         {
-                            path: ':productId',
+                            path: ':idProduct',
                             element: <ProductCatalog />,
                         },
                     ],
