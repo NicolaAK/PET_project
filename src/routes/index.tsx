@@ -21,17 +21,20 @@ const Routes = () =>
         },
         {
             path: generateRoute(ROUTES.CATALOG),
-            element: <Catalog />,
-        },
-        {
-            path: generateRoute(ROUTES.CATALOG),
             children: [
                 {
-                    path: ':idCategory',
+                    index: true,
                     element: <Catalog />,
+                },
+                {
+                    path: ':idCategory',
                     children: [
                         {
-                            path: ':idProduct',
+                            index: true,
+                            element: <Catalog />,
+                        },
+                        {
+                            path: ':idProduct/*',
                             element: <ProductCatalog />,
                         },
                     ],
