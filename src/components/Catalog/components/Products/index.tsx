@@ -1,141 +1,51 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Product from '@components/Catalog/components/Products/Product';
-import ModelPhoto1 from '@assets/foto/catalog/Model_1.png';
-import ModelPhoto2 from '@assets/foto/catalog/Model_2.png';
-import ModelPhoto3 from '@assets/foto/catalog/Model_3.png';
-import ModelPhoto4 from '@assets/foto/catalog/Model_4.png';
-import { ProductsContainer } from './style';
+import { useSelector } from 'react-redux';
+import { getProductIsLoading, getProductList } from '@store/product/selectors';
+import { fetchProductList } from '@store/product';
+import { useAppDispatch } from '@store';
+import { Skeleton } from '@components/ReusedComponents/Skeleton/style';
+import { ProductsContainer, ContainerSkeleton, ContentSkeleton } from './style';
 
-const products = [
-    {
-        id: 1,
-        name: 'Белая куртка',
-        isNew: true,
-        prices: { ru: 2000, ua: 12.2 },
-        sizes: ['XXS', 'XS', 'S', 'M', 'L'],
-        image: ModelPhoto1,
-    },
-    {
-        id: 2,
-        name: 'Синее пальто',
-        isNew: false,
-        prices: { ru: 3100, ua: 12.2 },
-        sizes: ['XXS', 'S', 'M'],
-        image: ModelPhoto2,
-    },
-    {
-        id: 3,
-        name: 'Бежевая шуба',
-        isNew: true,
-        prices: { ru: 4500, ua: 12.2 },
-        sizes: ['XS', 'S', 'M'],
-        image: ModelPhoto3,
-    },
-    {
-        id: 4,
-        name: 'Синяя парка',
-        isNew: false,
-        prices: { ru: 700, ua: 12.2 },
-        sizes: ['XXS', 'S', 'M', 'L'],
-        image: ModelPhoto4,
-    },
-    {
-        id: 5,
-        name: 'Белая куртка',
-        isNew: true,
-        prices: { ru: 2000, ua: 12.2 },
-        sizes: ['XXS', 'XS', 'S', 'M', 'L'],
-        image: ModelPhoto1,
-    },
-    {
-        id: 6,
-        name: 'Белая куртка',
-        isNew: true,
-        prices: { ru: 2000, ua: 12.2 },
-        sizes: ['XXS', 'XS', 'S', 'M', 'L'],
-        image: ModelPhoto1,
-    },
-    {
-        id: 7,
-        name: 'Синее пальто',
-        isNew: false,
-        prices: { ru: 3100, ua: 12.2 },
-        sizes: ['XXS', 'S', 'M'],
-        image: ModelPhoto2,
-    },
-    {
-        id: 8,
-        name: 'Бежевая шуба',
-        isNew: true,
-        prices: { ru: 4500, ua: 12.2 },
-        sizes: ['XS', 'S', 'M'],
-        image: ModelPhoto3,
-    },
-    {
-        id: 9,
-        name: 'Синяя парка',
-        isNew: false,
-        prices: { ru: 700, ua: 12.2 },
-        sizes: ['XXS', 'S', 'M', 'L'],
-        image: ModelPhoto4,
-    },
-    {
-        id: 10,
-        name: 'Белая куртка',
-        isNew: true,
-        prices: { ru: 2000, ua: 12.2 },
-        sizes: ['XXS', 'XS', 'S', 'M', 'L'],
-        image: ModelPhoto1,
-    },
-    {
-        id: 11,
-        name: 'Синее пальто',
-        isNew: false,
-        prices: { ru: 3100, ua: 12.2 },
-        sizes: ['XXS', 'S', 'M'],
-        image: ModelPhoto2,
-    },
-    {
-        id: 12,
-        name: 'Бежевая шуба',
-        isNew: true,
-        prices: { ru: 4500, ua: 12.2 },
-        sizes: ['XS', 'S', 'M'],
-        image: ModelPhoto3,
-    },
-    {
-        id: 13,
-        name: 'Бежевая шуба',
-        isNew: true,
-        prices: { ru: 4500, ua: 12.2 },
-        sizes: ['XS', 'S', 'M'],
-        image: ModelPhoto3,
-    },
-    {
-        id: 14,
-        name: 'Синяя парка',
-        isNew: false,
-        prices: { ru: 700, ua: 12.2 },
-        sizes: ['XXS', 'S', 'M', 'L'],
-        image: ModelPhoto4,
-    },
-];
-
-const Products = () => (
-    <ProductsContainer>
-        {products.map((product) => (
-            <Product
-                heightImage={360}
-                key={product.id}
-                id={product.id}
-                prices={product.prices}
-                image={product.image}
-                name={product.name}
-                sizes={product.sizes}
-                isNew={product.isNew}
-            />
-        ))}
-    </ProductsContainer>
-);
+const skeletonArr = new Array(6).fill(null);
+const componentSkeleton = skeletonArr.map((item) => (
+    <ContentSkeleton key={item}>
+        <Skeleton height={360} width={310} />
+        <Skeleton height={19} width={150} />
+        <Skeleton height={19} width={120} />
+        <Skeleton height={19} width={100} />
+    </ContentSkeleton>
+));
+const Products = () => {
+    const dispatch = useAppDispatch();
+    const products = useSelector(getProductList);
+    const isLoading = useSelector(getProductIsLoading);
+    useEffect(() => {
+        dispatch(fetchProductList());
+    }, [dispatch]);
+    return (
+        <ProductsContainer>
+            {isLoading ? (
+                <ContainerSkeleton>{componentSkeleton}</ContainerSkeleton>
+            ) : (
+                <>
+                    {products.map((product) => (
+                        <Product
+                            heightImage={360}
+                            key={product.id}
+                            id={product.id}
+                            price={product.price}
+                            photo={product.photo}
+                            name={product.name}
+                            sizes={product.sizes}
+                            isNew={product.isNew}
+                            widthImage={310}
+                        />
+                    ))}
+                </>
+            )}
+        </ProductsContainer>
+    );
+};
 
 export default Products;
