@@ -5,6 +5,7 @@ import { useAppDispatch } from '@store';
 import { fetchCategoryList } from '@store/category';
 import { Skeleton } from '@components/ReusedComponents/Skeleton/style';
 import { generateRoute } from '@utils/helpers';
+import { getProductList } from '@store/product/selectors';
 import { MenuContainer, CategoryContainer, MenuContent, Text, ContainerSkeleton } from './style';
 import { ROUTES } from '../../../../routes/constants';
 
@@ -15,7 +16,9 @@ const Menu = () => {
     const dispatch = useAppDispatch();
     const categoryList = useSelector(getCategoryList);
     const isLoading = useSelector(getIsLoading);
-
+    const test = useSelector(getProductList);
+    console.log(test);
+    console.log(categoryList);
     useEffect(() => {
         dispatch(fetchCategoryList());
     }, [dispatch]);
@@ -35,6 +38,9 @@ const Menu = () => {
                     </CategoryContainer>
                 )}
             </MenuContent>
+            {test.map((i) => (
+                <div>{i.name}</div>
+            ))}
         </MenuContainer>
     );
 };
