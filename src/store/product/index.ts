@@ -11,7 +11,7 @@ const initialState = productAdapter.getInitialState<InitialStateType>({
     isInitialized: false,
 });
 
-export const fetchProductList = createAsyncThunk<Array<IProduct>, void>('product', async () => {
+export const fetchProductList = createAsyncThunk<Array<IProduct>, void>('product/fetch', async () => {
     const { data } = await fetchProductListRequest();
     return data;
 });

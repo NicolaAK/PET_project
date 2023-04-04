@@ -6,6 +6,7 @@ import { fetchCategoryList } from '@store/category';
 import { Skeleton } from '@components/ReusedComponents/Skeleton/style';
 import { generateRoute } from '@utils/helpers';
 import { getProductList } from '@store/product/selectors';
+import { fetchProductList } from '@store/product';
 import { MenuContainer, CategoryContainer, MenuContent, Text, ContainerSkeleton } from './style';
 import { ROUTES } from '../../../../routes/constants';
 
@@ -19,6 +20,9 @@ const Menu = () => {
     const test = useSelector(getProductList);
     console.log(test);
     console.log(categoryList);
+    useEffect(() => {
+        dispatch(fetchProductList());
+    }, [dispatch]);
     useEffect(() => {
         dispatch(fetchCategoryList());
     }, [dispatch]);
