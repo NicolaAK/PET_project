@@ -1,7 +1,12 @@
 import axios from 'axios';
 
 export type ICommonResponse<D = any> = {
-    data: D;
+    data: {
+        data: D;
+        metaData: {
+            totalCount: number;
+        };
+    };
     status: number;
     statusText: string;
 };

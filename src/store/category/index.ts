@@ -13,7 +13,7 @@ const initialState = categoryAdapter.getInitialState<InitialStateType>({
 
 export const fetchCategoryList = createAsyncThunk<Array<ICategory>, void>('category/fetch', async () => {
     const { data } = await fetchCategoryListRequest();
-    return data;
+    return data.data;
 });
 
 const Category = createSlice({
