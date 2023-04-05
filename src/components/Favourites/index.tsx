@@ -54,11 +54,12 @@ const Favourites = () => (
                         heightImage={400}
                         key={product.id}
                         id={product.id}
-                        prices={product.prices}
-                        image={product.image}
+                        // price={product.prices}
+                        photo={product.image}
                         name={product.name}
                         sizes={product.sizes}
                         isNew={product.isNew}
+                        widthImage={370}
                     />
                 ))}
             </ContainerProduct>

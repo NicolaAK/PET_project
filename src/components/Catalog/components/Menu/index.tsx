@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { getCategoryList, getIsLoading } from '@store/category/selectors';
+import { getCategoryList, getCategoryIsLoading } from '@store/category/selectors';
 import { useAppDispatch } from '@store';
 import { fetchCategoryList } from '@store/category';
 import { Skeleton } from '@components/ReusedComponents/Skeleton/style';
+import { generateRoute } from '@utils/helpers';
 import { MenuContainer, CategoryContainer, MenuContent, Text, ContainerSkeleton } from './style';
+import { ROUTES } from '../../../../routes/constants';
 
 const skeletonArr = new Array(6).fill(null);
 const componentSkeleton = skeletonArr.map((item) => <Skeleton height={19} width={150} key={item} />);
@@ -12,7 +14,7 @@ const componentSkeleton = skeletonArr.map((item) => <Skeleton height={19} width=
 const Menu = () => {
     const dispatch = useAppDispatch();
     const categoryList = useSelector(getCategoryList);
-    const isLoading = useSelector(getIsLoading);
+    const isLoading = useSelector(getCategoryIsLoading);
 
     useEffect(() => {
         dispatch(fetchCategoryList());
@@ -26,7 +28,9 @@ const Menu = () => {
                 ) : (
                     <CategoryContainer>
                         {categoryList.map((category) => (
-                            <Text key={category.name}>{category.name}</Text>
+                            <Text to={generateRoute(`${ROUTES.CATALOG}/${category.id}`)} key={category.name}>
+                                {category.name}
+                            </Text>
                         ))}
                     </CategoryContainer>
                 )}

@@ -15,6 +15,7 @@ export const ModalBackground = styled.div`
     left: 0px;
     width: 100%;
     min-height: 100vh;
+    z-index: 4;
 `;
 export const ModalWindow = styled.div`
     width: 600px;

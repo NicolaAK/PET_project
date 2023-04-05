@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import ArrowR from '@assets/icons/arrowR.svg';
-import { Navigation, LinkText, List, NavUl, Content, EndCrumb } from './style';
 import { ROUTES } from '../../../routes/constants';
+import { Navigation, LinkText, List, NavUl, Content, EndCrumb } from './style';
 
 const Breadcrumbs = () => {
     const location = useLocation();

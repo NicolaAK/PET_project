@@ -22,10 +22,11 @@ interface IProduct {
     id: number;
     name: string;
     isNew?: boolean;
-    prices: { ru: number; ua: number };
+    price?: number;
     sizes?: string[];
-    image: string;
+    photo: string;
     heightImage: number;
+    widthImage: number;
 }
 export const colorsSchema: Record<string, string> = {
     white: theme.colors.white(),
@@ -40,7 +41,7 @@ export const labelSymbol = {
     ru: 'руб',
     // ua: 'грн',
 };
-const Product = ({ image, isNew, name, sizes, prices, id, heightImage }: IProduct) => {
+const Product = ({ photo, isNew, name, sizes, price, id, heightImage, widthImage }: IProduct) => {
     const navigate = useNavigate();
     const navId = () => navigate(`${id}`);
 
@@ -56,13 +57,13 @@ const Product = ({ image, isNew, name, sizes, prices, id, heightImage }: IProduc
                     </Icon>
                 </Favourites>
                 <Photo heightImage={heightImage}>
-                    <Image src={image} alt="photoModel" onClick={navId} />
+                    <Image widthImage={widthImage} src={photo} alt="photoModel" onClick={navId} />
                 </Photo>
                 <Description>
                     <NameProduct onClick={navId}>{name}</NameProduct>
                     {isNew && <New>new</New>}
                     <Price>
-                        {prices[currency]} {labelSymbol[currency]}
+                        {price} {labelSymbol[currency]}
                     </Price>
                     <Sizes>
                         {sizes?.map((size) => (

@@ -3,7 +3,8 @@ interface IColor {
     color: string;
 }
 interface IImageSize {
-    heightImage: number;
+    heightImage?: number;
+    widthImage?: number;
 }
 export const Container = styled.div`
     position: relative;
@@ -16,8 +17,8 @@ export const Photo = styled.button<IImageSize>`
     overflow: hidden;
     height: ${({ heightImage }) => heightImage}px;
 `;
-export const Image = styled.img`
-    width: 100%;
+export const Image = styled.img<IImageSize>`
+    width: ${({ widthImage }) => widthImage}px;
     transition: 0.7s;
     :hover {
         transform: scale(1.03);
@@ -43,6 +44,10 @@ export const Description = styled.div`
 export const NameProduct = styled.button`
     ${({ theme }) => theme.helpers.getTypography('dText16lh19')}
     transition: ${({ theme }) => theme.decorations.transition};
+    width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     :hover {
         color: ${({ theme }) => theme.colors.buttonPrimaryClick()};
     }

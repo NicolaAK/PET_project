@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const MenuContainer = styled.div`
     grid-area: Menu;
@@ -16,11 +17,12 @@ export const ContainerSkeleton = styled.div`
     align-content: start;
     gap: 20px;
 `;
-export const Text = styled.button`
+export const Text = styled(Link)`
     ${({ theme }) => theme.helpers.getTypography('dText16lh19')}
     transition: ${({ theme }) => theme.decorations.transition};
-    padding-bottom: 20px;
+    margin-bottom: 20px;
     text-align: start;
+    text-decoration: none;
     :hover {
         color: ${({ theme }) => theme.colors.mainPrimary()};
     }
