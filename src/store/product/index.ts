@@ -13,7 +13,7 @@ const initialState = productAdapter.getInitialState<InitialStateType>({
 
 export const fetchProductList = createAsyncThunk<Array<IProduct>, void>('product/fetch', async () => {
     const { data } = await fetchProductListRequest();
-    return data;
+    return data.data;
 });
 
 const Product = createSlice({
