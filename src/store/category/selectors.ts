@@ -6,5 +6,5 @@ const getCategories = (state: RootState) => state.category;
 const { selectAll } = categoryAdapter.getSelectors(getCategories);
 
 export const getCategoryList = (state: RootState) => selectAll(state);
-export const getIsLoading = (state: RootState) => !!state.category.isLoading.length;
+export const getCategoryIsLoading = (state: RootState) => !!state.category.isLoading.length;
 export const getIsInitialized = (state: RootState) => state.category.isInitialized;

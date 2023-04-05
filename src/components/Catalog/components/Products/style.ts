@@ -6,3 +6,13 @@ export const ProductsContainer = styled.div`
     flex-wrap: wrap;
     gap: 15px;
 `;
+export const ContentSkeleton = styled.div`
+    ${({ theme }) => theme.mixins.flexCenterCenter};
+    flex-direction: column;
+    gap: 5px;
+`;
+export const ContainerSkeleton = styled.div`
+    ${({ theme }) => theme.mixins.flexStart};
+    flex-wrap: wrap;
+    gap: 15px;
+`;

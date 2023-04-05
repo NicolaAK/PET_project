@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { getCategoryList, getIsLoading } from '@store/category/selectors';
+import { getCategoryList, getCategoryIsLoading } from '@store/category/selectors';
 import { useAppDispatch } from '@store';
 import { fetchCategoryList } from '@store/category';
 import { Skeleton } from '@components/ReusedComponents/Skeleton/style';
@@ -14,7 +14,7 @@ const componentSkeleton = skeletonArr.map((item) => <Skeleton height={19} width=
 const Menu = () => {
     const dispatch = useAppDispatch();
     const categoryList = useSelector(getCategoryList);
-    const isLoading = useSelector(getIsLoading);
+    const isLoading = useSelector(getCategoryIsLoading);
 
     useEffect(() => {
         dispatch(fetchCategoryList());

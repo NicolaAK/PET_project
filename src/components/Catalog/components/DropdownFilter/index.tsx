@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ArrowR from '@assets/icons/arrowR.svg';
-import { DropDownHeader, DropDownList, ListItem, DropDownContainer, ArrowContainer, Text, Placeholder } from './styled';
+import { DropDownHeader, DropDownList, ListItem, DropDownContainer, ArrowContainer, Text, Placeholder } from './style';
 import useClickOutside from '../../../../HOK/ClickOutside';
 
 interface IArrow {
