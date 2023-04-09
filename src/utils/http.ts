@@ -1,12 +1,14 @@
 import axios from 'axios';
 
-export type ICommonResponse<D = any> = {
-    data: {
-        data: D;
-        metaData: {
-            totalCount: number;
-        };
+export type IData<D = any> = {
+    data: D;
+    metaData: {
+        totalCount: number;
     };
+};
+
+export type ICommonResponse<D = any> = {
+    data: IData<D>;
     status: number;
     statusText: string;
 };
