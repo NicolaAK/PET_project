@@ -3,10 +3,10 @@ import styled from 'styled-components';
 export const Container = styled.div`
     display: flex;
 `;
-export const On = styled.div`
+export const ActivePage = styled.div`
     font-weight: bold;
 `;
-export const Off = styled.div`
+export const NotActivePage = styled.div`
     cursor: pointer;
 `;
 export const PrevPage = styled.div`

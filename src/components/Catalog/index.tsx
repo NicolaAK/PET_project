@@ -8,6 +8,7 @@ import { CatalogContent, CatalogContainer, Container, Heading, Text } from './st
 
 const Catalog = () => (
     <CatalogContainer>
+        <Pagination />
         <CatalogContent>
             <Breadcrumbs />
             <Container>
@@ -18,7 +19,6 @@ const Catalog = () => (
                 <Filter />
                 <Products />
             </Container>
-            <Pagination />
         </CatalogContent>
     </CatalogContainer>
 );
