@@ -3,6 +3,7 @@ import Heart from '@assets/icons/heart.svg';
 import { useNavigate } from 'react-router-dom';
 import WhiteFavouritesButtonActive from '@assets/icons/favouritesButtonActiveWhite.svg';
 import { IProduct } from '@store/product/types';
+import { generateRoute } from '@utils/helpers';
 import {
     NameProduct,
     Content,
@@ -17,6 +18,7 @@ import {
     Icon,
     New,
 } from './styled';
+import { ROUTES } from '../../../../../routes/constants';
 
 interface IProps {
     product: IProduct;
@@ -31,7 +33,7 @@ export const labelSymbol = {
 };
 const Product = ({ product, heightImage, widthImage }: IProps) => {
     const navigate = useNavigate();
-    const navId = () => navigate(`${product.id}`);
+    const navId = () => navigate(generateRoute(`${ROUTES.CATALOG}/${product.idCategory}/${product.id}`));
 
     const [isActiveFavouritesButton, setIsActiveFavouritesButton] = useState(false);
     const toggleActiveFavouritesButton = () => setIsActiveFavouritesButton(!isActiveFavouritesButton);
