@@ -3,7 +3,8 @@ import Product from '@components/Catalog/components/Products/Product';
 import { useSelector } from 'react-redux';
 import { getProductIsLoading, getProductList } from '@store/product/selectors';
 import { Skeleton } from '@components/ReusedComponents/Skeleton/style';
-import { ProductsContainer, ContainerSkeleton, ContentSkeleton } from './style';
+import Pagination from '@components/ReusedComponents/Pagination';
+import { ProductsContainer, ContainerSkeleton, ContentSkeleton, Content } from './style';
 
 const skeletonArr = new Array(6).fill(null);
 const componentSkeleton = skeletonArr.map((item) => (
@@ -20,25 +21,28 @@ const Products = () => {
 
     return (
         <ProductsContainer>
-            {isLoading ? (
-                <ContainerSkeleton>{componentSkeleton}</ContainerSkeleton>
-            ) : (
-                <>
-                    {products.map((product) => (
-                        <Product
-                            heightImage={360}
-                            key={product.id}
-                            id={product.id}
-                            price={product.price}
-                            photo={product.photo}
-                            name={product.name}
-                            sizes={product.sizes}
-                            isNew={product.isNew}
-                            widthImage={310}
-                        />
-                    ))}
-                </>
-            )}
+            <Content>
+                {isLoading ? (
+                    <ContainerSkeleton>{componentSkeleton}</ContainerSkeleton>
+                ) : (
+                    <>
+                        {products.map((product) => (
+                            <Product
+                                heightImage={360}
+                                key={product.id}
+                                id={product.id}
+                                price={product.price}
+                                photo={product.photo}
+                                name={product.name}
+                                sizes={product.sizes}
+                                isNew={product.isNew}
+                                widthImage={310}
+                            />
+                        ))}
+                    </>
+                )}
+            </Content>
+            <Pagination />
         </ProductsContainer>
     );
 };

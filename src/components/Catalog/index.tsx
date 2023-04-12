@@ -3,12 +3,10 @@ import Menu from '@components/Catalog/components/Menu';
 import Filter from '@components/Catalog/components/Filter';
 import Products from '@components/Catalog/components/Products';
 import Breadcrumbs from '@components/ReusedComponents/Breadcrumbs';
-import Pagination from '@components/ReusedComponents/Pagination';
 import { CatalogContent, CatalogContainer, Container, Heading, Text } from './style';
 
 const Catalog = () => (
     <CatalogContainer>
-        <Pagination />
         <CatalogContent>
             <Breadcrumbs />
             <Container>

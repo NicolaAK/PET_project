@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 import { getProductTotalCount } from '@store/product/selectors';
 import { fetchProductList } from '@store/product';
 import { getPagesArray } from '@components/ReusedComponents/Pagination/utils';
+import ArrowLeft from '@assets/icons/arrowLeftSlider.svg';
+import ArrowRight from '@assets/icons/arrowRightSlider.svg';
 import { NotActivePage, ActivePage, Container, PrevPage, NextPage } from './style';
 
 const Pagination = () => {
@@ -22,19 +24,29 @@ const Pagination = () => {
     useEffect(() => {
         setQuantityPages(xTotalCount / 18);
     }, [xTotalCount]);
-
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
     const changePage = (newPageNumber: number) => {
+        scrollToTop();
         setCurrentPage(newPageNumber);
     };
     const changePrevPage = (newPageNumber: number) => {
+        scrollToTop();
         setCurrentPage(newPageNumber - 1);
     };
     const changeNextPage = (newPageNumber: number) => {
+        scrollToTop();
         setCurrentPage(newPageNumber + 1);
     };
+
     return (
         <Container>
-            {currentPage !== 1 && <PrevPage onClick={() => changePrevPage(currentPage)}>AA</PrevPage>}
+            {currentPage !== 1 && (
+                <PrevPage onClick={() => changePrevPage(currentPage)}>
+                    <ArrowLeft />
+                </PrevPage>
+            )}
             {pagesArray.map((page) => {
                 if (
                     page === 1 ||
@@ -58,7 +70,11 @@ const Pagination = () => {
                     return null;
                 }
             })}
-            {currentPage !== quantityPages && <NextPage onClick={() => changeNextPage(currentPage)}>BB</NextPage>}
+            {currentPage !== quantityPages && (
+                <NextPage onClick={() => changeNextPage(currentPage)}>
+                    <ArrowRight />
+                </NextPage>
+            )}
         </Container>
     );
 };
