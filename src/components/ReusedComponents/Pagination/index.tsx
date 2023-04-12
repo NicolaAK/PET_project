@@ -6,6 +6,7 @@ import { fetchProductList } from '@store/product';
 import { getPagesArray } from '@components/ReusedComponents/Pagination/utils';
 import ArrowLeft from '@assets/icons/arrowLeftSlider.svg';
 import ArrowRight from '@assets/icons/arrowRightSlider.svg';
+import { COUNT_PRODUCT_ON_PAGE } from '@utils/constants';
 import { NotActivePage, ActivePage, Container, PrevPage, NextPage } from './style';
 
 const Pagination = () => {
@@ -19,10 +20,10 @@ const Pagination = () => {
 
     useEffect(() => {
         dispatch(fetchProductList(currentPage));
-    }, [currentPage]);
+    }, [currentPage, dispatch]);
 
     useEffect(() => {
-        setQuantityPages(xTotalCount / 18);
+        setQuantityPages(xTotalCount / COUNT_PRODUCT_ON_PAGE);
     }, [xTotalCount]);
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });

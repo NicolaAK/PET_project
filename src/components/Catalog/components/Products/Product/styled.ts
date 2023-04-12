@@ -13,7 +13,7 @@ export const Container = styled.div`
 `;
 export const Content = styled.div``;
 export const Photo = styled.button<IImageSize>`
-    display: inline-block;
+    display: block;
     overflow: hidden;
     height: ${({ heightImage }) => heightImage}px;
 `;
