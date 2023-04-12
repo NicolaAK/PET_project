@@ -6,7 +6,7 @@ import { Skeleton } from '@components/ReusedComponents/Skeleton/style';
 import Pagination from '@components/ReusedComponents/Pagination';
 import { ProductsContainer, ContainerSkeleton, ContentSkeleton, Content } from './style';
 
-const skeletonArr = new Array(6).fill(null);
+const skeletonArr = new Array(18).fill(null);
 const componentSkeleton = skeletonArr.map((item) => (
     <ContentSkeleton key={item + Math.random()}>
         <Skeleton height={360} width={310} />
