@@ -9,7 +9,7 @@ import { MenuContainer, CategoryContainer, MenuContent, Text, ContainerSkeleton 
 import { ROUTES } from '../../../../routes/constants';
 
 const skeletonArr = new Array(6).fill(null);
-const componentSkeleton = skeletonArr.map((item) => <Skeleton height={19} width={150} key={item} />);
+const componentSkeleton = skeletonArr.map((item) => <Skeleton height={19} width={150} key={item + Math.random()} />);
 
 const Menu = () => {
     const dispatch = useAppDispatch();

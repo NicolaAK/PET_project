@@ -1,15 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Product from '@components/Catalog/components/Products/Product';
 import { useSelector } from 'react-redux';
 import { getProductIsLoading, getProductList } from '@store/product/selectors';
-import { fetchProductList } from '@store/product';
-import { useAppDispatch } from '@store';
 import { Skeleton } from '@components/ReusedComponents/Skeleton/style';
-import { ProductsContainer, ContainerSkeleton, ContentSkeleton } from './style';
+import Pagination from '@components/ReusedComponents/Pagination';
+import { ProductsContainer, ContainerSkeleton, ContentSkeleton, Content } from './style';
 
-const skeletonArr = new Array(6).fill(null);
+const skeletonArr = new Array(18).fill(null);
 const componentSkeleton = skeletonArr.map((item) => (
-    <ContentSkeleton key={item}>
+    <ContentSkeleton key={item + Math.random()}>
         <Skeleton height={360} width={310} />
         <Skeleton height={19} width={150} />
         <Skeleton height={19} width={120} />
@@ -17,33 +16,23 @@ const componentSkeleton = skeletonArr.map((item) => (
     </ContentSkeleton>
 ));
 const Products = () => {
-    const dispatch = useAppDispatch();
     const products = useSelector(getProductList);
     const isLoading = useSelector(getProductIsLoading);
-    useEffect(() => {
-        dispatch(fetchProductList());
-    }, [dispatch]);
+
     return (
         <ProductsContainer>
-            {isLoading ? (
-                <ContainerSkeleton>{componentSkeleton}</ContainerSkeleton>
-            ) : (
-                <>
-                    {products.map((product) => (
-                        <Product
-                            heightImage={360}
-                            key={product.id}
-                            id={product.id}
-                            price={product.price}
-                            photo={product.photo}
-                            name={product.name}
-                            sizes={product.sizes}
-                            isNew={product.isNew}
-                            widthImage={310}
-                        />
-                    ))}
-                </>
-            )}
+            <Content>
+                {isLoading ? (
+                    <ContainerSkeleton>{componentSkeleton}</ContainerSkeleton>
+                ) : (
+                    <>
+                        {products.map((product) => (
+                            <Product heightImage={360} key={product.id} product={product} widthImage={310} />
+                        ))}
+                    </>
+                )}
+            </Content>
+            <Pagination />
         </ProductsContainer>
     );
 };

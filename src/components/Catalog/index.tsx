@@ -20,5 +20,4 @@ const Catalog = () => (
         </CatalogContent>
     </CatalogContainer>
 );
-
 export default Catalog;
