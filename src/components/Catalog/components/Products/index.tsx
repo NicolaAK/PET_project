@@ -27,17 +27,7 @@ const Products = () => {
                 ) : (
                     <>
                         {products.map((product) => (
-                            <Product
-                                heightImage={360}
-                                key={product.id}
-                                id={product.id}
-                                price={product.price}
-                                photo={product.photo}
-                                name={product.name}
-                                sizes={product.sizes}
-                                isNew={product.isNew}
-                                widthImage={310}
-                            />
+                            <Product heightImage={360} key={product.id} product={product} widthImage={310} />
                         ))}
                     </>
                 )}

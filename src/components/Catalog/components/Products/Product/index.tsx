@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Heart from '@assets/icons/heart.svg';
-import theme from '@theme/index';
 import { useNavigate } from 'react-router-dom';
 import WhiteFavouritesButtonActive from '@assets/icons/favouritesButtonActiveWhite.svg';
+import { IProduct } from '@store/product/types';
 import {
     NameProduct,
     Content,
@@ -18,32 +18,20 @@ import {
     New,
 } from './styled';
 
-interface IProduct {
-    id: number;
-    name: string;
-    isNew?: boolean;
-    price?: number;
-    sizes?: string[];
-    photo: string;
+interface IProps {
+    product: IProduct;
     heightImage: number;
     widthImage: number;
 }
-export const colorsSchema: Record<string, string> = {
-    white: theme.colors.white(),
-    blue: theme.colors.elipseViolet(),
-    yellow: theme.colors.elipsePastel(),
-    green: theme.colors.green(),
-    red: theme.colors.error(),
-    black: theme.colors.blackPrimary(),
-};
+
 export const currency = 'ru';
 export const labelSymbol = {
     ru: 'руб',
     // ua: 'грн',
 };
-const Product = ({ photo, isNew, name, sizes, price, id, heightImage, widthImage }: IProduct) => {
+const Product = ({ product, heightImage, widthImage }: IProps) => {
     const navigate = useNavigate();
-    const navId = () => navigate(`${id}`);
+    const navId = () => navigate(`${product.id}`);
 
     const [isActiveFavouritesButton, setIsActiveFavouritesButton] = useState(false);
     const toggleActiveFavouritesButton = () => setIsActiveFavouritesButton(!isActiveFavouritesButton);
@@ -57,16 +45,16 @@ const Product = ({ photo, isNew, name, sizes, price, id, heightImage, widthImage
                     </Icon>
                 </Favourites>
                 <Photo heightImage={heightImage}>
-                    <Image widthImage={widthImage} src={photo} alt="photoModel" onClick={navId} />
+                    <Image widthImage={widthImage} src={product.photo} alt="photoModel" onClick={navId} />
                 </Photo>
                 <Description>
-                    <NameProduct onClick={navId}>{name}</NameProduct>
-                    {isNew && <New>new</New>}
+                    <NameProduct onClick={navId}>{product.name}</NameProduct>
+                    {product.isNew && <New>new</New>}
                     <Price>
-                        {price} {labelSymbol[currency]}
+                        {product.price} {labelSymbol[currency]}
                     </Price>
                     <Sizes>
-                        {sizes?.map((size) => (
+                        {product.sizes?.map((size) => (
                             <Size key={size}>{size}</Size>
                         ))}
                     </Sizes>
