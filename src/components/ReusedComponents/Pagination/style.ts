@@ -5,7 +5,7 @@ export const Container = styled.div`
     margin-top: 50px;
     gap: 10px;
 `;
-export const ActivePage = styled.div`
+export const ActivePage = styled.button`
     height: 30px;
     width: 30px;
     border-radius: 2px;
@@ -16,7 +16,7 @@ export const ActivePage = styled.div`
     padding-bottom: 2px;
     background-color: ${({ theme }) => theme.colors.mainPrimary()};
 `;
-export const NotActivePage = styled.div`
+export const NotActivePage = styled.button`
     cursor: pointer;
     ${({ theme }) => theme.mixins.flexCenterCenter};
     padding-bottom: 2px;
@@ -30,14 +30,14 @@ export const NotActivePage = styled.div`
         color: ${({ theme }) => theme.colors.mainPrimary()};
     }
 `;
-export const PrevPage = styled.div`
+export const PrevPage = styled.button`
     svg path {
         fill: ${({ theme }) => theme.colors.mainPrimary()};
     }
     cursor: pointer;
     ${({ theme }) => theme.mixins.flexCenterCenter};
 `;
-export const NextPage = styled.div`
+export const NextPage = styled.button`
     svg path {
         fill: ${({ theme }) => theme.colors.mainPrimary()};
     }

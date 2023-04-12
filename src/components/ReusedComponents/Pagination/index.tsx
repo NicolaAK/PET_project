@@ -15,7 +15,7 @@ const Pagination = () => {
     const xTotalCount = useSelector(getProductTotalCount);
     const pagesArray = getPagesArray(quantityPages);
     let lastPage = 0;
-    const displayRange = 1;
+    const displayRange = 1; // Диапазон отображения
 
     useEffect(() => {
         dispatch(fetchProductList(currentPage));
@@ -49,11 +49,11 @@ const Pagination = () => {
             )}
             {pagesArray.map((page) => {
                 if (
-                    page === 1 ||
-                    page === currentPage - displayRange ||
-                    (page > currentPage - displayRange && page < currentPage + displayRange) ||
-                    page === currentPage + displayRange ||
-                    page === quantityPages
+                    page === 1 || // Если страница является первой, то отобрази кнопку.
+                    page === currentPage - displayRange || // Если номер страницы соответствует значению (текущая страница - диапазон отображения), то отобрази кнопку.
+                    (page > currentPage - displayRange && page < currentPage + displayRange) || // Если страница находится в пределах диапазона отображения текущей страницы (текущая страница - диапазон отображения < page < текущая страница + диапазон отображения), то отобрази кнопку.
+                    page === currentPage + displayRange || // Если номер страницы соответствует значению (текущая страница + диапазон отображения), то отобрази кнопку.
+                    page === quantityPages // Если страница последняя, отобрази кнопку.
                 ) {
                     return currentPage === page ? (
                         <ActivePage key={page}>{page}</ActivePage>
@@ -63,9 +63,11 @@ const Pagination = () => {
                         </NotActivePage>
                     );
                 } else if (page > lastPage + 1) {
+                    // отображает "..." вместо кнопок страниц, которые находятся между последней отображаемой страницей и следующей страницей, которая не вмещается в displayRange
                     lastPage = page;
                     return '...';
                 } else {
+                    // не отображает кнопку для текущей страницы, если она уже была отображена ранее
                     lastPage = page;
                     return null;
                 }
