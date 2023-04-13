@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Product from '@components/Catalog/components/Products/Product';
 import { useSelector } from 'react-redux';
 import { getProductIsLoading, getProductList } from '@store/product/selectors';
@@ -15,7 +15,13 @@ const componentSkeleton = skeletonArr.map((item) => (
         <Skeleton height={19} width={100} />
     </ContentSkeleton>
 ));
-const Products = () => {
+
+interface IProducts {
+    currentPage: number;
+    onPageEdit: (value: number) => void;
+}
+
+const Products: FC<IProducts> = ({ currentPage, onPageEdit }) => {
     const products = useSelector(getProductList);
     const isLoading = useSelector(getProductIsLoading);
 
@@ -32,7 +38,7 @@ const Products = () => {
                     </>
                 )}
             </Content>
-            <Pagination />
+            <Pagination currentPage={currentPage} onPageEdit={onPageEdit} />
         </ProductsContainer>
     );
 };

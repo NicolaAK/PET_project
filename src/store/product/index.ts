@@ -13,10 +13,18 @@ const initialState = productAdapter.getInitialState<InitialStateType>({
     totalCount: 0,
 });
 
-export const fetchProductList = createAsyncThunk<IData<Array<IProduct>>, number>('product/fetch', async (filter) => {
-    const { data } = await fetchProductListRequest(filter);
-    return data;
-});
+export interface IFilterProductList {
+    page: number;
+    idCategory?: number;
+}
+
+export const fetchProductList = createAsyncThunk<IData<Array<IProduct>>, IFilterProductList>(
+    'product/fetch',
+    async (filter) => {
+        const { data } = await fetchProductListRequest(filter);
+        return data;
+    },
+);
 const filter = {
     page: 1,
     idCategory: 3,
