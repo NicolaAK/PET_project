@@ -6,6 +6,7 @@ import { fetchProductList } from '@store/product';
 import ArrowLeft from '@assets/icons/arrowLeftSlider.svg';
 import ArrowRight from '@assets/icons/arrowRightSlider.svg';
 import { COUNT_PRODUCT_ON_PAGE } from '@utils/constants';
+import { getPagesArray } from '@components/ReusedComponents/Pagination/utils';
 import { NotActivePage, ActivePage, Container, PrevPage, NextPage } from './style';
 
 const Pagination = () => {
@@ -14,8 +15,8 @@ const Pagination = () => {
     const [quantityPages, setQuantityPages] = useState(1);
     const xTotalCount = useSelector(getProductTotalCount);
     let lastPage = 0;
-    const displayRange = 1; // Диапазон отображения
-    const pagesArray = new Array(quantityPages).fill('').map((item, index) => index + 1);
+    const displayRange = 1;
+    const pagesArray = getPagesArray(quantityPages);
 
     useEffect(() => {
         dispatch(fetchProductList(currentPage));
