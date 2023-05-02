@@ -13,7 +13,7 @@ interface IPagination {
 }
 
 const Pagination: FC<IPagination> = ({ currentPage, onPageEdit }) => {
-    const [quantityPages, setQuantityPages] = useState(1);
+    const [quantityPages, setQuantityPages] = useState(1); // количество страниц
     const xTotalCount = useSelector(getProductTotalCount);
     let lastPage = 0;
     const displayRange = 1;
