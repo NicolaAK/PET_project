@@ -6,10 +6,12 @@ const sizeArr = [
     { value: 'S', label: 'S' },
     { value: 'M', label: 'M' },
 ];
+
 const priceArr = [
     { value: 'expensive', label: 'Дороже' },
     { value: 'cheap', label: 'Дешевле' },
 ];
+
 const Filter = () => {
     const [size, setSize] = useState<string>();
     const [price, setPrice] = useState<string>();
