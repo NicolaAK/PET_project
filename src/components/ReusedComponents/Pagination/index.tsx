@@ -48,7 +48,7 @@ const Pagination: FC<IPagination> = ({ currentPage, onPageEdit }) => {
             page === currentPage - displayRange ||
             (page > currentPage - displayRange && page < currentPage + displayRange) ||
             page === currentPage + displayRange ||
-            page === quantityPages
+            page >= quantityPages
         ) {
             if (currentPage === page) {
                 return <ActivePage key={page}>{page}</ActivePage>;
@@ -75,7 +75,7 @@ const Pagination: FC<IPagination> = ({ currentPage, onPageEdit }) => {
                 </PrevPage>
             )}
             {pagesArray.map((page) => getPaginationNumbers(page))}
-            {currentPage !== quantityPages && (
+            {currentPage < quantityPages && (
                 <NextPage onClick={() => changeNextPage(currentPage)}>
                     <ArrowRight />
                 </NextPage>
