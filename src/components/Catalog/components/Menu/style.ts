@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 interface IProps {
-    activeClassName: string;
+    activeclassname: string;
 }
 export const MenuContainer = styled.div`
     grid-area: Menu;
@@ -29,7 +29,7 @@ export const Text = styled(NavLink)<IProps>`
     :hover {
         color: ${({ theme }) => theme.colors.mainPrimary()};
     }
-    &.${(props) => props.activeClassName} {
+    &.${(props) => props.activeclassname} {
         font-weight: bold;
     }
 `;

@@ -19,7 +19,7 @@ const Menu = () => {
     useEffect(() => {
         dispatch(fetchCategoryList());
     }, [dispatch]);
-    console.log(categoryList);
+
     return (
         <MenuContainer>
             <MenuContent>
@@ -31,7 +31,7 @@ const Menu = () => {
                             <Text
                                 to={generateRoute(`${ROUTES.CATALOG}/${category.id}`)}
                                 key={category.name}
-                                activeClassName="active"
+                                activeclassname="active"
                             >
                                 {category.name}
                             </Text>

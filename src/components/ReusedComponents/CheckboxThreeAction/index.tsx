@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckboxContainer } from './style';
+import { CheckboxContainer, Container, Text } from './style';
 
 interface CheckboxProps {
     isChecked: boolean | undefined;
@@ -18,9 +18,9 @@ const Checkbox: React.FC<CheckboxProps> = ({ isChecked, setIsChecked }) => {
     };
 
     return (
-        <div>
-            <CheckboxContainer isChecked={isChecked} onClick={handleClick} /> News
-        </div>
+        <Container onClick={handleClick}>
+            <CheckboxContainer isChecked={isChecked} /> <Text>New</Text>
+        </Container>
     );
 };
 

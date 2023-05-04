@@ -1,7 +1,8 @@
 import React, { FC, useState } from 'react';
 import DropdownFilter from '@components/Catalog/components/DropdownFilter';
 import { Button } from '@components/ReusedComponents/Button';
-import Checkbox from '@components/ReusedComponents/Checkbox_3_action';
+
+import Checkbox from '@components/ReusedComponents/CheckboxThreeAction';
 import { FilterContainer, ButtonContainer } from './style';
 const sizeArr = [
     { value: 'L', label: 'L', sort: 'size' },
@@ -21,11 +22,19 @@ interface IProps {
     setSortCategory: (value: string) => void;
     isChecked: boolean | undefined;
     setIsChecked: (b: undefined | boolean) => void;
+    isActiveButtonReset: boolean;
 }
-const Filter: FC<IProps> = ({ setPrice, price, filterResetButton, setSortCategory, setIsChecked, isChecked }) => {
+const Filter: FC<IProps> = ({
+    setPrice,
+    price,
+    filterResetButton,
+    setSortCategory,
+    setIsChecked,
+    isChecked,
+    isActiveButtonReset,
+}) => {
     const [size, setSize] = useState<string>();
 
-    console.log(isChecked);
     return (
         <FilterContainer>
             <DropdownFilter width={79} value={size} onChange={setSize} options={sizeArr} placeholder="Размер" />
@@ -38,7 +47,7 @@ const Filter: FC<IProps> = ({ setPrice, price, filterResetButton, setSortCategor
                 placeholder="Цена"
             />
             <Checkbox isChecked={isChecked} setIsChecked={setIsChecked} />
-            <ButtonContainer>
+            <ButtonContainer isActiveButtonReset={isActiveButtonReset}>
                 <Button onClick={filterResetButton}>Сбросить</Button>
             </ButtonContainer>
         </FilterContainer>
