@@ -16,6 +16,9 @@ const initialState = productAdapter.getInitialState<InitialStateType>({
 export interface IFilterProductList {
     page: number;
     idCategory?: number;
+    sort?: string;
+    order?: string;
+    isNew?: boolean;
 }
 
 export const fetchProductList = createAsyncThunk<IData<Array<IProduct>>, IFilterProductList>(
@@ -25,12 +28,6 @@ export const fetchProductList = createAsyncThunk<IData<Array<IProduct>>, IFilter
         return data;
     },
 );
-const filter = {
-    page: 1,
-    idCategory: 3,
-};
-// @ts-ignore
-fetchProductList(filter);
 
 const Product = createSlice({
     name: 'product',

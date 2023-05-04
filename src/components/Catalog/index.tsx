@@ -11,12 +11,28 @@ import { CatalogContent, CatalogContainer, Container, Heading, Text } from './st
 const Catalog = () => {
     const dispatch = useAppDispatch();
     const [currentPage, setCurrentPage] = useState(1);
-
+    const [price, setPrice] = useState<string>();
+    const [sortCategory, setSortCategory] = useState<string>();
+    const [isChecked, setIsChecked] = useState<boolean>();
     const { idCategory } = useParams();
 
+    const filterResetButton = () => {
+        setPrice(undefined);
+        setSortCategory(undefined);
+        setIsChecked(undefined);
+    };
+
     useEffect(() => {
-        dispatch(fetchProductList({ page: currentPage, idCategory: idCategory ? Number(idCategory) : undefined }));
-    }, [currentPage, dispatch, idCategory]);
+        dispatch(
+            fetchProductList({
+                page: currentPage,
+                idCategory: idCategory ? Number(idCategory) : undefined,
+                sort: sortCategory,
+                order: price,
+                isNew: isChecked,
+            }),
+        );
+    }, [currentPage, dispatch, idCategory, price, sortCategory, isChecked]);
 
     return (
         <CatalogContainer>
@@ -27,7 +43,14 @@ const Catalog = () => {
                         <Text>Каталог</Text>
                     </Heading>
                     <Menu />
-                    <Filter />
+                    <Filter
+                        price={price}
+                        setPrice={setPrice}
+                        filterResetButton={filterResetButton}
+                        setSortCategory={setSortCategory}
+                        isChecked={isChecked}
+                        setIsChecked={setIsChecked}
+                    />
                     <Products currentPage={currentPage} onPageEdit={setCurrentPage} />
                 </Container>
             </CatalogContent>
