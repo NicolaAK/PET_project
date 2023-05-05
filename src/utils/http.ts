@@ -13,6 +13,12 @@ export type ICommonResponse<D = any> = {
     statusText: string;
 };
 
+export type ICommonDetailResponse<D = any> = {
+    data: D;
+    status: number;
+    statusText: string;
+};
+
 export const http = axios.create({
     baseURL: 'http://localhost:3001/',
     withCredentials: true,

@@ -1,4 +1,4 @@
-import { http, ICommonResponse } from '@utils/http';
+import { http, ICommonDetailResponse, ICommonResponse } from '@utils/http';
 import { IProduct } from '@store/product/types';
 import { COUNT_PRODUCT_ON_PAGE } from '@utils/constants';
 import { IFilterProductList } from '@store/product/index';
@@ -12,5 +12,11 @@ export const fetchProductListRequest = (filter: IFilterProductList) =>
             _sort: filter.sort,
             _order: filter.order,
             isNew: filter.isNew,
+        },
+    });
+export const fetchProductByIdRequest = (id: number) =>
+    http.get<number, ICommonDetailResponse<Array<IProduct>>>('product', {
+        params: {
+            id,
         },
     });

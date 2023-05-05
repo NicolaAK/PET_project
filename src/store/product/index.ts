@@ -1,5 +1,5 @@
 import { createAsyncThunk, createEntityAdapter, createSlice } from '@reduxjs/toolkit';
-import { fetchProductListRequest } from '@store/product/http';
+import { fetchProductByIdRequest, fetchProductListRequest } from '@store/product/http';
 import { IData } from '@utils/http';
 import { IProduct } from './types';
 
@@ -29,6 +29,11 @@ export const fetchProductList = createAsyncThunk<IData<Array<IProduct>>, IFilter
     },
 );
 
+export const fetchProductById = createAsyncThunk<Array<IProduct>, number>('product/fetchById', async (id) => {
+    const { data } = await fetchProductByIdRequest(id);
+    return data;
+});
+
 const Product = createSlice({
     name: 'product',
     initialState,
@@ -45,6 +50,18 @@ const Product = createSlice({
             productAdapter.setAll(state, payload.data);
         });
         builder.addCase(fetchProductList.rejected, (state) => {
+            state.isLoading.pop();
+            state.isInitialized = true;
+        });
+        builder.addCase(fetchProductById.pending, (state) => {
+            state.isLoading.push(true);
+        });
+        builder.addCase(fetchProductById.fulfilled, (state, { payload }) => {
+            state.isLoading.pop();
+            state.isInitialized = true;
+            productAdapter.setAll(state, payload);
+        });
+        builder.addCase(fetchProductById.rejected, (state) => {
             state.isLoading.pop();
             state.isInitialized = true;
         });
