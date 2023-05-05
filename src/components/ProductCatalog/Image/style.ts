@@ -27,9 +27,14 @@ export const ImageMain = styled.button`
     width: 100%;
     height: 540px;
     overflow: hidden;
+    ${({ theme }) => theme.mixins.flexCenterCenter};
 `;
 export const ImageBig = styled.img`
+    position: relative;
+    top: 50px;
     transition: 0.7s;
+    height: auto;
+    width: 540px;
     :hover {
         transform: scale(1.03);
     }

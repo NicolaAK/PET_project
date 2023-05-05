@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { currency, labelSymbol } from '@components/Catalog/components/Products/Product';
-import { IOptions } from '@components/ReusedComponents/InputSelect';
+// import { IOptions } from '@components/ReusedComponents/InputSelect';
 import ArrowR from '@assets/icons/arrowR.svg';
-import FormAddCart from '@components/ProductCatalog/FormAddCart/FormAddCart';
+// import FormAddCart from '@components/ProductCatalog/FormAddCart/FormAddCart';
 import {
     ArrowContainer,
     DescriptionContainer,
@@ -12,36 +12,57 @@ import {
     Name,
     Price,
     Description,
-    StructureContainer,
     Text,
     Title,
     OpenListDescription,
-    OpenListStructure,
+    DescriptionText,
+    Article,
 } from './style';
 
-interface IProduct {
+interface IProductComponents {
     name: string;
-    prices: { ru: number; ua: number };
-    sizes: IOptions[];
-    description: string[];
-    structure: string[];
+    price: number;
+    // sizes: IOptions[];
+    description?: string;
+    compound?: string;
+    lengthClothes?: string;
+    lengthSleeve?: string;
+    modelParameters?: string;
+    sizeOnTheModel?: string;
+    growthModel?: string;
+    season?: string;
+    article?: string;
 }
-const ProductDescription = ({ description, prices, sizes, name, structure }: IProduct) => {
+interface IProduct {
+    product: IProductComponents;
+}
+const ProductDescription = ({ product }: IProduct) => {
     const [isOpenDetails, setIsOpenDetails] = useState(false);
-    const [isOpenStructure, setIsOpenStructure] = useState(false);
-
+    const {
+        compound,
+        article,
+        name,
+        price,
+        description,
+        lengthSleeve,
+        modelParameters,
+        sizeOnTheModel,
+        growthModel,
+        season,
+    } = product;
     const toggleOpenDetails = () => setIsOpenDetails(!isOpenDetails);
-    const toggleOpenStructure = () => setIsOpenStructure(!isOpenStructure);
 
     return (
         <Description>
             <Name>{name}</Name>
+            <Article>Артикл: {article}</Article>
             <Price>
-                {prices[currency]} {labelSymbol[currency]}
+                {price} {labelSymbol[currency]}
             </Price>
-            <FormAddCart sizes={sizes} />
+            {/* <FormAddCart sizes={sizes} /> */}
             <Details>
                 <Item>Подробности</Item>
+                <DescriptionText key={description?.length}>{description}</DescriptionText>
                 <DescriptionContainer onClick={toggleOpenDetails}>
                     <Title>
                         Обмеры и описание
@@ -50,26 +71,15 @@ const ProductDescription = ({ description, prices, sizes, name, structure }: IPr
                         </ArrowContainer>
                     </Title>
                     <OpenListDescription isOpenDetails={isOpenDetails}>
-                        {description.map((text) => (
-                            <Text key={text.length}>{text}</Text>
-                        ))}
+                        {lengthSleeve && <Text key={lengthSleeve}>Длина рукава: {lengthSleeve}</Text>}
+                        {modelParameters && <Text key={modelParameters}>Параметры модели: {modelParameters}</Text>}
+                        {sizeOnTheModel && <Text key={sizeOnTheModel}>Размер модели: {sizeOnTheModel}</Text>}
+                        {growthModel && <Text key={growthModel}>Рост модели: {growthModel}</Text>}
+                        {compound && <Text key={compound}>{compound}</Text>}
+                        {season && <Text key={season}>Сезон: {season}</Text>}
                     </OpenListDescription>
                     <Line />
                 </DescriptionContainer>
-                <StructureContainer onClick={toggleOpenStructure}>
-                    <Title>
-                        Состав и уход
-                        <ArrowContainer isOpenStructure={isOpenStructure}>
-                            <ArrowR />
-                        </ArrowContainer>
-                    </Title>
-                    <OpenListStructure isOpenStructure={isOpenStructure}>
-                        {structure.map((text) => (
-                            <Text key={text.length}>{text}</Text>
-                        ))}
-                    </OpenListStructure>
-                    <Line />
-                </StructureContainer>
             </Details>
         </Description>
     );
