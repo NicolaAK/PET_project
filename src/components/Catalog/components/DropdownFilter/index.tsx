@@ -6,6 +6,7 @@ import useClickOutside from '../../../../HOK/ClickOutside';
 interface IArrow {
     value: string;
     label: string;
+    sort: string;
 }
 export interface IProps {
     options: IArrow[];
@@ -13,14 +14,18 @@ export interface IProps {
     onChange?: (arg0: string) => void;
     placeholder?: string;
     value?: string;
+    setSortCategory?: (event: string) => void;
 }
 
-const Dropdown = ({ options, width, onChange, placeholder, value }: IProps) => {
+const Dropdown = ({ options, width, onChange, placeholder, value, setSortCategory }: IProps) => {
     const [isOpenDropdown, setIsOpenDropdown] = useState(false);
     const toggling = () => setIsOpenDropdown(!isOpenDropdown);
-    const onOptionClicked = (e: any) => () => {
+    const onOptionClicked = (select: string, sort: string) => () => {
         if (onChange) {
-            onChange(e);
+            onChange(select);
+        }
+        if (setSortCategory) {
+            setSortCategory(sort);
         }
         setIsOpenDropdown(false);
     };
@@ -41,7 +46,7 @@ const Dropdown = ({ options, width, onChange, placeholder, value }: IProps) => {
                 {options.map((option) => (
                     <ListItem
                         width={width}
-                        onClick={onOptionClicked(option.value)}
+                        onClick={onOptionClicked(option.value, option.sort)}
                         key={option.value}
                         options={options}
                     >

@@ -28,7 +28,11 @@ const Menu = () => {
                 ) : (
                     <CategoryContainer>
                         {categoryList.map((category) => (
-                            <Text to={generateRoute(`${ROUTES.CATALOG}/${category.id}`)} key={category.name}>
+                            <Text
+                                to={generateRoute(`${ROUTES.CATALOG}/${category.id}`)}
+                                key={category.name}
+                                activeclassname="active"
+                            >
                                 {category.name}
                             </Text>
                         ))}

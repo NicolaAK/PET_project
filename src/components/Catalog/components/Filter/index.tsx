@@ -1,42 +1,54 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import DropdownFilter from '@components/Catalog/components/DropdownFilter';
-import { FilterContainer } from './style';
+import { Button } from '@components/ReusedComponents/Button';
+import Checkbox from '@components/ReusedComponents/Checkbox';
+import { FilterContainer, ButtonContainer } from './style';
 const sizeArr = [
-    { value: 'L', label: 'L' },
-    { value: 'S', label: 'S' },
-    { value: 'M', label: 'M' },
+    { value: 'L', label: 'L', sort: 'size' },
+    { value: 'S', label: 'S', sort: 'size' },
+    { value: 'M', label: 'M', sort: 'size' },
 ];
-const colorArr = [
-    { value: 'white', label: 'Белый' },
-    { value: 'blue', label: 'Синий' },
-    { value: 'yellow', label: 'Желтый' },
-];
+
 const priceArr = [
-    { value: 'expensive', label: 'Дороже' },
-    { value: 'cheap', label: 'Дешевле' },
+    { value: 'desc', label: 'Дороже', sort: 'price' },
+    { value: 'asc', label: 'Дешевле', sort: 'price' },
 ];
-const sortArr = [
-    { value: 'popularity', label: 'Популярности' },
-    { value: 'estimation', label: 'Оценке' },
-    { value: 'discount', label: 'Скидке' },
-];
-const Filter = () => {
+
+interface IProps {
+    price?: string;
+    setPrice: (value: string) => void;
+    filterResetButton: () => void;
+    setSortCategory: (value: string) => void;
+    isChecked?: boolean;
+    setIsChecked: (value?: boolean) => void;
+    isActiveButtonReset: boolean;
+}
+const Filter: FC<IProps> = ({
+    setPrice,
+    price,
+    filterResetButton,
+    setSortCategory,
+    setIsChecked,
+    isChecked,
+    isActiveButtonReset,
+}) => {
     const [size, setSize] = useState<string>();
-    const [color, setColor] = useState<string>();
-    const [price, setPrice] = useState<string>();
-    const [sort, setSort] = useState<string>();
+
     return (
         <FilterContainer>
             <DropdownFilter width={79} value={size} onChange={setSize} options={sizeArr} placeholder="Размер" />
-            <DropdownFilter width={60} value={color} onChange={setColor} options={colorArr} placeholder="Цвет" />
-            <DropdownFilter width={62} value={price} onChange={setPrice} options={priceArr} placeholder="Цена" />
             <DropdownFilter
-                width={145}
-                value={sort}
-                onChange={setSort}
-                options={sortArr}
-                placeholder="Сортировать по"
+                width={62}
+                value={price}
+                onChange={setPrice}
+                setSortCategory={setSortCategory}
+                options={priceArr}
+                placeholder="Цена"
             />
+            <Checkbox isChecked={isChecked} setIsChecked={setIsChecked} />
+            <ButtonContainer isActiveButtonReset={isActiveButtonReset}>
+                <Button onClick={filterResetButton}>Сбросить</Button>
+            </ButtonContainer>
         </FilterContainer>
     );
 };

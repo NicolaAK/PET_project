@@ -1,25 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { useAppDispatch } from '@store';
+import React, { FC, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { getProductTotalCount } from '@store/product/selectors';
-import { fetchProductList } from '@store/product';
 import ArrowLeft from '@assets/icons/arrowLeftSlider.svg';
 import ArrowRight from '@assets/icons/arrowRightSlider.svg';
 import { COUNT_PRODUCT_ON_PAGE } from '@utils/constants';
+import { getPagesArray } from '@components/ReusedComponents/Pagination/utils';
 import { NotActivePage, ActivePage, Container, PrevPage, NextPage } from './style';
 
-const Pagination = () => {
-    const dispatch = useAppDispatch();
-    const [currentPage, setCurrentPage] = useState(1);
-    const [quantityPages, setQuantityPages] = useState(1);
+interface IPagination {
+    currentPage: number;
+    onPageEdit: (value: number) => void;
+}
+
+const Pagination: FC<IPagination> = ({ currentPage, onPageEdit }) => {
+    const [quantityPages, setQuantityPages] = useState(1); // количество страниц
     const xTotalCount = useSelector(getProductTotalCount);
     let lastPage = 0;
-    const displayRange = 1; // Диапазон отображения
-    const pagesArray = new Array(quantityPages).fill('').map((item, index) => index + 1);
-
-    useEffect(() => {
-        dispatch(fetchProductList(currentPage));
-    }, [currentPage, dispatch]);
+    const displayRange = 1;
+    const pagesArray = getPagesArray(quantityPages);
 
     useEffect(() => {
         setQuantityPages(xTotalCount / COUNT_PRODUCT_ON_PAGE);
@@ -31,17 +29,17 @@ const Pagination = () => {
 
     const changePage = (newPageNumber: number) => {
         scrollToTop();
-        setCurrentPage(newPageNumber);
+        onPageEdit(newPageNumber);
     };
 
     const changePrevPage = (newPageNumber: number) => {
         scrollToTop();
-        setCurrentPage(newPageNumber - 1);
+        onPageEdit(newPageNumber - 1);
     };
 
     const changeNextPage = (newPageNumber: number) => {
         scrollToTop();
-        setCurrentPage(newPageNumber + 1);
+        onPageEdit(newPageNumber + 1);
     };
 
     const getPaginationNumbers = (page: number) => {
@@ -50,7 +48,7 @@ const Pagination = () => {
             page === currentPage - displayRange ||
             (page > currentPage - displayRange && page < currentPage + displayRange) ||
             page === currentPage + displayRange ||
-            page === quantityPages
+            page >= quantityPages
         ) {
             if (currentPage === page) {
                 return <ActivePage key={page}>{page}</ActivePage>;
@@ -77,7 +75,7 @@ const Pagination = () => {
                 </PrevPage>
             )}
             {pagesArray.map((page) => getPaginationNumbers(page))}
-            {currentPage !== quantityPages && (
+            {currentPage < quantityPages && (
                 <NextPage onClick={() => changeNextPage(currentPage)}>
                     <ArrowRight />
                 </NextPage>

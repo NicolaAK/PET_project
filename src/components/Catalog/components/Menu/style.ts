@@ -1,6 +1,9 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
+interface IProps {
+    activeclassname: string;
+}
 export const MenuContainer = styled.div`
     grid-area: Menu;
 `;
@@ -17,7 +20,7 @@ export const ContainerSkeleton = styled.div`
     align-content: start;
     gap: 20px;
 `;
-export const Text = styled(Link)`
+export const Text = styled(NavLink)<IProps>`
     ${({ theme }) => theme.helpers.getTypography('dText16lh19')}
     transition: ${({ theme }) => theme.decorations.transition};
     margin-bottom: 20px;
@@ -25,5 +28,8 @@ export const Text = styled(Link)`
     text-decoration: none;
     :hover {
         color: ${({ theme }) => theme.colors.mainPrimary()};
+    }
+    &.${(props) => props.activeclassname} {
+        font-weight: bold;
     }
 `;
