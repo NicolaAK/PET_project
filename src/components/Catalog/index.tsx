@@ -14,12 +14,7 @@ const Catalog = () => {
     const [price, setPrice] = useState<string>();
     const [sortCategory, setSortCategory] = useState<string>();
     const [isChecked, setIsChecked] = useState<boolean>();
-    const [isActiveButtonReset, setIsActiveButtonReset] = useState(false);
     const { idCategory } = useParams();
-
-    useEffect(() => {
-        setIsActiveButtonReset(isChecked !== undefined || price !== undefined);
-    }, [price, isChecked]);
 
     const filterResetButton = () => {
         setPrice(undefined);
@@ -34,7 +29,7 @@ const Catalog = () => {
                 idCategory: idCategory ? Number(idCategory) : undefined,
                 sort: sortCategory,
                 order: price,
-                isNew: isChecked,
+                isNew: isChecked || undefined,
             }),
         );
     }, [currentPage, dispatch, idCategory, price, sortCategory, isChecked]);
@@ -55,7 +50,7 @@ const Catalog = () => {
                         setSortCategory={setSortCategory}
                         isChecked={isChecked}
                         setIsChecked={setIsChecked}
-                        isActiveButtonReset={isActiveButtonReset}
+                        isActiveButtonReset={isChecked !== undefined || price !== undefined}
                     />
                     <Products currentPage={currentPage} onPageEdit={setCurrentPage} />
                 </Container>

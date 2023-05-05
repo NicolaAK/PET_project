@@ -1,22 +1,14 @@
 import styled from 'styled-components';
 
 export const CheckboxContainer = styled.div<{
-    isChecked: boolean | undefined;
+    isChecked?: boolean;
 }>`
-    margin-bottom: 3px;
+    margin-bottom: 2px;
     width: 20px;
     height: 20px;
     border-radius: 20px;
     border: 2px solid ${({ theme }) => theme.colors.mainPrimary()};
-    background-color: ${({ isChecked }) => {
-        if (isChecked === undefined) {
-            return 'white';
-        } else if (isChecked === true) {
-            return '#E0BEA2';
-        } else {
-            return '#d56464';
-        }
-    }};
+    background-color: ${({ isChecked }) => (isChecked === true ? '#E0BEA2' : '#fff')};
     transition: background-color 0.3s ease;
     cursor: pointer;
 `;

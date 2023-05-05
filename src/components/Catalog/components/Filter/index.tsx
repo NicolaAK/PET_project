@@ -1,8 +1,7 @@
 import React, { FC, useState } from 'react';
 import DropdownFilter from '@components/Catalog/components/DropdownFilter';
 import { Button } from '@components/ReusedComponents/Button';
-
-import Checkbox from '@components/ReusedComponents/CheckboxThreeAction';
+import Checkbox from '@components/ReusedComponents/Checkbox';
 import { FilterContainer, ButtonContainer } from './style';
 const sizeArr = [
     { value: 'L', label: 'L', sort: 'size' },
@@ -20,8 +19,8 @@ interface IProps {
     setPrice: (value: string) => void;
     filterResetButton: () => void;
     setSortCategory: (value: string) => void;
-    isChecked: boolean | undefined;
-    setIsChecked: (b: undefined | boolean) => void;
+    isChecked?: boolean;
+    setIsChecked: (value?: boolean) => void;
     isActiveButtonReset: boolean;
 }
 const Filter: FC<IProps> = ({
