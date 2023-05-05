@@ -20,7 +20,7 @@ interface IProps {
     filterResetButton: () => void;
     setSortCategory: (value: string) => void;
     isChecked?: boolean;
-    setIsChecked: (b?: boolean) => void;
+    setIsChecked: (value?: boolean) => void;
     isActiveButtonReset: boolean;
 }
 const Filter: FC<IProps> = ({

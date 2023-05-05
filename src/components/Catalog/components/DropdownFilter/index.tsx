@@ -14,7 +14,7 @@ export interface IProps {
     onChange?: (arg0: string) => void;
     placeholder?: string;
     value?: string;
-    setSortCategory?: (event: any) => void;
+    setSortCategory?: (event: string) => void;
 }
 
 const Dropdown = ({ options, width, onChange, placeholder, value, setSortCategory }: IProps) => {

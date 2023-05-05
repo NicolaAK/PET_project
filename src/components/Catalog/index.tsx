@@ -14,12 +14,7 @@ const Catalog = () => {
     const [price, setPrice] = useState<string>();
     const [sortCategory, setSortCategory] = useState<string>();
     const [isChecked, setIsChecked] = useState<boolean>();
-    // const [isActiveButtonReset, setIsActiveButtonReset] = useState(false);
     const { idCategory } = useParams();
-
-    // useEffect(() => {
-    //     setIsActiveButtonReset(isChecked !== undefined || price !== undefined);
-    // }, [price, isChecked]);
 
     const filterResetButton = () => {
         setPrice(undefined);
