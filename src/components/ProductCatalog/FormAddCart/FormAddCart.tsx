@@ -2,7 +2,6 @@ import React, { FC, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { Button } from '@components/ReusedComponents/Button';
 import { Container } from '@components/ProductCatalog/Description/style';
-// import { IOptions } from '@components/ReusedComponents/InputSelect';
 import RHFSelect from '@components/RHF/RHFSelect';
 import { ADD_PRODUCT_TO_CART_FIELDS, addProductToCart } from '@components/ProductCatalog/FormAddCart/validations';
 import { yupResolver } from '@hookform/resolvers/yup';

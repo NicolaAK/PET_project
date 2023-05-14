@@ -1,6 +1,5 @@
 import React, { FC, useState } from 'react';
 import { currency, labelSymbol } from '@components/Catalog/components/Products/Product';
-// import { IOptions } from '@components/ReusedComponents/InputSelect';
 import ArrowR from '@assets/icons/arrowR.svg';
 import FormAddCart from '@components/ProductCatalog/FormAddCart/FormAddCart';
 import {
