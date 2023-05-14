@@ -51,6 +51,7 @@ const ProductDescription: FC<IProduct> = ({ product }) => {
         season,
         sizes,
     } = product;
+
     const toggleOpenDetails = () => setIsOpenDetails(!isOpenDetails);
 
     return (

@@ -10,16 +10,15 @@ export interface IProps {
     placeholder?: string;
     errorText?: string;
     width: number;
+    value?: string;
 }
 
-const Select = ({ options, onChange, placeholder, errorText, width }: IProps) => {
-    const [selectedSize, setSelectedSize] = useState<string>();
+const Select = ({ options, onChange, placeholder, errorText, width, value }: IProps) => {
     const [isOpenSelect, setIsOpen] = useState(false);
     const toggling = () => setIsOpen(!isOpenSelect);
     const close = () => setIsOpen(false);
     const wrapperRef = useClickOutside(close);
     const handleChangeSize = (size: string) => {
-        setSelectedSize(size);
         if (onChange) {
             onChange(size);
             setIsOpen(false);
@@ -29,7 +28,7 @@ const Select = ({ options, onChange, placeholder, errorText, width }: IProps) =>
     return (
         <Container ref={wrapperRef}>
             <Header onClick={toggling}>
-                {selectedSize || placeholder}
+                {value || placeholder}
                 <ArrowContainer isOpenSelect={isOpenSelect}>
                     <ArrowR />
                 </ArrowContainer>
