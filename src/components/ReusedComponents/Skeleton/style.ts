@@ -13,8 +13,8 @@ export const Skeleton = styled.div<IParams>`
     border-radius: 4px;
     display: inline-block;
     line-height: 1;
-    width: ${({ width }) => width || '1'}px;
-    height: ${({ height }) => height}px;
+    width: ${({ width }) => (width ? `${width}px` : '100%')};
+    height: ${({ height }) => (height ? `${height}px` : '100%')};
     animation: skeleton-animation 1.5s ease-in-out infinite;
     @keyframes skeleton-animation {
         0% {

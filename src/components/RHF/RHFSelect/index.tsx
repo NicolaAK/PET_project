@@ -19,7 +19,7 @@ const RHFSelect: FC<IRHFSelect> = ({ name, ...other }) => {
             }: {
                 field: ControllerRenderProps;
                 fieldState: ControllerFieldState;
-            }) => <Select errorText={error?.message} {...other} onChange={field.onChange} value={field.value} />}
+            }) => <Select errorText={error?.message} {...other} onChange={field.onChange} />}
         />
     );
 };

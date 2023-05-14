@@ -1,8 +1,5 @@
 import styled from 'styled-components';
-interface IEllipse {
-    color: string;
-    radius?: number;
-}
+
 interface IAnimation {
     isOpenDetails?: boolean;
     isOpenStructure?: boolean;
@@ -22,40 +19,13 @@ export const Price = styled.div`
     ${({ theme }) => theme.helpers.getTypography('dTextBold20')};
     margin-bottom: 20px;
 `;
-export const EllipseColor = styled.input<IEllipse>`
-    width: ${({ radius }) => radius}px;
-    height: ${({ radius }) => radius}px;
-    background-color: ${({ color }) => color};
-    border-radius: 21px;
-    border: 1px solid ${({ theme, color }) => (color === '#FFFFFF' ? theme.colors.blackPrimary(0.5) : 'transparent')};
-    transition: ${({ theme }) => theme.decorations.transition};
-    transform: scale(1);
-    :checked {
-        transform: scale(1.3);
-    }
-`;
-export const GridContainer = styled.div`
+
+export const Container = styled.div`
     margin-top: 20px;
-    display: grid;
-    grid-auto-columns: auto;
-    grid-auto-rows: 1fr;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 50px;
-    gap: 20px 20px;
-    grid-template-areas:
-        'select select'
-        'button1 button2';
+    display: flex;
+    gap: 20px;
 `;
-export const GridSelect = styled.div`
-    z-index: 3;
-    grid-area: select;
-`;
-export const GridButton1 = styled.div`
-    grid-area: button1;
-`;
-export const GridButton2 = styled.div`
-    grid-area: button2;
-`;
+
 export const Details = styled.div`
     padding-top: 20px;
     width: 100%;

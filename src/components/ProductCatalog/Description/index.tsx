@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { currency, labelSymbol } from '@components/Catalog/components/Products/Product';
 // import { IOptions } from '@components/ReusedComponents/InputSelect';
 import ArrowR from '@assets/icons/arrowR.svg';
-// import FormAddCart from '@components/ProductCatalog/FormAddCart/FormAddCart';
+import FormAddCart from '@components/ProductCatalog/FormAddCart/FormAddCart';
 import {
     ArrowContainer,
     DescriptionContainer,
@@ -22,7 +22,7 @@ import {
 interface IProductComponents {
     name: string;
     price: number;
-    // sizes: IOptions[];
+    sizes: string[];
     description?: string;
     compound?: string;
     lengthClothes?: string;
@@ -36,7 +36,7 @@ interface IProductComponents {
 interface IProduct {
     product: IProductComponents;
 }
-const ProductDescription = ({ product }: IProduct) => {
+const ProductDescription: FC<IProduct> = ({ product }) => {
     const [isOpenDetails, setIsOpenDetails] = useState(false);
     const {
         compound,
@@ -49,6 +49,7 @@ const ProductDescription = ({ product }: IProduct) => {
         sizeOnTheModel,
         growthModel,
         season,
+        sizes,
     } = product;
     const toggleOpenDetails = () => setIsOpenDetails(!isOpenDetails);
 
@@ -59,7 +60,7 @@ const ProductDescription = ({ product }: IProduct) => {
             <Price>
                 {price} {labelSymbol[currency]}
             </Price>
-            {/* <FormAddCart sizes={sizes} /> */}
+            <FormAddCart sizes={sizes} />
             <Details>
                 <Item>Подробности</Item>
                 <DescriptionText key={description?.length}>{description}</DescriptionText>

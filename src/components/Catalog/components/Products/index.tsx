@@ -24,7 +24,7 @@ interface IProducts {
 const Products: FC<IProducts> = ({ currentPage, onPageEdit }) => {
     const products = useSelector(getProductList);
     const isLoading = useSelector(getProductIsLoading);
-    console.log(products);
+
     return (
         <ProductsContainer>
             <Content>

@@ -4,30 +4,24 @@ import { ErrorText } from '@components/ReusedComponents/Input/style';
 import { Container, ListContainer, List, ListItem, Header, ArrowContainer } from './style';
 import useClickOutside from '../../../HOK/ClickOutside';
 
-export interface IOptions {
-    label: string;
-    value: number;
-}
-
 export interface IProps {
-    options: IOptions[];
-    value?: number;
-    onChange?: (value: number) => void;
+    options: string[];
+    onChange?: (value: string) => void;
     placeholder?: string;
     errorText?: string;
     width: number;
 }
 
-const Select = ({ options, value, onChange, placeholder, errorText, width }: IProps) => {
+const Select = ({ options, onChange, placeholder, errorText, width }: IProps) => {
+    const [selectedSize, setSelectedSize] = useState<string>();
     const [isOpenSelect, setIsOpen] = useState(false);
     const toggling = () => setIsOpen(!isOpenSelect);
     const close = () => setIsOpen(false);
     const wrapperRef = useClickOutside(close);
-
-    const selectOption = options.find((optionItem) => optionItem.value === value);
-    const onOptionClicked = (valueSelected: number) => () => {
+    const handleChangeSize = (size: string) => {
+        setSelectedSize(size);
         if (onChange) {
-            onChange(valueSelected);
+            onChange(size);
             setIsOpen(false);
         }
     };
@@ -35,7 +29,7 @@ const Select = ({ options, value, onChange, placeholder, errorText, width }: IPr
     return (
         <Container ref={wrapperRef}>
             <Header onClick={toggling}>
-                {selectOption?.label || placeholder}
+                {selectedSize || placeholder}
                 <ArrowContainer isOpenSelect={isOpenSelect}>
                     <ArrowR />
                 </ArrowContainer>
@@ -44,8 +38,8 @@ const Select = ({ options, value, onChange, placeholder, errorText, width }: IPr
                 <ListContainer width={width}>
                     <List>
                         {options.map((option) => (
-                            <ListItem onClick={onOptionClicked(option.value)} key={option.value}>
-                                {option.label}
+                            <ListItem onClick={() => handleChangeSize(option)} key={option}>
+                                {option}
                             </ListItem>
                         ))}
                     </List>
