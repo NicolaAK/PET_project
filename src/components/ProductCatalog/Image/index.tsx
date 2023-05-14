@@ -17,6 +17,7 @@ import {
 interface IImage {
     images: string[];
 }
+
 const ImageProduct = ({ images }: IImage) => {
     const [mainImage, setMainImage] = useState(images[0]);
     const [isOpenImage, setIsOpenImage] = useState(false);
@@ -24,8 +25,8 @@ const ImageProduct = ({ images }: IImage) => {
     return (
         <Container>
             <ImageOther>
-                {images.map((image) => (
-                    <ImageOtherContainer key={Math.random()}>
+                {images.slice(0, 5).map((image) => (
+                    <ImageOtherContainer key={image}>
                         <ImageSmall src={image} onClick={() => setMainImage(image)} />
                     </ImageOtherContainer>
                 ))}

@@ -10,6 +10,7 @@ export type TTypography = {
     dFooter16w: TTypographyItem;
     dFooter20: TTypographyItem;
 
+    dText12: TTypographyItem;
     dText14: TTypographyItem;
     dText14w: TTypographyItem;
     dText16lh19: TTypographyItem;
@@ -19,6 +20,7 @@ export type TTypography = {
     dText36: TTypographyItem;
 
     dTextBold16: TTypographyItem;
+    dTextBold20: TTypographyItem;
 
     dHeader16: TTypographyItem;
     dHeader18: TTypographyItem;
@@ -43,6 +45,10 @@ const typography: TTypography = {
         lineHeight: 23,
     },
     // text
+    dText12: {
+        fontSize: 12,
+        lineHeight: 16,
+    },
     dText14: {
         fontSize: 14,
         lineHeight: 16,
@@ -79,7 +85,11 @@ const typography: TTypography = {
         lineHeight: 19,
         fontWeight: 700,
     },
-
+    dTextBold20: {
+        fontSize: 20,
+        lineHeight: 19,
+        fontWeight: 700,
+    },
     // header
     dHeader16: {
         fontSize: 16,

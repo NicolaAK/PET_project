@@ -18,7 +18,6 @@ import {
 } from '@components/Cart/Order/style';
 import { currency, labelSymbol } from '@components/Catalog/components/Products/Product';
 import DeleteIcon from '@assets/icons/delete.svg';
-import RHFSelect from '@components/RHF/RHFSelect';
 import RHFTotalCount from '@components/ReusedComponents/TotalCount';
 import { useFormContext } from 'react-hook-form';
 import { IProduct } from '@components/Cart/Order';
@@ -55,14 +54,7 @@ const Product: FC<Props> = ({ product, remove, index }) => {
                         <Name to={Link}>{product.name}</Name>
                     </Title>
                 </GroupOne>
-                <Select>
-                    <RHFSelect
-                        name={`products[${index}].size`}
-                        width={98}
-                        options={product.sizes}
-                        placeholder={product.sizes[0].label}
-                    />
-                </Select>
+                <Select />
                 <Counter>
                     <RHFTotalCount name={`products[${index}].countProduct`} />
                 </Counter>

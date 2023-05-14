@@ -17,7 +17,7 @@ import {
     Image,
     Icon,
     New,
-} from './styled';
+} from './style';
 import { ROUTES } from '../../../../../routes/constants';
 
 interface IProps {

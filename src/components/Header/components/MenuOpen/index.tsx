@@ -52,7 +52,6 @@ const iconsProfile = [
 ];
 
 const aboutCompany = [
-    { label: 'NEW', link: 'category' },
     { label: 'КАТАЛОГ', link: generateRoute(ROUTES.CATALOG) },
     { label: 'О НАС', link: generateRoute(ROUTES.ABOUTS) },
 ];

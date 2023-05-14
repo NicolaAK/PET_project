@@ -5,5 +5,5 @@ export enum ADD_PRODUCT_TO_CART_FIELDS {
 }
 
 export const addProductToCart = yup.object().shape({
-    [ADD_PRODUCT_TO_CART_FIELDS.SIZE]: yup.number().required('Укажите размер'),
+    [ADD_PRODUCT_TO_CART_FIELDS.SIZE]: yup.string().required('Укажите размер'),
 });

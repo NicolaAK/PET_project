@@ -1,71 +1,40 @@
-import React from 'react';
-import Photo1 from '@assets/foto/mainModel1.png';
-import Photo2 from '@assets/foto/mainModel2.png';
-import Photo3 from '@assets/foto/mainModel3.png';
+import React, { useEffect } from 'react';
 import ProductImage from '@components/ProductCatalog/Image';
 import ProductDescription from '@components/ProductCatalog/Description';
 import Breadcrumbs from '@components/ReusedComponents/Breadcrumbs';
+import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { getProductIsLoading, getProductList } from '@store/product/selectors';
+import { fetchProductById } from '@store/product';
+import { useAppDispatch } from '@store';
+import SkeletonProduct from '@components/ProductCatalog/SkeletonProduct';
 import { Content, Container } from './style';
 
-const product = {
-    category: 'Пальто',
-    name: 'Белая куртка',
-    prices: { ru: 2000, ua: 12.2 },
-    sizes: [
-        {
-            value: 1,
-            label: 'XXS',
-        },
-        {
-            value: 2,
-            label: 'XS',
-        },
-        {
-            value: 3,
-            label: 'S',
-        },
-        {
-            value: 4,
-            label: 'M',
-        },
-        {
-            value: 5,
-            label: 'L',
-        },
-    ],
-    images: [Photo1, Photo2, Photo3, Photo3, Photo1],
-    description: [
-        'Классическое пальто итальянского бренд Heresis',
-        'Оригинальная модель в шерсти аналогичного класса стоит 135 000 руб',
-        'Классическое пальто итальянского бренда Heresis',
-    ],
-    structure: [
-        'Состав: 50% Шерсть, 50% Полиэстер',
-        'Подкладка: 100% Полиэстер',
-        'Утеплитель: 90% Пух, 10% Перо',
-        '',
-        '- Не стирать',
-        '- Гладить при температуре утюга до 110°C',
-        '- Не отбеливать',
-        '- Сухая чистка (химчистка)',
-        '- Барабанная сушка запрещена',
-    ],
-};
+const ProductCatalog = () => {
+    const dispatch = useAppDispatch();
+    const { idProduct } = useParams();
+    const products = useSelector(getProductList);
+    const isLoading = useSelector(getProductIsLoading);
+    const product = products.find(
+        (productPersonal) => idProduct !== undefined && Number(idProduct) === productPersonal.id,
+    );
+    useEffect(() => {
+        dispatch(fetchProductById(Number(idProduct)));
+    }, [dispatch, idProduct]);
 
-const ProductCatalog = () => (
-    <Container>
-        <Breadcrumbs />
-        <Content>
-            <ProductImage images={product.images} />
-            <ProductDescription
-                description={product.description}
-                name={product.name}
-                sizes={product.sizes}
-                prices={product.prices}
-                structure={product.structure}
-            />
-        </Content>
-    </Container>
-);
+    return (
+        <Container>
+            <Breadcrumbs />
+            {isLoading || !product ? (
+                <SkeletonProduct />
+            ) : (
+                <Content>
+                    <ProductImage images={product.images} />
+                    <ProductDescription product={product} />
+                </Content>
+            )}
+        </Container>
+    );
+};
 
 export default ProductCatalog;

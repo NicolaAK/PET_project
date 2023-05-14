@@ -1,8 +1,7 @@
 import React, { FC, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { Button } from '@components/ReusedComponents/Button';
-import { GridButton1, GridButton2, GridContainer, GridSelect } from '@components/ProductCatalog/Description/style';
-import { IOptions } from '@components/ReusedComponents/InputSelect';
+import { Container } from '@components/ProductCatalog/Description/style';
 import RHFSelect from '@components/RHF/RHFSelect';
 import { ADD_PRODUCT_TO_CART_FIELDS, addProductToCart } from '@components/ProductCatalog/FormAddCart/validations';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -12,7 +11,7 @@ interface IAddProductToCart {
 }
 
 interface IFormAddCart {
-    sizes: IOptions[];
+    sizes: string[];
 }
 
 const FormAddCart: FC<IFormAddCart> = ({ sizes }) => {
@@ -34,28 +33,18 @@ const FormAddCart: FC<IFormAddCart> = ({ sizes }) => {
     return (
         <FormProvider {...methods}>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <GridContainer>
-                    <GridSelect>
-                        <RHFSelect
-                            width={510}
-                            name={ADD_PRODUCT_TO_CART_FIELDS.SIZE}
-                            options={sizes}
-                            placeholder="Выберите размер"
-                        />
-                    </GridSelect>
-                    <GridButton1>
-                        <Button isLoading={isSubmitting}>В КОРЗИНУ</Button>
-                    </GridButton1>
-                    <GridButton2>
-                        <Button
-                            value={isActiveFavouritesButton}
-                            onChange={toggleActiveFavouritesButton}
-                            color="favourites"
-                        >
-                            В ИЗБРАННОЕ
-                        </Button>
-                    </GridButton2>
-                </GridContainer>
+                <RHFSelect
+                    width={450}
+                    name={ADD_PRODUCT_TO_CART_FIELDS.SIZE}
+                    options={sizes}
+                    placeholder="Выберите размер"
+                />
+                <Container>
+                    <Button isLoading={isSubmitting}>В КОРЗИНУ</Button>
+                    <Button value={isActiveFavouritesButton} onChange={toggleActiveFavouritesButton} color="favourites">
+                        В ИЗБРАННОЕ
+                    </Button>
+                </Container>
             </form>
         </FormProvider>
     );
