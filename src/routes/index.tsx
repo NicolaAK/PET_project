@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useRoutes } from 'react-router';
 import Main from '@components/Main';
 import { Navigate } from 'react-router-dom';
@@ -13,8 +13,12 @@ import Abouts from '@components/Abouts';
 import Profile from '@components/Profile';
 import { ROUTES } from './constants';
 
-const Routes = () =>
-    useRoutes([
+interface IProps {
+    isAuth: boolean;
+}
+
+const Routes: FC<IProps> = ({ isAuth }) => {
+    const publicRoutes = [
         {
             path: generateRoute(''),
             element: <Main />,
@@ -53,6 +57,10 @@ const Routes = () =>
             path: generateRoute(ROUTES.REFUND),
             element: <Refund />,
         },
+        { path: '*', element: <Navigate to={generateRoute('')} replace /> },
+    ];
+
+    const privateRoutes = [
         {
             path: generateRoute(ROUTES.CART),
             element: <Cart />,
@@ -65,7 +73,11 @@ const Routes = () =>
             path: generateRoute(ROUTES.PROFILE),
             element: <Profile />,
         },
-        { path: '*', element: <Navigate to={generateRoute('')} replace /> },
-    ]);
+    ];
+
+    const routes = isAuth ? [...publicRoutes, ...privateRoutes] : publicRoutes;
+
+    return useRoutes(routes);
+};
 
 export default Routes;
