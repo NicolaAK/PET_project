@@ -1,11 +1,21 @@
 import React, { useMemo } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import ArrowR from '@assets/icons/arrowR.svg';
+import { useSelector } from 'react-redux';
+import { getCategoryById } from '@store/category/selectors';
+import { getProductById } from '@store/product/selectors';
+import { Skeleton } from '@components/ReusedComponents/Skeleton/style';
 import { ROUTES } from '../../../routes/constants';
 import { Navigation, LinkText, List, NavUl, Content, EndCrumb } from './style';
 
 const Breadcrumbs = () => {
     const location = useLocation();
+    const { idCategory, idProduct } = useParams();
+    const category = useSelector(getCategoryById(Number(idCategory)));
+    const categoryName = category?.name;
+    const product = useSelector(getProductById(Number(idProduct)));
+    const productName = product?.name;
+
     const breadcrumbPaths = useMemo(() => {
         const paths = location.pathname.split('/').filter((path) => path !== '');
 
@@ -16,10 +26,11 @@ const Breadcrumbs = () => {
             },
             ...paths.map((path, index) => ({
                 path: paths.slice(0, index + 1).join('/'),
-                title: getBreadcrumbTitle(path),
+                title: getBreadcrumbTitle(path, index === 1 ? categoryName : null, index === 2 ? productName : null),
             })),
         ];
-    }, [location]);
+    }, [location, categoryName, productName]);
+
     return (
         <Navigation>
             <NavUl>
@@ -43,7 +54,11 @@ const Breadcrumbs = () => {
     );
 };
 
-const getBreadcrumbTitle = (path: string) => {
+const getBreadcrumbTitle = (
+    path: string,
+    categoryName: string | undefined | null,
+    productName: string | null | undefined,
+) => {
     switch (path) {
         case ROUTES.CATALOG:
             return 'Каталог';
@@ -62,7 +77,8 @@ const getBreadcrumbTitle = (path: string) => {
         case ROUTES.PROFILE:
             return 'Личный кабинет';
         default:
-            return path.charAt(0).toUpperCase() + path.slice(1);
+            return productName || categoryName || <Skeleton width={100} height={20} />;
     }
 };
+
 export default Breadcrumbs;
