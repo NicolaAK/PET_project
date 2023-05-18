@@ -17,10 +17,16 @@ export const BoxTitle = styled.div`
 `;
 export const PhotoModel1 = styled.div`
     margin: 0 -5px;
+    @media ${({ theme }) => theme.breakpoints.sm} {
+        display: none;
+    } ;
 `;
 export const PhotoModel2 = styled.div``;
 export const PhotoModel3 = styled.div`
     margin: 0 -5px;
+    @media ${({ theme }) => theme.breakpoints.sm} {
+        display: none;
+    } ;
 `;
 export const NewCollection = styled.div`
     ${({ theme }) => theme.helpers.getTypography('dHeader46')}
