@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const MainContainer = styled.div``;
 export const MainContent = styled.div``;
-export const CategoryContainer = styled.div`
-    ${({ theme }) => theme.mixins.mainGrid};
-`;
+export const CategoryContainer = styled.div``;
 export const CategoryTitle = styled(Link)`
     color: ${({ theme }) => theme.colors.blackPrimary()};
     ${({ theme }) => theme.helpers.getTypography('dText36')};

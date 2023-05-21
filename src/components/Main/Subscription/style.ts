@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import Typography from '@components/Typography';
 
 export const SubscriptionContainer = styled.div`
-    ${({ theme }) => theme.mixins.mainGrid};
     ${({ theme }) => theme.mixins.flexCenterCenter};
 `;
 export const SubscriptionContent = styled.div`
