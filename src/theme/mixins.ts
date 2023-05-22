@@ -51,6 +51,11 @@ const mixins = {
         width: 100%;
         margin: 0 auto;
     `,
+    mainGridMobile: css`
+        max-width: 335px;
+        width: 100%;
+        margin: 0 auto;
+    `,
     getTypography: (typographyType: keyof TTypography) => css`
         ${({ theme }) => theme.helpers.getTypography(typographyType)}
     `,

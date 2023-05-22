@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Typography from '@components/Typography';
 
 export const SubscriptionContainer = styled.div`
     ${({ theme }) => theme.mixins.flexCenterCenter};
@@ -18,11 +17,26 @@ export const SubscriptionContent = styled.div`
         '.'
         '.'
         '.';
+    @media ${({ theme }) => theme.breakpoints.xs} {
+        margin-top: 0;
+        gap: 15px 0px;
+    }
 `;
-export const Item = styled(Typography).attrs({ variant: 'dText36' })`
+export const Item = styled.a`
+    ${({ theme }) => theme.helpers.getTypography('dText36')};
     text-align: center;
+    @media ${({ theme }) => theme.breakpoints.xs} {
+        margin-top: 0;
+        ${({ theme }) => theme.helpers.getTypography('dText24')};
+    }
 `;
-export const Text = styled(Typography).attrs({ variant: 'dText16lh19' })`
+export const Text = styled.a`
+    ${({ theme }) => theme.helpers.getTypography('dText16lh19')};
     text-align: center;
+    @media ${({ theme }) => theme.breakpoints.xs} {
+        ${({ theme }) => theme.helpers.getTypography('dText14')};
+    }
 `;
-export const ButtonBox = styled(Typography).attrs({ variant: 'dText16lh19' })``;
+export const ButtonBox = styled.a`
+    ${({ theme }) => theme.helpers.getTypography('dText16lh19')};
+`;

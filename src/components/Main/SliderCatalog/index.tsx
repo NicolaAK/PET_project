@@ -14,6 +14,7 @@ import sliderJackets from '@assets/foto/sliderJackets.png';
 import sliderFur from '@assets/foto/sliderFur.png';
 import sliderParks from '@assets/foto/sliderParks.png';
 import { ArrowControl } from '@components/Main/SliderCatalog/component/ArrowControl';
+import { useMediaHook } from '@theme/breakpoints';
 
 const sliderItems = [
     { name: 'Пальто', photo: sliderCoat },
@@ -27,10 +28,12 @@ const sliderItems = [
 ];
 
 const SliderBox = () => {
+    const { isLd, isMd } = useMediaHook();
     const settings = {
         infinite: true,
         speed: 500,
-        slidesToShow: 4,
+        // eslint-disable-next-line no-nested-ternary
+        slidesToShow: isMd ? 2 : isLd ? 3 : 4,
         slidesToScroll: 1,
         nextArrow: <ArrowControl isLeft={false} />,
         prevArrow: <ArrowControl isLeft />,
@@ -42,10 +45,10 @@ const SliderBox = () => {
                     <SliderWrap key={sliderItem.name}>
                         <SliderPhoto>
                             <img src={sliderItem.photo} alt="photoSlider" />
+                            <SliderBottomBox>
+                                <SliderText>{sliderItem.name}</SliderText>
+                            </SliderBottomBox>
                         </SliderPhoto>
-                        <SliderBottomBox>
-                            <SliderText>{sliderItem.name}</SliderText>
-                        </SliderBottomBox>
                     </SliderWrap>
                 ))}
             </Slider>

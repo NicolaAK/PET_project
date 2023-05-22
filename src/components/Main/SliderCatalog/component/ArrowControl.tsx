@@ -1,5 +1,10 @@
 import React from 'react';
-import { ArrowContainerLeft, ArrowContainerRight, ArrowBox } from '@components/Main/SliderCatalog/component/style';
+import {
+    ArrowContainerLeft,
+    ArrowContainerRight,
+    ArrowBox,
+    ArrowIcon,
+} from '@components/Main/SliderCatalog/component/style';
 import ArrowRightSlider from '@assets/icons/arrowRightSlider.svg';
 import ArrowLeftSlider from '@assets/icons/arrowLeftSlider.svg';
 
@@ -13,7 +18,9 @@ export const ArrowControl = ({ onClick, isLeft }: Props) => {
     return (
         <Wrapper onClick={onClick}>
             <ArrowBox>
-                <Arrow />
+                <ArrowIcon>
+                    <Arrow />
+                </ArrowIcon>
             </ArrowBox>
         </Wrapper>
     );
