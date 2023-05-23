@@ -25,6 +25,10 @@ export const BoxTitle = styled.div`
     top: 400px;
     left: 0px;
     color: ${({ theme }) => theme.colors.white()};
+
+    @media ${({ theme }) => theme.breakpoints.xs} {
+        top: 300px;
+    }
 `;
 export const PhotoModel1 = styled.div`
     grid-area: PhotoModel1;
@@ -44,7 +48,18 @@ export const PhotoModel2 = styled.div`
     img {
         width: 100%;
     }
+    @media ${({ theme }) => theme.breakpoints.sm} {
+        img {
+            min-width: 576px;
+        }
+    }
+    @media ${({ theme }) => theme.breakpoints.xs} {
+        img {
+            min-width: 375px;
+        }
+    }
 `;
+
 export const PhotoModel3 = styled.div`
     grid-area: PhotoModel3;
     img {
@@ -63,10 +78,17 @@ export const PhotoModel3 = styled.div`
 export const NewCollection = styled.div`
     ${({ theme }) => theme.helpers.getTypography('dHeader46')}
     margin-bottom: 20px;
+    @media ${({ theme }) => theme.breakpoints.xs} {
+        ${({ theme }) => theme.helpers.getTypography('dHeader32')}
+        margin-bottom: 15px;
+    }
 `;
 export const WatchProducts = styled(Link)`
     ${({ theme }) => theme.helpers.getTypography('dHeader16')};
     text-decoration-line: none;
+    @media ${({ theme }) => theme.breakpoints.xs} {
+        ${({ theme }) => theme.helpers.getTypography('dHeader14')};
+    }
 `;
 export const WatchProductsContainer = styled.button`
     flex-direction: row;
@@ -74,5 +96,8 @@ export const WatchProductsContainer = styled.button`
     ${({ theme }) => theme.mixins.flexCenter};
     justify-content: center;
     column-gap: 7px;
+    @media ${({ theme }) => theme.breakpoints.xs} {
+        margin-top: 15px;
+    }
 `;
 export const ArrowContainer = styled.div``;

@@ -13,6 +13,7 @@ import { generateRoute } from '@utils/helpers';
 import { useSelector } from 'react-redux';
 import { getIsAuth } from '@store/user/selectors';
 import Registration from '@components/Header/components/Registration';
+import { useMediaHook } from '@theme/breakpoints';
 import {
     AboutsCompany,
     Language,
@@ -58,46 +59,52 @@ const aboutCompany = [
 const MenuOpen = ({ $isDark, languageArr, setLanguage, language, open }: IHeader) => {
     const [openModal, setModalOpen] = useState(false);
     const toggleOpenImageFullScreen = () => setModalOpen(!openModal);
-
+    const { isSm } = useMediaHook();
     const isAuth = useSelector(getIsAuth);
 
     return (
         <>
             <MenuContainerOpen open={open}>
-                <AboutsCompany $isDark={$isDark}>
-                    {aboutCompany.map((about) => (
-                        <AboutCompany key={about.label} label={about.label} link={about.link} />
-                    ))}
-                </AboutsCompany>
+                {!isSm && (
+                    <AboutsCompany $isDark={$isDark}>
+                        {aboutCompany.map((about) => (
+                            <AboutCompany key={about.label} label={about.label} link={about.link} />
+                        ))}
+                    </AboutsCompany>
+                )}
                 <MenuLogo>
                     <Link to={generateRoute(ROUTES.DASHBOARD)}>
                         <Logo />
                     </Link>
                 </MenuLogo>
-                <Settings $isDark={$isDark}>
-                    <Language>
-                        <Dropdown width={48} value={language} onChange={setLanguage} options={languageArr} />
-                    </Language>
-                </Settings>
-                <SocialsMedia>
-                    <Search>
-                        <SearchIcon />
-                    </Search>
-                    {!isAuth ? (
-                        <ProfileContainer onClick={toggleOpenImageFullScreen}>
-                            <Profile />
-                        </ProfileContainer>
-                    ) : (
-                        <>
-                            {iconsProfile.map((icon) => (
-                                <SocialMedia key={icon.id} icon={icon.icon} link={icon.link} />
-                            ))}
-                            <ProfileLink to={generateRoute(ROUTES.PROFILE)}>
-                                <User />
-                            </ProfileLink>
-                        </>
-                    )}
-                </SocialsMedia>
+                {!isSm && (
+                    <>
+                        <Settings $isDark={$isDark}>
+                            <Language>
+                                <Dropdown width={48} value={language} onChange={setLanguage} options={languageArr} />
+                            </Language>
+                        </Settings>
+                        <SocialsMedia>
+                            <Search>
+                                <SearchIcon />
+                            </Search>
+                            {!isAuth ? (
+                                <ProfileContainer onClick={toggleOpenImageFullScreen}>
+                                    <Profile />
+                                </ProfileContainer>
+                            ) : (
+                                <>
+                                    {iconsProfile.map((icon) => (
+                                        <SocialMedia key={icon.id} icon={icon.icon} link={icon.link} />
+                                    ))}
+                                    <ProfileLink to={generateRoute(ROUTES.PROFILE)}>
+                                        <User />
+                                    </ProfileLink>
+                                </>
+                            )}
+                        </SocialsMedia>
+                    </>
+                )}
             </MenuContainerOpen>
             {openModal && <Registration onChange={toggleOpenImageFullScreen} setModalOpen={setModalOpen} />}
         </>

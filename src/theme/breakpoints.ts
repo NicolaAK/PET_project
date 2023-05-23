@@ -1,6 +1,5 @@
-import { useMediaQuery } from 'react-responsive';
-
 import theme from '@theme/index';
+import { useMediaQuery } from 'react-responsive';
 
 export enum BREAKPOINTS_ENUM {
     xs = 'xs',

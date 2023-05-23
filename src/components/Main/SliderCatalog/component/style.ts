@@ -9,7 +9,7 @@ export const ArrowContainerRight = styled.div`
     height: 40px;
     @media ${({ theme }) => theme.breakpoints.xs} {
         bottom: 200px;
-        left: 85%;
+        left: 88%;
         width: 30px;
         height: 30px;
     }
