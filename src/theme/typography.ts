@@ -7,7 +7,9 @@ export type TTypographyItem = {
 
 export type TTypography = {
     dFooter12: TTypographyItem;
+    dFooter14: TTypographyItem;
     dFooter16w: TTypographyItem;
+    dFooter18: TTypographyItem;
     dFooter20: TTypographyItem;
 
     dText12: TTypographyItem;
@@ -36,10 +38,18 @@ const typography: TTypography = {
         fontSize: 12,
         lineHeight: 14,
     },
+    dFooter14: {
+        fontSize: 14,
+        lineHeight: 14,
+    },
     dFooter16w: {
         fontSize: 16,
         lineHeight: 19,
         fontWeight: 275,
+    },
+    dFooter18: {
+        fontSize: 18,
+        lineHeight: 21,
     },
     dFooter20: {
         fontSize: 20,

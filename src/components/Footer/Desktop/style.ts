@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const FooterContainer = styled.div`
-    flex-shrink: 0;
-    ${({ theme }) => theme.mixins.mainGrid};
     margin: 100px auto;
 `;
 export const FooterContent = styled.div`
@@ -16,6 +14,9 @@ export const Text = styled.div`
 `;
 export const CompanyContainer = styled.div`
     width: 250px;
+    :last-child {
+        width: auto;
+    }
 `;
 export const CompanyTitle = styled.div`
     ${({ theme }) => theme.helpers.getTypography('dFooter20')};
@@ -26,4 +27,6 @@ export const ContainerIcons = styled.div`
     column-gap: 13px;
     margin-bottom: 7px;
 `;
-export const Icon = styled.button``;
+export const Icon = styled.button`
+    margin-top: 7px;
+`;

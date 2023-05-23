@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Typography from '@components/Typography';
+
 export const SliderContainer = styled.div`
     ${({ theme }) => theme.mixins.mainGrid};
     display: block;
@@ -41,6 +41,10 @@ export const SliderPhoto = styled.div`
         }
     }
 `;
-export const SliderText = styled(Typography).attrs({ variant: 'dText20' })`
+export const SliderText = styled.div`
+    ${({ theme }) => theme.helpers.getTypography('dText20')};
     color: ${({ theme }) => theme.colors.white()};
+    @media ${({ theme }) => theme.breakpoints.sm} {
+        ${({ theme }) => theme.helpers.getTypography('dText16lh19')};
+    }
 `;
