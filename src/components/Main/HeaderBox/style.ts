@@ -25,7 +25,18 @@ export const BoxTitle = styled.div`
     top: 400px;
     left: 0px;
     color: ${({ theme }) => theme.colors.white()};
-
+    @media ${({ theme }) => theme.breakpoints.xl} {
+        top: 300px;
+    }
+    @media ${({ theme }) => theme.breakpoints.ld} {
+        top: 250px;
+    }
+    @media ${({ theme }) => theme.breakpoints.md} {
+        top: 200px;
+    }
+    @media ${({ theme }) => theme.breakpoints.sm} {
+        top: 400px;
+    }
     @media ${({ theme }) => theme.breakpoints.xs} {
         top: 300px;
     }
@@ -39,7 +50,7 @@ export const PhotoModel1 = styled.div`
     }
     @media ${({ theme }) => theme.breakpoints.sm} {
         display: none;
-    } ;
+    }
 `;
 export const PhotoModel2 = styled.div`
     grid-area: PhotoModel2;
@@ -49,11 +60,16 @@ export const PhotoModel2 = styled.div`
         width: 100%;
     }
     @media ${({ theme }) => theme.breakpoints.sm} {
+        height: 800px;
+        min-width: 425px;
+        overflow: hidden;
         img {
             min-width: 576px;
         }
     }
     @media ${({ theme }) => theme.breakpoints.xs} {
+        height: auto;
+        min-width: 375px;
         img {
             min-width: 375px;
         }
@@ -80,6 +96,9 @@ export const NewCollection = styled.div`
     margin-bottom: 20px;
     @media ${({ theme }) => theme.breakpoints.xs} {
         ${({ theme }) => theme.helpers.getTypography('dHeader32')}
+    }
+    @media ${({ theme }) => theme.breakpoints.md} {
+        ${({ theme }) => theme.helpers.getTypography('dHeader40')}
         margin-bottom: 15px;
     }
 `;
@@ -96,7 +115,7 @@ export const WatchProductsContainer = styled.button`
     ${({ theme }) => theme.mixins.flexCenter};
     justify-content: center;
     column-gap: 7px;
-    @media ${({ theme }) => theme.breakpoints.xs} {
+    @media ${({ theme }) => theme.breakpoints.md} {
         margin-top: 15px;
     }
 `;

@@ -28,12 +28,12 @@ const sliderItems = [
 ];
 
 const SliderBox = () => {
-    const { isLd, isMd } = useMediaHook();
+    const { isSm, isMd } = useMediaHook();
     const settings = {
         infinite: true,
         speed: 500,
         // eslint-disable-next-line no-nested-ternary
-        slidesToShow: isMd ? 2 : isLd ? 3 : 4,
+        slidesToShow: isSm ? 2 : isMd ? 3 : 4,
         slidesToScroll: 1,
         nextArrow: <ArrowControl isLeft={false} />,
         prevArrow: <ArrowControl isLeft />,

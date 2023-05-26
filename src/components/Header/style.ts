@@ -7,9 +7,7 @@ type THeaderContainer = {
 export const HeaderContainer = styled.div<THeaderContainer>`
     ${({ theme }) => theme.mixins.mainGrid};
     background-color: ${({ theme, $isDark }) => ($isDark ? theme.colors.white() : 'inherit')};
-    @media ${({ theme }) => theme.breakpoints.xs} {
-        ${({ theme }) => theme.mixins.mainGridMobile};
-    }
+    padding: 0 20px;
 `;
 export const HeaderContent = styled.div<THeaderContainer>`
     svg path {
@@ -26,7 +24,11 @@ export const BurgerContainer = styled.div`
 `;
 export const MenuContainer = styled.div`
     padding-left: 100px;
-    @media ${({ theme }) => theme.breakpoints.sm} {
+
+    @media ${({ theme }) => theme.breakpoints.ld} {
+        padding-left: 50px;
+    }
+    @media ${({ theme }) => theme.breakpoints.md} {
         padding-left: 20px;
     }
 `;

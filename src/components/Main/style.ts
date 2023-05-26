@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 
 export const MainContainer = styled.div``;
 export const MainContent = styled.div`
-    @media ${({ theme }) => theme.breakpoints.xs} {
-        ${({ theme }) => theme.mixins.mainGridMobile};
+    @media ${({ theme }) => theme.breakpoints.xl} {
+        margin: 0 20px;
     }
 `;
-export const CategoryContainer = styled.div``;
+export const CategoryContainer = styled.div`
+    ${({ theme }) => theme.mixins.mainGrid};
+`;
 export const CategoryTitle = styled(Link)`
     color: ${({ theme }) => theme.colors.blackPrimary()};
     ${({ theme }) => theme.helpers.getTypography('dText36')};
@@ -16,7 +18,7 @@ export const CategoryTitle = styled(Link)`
     :hover {
         color: ${({ theme }) => theme.colors.buttonPrimaryClick()};
     }
-    @media ${({ theme }) => theme.breakpoints.xs} {
+    @media ${({ theme }) => theme.breakpoints.sm} {
         ${({ theme }) => theme.helpers.getTypography('dText24')};
     }
 `;

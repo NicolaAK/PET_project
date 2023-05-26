@@ -29,6 +29,7 @@ export type TTypography = {
     dHeader16: TTypographyItem;
     dHeader18: TTypographyItem;
     dHeader32: TTypographyItem;
+    dHeader40: TTypographyItem;
     dHeader46: TTypographyItem;
     dHeader54: TTypographyItem;
 };
@@ -125,6 +126,11 @@ const typography: TTypography = {
     },
     dHeader32: {
         fontSize: 32,
+        lineHeight: 37,
+        fontWeight: 300,
+    },
+    dHeader40: {
+        fontSize: 40,
         lineHeight: 37,
         fontWeight: 300,
     },

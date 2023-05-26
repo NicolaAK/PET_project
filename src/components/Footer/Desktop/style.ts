@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const FooterContainer = styled.div`
-    margin: 100px auto;
+    margin: 100px 20px;
 `;
 export const FooterContent = styled.div`
     ${({ theme }) => theme.mixins.flexStartCenter};

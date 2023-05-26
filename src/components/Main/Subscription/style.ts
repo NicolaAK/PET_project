@@ -17,26 +17,26 @@ export const SubscriptionContent = styled.div`
         '.'
         '.'
         '.';
-    @media ${({ theme }) => theme.breakpoints.xs} {
+    @media ${({ theme }) => theme.breakpoints.sm} {
         margin-top: 0;
         gap: 15px 0px;
     }
 `;
-export const Item = styled.a`
+export const Item = styled.div`
     ${({ theme }) => theme.helpers.getTypography('dText36')};
     text-align: center;
-    @media ${({ theme }) => theme.breakpoints.xs} {
+    @media ${({ theme }) => theme.breakpoints.sm} {
         margin-top: 0;
         ${({ theme }) => theme.helpers.getTypography('dText24')};
     }
 `;
-export const Text = styled.a`
+export const Text = styled.div`
     ${({ theme }) => theme.helpers.getTypography('dText16lh19')};
     text-align: center;
-    @media ${({ theme }) => theme.breakpoints.xs} {
+    @media ${({ theme }) => theme.breakpoints.sm} {
         ${({ theme }) => theme.helpers.getTypography('dText14')};
     }
 `;
-export const ButtonBox = styled.a`
+export const ButtonBox = styled.div`
     ${({ theme }) => theme.helpers.getTypography('dText16lh19')};
 `;
