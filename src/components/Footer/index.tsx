@@ -1,5 +1,4 @@
 import React from 'react';
-import {} from './style';
 import Telegram from '@assets/icons/telegram.svg';
 import Instagram from '@assets/icons/instagram.svg';
 import { useMediaHook } from '@theme/breakpoints';
