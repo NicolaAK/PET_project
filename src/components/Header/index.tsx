@@ -14,6 +14,8 @@ import MobileMenu from '@components/MobileMenu';
 import { generateRoute } from '@utils/helpers';
 import Favourites from '@assets/icons/favourites.svg';
 import Shop from '@assets/icons/shop.svg';
+import { useSelector } from 'react-redux';
+import { getIsAuth } from '@store/user/selectors';
 import { ROUTES } from '../../routes/constants';
 
 interface IHeader {
@@ -55,8 +57,12 @@ const aboutCompany = [
 ];
 
 const Header: FC<IHeader> = ({ $isDark, setIsOpenBurger, isOpenBurger, isMobileMenu, isDesktopMenu }) => {
+    const [openModal, setModalOpen] = useState(false);
     const [language, setLanguage] = useState(languageArr[0].value);
+    const toggleOpenImageFullScreen = () => setModalOpen(!openModal);
+    const isAuth = useSelector(getIsAuth);
     const handleBurgerOpen = () => setIsOpenBurger(!isOpenBurger);
+
     return (
         <Menu>
             <HeaderContainer>
@@ -74,12 +80,25 @@ const Header: FC<IHeader> = ({ $isDark, setIsOpenBurger, isOpenBurger, isMobileM
                             languageArr={languageArr}
                             language={language}
                             setLanguage={setLanguage}
+                            isAuth={isAuth}
+                            toggleOpenImageFullScreen={toggleOpenImageFullScreen}
+                            openModal={openModal}
+                            setModalOpen={setModalOpen}
                         />
                     </MenuContainer>
                 </HeaderContent>
             </HeaderContainer>
             <ContainerMobile open={isMobileMenu}>
-                <MobileMenu hamburgerTitles={hamburgerTitles} aboutCompany={aboutCompany} />
+                <MobileMenu
+                    hamburgerTitles={hamburgerTitles}
+                    aboutCompany={aboutCompany}
+                    handleBurgerOpen={handleBurgerOpen}
+                    languageArr={languageArr}
+                    language={language}
+                    setLanguage={setLanguage}
+                    isAuth={isAuth}
+                    toggleOpenImageFullScreen={toggleOpenImageFullScreen}
+                />
             </ContainerMobile>
         </Menu>
     );

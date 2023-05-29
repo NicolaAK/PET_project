@@ -27,8 +27,8 @@ const information = [
 ];
 
 const Footer = () => {
-    const { isMd } = useMediaHook();
-    return isMd ? <FooterMobile information={information} /> : <FooterDesktop information={information} />;
+    const { isSm } = useMediaHook();
+    return isSm ? <FooterMobile information={information} /> : <FooterDesktop information={information} />;
 };
 
 export default Footer;

@@ -10,9 +10,9 @@ import Routes from '../routes';
 
 const Pages = () => {
     const [isOpenBurger, setIsOpenBurger] = useState(false);
-    const { isMd } = useMediaHook();
-    const isDesktopMenu = isOpenBurger && !isMd;
-    const isMobileMenu = !isMd || !isOpenBurger;
+    const { isSm } = useMediaHook();
+    const isDesktopMenu = isOpenBurger && !isSm;
+    const isMobileMenu = !isSm || !isOpenBurger;
     const location = useLocation();
     const isMainPage = location.pathname === `/`;
     const isAuth = useSelector(getIsAuth);

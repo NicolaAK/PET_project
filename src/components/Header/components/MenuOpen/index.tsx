@@ -2,14 +2,12 @@ import AboutCompany from '@components/Header/components/AboutCompany';
 import Logo from '@assets/icons/logo.svg';
 import Dropdown from '@components/Header/components/Dropdown';
 import SocialMedia from '@components/Header/components/SocialMedia';
-import React, { useState } from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import SearchIcon from '@assets/icons/search.svg';
 import Profile from '@assets/icons/profile.svg';
 import User from '@assets/foto/profilePhoto/user.svg';
 import { Link } from 'react-router-dom';
 import { generateRoute } from '@utils/helpers';
-import { useSelector } from 'react-redux';
-import { getIsAuth } from '@store/user/selectors';
 import Registration from '@components/Header/components/Registration';
 import { useMediaHook } from '@theme/breakpoints';
 import {
@@ -46,13 +44,26 @@ interface IHeader {
     languageArr: IArrow[];
     aboutCompany: ICompany[];
     iconsProfile: IProfile[];
+    isAuth: boolean;
+    toggleOpenImageFullScreen: () => void;
+    openModal: boolean;
+    setModalOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-const MenuOpen = ({ $isDark, languageArr, setLanguage, language, open, aboutCompany, iconsProfile }: IHeader) => {
-    const [openModal, setModalOpen] = useState(false);
-    const toggleOpenImageFullScreen = () => setModalOpen(!openModal);
+const MenuOpen = ({
+    $isDark,
+    languageArr,
+    setLanguage,
+    language,
+    open,
+    aboutCompany,
+    iconsProfile,
+    isAuth,
+    toggleOpenImageFullScreen,
+    setModalOpen,
+    openModal,
+}: IHeader) => {
     const { isSm } = useMediaHook();
-    const isAuth = useSelector(getIsAuth);
 
     return (
         <>
