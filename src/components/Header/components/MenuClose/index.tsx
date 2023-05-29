@@ -1,19 +1,17 @@
 import React from 'react';
-import { generateRoute } from '@utils/helpers';
 import { Bar, MenuTitle, MenuContainerClose, Text } from './style';
-import { ROUTES } from '../../../../routes/constants';
 
-const hamburgerTitles = [
-    { title: 'ОПЛАТА И ДОСТАВКА', link: generateRoute(ROUTES.PAYMENT) },
-    { title: 'УСЛОВИЯ ВОЗВРАТА', link: generateRoute(ROUTES.REFUND) },
-    { title: 'КОНТАКТЫ', link: generateRoute(ROUTES.ABOUTS) },
-];
+interface IHamburgerTitles {
+    title: string;
+    link: string;
+}
 
 interface IProps {
     $isDark: boolean;
     open: boolean;
+    hamburgerTitles: IHamburgerTitles[];
 }
-const MenuClose = ({ $isDark, open }: IProps) => (
+const MenuClose = ({ $isDark, open, hamburgerTitles }: IProps) => (
     <MenuContainerClose open={open}>
         <MenuTitle>
             {hamburgerTitles.map((hamburger) => (

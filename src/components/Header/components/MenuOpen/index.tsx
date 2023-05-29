@@ -5,8 +5,6 @@ import SocialMedia from '@components/Header/components/SocialMedia';
 import React, { useState } from 'react';
 import SearchIcon from '@assets/icons/search.svg';
 import Profile from '@assets/icons/profile.svg';
-import Favourites from '@assets/icons/favourites.svg';
-import Shop from '@assets/icons/shop.svg';
 import User from '@assets/foto/profilePhoto/user.svg';
 import { Link } from 'react-router-dom';
 import { generateRoute } from '@utils/helpers';
@@ -31,32 +29,26 @@ interface IArrow {
     value: string;
     label: string;
 }
+interface ICompany {
+    link: string;
+    label: string;
+}
+interface IProfile {
+    id: number;
+    icon: React.ReactNode;
+    link: string;
+}
 interface IHeader {
     $isDark: boolean;
     open: boolean;
     language: string;
     setLanguage: (arg0: string) => void;
     languageArr: IArrow[];
+    aboutCompany: ICompany[];
+    iconsProfile: IProfile[];
 }
 
-const iconsProfile = [
-    {
-        id: 2,
-        icon: <Favourites />,
-        link: generateRoute(ROUTES.FAVOURITES),
-    },
-    {
-        id: 3,
-        icon: <Shop />,
-        link: generateRoute(ROUTES.CART),
-    },
-];
-
-const aboutCompany = [
-    { label: 'КАТАЛОГ', link: generateRoute(ROUTES.CATALOG) },
-    { label: 'О НАС', link: generateRoute(ROUTES.ABOUTS) },
-];
-const MenuOpen = ({ $isDark, languageArr, setLanguage, language, open }: IHeader) => {
+const MenuOpen = ({ $isDark, languageArr, setLanguage, language, open, aboutCompany, iconsProfile }: IHeader) => {
     const [openModal, setModalOpen] = useState(false);
     const toggleOpenImageFullScreen = () => setModalOpen(!openModal);
     const { isSm } = useMediaHook();

@@ -5,23 +5,31 @@ import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getIsAuth } from '@store/user/selectors';
 import { useMediaHook } from '@theme/breakpoints';
-import MobileMenu from '@components/MobileMenu';
-import { PagesContainer } from './style';
+import { PagesContainer, VisibleDesktop } from './style';
 import Routes from '../routes';
 
 const Pages = () => {
     const [isOpenBurger, setIsOpenBurger] = useState(false);
     const { isMd } = useMediaHook();
+    const isDesktopMenu = isOpenBurger && !isMd;
+    const isMobileMenu = !isMd || !isOpenBurger;
     const location = useLocation();
     const isMainPage = location.pathname === `/`;
     const isAuth = useSelector(getIsAuth);
-    const isMobileMenu = !isMd || !isOpenBurger;
 
     return (
         <PagesContainer>
-            <Header $isDark={!isMainPage} isOpenBurger={isOpenBurger} setIsOpenBurger={setIsOpenBurger} />
-            {isMobileMenu ? <Routes isAuth={isAuth} /> : <MobileMenu />}
-            <Footer />
+            <Header
+                $isDark={!isMainPage || !isMobileMenu}
+                isOpenBurger={isOpenBurger}
+                setIsOpenBurger={setIsOpenBurger}
+                isDesktopMenu={isDesktopMenu}
+                isMobileMenu={isMobileMenu}
+            />
+            <VisibleDesktop visible={!isMobileMenu}>
+                <Routes isAuth={isAuth} />
+                <Footer />
+            </VisibleDesktop>
         </PagesContainer>
     );
 };
