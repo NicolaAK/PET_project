@@ -19,6 +19,8 @@ import {
     Auth,
     Guest,
     IconUser,
+    ProfileIcons,
+    ProfileContainer,
 } from './style';
 import { ROUTES } from '../../routes/constants';
 
@@ -35,6 +37,11 @@ interface ITitles {
     title: string;
     link: string;
 }
+interface IProfile {
+    id: number;
+    icon: React.ReactNode;
+    link: string;
+}
 interface IProps {
     hamburgerTitles: ITitles[];
     aboutCompany: ICompany[];
@@ -44,6 +51,7 @@ interface IProps {
     setLanguage: (arg0: string) => void;
     isAuth: boolean;
     toggleOpenImageFullScreen: () => void;
+    iconsProfile: IProfile[];
 }
 const MobileMenu: FC<IProps> = ({
     hamburgerTitles,
@@ -54,9 +62,22 @@ const MobileMenu: FC<IProps> = ({
     setLanguage,
     isAuth,
     toggleOpenImageFullScreen,
+    iconsProfile,
 }) => (
     <Container>
         <Content>
+            <Line />
+            <ProfileContainer>
+                {isAuth &&
+                    iconsProfile.map((icon) => (
+                        <ProfileIcons onClick={handleBurgerOpen} key={icon.id} to={icon.link}>
+                            {icon.icon}
+                        </ProfileIcons>
+                    ))}
+                <Language>
+                    <Dropdown width={48} value={language} onChange={setLanguage} options={languageArr} />
+                </Language>
+            </ProfileContainer>
             <Line />
             {!isAuth ? (
                 <Guest onClick={toggleOpenImageFullScreen}>
@@ -90,9 +111,6 @@ const MobileMenu: FC<IProps> = ({
                     <Line />
                 </Catalog>
             ))}
-            <Language>
-                <Dropdown width={48} value={language} onChange={setLanguage} options={languageArr} />
-            </Language>
             <AboutsContainer>
                 <Icons>
                     <Instagram />

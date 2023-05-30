@@ -33,7 +33,8 @@ const SliderBox = () => {
     const getSlidesToShow = () => {
         if (isSm) {
             return 2;
-        } else if (isMd) {
+        }
+        if (isMd) {
             return 3;
         }
         return 4;

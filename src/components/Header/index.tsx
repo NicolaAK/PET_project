@@ -29,7 +29,6 @@ interface IHeader {
 const languageArr = [
     { value: 'RU', label: 'RU' },
     { value: 'EN', label: 'EN' },
-    { value: 'UA', label: 'UA' },
 ];
 
 const hamburgerTitles = [
@@ -98,6 +97,7 @@ const Header: FC<IHeader> = ({ $isDark, setIsOpenBurger, isOpenBurger, isMobileM
                     setLanguage={setLanguage}
                     isAuth={isAuth}
                     toggleOpenImageFullScreen={toggleOpenImageFullScreen}
+                    iconsProfile={iconsProfile}
                 />
             </ContainerMobile>
         </Menu>

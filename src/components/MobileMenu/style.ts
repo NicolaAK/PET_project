@@ -9,6 +9,13 @@ export const Content = styled.div`
     margin: 0 20px;
 `;
 export const Catalog = styled.div``;
+export const ProfileContainer = styled.div`
+    ${({ theme }) => theme.mixins.flexCenterSpaceBetween};
+`;
+export const ProfileIcons = styled(Link)`
+    margin-left: 20%;
+    scale: 0.9;
+`;
 export const Line = styled.div`
     height: 1px;
     background-color: ${({ theme }) => theme.colors.blackPrimary(0.5)};

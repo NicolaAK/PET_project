@@ -53,3 +53,11 @@ export const Line = styled.div`
     height: 1px;
     background-color: ${({ theme }) => theme.colors.blackPrimary(0.5)}; ;
 `;
+export const Contacts = styled.div`
+    ${({ theme }) => theme.mixins.flexCenterCenter};
+    flex-direction: column;
+    gap: 5px;
+`;
+export const Item = styled.div`
+    margin: 10px 0 12px 0;
+`;

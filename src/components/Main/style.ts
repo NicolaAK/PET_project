@@ -20,5 +20,9 @@ export const CategoryTitle = styled(Link)`
     }
     @media ${({ theme }) => theme.breakpoints.sm} {
         ${({ theme }) => theme.helpers.getTypography('dText24')};
+        margin-left: 10px;
+    }
+    @media ${({ theme }) => theme.breakpoints.xs} {
+        margin-left: 0px;
     }
 `;
