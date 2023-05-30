@@ -2,7 +2,11 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const MainContainer = styled.div``;
-export const MainContent = styled.div``;
+export const MainContent = styled.div`
+    @media ${({ theme }) => theme.breakpoints.xl} {
+        margin: 0 20px;
+    }
+`;
 export const CategoryContainer = styled.div`
     ${({ theme }) => theme.mixins.mainGrid};
 `;
@@ -13,5 +17,8 @@ export const CategoryTitle = styled(Link)`
     text-decoration-line: none;
     :hover {
         color: ${({ theme }) => theme.colors.buttonPrimaryClick()};
+    }
+    @media ${({ theme }) => theme.breakpoints.sm} {
+        ${({ theme }) => theme.helpers.getTypography('dText24')};
     }
 `;

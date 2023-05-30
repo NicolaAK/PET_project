@@ -1,23 +1,25 @@
 import styled from 'styled-components';
-import Typography from '@components/Typography';
 
 export const FooterContainer = styled.div`
-    flex-shrink: 0;
-    ${({ theme }) => theme.mixins.mainGrid};
-    margin: 100px auto;
+    margin: 100px 20px;
 `;
 export const FooterContent = styled.div`
     ${({ theme }) => theme.mixins.flexStartCenter};
     column-gap: 47px;
 `;
 export const ContainerText = styled.div``;
-export const Text = styled(Typography).attrs({ variant: 'dFooter16w' })`
+export const Text = styled.div`
+    ${({ theme }) => theme.helpers.getTypography('dFooter16w')};
     margin-bottom: 10px;
 `;
 export const CompanyContainer = styled.div`
     width: 250px;
+    :last-child {
+        width: auto;
+    }
 `;
-export const CompanyTitle = styled(Typography).attrs({ variant: 'dFooter20' })`
+export const CompanyTitle = styled.div`
+    ${({ theme }) => theme.helpers.getTypography('dFooter20')};
     margin-bottom: 20px;
 `;
 export const ContainerIcons = styled.div`
@@ -25,4 +27,6 @@ export const ContainerIcons = styled.div`
     column-gap: 13px;
     margin-bottom: 7px;
 `;
-export const Icon = styled.button``;
+export const Icon = styled.button`
+    margin-top: 7px;
+`;

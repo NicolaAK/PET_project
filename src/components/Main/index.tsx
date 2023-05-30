@@ -8,8 +8,8 @@ import { ROUTES } from '../../routes/constants';
 
 const Main = () => (
     <MainContainer>
+        <HeaderBox />
         <MainContent>
-            <HeaderBox />
             <CategoryContainer>
                 <CategoryTitle to={generateRoute(ROUTES.CATALOG)}>Категории</CategoryTitle>
                 <SliderBox />

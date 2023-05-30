@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 interface IAnimation {
     isOpenDetails?: boolean;
-    isOpenStructure?: boolean;
 }
 interface ILine {
     isOpenDetails?: boolean;
@@ -51,12 +50,12 @@ export const Text = styled.div`
 `;
 export const ArrowContainer = styled.div<IAnimation>`
     transition: all 0.3s linear;
-    rotate: ${({ isOpenDetails, isOpenStructure }) => (isOpenDetails || isOpenStructure ? '-90deg' : '90deg')};
+    rotate: ${({ isOpenDetails }) => (isOpenDetails ? '-90deg' : '90deg')};
 `;
 
 export const Line = styled.div`
     height: 1px;
-    background-color: ${({ theme }) => theme.colors.blackPrimary(0.7)}; ;
+    background-color: ${({ theme }) => theme.colors.blackPrimary(0.7)};
 `;
 
 export const OpenListDescription = styled.div<ILine>`

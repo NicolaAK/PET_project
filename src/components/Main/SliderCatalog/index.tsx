@@ -14,6 +14,7 @@ import sliderJackets from '@assets/foto/sliderJackets.png';
 import sliderFur from '@assets/foto/sliderFur.png';
 import sliderParks from '@assets/foto/sliderParks.png';
 import { ArrowControl } from '@components/Main/SliderCatalog/component/ArrowControl';
+import { useMediaHook } from '@theme/breakpoints';
 
 const sliderItems = [
     { name: 'Пальто', photo: sliderCoat },
@@ -27,14 +28,26 @@ const sliderItems = [
 ];
 
 const SliderBox = () => {
+    const { isSm, isMd } = useMediaHook();
+
+    const getSlidesToShow = () => {
+        if (isSm) {
+            return 2;
+        } else if (isMd) {
+            return 3;
+        }
+        return 4;
+    };
+
     const settings = {
         infinite: true,
         speed: 500,
-        slidesToShow: 4,
+        slidesToShow: getSlidesToShow(),
         slidesToScroll: 1,
         nextArrow: <ArrowControl isLeft={false} />,
         prevArrow: <ArrowControl isLeft />,
     };
+
     return (
         <SliderContainer>
             <Slider {...settings}>
@@ -42,10 +55,10 @@ const SliderBox = () => {
                     <SliderWrap key={sliderItem.name}>
                         <SliderPhoto>
                             <img src={sliderItem.photo} alt="photoSlider" />
+                            <SliderBottomBox>
+                                <SliderText>{sliderItem.name}</SliderText>
+                            </SliderBottomBox>
                         </SliderPhoto>
-                        <SliderBottomBox>
-                            <SliderText>{sliderItem.name}</SliderText>
-                        </SliderBottomBox>
                     </SliderWrap>
                 ))}
             </Slider>

@@ -28,8 +28,14 @@ export const MenuLogo = styled.button`
     z-index: 2;
     transition: ${({ theme }) => theme.decorations.transition};
     &:hover {
-        scale: 102%;
         filter: invert(0.42) sepia(1);
+    }
+    @media ${({ theme }) => theme.breakpoints.sm} {
+        margin: 0 auto;
+    }
+    @media ${({ theme }) => theme.breakpoints.xs} {
+        scale: 75%;
+        margin: 0 auto;
     }
 `;
 export const Settings = styled.div<THeaderContainer>`
@@ -38,16 +44,10 @@ export const Settings = styled.div<THeaderContainer>`
     z-index: 2;
     color: ${({ theme, $isDark }) => ($isDark ? theme.colors.blackPrimary() : theme.colors.white())}};
 `;
-
 export const Language = styled.div`
     position: relative;
     z-index: 2;
 `;
-export const Money = styled.div`
-    position: relative;
-    z-index: 2;
-`;
-
 export const SocialsMedia = styled.div`
     ${({ theme }) => theme.mixins.flexCenter};
     column-gap: 32px;
