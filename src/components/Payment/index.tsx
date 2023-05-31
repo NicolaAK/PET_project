@@ -20,15 +20,19 @@ import {
 const paymentTexts = [
     {
         subtitle: 'Вы можете оплатить покупку одним из ниже перечисленных способов:',
-        textOne: '• наложенным платежом в отделении Новой Почты',
-        textTwo: '• денежным переводом  Visa/MasterCard',
-        textThree: '• полная предоплата через Приват 24',
+        text: [
+            '• наложенным платежом в отделении Новой Почты',
+            '• денежным переводом  Visa/MasterCard',
+            '• полная предоплата через Приват 24',
+        ],
     },
     {
         subtitle: 'Мы готовы предложить несколько вариантов доставки:',
-        textOne: '• отправка по всей Украине в отделение Новой Почты(1-2 дня)',
-        textTwo: '• международные сервисы доставки для жителей зарубежья: Укрпочта( 1-3 недели ,DHL(3-7 дней)',
-        textThree: '• Срок доставки: 1–2 дня с момента  заказа',
+        text: [
+            '• отправка по всей Украине в отделение Новой Почты(1-2 дня)',
+            '• международные сервисы доставки для жителей зарубежья: Укрпочта( 1-3 недели ,DHL(3-7 дней)',
+            '• Срок доставки: 1–2 дня с момента  заказа',
+        ],
     },
 ];
 const steps = [
@@ -46,12 +50,12 @@ const Payment = () => (
         <Content>
             <HeaderText>Оплата и доставка</HeaderText>
             <BodyText>
-                {paymentTexts.map((text) => (
-                    <Conditions key={text.subtitle}>
-                        <Subtitle>{text.subtitle}</Subtitle>
-                        <Title>{text.textOne}</Title>
-                        <Title>{text.textTwo}</Title>
-                        <Title>{text.textThree}</Title>
+                {paymentTexts.map((item) => (
+                    <Conditions key={item.subtitle}>
+                        <Subtitle>{item.subtitle}</Subtitle>
+                        {item.text.map((title) => (
+                            <Title key={title}>{title}</Title>
+                        ))}
                     </Conditions>
                 ))}
             </BodyText>

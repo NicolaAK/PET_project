@@ -17,7 +17,9 @@ export const ContainerMobile = styled.div<IOpen>`
 `;
 export const HeaderContainer = styled.div`
     ${({ theme }) => theme.mixins.mainGrid};
-    padding: 0 20px;
+    @media ${({ theme }) => theme.breakpoints.xl} {
+        padding: 0 20px;
+    }
 `;
 export const HeaderContent = styled.div<THeaderContainer>`
     background-color: ${({ theme, $isDark }) => ($isDark ? theme.colors.white() : 'inherit')};
