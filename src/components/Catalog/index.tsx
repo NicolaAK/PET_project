@@ -6,6 +6,7 @@ import Breadcrumbs from '@components/ReusedComponents/Breadcrumbs';
 import { fetchProductList } from '@store/product';
 import { useAppDispatch } from '@store';
 import { useParams } from 'react-router-dom';
+import Pagination from '@components/ReusedComponents/Pagination';
 import { CatalogContent, CatalogContainer, Container, Heading, Text } from './style';
 
 const Catalog = () => {
@@ -52,8 +53,9 @@ const Catalog = () => {
                         setIsChecked={setIsChecked}
                         isActiveButtonReset={isChecked !== undefined || price !== undefined}
                     />
-                    <Products currentPage={currentPage} onPageEdit={setCurrentPage} />
+                    <Products />
                 </Container>
+                <Pagination currentPage={currentPage} onPageEdit={setCurrentPage} />
             </CatalogContent>
         </CatalogContainer>
     );

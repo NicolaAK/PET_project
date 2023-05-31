@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
+import React from 'react';
 import Product from '@components/Catalog/components/Products/Product';
 import { useSelector } from 'react-redux';
 import { getProductIsLoading, getProductList } from '@store/product/selectors';
 import { Skeleton } from '@components/ReusedComponents/Skeleton/style';
-import Pagination from '@components/ReusedComponents/Pagination';
+import { useMediaHook } from '@theme/breakpoints';
 import { ProductsContainer, ContainerSkeleton, ContentSkeleton, Content } from './style';
 
 const skeletonArr = new Array(18).fill(null);
@@ -16,15 +16,10 @@ const componentSkeleton = skeletonArr.map((item) => (
     </ContentSkeleton>
 ));
 
-interface IProducts {
-    currentPage: number;
-    onPageEdit: (value: number) => void;
-}
-
-const Products: FC<IProducts> = ({ currentPage, onPageEdit }) => {
+const Products = () => {
     const products = useSelector(getProductList);
     const isLoading = useSelector(getProductIsLoading);
-
+    const { isMd } = useMediaHook();
     return (
         <ProductsContainer>
             <Content>
@@ -33,12 +28,16 @@ const Products: FC<IProducts> = ({ currentPage, onPageEdit }) => {
                 ) : (
                     <>
                         {products.map((product) => (
-                            <Product heightImage={360} key={product.id} product={product} widthImage={310} />
+                            <Product
+                                heightImage={isMd ? 230 : 360}
+                                key={product.id}
+                                product={product}
+                                widthImage={isMd ? 165 : 310}
+                            />
                         ))}
                     </>
                 )}
             </Content>
-            <Pagination currentPage={currentPage} onPageEdit={onPageEdit} />
         </ProductsContainer>
     );
 };

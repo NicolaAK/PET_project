@@ -8,6 +8,12 @@ export const Content = styled.div`
     ${({ theme }) => theme.mixins.flexStart};
     flex-wrap: wrap;
     gap: 15px;
+    @media ${({ theme }) => theme.breakpoints.md} {
+        gap: 5px;
+    }
+    @media ${({ theme }) => theme.breakpoints.sm} {
+        ${({ theme }) => theme.mixins.flexCenterCenter};
+    }
 `;
 export const ContentSkeleton = styled.div`
     ${({ theme }) => theme.mixins.flexCenterCenter};
