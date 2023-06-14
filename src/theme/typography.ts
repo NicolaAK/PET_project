@@ -22,6 +22,7 @@ export type TTypography = {
     dText24: TTypographyItem;
     dText36: TTypographyItem;
 
+    dTextBold14: TTypographyItem;
     dTextBold16: TTypographyItem;
     dTextBold20: TTypographyItem;
 
@@ -98,6 +99,11 @@ const typography: TTypography = {
         lineHeight: 42,
     },
     // bold
+    dTextBold14: {
+        fontSize: 14,
+        lineHeight: 19,
+        fontWeight: 700,
+    },
     dTextBold16: {
         fontSize: 16,
         lineHeight: 19,

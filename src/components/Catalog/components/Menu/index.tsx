@@ -20,6 +20,7 @@ import {
     MobileText,
     OpenCategoryList,
     Line,
+    MobileCategoryList,
 } from './style';
 import { ROUTES } from '../../../../routes/constants';
 
@@ -67,12 +68,12 @@ const Menu = () => {
                                 </ContainerMobile>
                                 <OpenCategoryList isOpenDetails={isOpenDetails}>
                                     {categoryList.map((category) => (
-                                        <>
+                                        <MobileCategoryList key={category.name}>
                                             <MobileText to={generateRoute(`${ROUTES.CATALOG}/${category.id}`)}>
                                                 {category.name}
                                             </MobileText>
                                             <Line />
-                                        </>
+                                        </MobileCategoryList>
                                     ))}
                                 </OpenCategoryList>
                             </CatalogMobile>

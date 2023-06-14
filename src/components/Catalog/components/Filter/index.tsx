@@ -2,6 +2,7 @@ import React, { FC, useState } from 'react';
 import DropdownFilter from '@components/Catalog/components/DropdownFilter';
 import { Button } from '@components/ReusedComponents/Button';
 import Checkbox from '@components/ReusedComponents/Checkbox';
+import { useMediaHook } from '@theme/breakpoints';
 import { FilterContainer, ButtonContainer } from './style';
 const sizeArr = [
     { value: 'L', label: 'L', sort: 'size' },
@@ -33,6 +34,7 @@ const Filter: FC<IProps> = ({
     isActiveButtonReset,
 }) => {
     const [size, setSize] = useState<string>();
+    const { isMd } = useMediaHook();
 
     return (
         <FilterContainer>
@@ -47,7 +49,9 @@ const Filter: FC<IProps> = ({
             />
             <Checkbox isChecked={isChecked} setIsChecked={setIsChecked} />
             <ButtonContainer isActiveButtonReset={isActiveButtonReset}>
-                <Button onClick={filterResetButton}>Сбросить</Button>
+                <Button height={isMd ? 35 : 50} onClick={filterResetButton}>
+                    Сбросить
+                </Button>
             </ButtonContainer>
         </FilterContainer>
     );

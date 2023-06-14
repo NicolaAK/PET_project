@@ -13,6 +13,7 @@ export type ButtonProps = {
     isLoading?: boolean;
     value?: boolean;
     onChange?: () => void;
+    height?: number;
 };
 export const Button: FC<ButtonProps> = ({
     onClick,
@@ -23,6 +24,7 @@ export const Button: FC<ButtonProps> = ({
     isLoading,
     value,
     onChange,
+    height,
 }) => {
     const renderContent = () => {
         if (isLoading) {
@@ -42,7 +44,7 @@ export const Button: FC<ButtonProps> = ({
     };
 
     return (
-        <ButtonContainer onClick={onClick} color={color} width={width}>
+        <ButtonContainer onClick={onClick} color={color} width={width} height={height}>
             {renderContent()}
         </ButtonContainer>
     );

@@ -73,12 +73,13 @@ export const OpenCategoryList = styled.div<IAnimation>`
     padding-top: 3px;
 `;
 export const MobileText = styled(NavLink)`
+    text-decoration: none;
     ${({ theme }) => theme.helpers.getTypography('dText16lh19')};
     margin: 7px 0;
-    text-decoration: none;
 `;
 export const Line = styled.div`
     width: 100%;
     height: 1px;
-    background-color: ${({ theme }) => theme.colors.blackPrimary(0.5)}; ;
+    background-color: ${({ theme }) => theme.colors.blackPrimary(0.5)};
 `;
+export const MobileCategoryList = styled.div``;

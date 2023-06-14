@@ -23,7 +23,7 @@ export const ButtonContainer = styled.button<ButtonProps>`
     ${({ theme }) => theme.mixins.flexCenterCenter}
     transition: ${({ theme }) => theme.decorations.transition};
     cursor: pointer;
-    height: 50px;
+    height: ${({ height }) => height || 50}px;
     width: 100%;
     ${(props) => props.color && COLOR[props.color]}
     column-gap: 9px;
